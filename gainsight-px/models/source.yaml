@@ -1,0 +1,223 @@
+version: 2
+
+sources:
+  - name: gainsight-px
+    schema: airbyte_schema
+    database: airbyte_database
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: feature
+        columns:
+          - name: id
+            description: null
+          - name: name
+            description: null
+          - name: type
+            description: null
+          - name: parentFeatureId
+            description: null
+          - name: propertyKey
+            description: null
+          - name: status
+            description: null
+          - name: featureLabels
+            description: null
+      - name: kcbot
+        columns:
+          - name: createdBy
+            description: null
+          - name: createdDate
+            description: null
+          - name: description
+            description: null
+          - name: environments
+            description: null
+          - name: id
+            description: null
+          - name: modifiedBy
+            description: null
+          - name: modifiedDate
+            description: null
+          - name: name
+            description: null
+          - name: priority
+            description: null
+          - name: productId
+            description: null
+          - name: productName
+            description: null
+          - name: status
+            description: null
+      - name: users
+        columns:
+          - name: aptrinsicId
+            description: null
+          - name: identifyId
+            description: null
+          - name: type
+            description: null
+          - name: gender
+            description: null
+          - name: email
+            description: null
+          - name: firstName
+            description: null
+          - name: lastName
+            description: null
+          - name: lastSeenDate
+            description: null
+          - name: signUpDate
+            description: null
+          - name: firstVisitDate
+            description: null
+          - name: title
+            description: null
+          - name: phone
+            description: null
+          - name: score
+            description: null
+          - name: role
+            description: null
+          - name: subscriptionId
+            description: null
+          - name: accountId
+            description: null
+          - name: numberOfVisits
+            description: null
+          - name: location
+            description: null
+          - name: propertyKeys
+            description: Aptrinsic Tag Key, at least one is required
+          - name: createDate
+            description: null
+          - name: lastModifiedDate
+            description: null
+          - name: globalUnsubscribe
+            description: null
+          - name: sfdcContactId
+            description: null
+          - name: lastVisitedUserAgentData
+            description: null
+          - name: id
+            description: Synonym for identifyId, output only, not filterable
+          - name: lastInferredLocation
+            description: null
+      - name: segments
+        columns:
+          - name: id
+            description: null
+          - name: name
+            description: null
+      - name: articles
+        columns:
+          - name: id
+            description: null
+          - name: modifiedBy
+            description: null
+          - name: articleKCs
+            description: null
+          - name: articleName
+            description: null
+          - name: author
+            description: null
+          - name: createdDate
+            description: null
+          - name: modifiedDate
+            description: null
+          - name: productId
+            description: null
+          - name: productName
+            description: null
+          - name: releaseDate
+            description: null
+          - name: viewType
+            description: null
+      - name: user_attributes
+        columns:
+          - name: id
+            description: null
+          - name: name
+            description: null
+          - name: apiName
+            description: null
+          - name: internalName
+            description: null
+          - name: description
+            description: null
+          - name: type
+            description: null
+          - name: state
+            description: null
+          - name: origin
+            description: null
+          - name: createdDate
+            description: null
+          - name: modifiedDate
+            description: null
+          - name: defaultValue
+            description: null
+      - name: accounts
+        columns:
+          - name: id
+            description: null
+          - name: name
+            description: null
+          - name: trackedSubscriptionId
+            description: null
+          - name: sfdcId
+            description: null
+          - name: lastSeenDate
+            description: null
+          - name: dunsNumber
+            description: null
+          - name: industry
+            description: null
+          - name: numberOfEmployees
+            description: null
+          - name: sicCode
+            description: null
+          - name: website
+            description: null
+          - name: naicsCode
+            description: null
+          - name: plan
+            description: null
+          - name: location
+            description: null
+          - name: numberOfUsers
+            description: null
+          - name: propertyKeys
+            description: null
+          - name: createDate
+            description: null
+          - name: lastModifiedDate
+            description: null
+          - name: customAttributes
+            description: null
+          - name: parentGroupId
+            description: null
+      - name: admin_attributes
+        columns:
+          - name: id
+            description: null
+          - name: name
+            description: null
+          - name: apiName
+            description: null
+          - name: internalName
+            description: null
+          - name: description
+            description: null
+          - name: type
+            description: null
+          - name: state
+            description: null
+          - name: origin
+            description: null
+          - name: createdDate
+            description: null
+          - name: modifiedDate
+            description: null
+          - name: defaultValue
+            description: null
