@@ -1,4 +1,4 @@
-name: github_erd
+name: source-github_erd
 
 config-version: 2
 
@@ -20,11 +20,11 @@ clean-targets:
   - logs
 
 require-dbt-version:
-  - '>=1.0.0'
-  - <2.0.0
+  - ">=1.0.0"
+  - "<2.0.0"
 
 models:
-  github_erd:
+  source-github_erd:
     materialized: table
     staging:
       materialized: view
