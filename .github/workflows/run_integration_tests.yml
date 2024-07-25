@@ -1,9 +1,8 @@
 name: Run Integration Tests for Dbt Models
 
 on:
-  schedule:
-    - cron: "0 6 * * *"
-  workflow_dispatch:
+  pull_request:
+    types: [opened, synchronize, reopened]
 
 jobs:
   build:
@@ -23,3 +22,8 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Get what connector we are testing
+        id: get_connector
+        run: echo "source_zendesk_support"
+
+      - name: Install the project dependencies
+        run: poetry install
