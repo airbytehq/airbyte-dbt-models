@@ -52,7 +52,7 @@ vars:
   airbyte_schema: airbyte_dbt_zendesk_support
 
   # Required by Fivetran dbt model
-  zendesk_database: dbt
+  zendesk_database: postgres
   zendesk_schema: airbyte_dbt_zendesk_support
 
   using_schedules: False
