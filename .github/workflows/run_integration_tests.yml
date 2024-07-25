@@ -1,0 +1,25 @@
+name: Run Integration Tests for Dbt Models
+
+on:
+  schedule:
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.12
+
+      - name: Install poetry
+        uses: abatilo/actions-poetry@v2
+
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: Get what connector we are testing
