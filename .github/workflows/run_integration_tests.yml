@@ -33,4 +33,4 @@ jobs:
 
       - name: Run Integration Tests for Postgres
         working-directory: connectors/${{ steps.get_connector.outputs.connector }}/integration_test
-        run: dbt run --target postgres --vars '{"target_database": "postgres", "zendesk_database": "postgres"}'
+        run: dbt run --target postgres --vars '{\"target_database\": \"postgres\", \"zendesk_database\": \"postgres\"}'
