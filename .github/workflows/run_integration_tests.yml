@@ -28,8 +28,8 @@ jobs:
       - name: Access folder
         run: cd connectors/${{ steps.get_connector.outputs.connector }}
 
-      - name: Install the project dependencies
-        run: poetry install
-
       - name: Run pwd
         run: echo pwd
+
+      - name: Install the project dependencies
+        run: poetry install
