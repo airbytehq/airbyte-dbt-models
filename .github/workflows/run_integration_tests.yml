@@ -25,11 +25,9 @@ jobs:
         id: get_connector
         run: echo "::set-output name=connector::source_zendesk_support"
 
-      - name: Access folder
-        run: cd connectors/${{ steps.get_connector.outputs.connector }}
-
-      - name: Run pwd
-        run: pwd
-
       - name: Install the project dependencies
-        run: poetry install
+        working-directory: connectors/${{ steps.get_connector.outputs.connector }}
+        run: |
+          pwd
+          ls
+          poetry install
