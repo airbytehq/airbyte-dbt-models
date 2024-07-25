@@ -32,5 +32,5 @@ integration_tests:
       pass: "{{ env_var('POSTGRES_DBT_PASSWORD') }}"
       dbname: "{{ env_var('POSTGRES_DBT_DBNAME') }}"
       port: 5432
-      schema: airbyte
+      schema: "{{ env_var('CONNECTOR_NAME') }}"
       threads: 8

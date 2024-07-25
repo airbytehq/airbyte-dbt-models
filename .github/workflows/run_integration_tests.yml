@@ -41,6 +41,7 @@ jobs:
           POSTGRES_DBT_USER: ${{ secrets.POSTGRES_DBT_USER }}
           POSTGRES_DBT_PASSWORD: ${{ secrets.POSTGRES_DBT_PASSWORD }}
           POSTGRES_DBT_DBNAME: ${{ secrets.POSTGRES_DBT_DBNAME }}
+          CONNECTOR_NAME: ${{ steps.get_connector.outputs.connector }}
         run: |
           poetry run dbt deps
           poetry run dbt run --target postgres
