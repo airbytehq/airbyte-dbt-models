@@ -36,6 +36,11 @@ jobs:
 
       - name: Run Integration Tests for Postgres
         working-directory: connectors/${{ steps.get_connector.outputs.connector }}/integration_tests
+        env:
+          POSTGRES_DBT_HOST: ${{ secrets.POSTGRES_DBT_HOST }}
+          POSTGRES_DBT_USER: ${{ secrets.POSTGRES_DBT_USER }}
+          POSTGRES_DBT_PASSWORD: ${{ secrets.POSTGRES_DBT_PASSWORD }}
+          POSTGRES_DBT_DBNAME: ${{ secrets.POSTGRES_DBT_DBNAME }}
         run: |
           poetry run dbt deps
           poetry run dbt run --target postgres
