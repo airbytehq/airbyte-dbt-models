@@ -22,7 +22,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install the project dependencies
-        run: poetry install
+        run: |
+          poetry install
+          poetry shell
 
       - name: Ensure .dbt directory exists
         run: mkdir -p ~/.dbt
@@ -33,11 +35,6 @@ jobs:
       - name: Get what connector we are testing
         id: get_connector
         run: echo "::set-output name=connector::source_zendesk_support"
-
-      - name: Get what connector we are testing
-        run: |
-          pwd
-          ls
 
       - name: Run Integration Tests for Postgres
         working-directory: connectors/${{ steps.get_connector.outputs.connector }}/integration_tests
