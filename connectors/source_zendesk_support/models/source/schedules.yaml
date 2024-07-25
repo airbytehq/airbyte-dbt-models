@@ -1,0 +1,29 @@
+version: 2
+
+sources:
+  - name: source_zendesk_support
+    schema: '{{ var(''target_schema'', target.schema) }}'
+    database: '{{ var(''target_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: schedules
+        columns:
+          - name: id
+            description: The unique identifier for the schedule
+            data_type: integer
+          - name: name
+            description: The name of the schedule
+            data_type: string
+          - name: intervals
+            description: List of time intervals within the schedule
+            data_type: array
+          - name: time_zone
+            description: The time zone in which the schedule operates
+            data_type: string
+          - name: created_at
+            description: The date and time when the schedule was created
+            data_type: string
+          - name: updated_at
+            description: The date and time when the schedule was last updated
+            data_type: string

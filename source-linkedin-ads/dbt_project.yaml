@@ -1,0 +1,30 @@
+name: linkedin_ads_erd
+
+config-version: 2
+
+version: x.y.z
+
+profile: airbyte
+
+model-paths:
+  - models
+
+macro-paths:
+  - macros
+
+target-path: target
+
+clean-targets:
+  - target
+  - dbt_modules
+  - logs
+
+require-dbt-version:
+  - '>=1.0.0'
+  - <2.0.0
+
+models:
+  linkedin_ads_erd:
+    materialized: table
+    staging:
+      materialized: view

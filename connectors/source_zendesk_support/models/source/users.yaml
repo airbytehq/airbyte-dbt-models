@@ -1,0 +1,128 @@
+version: 2
+
+sources:
+  - name: source_zendesk_support
+    schema: '{{ var(''target_schema'', target.schema) }}'
+    database: '{{ var(''target_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: users
+        columns:
+          - name: verified
+            description: Indicates if the user's account is verified.
+            data_type: boolean
+          - name: role
+            description: The role or position of the user.
+            data_type: string
+          - name: tags
+            description: Tags associated with the user.
+            data_type: array
+          - name: chat_only
+            description: Specifies if the user can only participate in chat interactions.
+            data_type: boolean
+          - name: role_type
+            description: The type of role assigned to the user.
+            data_type: integer
+          - name: phone
+            description: The phone number associated with the user.
+            data_type: string
+          - name: organization_id
+            description: The ID of the organization the user belongs to.
+            data_type: integer
+          - name: details
+            description: Additional details or information about the user.
+            data_type: string
+          - name: email
+            description: The email address associated with the user.
+            data_type: string
+          - name: only_private_comments
+            description: Indicates if the user can only create private comments.
+            data_type: boolean
+          - name: signature
+            description: The user's email signature.
+            data_type: string
+          - name: restricted_agent
+            description: Specifies if the user is a restricted agent.
+            data_type: boolean
+          - name: moderator
+            description: Specifies if the user has moderator privileges.
+            data_type: boolean
+          - name: updated_at
+            description: The datetime when the user account was last updated.
+            data_type: string
+          - name: external_id
+            description: An external identifier for the user.
+            data_type: string
+          - name: time_zone
+            description: The time zone of the user.
+            data_type: string
+          - name: photo
+            description: Information about the user's profile photo.
+            data_type: object
+          - name: name
+            description: The name of the user.
+            data_type: string
+          - name: shared
+            description: Indicates if the user's account is shared.
+            data_type: boolean
+          - name: id
+            description: Unique identifier for the user.
+            data_type: integer
+          - name: created_at
+            description: The datetime when the user account was created.
+            data_type: string
+          - name: suspended
+            description: Indicates if the user's account is suspended.
+            data_type: boolean
+          - name: shared_agent
+            description: Specifies if the user is a shared agent.
+            data_type: boolean
+          - name: shared_phone_number
+            description: Specifies if the user has a shared phone number.
+            data_type: boolean
+          - name: user_fields
+            description: Custom fields associated with the user.
+            data_type: object
+          - name: last_login_at
+            description: The datetime of the user's last login.
+            data_type: string
+          - name: alias
+            description: An alternative name or identifier for the user.
+            data_type: string
+          - name: two_factor_auth_enabled
+            description: Specifies if two-factor authentication is enabled for the user.
+            data_type: boolean
+          - name: notes
+            description: Any notes or comments related to the user.
+            data_type: string
+          - name: default_group_id
+            description: The default group ID for the user.
+            data_type: integer
+          - name: url
+            description: The URL of the user's details.
+            data_type: string
+          - name: active
+            description: Indicates if the user is currently active.
+            data_type: boolean
+          - name: permanently_deleted
+            description: Specifies if the user has been permanently deleted.
+            data_type: boolean
+          - name: locale_id
+            description: The locale ID of the user.
+            data_type: integer
+          - name: custom_role_id
+            description: The custom role ID assigned to the user.
+            data_type: integer
+          - name: ticket_restriction
+            description: Specifies the user's ticket restriction.
+            data_type: string
+          - name: locale
+            description: The preferred locale of the user.
+            data_type: string
+          - name: report_csv
+            description: The report in CSV format associated with the user.
+            data_type: boolean
+          - name: iana_time_zone
+            description: The IANA time zone of the user.
+            data_type: string

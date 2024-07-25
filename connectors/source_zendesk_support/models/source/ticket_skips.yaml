@@ -1,0 +1,32 @@
+version: 2
+
+sources:
+  - name: source_zendesk_support
+    schema: '{{ var(''target_schema'', target.schema) }}'
+    database: '{{ var(''target_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: ticket_skips
+        columns:
+          - name: created_at
+            description: The timestamp when the ticket skip entry was created
+            data_type: string
+          - name: id
+            description: Unique identifier for the ticket skip entry
+            data_type: integer
+          - name: reason
+            description: The reason for skipping the ticket
+            data_type: string
+          - name: ticket_id
+            description: The unique identifier of the skipped ticket
+            data_type: integer
+          - name: updated_at
+            description: The timestamp when the ticket skip entry was last updated
+            data_type: string
+          - name: user_id
+            description: The unique identifier of the user who skipped the ticket
+            data_type: integer
+          - name: ticket
+            description: ''
+            data_type: object

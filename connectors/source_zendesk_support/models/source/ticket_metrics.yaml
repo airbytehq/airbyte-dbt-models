@@ -1,0 +1,98 @@
+version: 2
+
+sources:
+  - name: source_zendesk_support
+    schema: '{{ var(''target_schema'', target.schema) }}'
+    database: '{{ var(''target_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: ticket_metrics
+        columns:
+          - name: metric
+            description: Ticket metrics data
+            data_type: string
+          - name: id
+            description: Unique identifier for the ticket
+            data_type: integer
+          - name: time
+            description: Time related to the ticket
+            data_type: string
+          - name: instance_id
+            description: ID of the Zendesk instance associated with the ticket
+            data_type: integer
+          - name: ticket_id
+            description: ID of the ticket
+            data_type: integer
+          - name: status
+            description: The current status of the ticket (open, pending, solved, etc.).
+            data_type: object
+          - name: type
+            description: Type of ticket
+            data_type: string
+          - name: agent_wait_time_in_minutes
+            description: The total time an agent spent waiting before responding to the ticket.
+            data_type: object
+          - name: assignee_stations
+            description: Number of stations assigned to the ticket's assignee
+            data_type: integer
+          - name: created_at
+            description: Timestamp when the ticket was created
+            data_type: string
+          - name: first_resolution_time_in_minutes
+            description: The time taken to provide the initial resolution to the ticket.
+            data_type: object
+          - name: full_resolution_time_in_minutes
+            description: The total time taken to completely resolve the ticket.
+            data_type: object
+          - name: group_stations
+            description: Number of stations assigned to the ticket's group
+            data_type: integer
+          - name: latest_comment_added_at
+            description: Timestamp when the latest comment was added
+            data_type: string
+          - name: on_hold_time_in_minutes
+            description: The cumulative time the ticket spent on hold during its lifecycle.
+            data_type: object
+          - name: reopens
+            description: Number of times the ticket has been reopened
+            data_type: integer
+          - name: replies
+            description: Number of replies made on the ticket
+            data_type: integer
+          - name: reply_time_in_minutes
+            description: The time taken to reply to the ticket after initial submission.
+            data_type: object
+          - name: requester_updated_at
+            description: Timestamp when the requester information was last updated
+            data_type: string
+          - name: requester_wait_time_in_minutes
+            description: The time a requester had to wait before the ticket was assigned to an agent.
+            data_type: object
+          - name: status_updated_at
+            description: Timestamp when the status of the ticket was last updated
+            data_type: string
+          - name: updated_at
+            description: Timestamp when the ticket was last updated
+            data_type: string
+          - name: url
+            description: URL link to the ticket details
+            data_type: string
+          - name: initially_assigned_at
+            description: Timestamp when the ticket was initially assigned
+            data_type: string
+          - name: assigned_at
+            description: Timestamp when the ticket was assigned to an agent
+            data_type: string
+          - name: solved_at
+            description: Timestamp when the ticket was solved
+            data_type: string
+          - name: assignee_updated_at
+            description: Timestamp when the assignee was last updated
+            data_type: string
+          - name: custom_status_updated_at
+            description: Timestamp when the custom status was last updated
+            data_type: string
+          - name: reply_time_in_seconds
+            description: The time taken to reply to the ticket after initial submission in seconds.
+            data_type: object

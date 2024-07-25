@@ -1,0 +1,77 @@
+version: 2
+
+sources:
+  - name: source_zendesk_support
+    schema: '{{ var(''target_schema'', target.schema) }}'
+    database: '{{ var(''target_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: posts
+        columns:
+          - name: author_id
+            description: The unique identifier of the author of the post.
+            data_type: number
+          - name: closed
+            description: Indicates whether the post is closed or open for further comments.
+            data_type: boolean
+          - name: comment_count
+            description: The total number of comments on the post.
+            data_type: integer
+          - name: content_tag_ids
+            description: Array containing unique identifiers of tags associated with the post.
+            data_type: array
+          - name: details
+            description: Additional details or content of the post.
+            data_type: string
+          - name: featured
+            description: Indicates whether the post is featured or not.
+            data_type: boolean
+          - name: follower_count
+            description: The number of users following the post for updates.
+            data_type: integer
+          - name: frozen
+            description: Indicates whether the post content is frozen or editable.
+            data_type: boolean
+          - name: html_url
+            description: The URL that directs to the HTML version of the post.
+            data_type: string
+          - name: id
+            description: The unique identifier of the post.
+            data_type: number
+          - name: non_author_editor_id
+            description: The unique identifier of a user who is not the author but edited the post.
+            data_type: integer
+          - name: non_author_updated_at
+            description: The date and time when a non-author user last updated the post.
+            data_type: string
+          - name: pinned
+            description: Indicates if the post is pinned to stay on top of the list.
+            data_type: boolean
+          - name: status
+            description: The current status of the post, such as 'open', 'solved', 'archived', etc.
+            data_type: string
+          - name: title
+            description: The title or headline of the post.
+            data_type: string
+          - name: topic_id
+            description: The identifier of the topic under which the post belongs.
+            data_type: integer
+          - name: vote_count
+            description: The total count of votes the post has received.
+            data_type: integer
+          - name: vote_sum
+            description: The sum of all votes received considering both upvotes and downvotes.
+            data_type: integer
+          - name: created_at
+            description: The date and time when the post was created.
+            data_type: string
+          - name: url
+            description: The URL that points to the post details.
+            data_type: string
+          - name: description
+            description: A brief summary or overview of the post content.
+            data_type: string
+          - name: updated_at
+            description: The date and time of the last update made to the post.
+            data_type: string

@@ -1,0 +1,47 @@
+version: 2
+
+sources:
+  - name: source_zendesk_support
+    schema: '{{ var(''target_schema'', target.schema) }}'
+    database: '{{ var(''target_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: topics
+        columns:
+          - name: html_url
+            description: The URL of the topic in HTML format.
+            data_type: string
+          - name: id
+            description: The unique identifier of the topic.
+            data_type: number
+          - name: name
+            description: The name/title of the topic.
+            data_type: string
+          - name: url
+            description: The URL of the topic in API format.
+            data_type: string
+          - name: created_at
+            description: The date and time when this topic was created.
+            data_type: string
+          - name: community_id
+            description: The unique identifier of the community to which this topic belongs.
+            data_type: integer
+          - name: updated_at
+            description: The date and time when this topic was last updated.
+            data_type: string
+          - name: description
+            description: The textual description of the topic.
+            data_type: string
+          - name: manageable_by
+            description: The user or group who can manage this topic.
+            data_type: string
+          - name: follower_count
+            description: The count of users following this topic.
+            data_type: number
+          - name: position
+            description: The order position of this topic relative to others.
+            data_type: number
+          - name: user_segment_id
+            description: The identifier of the user segment associated with this topic.
+            data_type: number

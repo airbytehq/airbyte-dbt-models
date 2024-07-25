@@ -1,0 +1,5 @@
+packages:
+  - local: ../
+
+  - package: fivetran/zendesk
+    version: [">=0.16.0", "<0.17.0"]

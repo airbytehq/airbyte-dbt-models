@@ -1,0 +1,53 @@
+version: 2
+
+sources:
+  - name: source_zendesk_support
+    schema: '{{ var(''target_schema'', target.schema) }}'
+    database: '{{ var(''target_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: article_comments
+        columns:
+          - name: author_id
+            description: The unique identifier of the author of the comment.
+            data_type: integer
+          - name: body
+            description: The content or text of the comment.
+            data_type: string
+          - name: created_at
+            description: The timestamp when the comment was created.
+            data_type: string
+          - name: html_url
+            description: The URL link to the HTML representation of the comment.
+            data_type: string
+          - name: id
+            description: The unique identifier of the comment.
+            data_type: integer
+          - name: locale
+            description: The locale or language of the comment.
+            data_type: string
+          - name: non_author_editor_id
+            description: The unique identifier of a non-author who edited the comment.
+            data_type: integer
+          - name: non_author_updated_at
+            description: The timestamp when the non-author last updated the comment.
+            data_type: string
+          - name: source_id
+            description: The ID of the source associated with the comment.
+            data_type: integer
+          - name: source_type
+            description: The type of the source associated with the comment.
+            data_type: string
+          - name: updated_at
+            description: The timestamp when the comment was last updated.
+            data_type: string
+          - name: url
+            description: The URL link to the comment resource.
+            data_type: string
+          - name: vote_count
+            description: The total count of votes received on the comment.
+            data_type: integer
+          - name: vote_sum
+            description: The sum of votes received on the comment, considering upvotes and downvotes.
+            data_type: integer

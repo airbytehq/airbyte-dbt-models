@@ -1,0 +1,62 @@
+version: 2
+
+sources:
+  - name: source_zendesk_support
+    schema: '{{ var(''target_schema'', target.schema) }}'
+    database: '{{ var(''target_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: ticket_comments
+        columns:
+          - name: created_at
+            description: Timestamp indicating when the ticket comment was created.
+            data_type: string
+          - name: timestamp
+            description: UNIX timestamp representing the time the ticket comment was created.
+            data_type: integer
+          - name: body
+            description: Text body of the ticket comment.
+            data_type: string
+          - name: id
+            description: Unique identifier for the ticket comment.
+            data_type: integer
+          - name: ticket_id
+            description: Identifier of the ticket to which the comment belongs.
+            data_type: integer
+          - name: event_type
+            description: Type of event associated with the ticket comment.
+            data_type: string
+          - name: type
+            description: Type of the ticket comment.
+            data_type: string
+          - name: via_reference_id
+            description: Reference ID associated with the channel through which the ticket comment was created.
+            data_type: integer
+          - name: html_body
+            description: HTML formatted body of the ticket comment.
+            data_type: string
+          - name: plain_body
+            description: Plain text version of the ticket comment body.
+            data_type: string
+          - name: public
+            description: Flag indicating if the ticket comment is public or private.
+            data_type: boolean
+          - name: audit_id
+            description: Unique identifier for the audit associated with this ticket comment.
+            data_type: integer
+          - name: author_id
+            description: Identifier of the author of the ticket comment.
+            data_type: integer
+          - name: via
+            description: ''
+            data_type: object
+          - name: metadata
+            description: ''
+            data_type: object
+          - name: attachments
+            description: ''
+            data_type: array
+          - name: uploads
+            description: Information about any file uploads associated with the ticket comment.
+            data_type: array
