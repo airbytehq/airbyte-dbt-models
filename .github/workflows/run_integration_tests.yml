@@ -44,4 +44,4 @@ jobs:
           CONNECTOR_NAME: airbyte_dbt_zendesk_support
         run: |
           poetry run dbt deps
-          poetry run dbt run --target postgres
+          poetry run dbt run --target postgres --full-refresh

@@ -1,3 +1,7 @@
+{{ config(
+    full_refresh = true
+) }}
+
 {% if target.type == "snowflake" %}
 
     with tmp as (
