@@ -1,0 +1,77 @@
+version: 2
+
+sources:
+  - name: source_salesforce
+    schema: '{{ var(''target_schema'', target.schema) }}'
+    database: '{{ var(''target_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: ContentWorkspacePermission
+        columns:
+          - name: Id
+            description: ''
+            data_type: string
+          - name: Name
+            description: ''
+            data_type: string
+          - name: Type
+            description: ''
+            data_type: string
+          - name: PermissionsManageWorkspace
+            description: ''
+            data_type: boolean
+          - name: PermissionsAddContent
+            description: ''
+            data_type: boolean
+          - name: PermissionsAddContentOBO
+            description: ''
+            data_type: boolean
+          - name: PermissionsArchiveContent
+            description: ''
+            data_type: boolean
+          - name: PermissionsDeleteContent
+            description: ''
+            data_type: boolean
+          - name: PermissionsFeatureContent
+            description: ''
+            data_type: boolean
+          - name: PermissionsViewComments
+            description: ''
+            data_type: boolean
+          - name: PermissionsAddComment
+            description: ''
+            data_type: boolean
+          - name: PermissionsModifyComments
+            description: ''
+            data_type: boolean
+          - name: PermissionsTagContent
+            description: ''
+            data_type: boolean
+          - name: PermissionsDeliverContent
+            description: ''
+            data_type: boolean
+          - name: PermissionsChatterSharing
+            description: ''
+            data_type: boolean
+          - name: PermissionsOrganizeFileAndFolder
+            description: ''
+            data_type: boolean
+          - name: CreatedById
+            description: ''
+            data_type: string
+          - name: CreatedDate
+            description: ''
+            data_type: string
+          - name: LastModifiedDate
+            description: ''
+            data_type: string
+          - name: SystemModstamp
+            description: ''
+            data_type: string
+          - name: LastModifiedById
+            description: ''
+            data_type: string
+          - name: Description
+            description: ''
+            data_type: string

@@ -1,0 +1,86 @@
+version: 2
+
+sources:
+  - name: source_salesforce
+    schema: '{{ var(''target_schema'', target.schema) }}'
+    database: '{{ var(''target_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: ActiveScratchOrg
+        columns:
+          - name: Id
+            description: ''
+            data_type: string
+          - name: OwnerId
+            description: ''
+            data_type: string
+          - name: IsDeleted
+            description: ''
+            data_type: boolean
+          - name: Name
+            description: ''
+            data_type: string
+          - name: CreatedDate
+            description: ''
+            data_type: string
+          - name: CreatedById
+            description: ''
+            data_type: string
+          - name: LastModifiedDate
+            description: ''
+            data_type: string
+          - name: LastModifiedById
+            description: ''
+            data_type: string
+          - name: SystemModstamp
+            description: ''
+            data_type: string
+          - name: LastViewedDate
+            description: ''
+            data_type: string
+          - name: LastReferencedDate
+            description: ''
+            data_type: string
+          - name: ScratchOrg
+            description: ''
+            data_type: string
+          - name: ScratchOrgInfoId
+            description: ''
+            data_type: string
+          - name: Description
+            description: ''
+            data_type: string
+          - name: Features
+            description: ''
+            data_type: string
+          - name: Edition
+            description: ''
+            data_type: string
+          - name: SignupTrialDays
+            description: ''
+            data_type: integer
+          - name: ExpirationDate
+            description: ''
+            data_type: string
+          - name: SignupInstance
+            description: ''
+            data_type: string
+          - name: Namespace
+            description: ''
+            data_type: string
+          - name: SignupUsername
+            description: ''
+            data_type: string
+          - name: SignupEmail
+            description: ''
+            data_type: string
+          - name: OrgName
+            description: ''
+            data_type: string
+          - name: LastLoginDate
+            description: ''
+            data_type: string
+          - name: HasSampleData
+            description: ''
+            data_type: boolean

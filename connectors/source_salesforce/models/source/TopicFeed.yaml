@@ -1,0 +1,62 @@
+version: 2
+
+sources:
+  - name: source_salesforce
+    schema: '{{ var(''target_schema'', target.schema) }}'
+    database: '{{ var(''target_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: TopicFeed
+        columns:
+          - name: Id
+            description: ''
+            data_type: string
+          - name: ParentId
+            description: ''
+            data_type: string
+          - name: Type
+            description: ''
+            data_type: string
+          - name: CreatedById
+            description: ''
+            data_type: string
+          - name: CreatedDate
+            description: ''
+            data_type: string
+          - name: IsDeleted
+            description: ''
+            data_type: boolean
+          - name: LastModifiedDate
+            description: ''
+            data_type: string
+          - name: SystemModstamp
+            description: ''
+            data_type: string
+          - name: CommentCount
+            description: ''
+            data_type: integer
+          - name: LikeCount
+            description: ''
+            data_type: integer
+          - name: Title
+            description: ''
+            data_type: string
+          - name: Body
+            description: ''
+            data_type: string
+          - name: LinkUrl
+            description: ''
+            data_type: string
+          - name: IsRichText
+            description: ''
+            data_type: boolean
+          - name: RelatedRecordId
+            description: ''
+            data_type: string
+          - name: InsertedById
+            description: ''
+            data_type: string
+          - name: BestCommentId
+            description: ''
+            data_type: string

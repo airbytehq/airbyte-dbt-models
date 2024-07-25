@@ -1,0 +1,38 @@
+version: 2
+
+sources:
+  - name: source_github
+    schema: '{{ var(''target_schema'', target.schema) }}'
+    database: '{{ var(''target_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: events
+        columns:
+          - name: repository
+            description: Deprecated. Use 'repo' field instead.
+            data_type: string
+          - name: type
+            description: Type of event that occurred.
+            data_type: string
+          - name: public
+            description: Indicates whether the event is public or not.
+            data_type: boolean
+          - name: payload
+            description: Additional event-specific data.
+            data_type: object
+          - name: repo
+            description: Information about the repository where the event occurred.
+            data_type: object
+          - name: actor
+            description: ''
+            data_type: object
+          - name: org
+            description: Information about the organization associated with the event.
+            data_type: object
+          - name: created_at
+            description: The timestamp when the event occurred.
+            data_type: string
+          - name: id
+            description: Unique identifier for the event.
+            data_type: string

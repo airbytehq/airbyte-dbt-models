@@ -1,0 +1,92 @@
+version: 2
+
+sources:
+  - name: source_salesforce
+    schema: '{{ var(''target_schema'', target.schema) }}'
+    database: '{{ var(''target_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: ExternalSocialAccount
+        columns:
+          - name: Id
+            description: ''
+            data_type: string
+          - name: IsDeleted
+            description: ''
+            data_type: boolean
+          - name: DeveloperName
+            description: ''
+            data_type: string
+          - name: Language
+            description: ''
+            data_type: string
+          - name: MasterLabel
+            description: ''
+            data_type: string
+          - name: CreatedDate
+            description: ''
+            data_type: string
+          - name: CreatedById
+            description: ''
+            data_type: string
+          - name: LastModifiedDate
+            description: ''
+            data_type: string
+          - name: LastModifiedById
+            description: ''
+            data_type: string
+          - name: SystemModstamp
+            description: ''
+            data_type: string
+          - name: ExternalAccountId
+            description: ''
+            data_type: string
+          - name: Username
+            description: ''
+            data_type: string
+          - name: Provider
+            description: ''
+            data_type: string
+          - name: ProviderUserId
+            description: ''
+            data_type: string
+          - name: ExternalPictureURL
+            description: ''
+            data_type: string
+          - name: IsActive
+            description: ''
+            data_type: boolean
+          - name: SocialPropertyId
+            description: ''
+            data_type: string
+          - name: IsAuthenticated
+            description: ''
+            data_type: boolean
+          - name: TopicId
+            description: ''
+            data_type: string
+          - name: DataSourceId
+            description: ''
+            data_type: string
+          - name: RuleId
+            description: ''
+            data_type: string
+          - name: IsDataSourceActive
+            description: ''
+            data_type: boolean
+          - name: UniqueName
+            description: ''
+            data_type: string
+          - name: DefaultResponseAccountId
+            description: ''
+            data_type: string
+          - name: ProfileUrl
+            description: ''
+            data_type: string
+          - name: AuthorizedBy
+            description: ''
+            data_type: string
+          - name: IsCaseCreationEnabled
+            description: ''
+            data_type: boolean

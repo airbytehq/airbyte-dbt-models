@@ -1,0 +1,29 @@
+version: 2
+
+sources:
+  - name: source_github
+    schema: '{{ var(''target_schema'', target.schema) }}'
+    database: '{{ var(''target_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: tags
+        columns:
+          - name: repository
+            description: Repository information related to the tag
+            data_type: string
+          - name: name
+            description: Name of the tag
+            data_type: string
+          - name: commit
+            description: Information about the commit associated with this tag
+            data_type: object
+          - name: zipball_url
+            description: URL to download a zipball archive of the repository at this tag
+            data_type: string
+          - name: tarball_url
+            description: URL to download a tarball archive of the repository at this tag
+            data_type: string
+          - name: node_id
+            description: Unique identifier of the tag
+            data_type: string

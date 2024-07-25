@@ -1,0 +1,155 @@
+version: 2
+
+sources:
+  - name: source_salesforce
+    schema: '{{ var(''target_schema'', target.schema) }}'
+    database: '{{ var(''target_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: Asset
+        columns:
+          - name: Id
+            description: ''
+            data_type: string
+          - name: ContactId
+            description: ''
+            data_type: string
+          - name: AccountId
+            description: ''
+            data_type: string
+          - name: ParentId
+            description: ''
+            data_type: string
+          - name: RootAssetId
+            description: ''
+            data_type: string
+          - name: Product2Id
+            description: ''
+            data_type: string
+          - name: ProductCode
+            description: ''
+            data_type: string
+          - name: IsCompetitorProduct
+            description: ''
+            data_type: boolean
+          - name: CreatedDate
+            description: ''
+            data_type: string
+          - name: CreatedById
+            description: ''
+            data_type: string
+          - name: LastModifiedDate
+            description: ''
+            data_type: string
+          - name: LastModifiedById
+            description: ''
+            data_type: string
+          - name: SystemModstamp
+            description: ''
+            data_type: string
+          - name: IsDeleted
+            description: ''
+            data_type: boolean
+          - name: Name
+            description: ''
+            data_type: string
+          - name: SerialNumber
+            description: ''
+            data_type: string
+          - name: InstallDate
+            description: ''
+            data_type: string
+          - name: PurchaseDate
+            description: ''
+            data_type: string
+          - name: UsageEndDate
+            description: ''
+            data_type: string
+          - name: LifecycleStartDate
+            description: ''
+            data_type: string
+          - name: LifecycleEndDate
+            description: ''
+            data_type: string
+          - name: Status
+            description: ''
+            data_type: string
+          - name: Price
+            description: ''
+            data_type: number
+          - name: Quantity
+            description: ''
+            data_type: number
+          - name: Description
+            description: ''
+            data_type: string
+          - name: OwnerId
+            description: ''
+            data_type: string
+          - name: AssetProvidedById
+            description: ''
+            data_type: string
+          - name: AssetServicedById
+            description: ''
+            data_type: string
+          - name: IsInternal
+            description: ''
+            data_type: boolean
+          - name: AssetLevel
+            description: ''
+            data_type: integer
+          - name: StockKeepingUnit
+            description: ''
+            data_type: string
+          - name: HasLifecycleManagement
+            description: ''
+            data_type: boolean
+          - name: CurrentMrr
+            description: ''
+            data_type: number
+          - name: CurrentLifecycleEndDate
+            description: ''
+            data_type: string
+          - name: CurrentQuantity
+            description: ''
+            data_type: number
+          - name: CurrentAmount
+            description: ''
+            data_type: number
+          - name: TotalLifecycleAmount
+            description: ''
+            data_type: number
+          - name: Street
+            description: ''
+            data_type: string
+          - name: City
+            description: ''
+            data_type: string
+          - name: State
+            description: ''
+            data_type: string
+          - name: PostalCode
+            description: ''
+            data_type: string
+          - name: Country
+            description: ''
+            data_type: string
+          - name: Latitude
+            description: ''
+            data_type: number
+          - name: Longitude
+            description: ''
+            data_type: number
+          - name: GeocodeAccuracy
+            description: ''
+            data_type: string
+          - name: Address
+            description: ''
+            data_type: object
+          - name: LastViewedDate
+            description: ''
+            data_type: string
+          - name: LastReferencedDate
+            description: ''
+            data_type: string

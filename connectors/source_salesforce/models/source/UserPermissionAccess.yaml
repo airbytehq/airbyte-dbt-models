@@ -1,0 +1,773 @@
+version: 2
+
+sources:
+  - name: source_salesforce
+    schema: '{{ var(''target_schema'', target.schema) }}'
+    database: '{{ var(''target_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: UserPermissionAccess
+        columns:
+          - name: Id
+            description: ''
+            data_type: string
+          - name: LastCacheUpdate
+            description: ''
+            data_type: string
+          - name: PermissionsEmailSingle
+            description: ''
+            data_type: boolean
+          - name: PermissionsEmailMass
+            description: ''
+            data_type: boolean
+          - name: PermissionsExportReport
+            description: ''
+            data_type: boolean
+          - name: PermissionsImportPersonal
+            description: ''
+            data_type: boolean
+          - name: PermissionsDataExport
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageUsers
+            description: ''
+            data_type: boolean
+          - name: PermissionsEditPublicFilters
+            description: ''
+            data_type: boolean
+          - name: PermissionsEditPublicTemplates
+            description: ''
+            data_type: boolean
+          - name: PermissionsModifyAllData
+            description: ''
+            data_type: boolean
+          - name: PermissionsEditBillingInfo
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageCases
+            description: ''
+            data_type: boolean
+          - name: PermissionsMassInlineEdit
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageSolutions
+            description: ''
+            data_type: boolean
+          - name: PermissionsCustomizeApplication
+            description: ''
+            data_type: boolean
+          - name: PermissionsEditReadonlyFields
+            description: ''
+            data_type: boolean
+          - name: PermissionsRunReports
+            description: ''
+            data_type: boolean
+          - name: PermissionsViewSetup
+            description: ''
+            data_type: boolean
+          - name: PermissionsTransferAnyEntity
+            description: ''
+            data_type: boolean
+          - name: PermissionsNewReportBuilder
+            description: ''
+            data_type: boolean
+          - name: PermissionsActivateContract
+            description: ''
+            data_type: boolean
+          - name: PermissionsActivateOrder
+            description: ''
+            data_type: boolean
+          - name: PermissionsImportLeads
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageLeads
+            description: ''
+            data_type: boolean
+          - name: PermissionsTransferAnyLead
+            description: ''
+            data_type: boolean
+          - name: PermissionsViewAllData
+            description: ''
+            data_type: boolean
+          - name: PermissionsEditPublicDocuments
+            description: ''
+            data_type: boolean
+          - name: PermissionsViewEncryptedData
+            description: ''
+            data_type: boolean
+          - name: PermissionsEditBrandTemplates
+            description: ''
+            data_type: boolean
+          - name: PermissionsEditHtmlTemplates
+            description: ''
+            data_type: boolean
+          - name: PermissionsChatterInternalUser
+            description: ''
+            data_type: boolean
+          - name: PermissionsDeleteActivatedContract
+            description: ''
+            data_type: boolean
+          - name: PermissionsChatterInviteExternalUsers
+            description: ''
+            data_type: boolean
+          - name: PermissionsSendSitRequests
+            description: ''
+            data_type: boolean
+          - name: PermissionsOverrideForecasts
+            description: ''
+            data_type: boolean
+          - name: PermissionsViewAllForecasts
+            description: ''
+            data_type: boolean
+          - name: PermissionsApiUserOnly
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageRemoteAccess
+            description: ''
+            data_type: boolean
+          - name: PermissionsCanUseNewDashboardBuilder
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageCategories
+            description: ''
+            data_type: boolean
+          - name: PermissionsConvertLeads
+            description: ''
+            data_type: boolean
+          - name: PermissionsPasswordNeverExpires
+            description: ''
+            data_type: boolean
+          - name: PermissionsUseTeamReassignWizards
+            description: ''
+            data_type: boolean
+          - name: PermissionsEditActivatedOrders
+            description: ''
+            data_type: boolean
+          - name: PermissionsInstallPackaging
+            description: ''
+            data_type: boolean
+          - name: PermissionsPublishPackaging
+            description: ''
+            data_type: boolean
+          - name: PermissionsChatterOwnGroups
+            description: ''
+            data_type: boolean
+          - name: PermissionsEditOppLineItemUnitPrice
+            description: ''
+            data_type: boolean
+          - name: PermissionsCreatePackaging
+            description: ''
+            data_type: boolean
+          - name: PermissionsBulkApiHardDelete
+            description: ''
+            data_type: boolean
+          - name: PermissionsInboundMigrationToolsUser
+            description: ''
+            data_type: boolean
+          - name: PermissionsSolutionImport
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageCallCenters
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageSynonyms
+            description: ''
+            data_type: boolean
+          - name: PermissionsOutboundMigrationToolsUser
+            description: ''
+            data_type: boolean
+          - name: PermissionsViewContent
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageEmailClientConfig
+            description: ''
+            data_type: boolean
+          - name: PermissionsEnableNotifications
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageDataIntegrations
+            description: ''
+            data_type: boolean
+          - name: PermissionsDistributeFromPersWksp
+            description: ''
+            data_type: boolean
+          - name: PermissionsViewDataCategories
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageDataCategories
+            description: ''
+            data_type: boolean
+          - name: PermissionsAuthorApex
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageMobile
+            description: ''
+            data_type: boolean
+          - name: PermissionsApiEnabled
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageCustomReportTypes
+            description: ''
+            data_type: boolean
+          - name: PermissionsEditCaseComments
+            description: ''
+            data_type: boolean
+          - name: PermissionsTransferAnyCase
+            description: ''
+            data_type: boolean
+          - name: PermissionsContentAdministrator
+            description: ''
+            data_type: boolean
+          - name: PermissionsCreateWorkspaces
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageContentPermissions
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageContentProperties
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageContentTypes
+            description: ''
+            data_type: boolean
+          - name: PermissionsScheduleJob
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageExchangeConfig
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageAnalyticSnapshots
+            description: ''
+            data_type: boolean
+          - name: PermissionsScheduleReports
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageBusinessHourHolidays
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageDynamicDashboards
+            description: ''
+            data_type: boolean
+          - name: PermissionsCustomSidebarOnAllPages
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageInteraction
+            description: ''
+            data_type: boolean
+          - name: PermissionsViewMyTeamsDashboards
+            description: ''
+            data_type: boolean
+          - name: PermissionsModerateChatter
+            description: ''
+            data_type: boolean
+          - name: PermissionsResetPasswords
+            description: ''
+            data_type: boolean
+          - name: PermissionsFlowUFLRequired
+            description: ''
+            data_type: boolean
+          - name: PermissionsCanInsertFeedSystemFields
+            description: ''
+            data_type: boolean
+          - name: PermissionsActivitiesAccess
+            description: ''
+            data_type: boolean
+          - name: PermissionsEmailTemplateManagement
+            description: ''
+            data_type: boolean
+          - name: PermissionsEmailAdministration
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageChatterMessages
+            description: ''
+            data_type: boolean
+          - name: PermissionsAllowEmailIC
+            description: ''
+            data_type: boolean
+          - name: PermissionsChatterFileLink
+            description: ''
+            data_type: boolean
+          - name: PermissionsForceTwoFactor
+            description: ''
+            data_type: boolean
+          - name: PermissionsViewEventLogFiles
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageNetworks
+            description: ''
+            data_type: boolean
+          - name: PermissionsViewCaseInteraction
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageAuthProviders
+            description: ''
+            data_type: boolean
+          - name: PermissionsRunFlow
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageQuotas
+            description: ''
+            data_type: boolean
+          - name: PermissionsCreateCustomizeDashboards
+            description: ''
+            data_type: boolean
+          - name: PermissionsCreateDashboardFolders
+            description: ''
+            data_type: boolean
+          - name: PermissionsViewPublicDashboards
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageDashbdsInPubFolders
+            description: ''
+            data_type: boolean
+          - name: PermissionsCreateCustomizeReports
+            description: ''
+            data_type: boolean
+          - name: PermissionsCreateReportFolders
+            description: ''
+            data_type: boolean
+          - name: PermissionsViewPublicReports
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageReportsInPubFolders
+            description: ''
+            data_type: boolean
+          - name: PermissionsEditMyDashboards
+            description: ''
+            data_type: boolean
+          - name: PermissionsEditMyReports
+            description: ''
+            data_type: boolean
+          - name: PermissionsViewAllUsers
+            description: ''
+            data_type: boolean
+          - name: PermissionsConnectOrgToEnvironmentHub
+            description: ''
+            data_type: boolean
+          - name: PermissionsCreateCustomizeFilters
+            description: ''
+            data_type: boolean
+          - name: PermissionsContentHubUser
+            description: ''
+            data_type: boolean
+          - name: PermissionsGovernNetworks
+            description: ''
+            data_type: boolean
+          - name: PermissionsSalesConsole
+            description: ''
+            data_type: boolean
+          - name: PermissionsTwoFactorApi
+            description: ''
+            data_type: boolean
+          - name: PermissionsDeleteTopics
+            description: ''
+            data_type: boolean
+          - name: PermissionsEditTopics
+            description: ''
+            data_type: boolean
+          - name: PermissionsCreateTopics
+            description: ''
+            data_type: boolean
+          - name: PermissionsAssignTopics
+            description: ''
+            data_type: boolean
+          - name: PermissionsIdentityEnabled
+            description: ''
+            data_type: boolean
+          - name: PermissionsIdentityConnect
+            description: ''
+            data_type: boolean
+          - name: PermissionsContentWorkspaces
+            description: ''
+            data_type: boolean
+          - name: PermissionsCreateWorkBadgeDefinition
+            description: ''
+            data_type: boolean
+          - name: PermissionsCustomMobileAppsAccess
+            description: ''
+            data_type: boolean
+          - name: PermissionsViewHelpLink
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageProfilesPermissionsets
+            description: ''
+            data_type: boolean
+          - name: PermissionsAssignPermissionSets
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageRoles
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageIpAddresses
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageSharing
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageInternalUsers
+            description: ''
+            data_type: boolean
+          - name: PermissionsManagePasswordPolicies
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageLoginAccessPolicies
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageCustomPermissions
+            description: ''
+            data_type: boolean
+          - name: PermissionsCanVerifyComment
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageUnlistedGroups
+            description: ''
+            data_type: boolean
+          - name: PermissionsStdAutomaticActivityCapture
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageTwoFactor
+            description: ''
+            data_type: boolean
+          - name: PermissionsLightningExperienceUser
+            description: ''
+            data_type: boolean
+          - name: PermissionsConfigCustomRecs
+            description: ''
+            data_type: boolean
+          - name: PermissionsSubmitMacrosAllowed
+            description: ''
+            data_type: boolean
+          - name: PermissionsBulkMacrosAllowed
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageSessionPermissionSets
+            description: ''
+            data_type: boolean
+          - name: PermissionsSendAnnouncementEmails
+            description: ''
+            data_type: boolean
+          - name: PermissionsChatterEditOwnPost
+            description: ''
+            data_type: boolean
+          - name: PermissionsChatterEditOwnRecordPost
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageSandboxes
+            description: ''
+            data_type: boolean
+          - name: PermissionsAutomaticActivityCapture
+            description: ''
+            data_type: boolean
+          - name: PermissionsImportCustomObjects
+            description: ''
+            data_type: boolean
+          - name: PermissionsDelegatedTwoFactor
+            description: ''
+            data_type: boolean
+          - name: PermissionsChatterComposeUiCodesnippet
+            description: ''
+            data_type: boolean
+          - name: PermissionsSelectFilesFromSalesforce
+            description: ''
+            data_type: boolean
+          - name: PermissionsModerateNetworkUsers
+            description: ''
+            data_type: boolean
+          - name: PermissionsMergeTopics
+            description: ''
+            data_type: boolean
+          - name: PermissionsSubscribeToLightningReports
+            description: ''
+            data_type: boolean
+          - name: PermissionsManagePvtRptsAndDashbds
+            description: ''
+            data_type: boolean
+          - name: PermissionsCampaignInfluence2
+            description: ''
+            data_type: boolean
+          - name: PermissionsViewDataAssessment
+            description: ''
+            data_type: boolean
+          - name: PermissionsRemoveDirectMessageMembers
+            description: ''
+            data_type: boolean
+          - name: PermissionsCanApproveFeedPost
+            description: ''
+            data_type: boolean
+          - name: PermissionsAddDirectMessageMembers
+            description: ''
+            data_type: boolean
+          - name: PermissionsAllowViewEditConvertedLeads
+            description: ''
+            data_type: boolean
+          - name: PermissionsShowCompanyNameAsUserBadge
+            description: ''
+            data_type: boolean
+          - name: PermissionsAccessCMC
+            description: ''
+            data_type: boolean
+          - name: PermissionsViewHealthCheck
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageHealthCheck
+            description: ''
+            data_type: boolean
+          - name: PermissionsPackaging2
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageCertificates
+            description: ''
+            data_type: boolean
+          - name: PermissionsCreateReportInLightning
+            description: ''
+            data_type: boolean
+          - name: PermissionsPreventClassicExperience
+            description: ''
+            data_type: boolean
+          - name: PermissionsHideReadByList
+            description: ''
+            data_type: boolean
+          - name: PermissionsListEmailSend
+            description: ''
+            data_type: boolean
+          - name: PermissionsFeedPinning
+            description: ''
+            data_type: boolean
+          - name: PermissionsChangeDashboardColors
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageRecommendationStrategies
+            description: ''
+            data_type: boolean
+          - name: PermissionsManagePropositions
+            description: ''
+            data_type: boolean
+          - name: PermissionsCloseConversations
+            description: ''
+            data_type: boolean
+          - name: PermissionsSubscribeReportRolesGrps
+            description: ''
+            data_type: boolean
+          - name: PermissionsSubscribeDashboardRolesGrps
+            description: ''
+            data_type: boolean
+          - name: PermissionsUseWebLink
+            description: ''
+            data_type: boolean
+          - name: PermissionsHasUnlimitedNBAExecutions
+            description: ''
+            data_type: boolean
+          - name: PermissionsViewOnlyEmbeddedAppUser
+            description: ''
+            data_type: boolean
+          - name: PermissionsViewAllActivities
+            description: ''
+            data_type: boolean
+          - name: PermissionsSubscribeReportToOtherUsers
+            description: ''
+            data_type: boolean
+          - name: PermissionsLightningConsoleAllowedForUser
+            description: ''
+            data_type: boolean
+          - name: PermissionsSubscribeReportsRunAsUser
+            description: ''
+            data_type: boolean
+          - name: PermissionsSubscribeToLightningDashboards
+            description: ''
+            data_type: boolean
+          - name: PermissionsSubscribeDashboardToOtherUsers
+            description: ''
+            data_type: boolean
+          - name: PermissionsCreateLtngTempInPub
+            description: ''
+            data_type: boolean
+          - name: PermissionsTransactionalEmailSend
+            description: ''
+            data_type: boolean
+          - name: PermissionsViewPrivateStaticResources
+            description: ''
+            data_type: boolean
+          - name: PermissionsCreateLtngTempFolder
+            description: ''
+            data_type: boolean
+          - name: PermissionsApexRestServices
+            description: ''
+            data_type: boolean
+          - name: PermissionsGiveRecognitionBadge
+            description: ''
+            data_type: boolean
+          - name: PermissionsAllowObjectDetection
+            description: ''
+            data_type: boolean
+          - name: PermissionsSalesforceIQInternal
+            description: ''
+            data_type: boolean
+          - name: PermissionsUseMySearch
+            description: ''
+            data_type: boolean
+          - name: PermissionsLtngPromoReserved01UserPerm
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageSubscriptions
+            description: ''
+            data_type: boolean
+          - name: PermissionsAllowObjectDetectionTraining
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageSurveys
+            description: ''
+            data_type: boolean
+          - name: PermissionsUseAssistantDialog
+            description: ''
+            data_type: boolean
+          - name: PermissionsUseQuerySuggestions
+            description: ''
+            data_type: boolean
+          - name: PermissionsViewRoles
+            description: ''
+            data_type: boolean
+          - name: PermissionsLMOutboundMessagingUserPerm
+            description: ''
+            data_type: boolean
+          - name: PermissionsModifyDataClassification
+            description: ''
+            data_type: boolean
+          - name: PermissionsPrivacyDataAccess
+            description: ''
+            data_type: boolean
+          - name: PermissionsQueryAllFiles
+            description: ''
+            data_type: boolean
+          - name: PermissionsModifyMetadata
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageCMS
+            description: ''
+            data_type: boolean
+          - name: PermissionsSandboxTestingInCommunityApp
+            description: ''
+            data_type: boolean
+          - name: PermissionsCanEditPrompts
+            description: ''
+            data_type: boolean
+          - name: PermissionsViewUserPII
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageHubConnections
+            description: ''
+            data_type: boolean
+          - name: PermissionsB2BMarketingAnalyticsUser
+            description: ''
+            data_type: boolean
+          - name: PermissionsTraceXdsQueries
+            description: ''
+            data_type: boolean
+          - name: PermissionsViewAllCustomSettings
+            description: ''
+            data_type: boolean
+          - name: PermissionsViewAllForeignKeyNames
+            description: ''
+            data_type: boolean
+          - name: PermissionsHeadlessCMSAccess
+            description: ''
+            data_type: boolean
+          - name: PermissionsLMEndMessagingSessionUserPerm
+            description: ''
+            data_type: boolean
+          - name: PermissionsConsentApiUpdate
+            description: ''
+            data_type: boolean
+          - name: PermissionsAccessContentBuilder
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageC360AConnections
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageReleaseUpdates
+            description: ''
+            data_type: boolean
+          - name: PermissionsViewAllProfiles
+            description: ''
+            data_type: boolean
+          - name: PermissionsSkipIdentityConfirmation
+            description: ''
+            data_type: boolean
+          - name: PermissionsSendCustomNotifications
+            description: ''
+            data_type: boolean
+          - name: PermissionsPackaging2Delete
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageTrustMeasures
+            description: ''
+            data_type: boolean
+          - name: PermissionsViewTrustMeasures
+            description: ''
+            data_type: boolean
+          - name: PermissionsIsotopeCToCUser
+            description: ''
+            data_type: boolean
+          - name: PermissionsHasUnlimitedErbScoringRequests
+            description: ''
+            data_type: boolean
+          - name: PermissionsIsotopeAccess
+            description: ''
+            data_type: boolean
+          - name: PermissionsIsotopeLEX
+            description: ''
+            data_type: boolean
+          - name: PermissionsQuipMetricsAccess
+            description: ''
+            data_type: boolean
+          - name: PermissionsQuipUserEngagementMetrics
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageExternalConnections
+            description: ''
+            data_type: boolean
+          - name: PermissionsAIViewInsightObjects
+            description: ''
+            data_type: boolean
+          - name: PermissionsAICreateInsightObjects
+            description: ''
+            data_type: boolean
+          - name: PermissionsViewMLModels
+            description: ''
+            data_type: boolean
+          - name: PermissionsNativeWebviewScrolling
+            description: ''
+            data_type: boolean
+          - name: PermissionsViewDeveloperName
+            description: ''
+            data_type: boolean
+          - name: PermissionsBypassMFAForUiLogins
+            description: ''
+            data_type: boolean
+          - name: PermissionsMultiStepSchedulingUser
+            description: ''
+            data_type: boolean
+          - name: PermissionsAccessToServiceProcess
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageOrchInstsAndWorkItems
+            description: ''
+            data_type: boolean
+          - name: PermissionsCMSECEAuthoringAccess
+            description: ''
+            data_type: boolean
+          - name: PermissionsManageDataspaceScope
+            description: ''
+            data_type: boolean
+          - name: PermissionsConfigureDataspaceScope
+            description: ''
+            data_type: boolean
+          - name: PermissionsEnableIPFSUpload
+            description: ''
+            data_type: boolean
+          - name: PermissionsEnableBCTransactionPolling
+            description: ''
+            data_type: boolean
+          - name: PermissionsFSCArcGraphCommunityUser
+            description: ''
+            data_type: boolean

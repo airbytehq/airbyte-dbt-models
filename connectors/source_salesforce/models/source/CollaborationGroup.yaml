@@ -1,0 +1,92 @@
+version: 2
+
+sources:
+  - name: source_salesforce
+    schema: '{{ var(''target_schema'', target.schema) }}'
+    database: '{{ var(''target_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: CollaborationGroup
+        columns:
+          - name: Id
+            description: ''
+            data_type: string
+          - name: Name
+            description: ''
+            data_type: string
+          - name: MemberCount
+            description: ''
+            data_type: integer
+          - name: OwnerId
+            description: ''
+            data_type: string
+          - name: CollaborationType
+            description: ''
+            data_type: string
+          - name: Description
+            description: ''
+            data_type: string
+          - name: CreatedDate
+            description: ''
+            data_type: string
+          - name: CreatedById
+            description: ''
+            data_type: string
+          - name: LastModifiedDate
+            description: ''
+            data_type: string
+          - name: LastModifiedById
+            description: ''
+            data_type: string
+          - name: SystemModstamp
+            description: ''
+            data_type: string
+          - name: FullPhotoUrl
+            description: ''
+            data_type: string
+          - name: MediumPhotoUrl
+            description: ''
+            data_type: string
+          - name: SmallPhotoUrl
+            description: ''
+            data_type: string
+          - name: LastFeedModifiedDate
+            description: ''
+            data_type: string
+          - name: InformationTitle
+            description: ''
+            data_type: string
+          - name: InformationBody
+            description: ''
+            data_type: string
+          - name: HasPrivateFieldsAccess
+            description: ''
+            data_type: boolean
+          - name: CanHaveGuests
+            description: ''
+            data_type: boolean
+          - name: LastViewedDate
+            description: ''
+            data_type: string
+          - name: LastReferencedDate
+            description: ''
+            data_type: string
+          - name: IsArchived
+            description: ''
+            data_type: boolean
+          - name: IsAutoArchiveDisabled
+            description: ''
+            data_type: boolean
+          - name: AnnouncementId
+            description: ''
+            data_type: string
+          - name: GroupEmail
+            description: ''
+            data_type: string
+          - name: BannerPhotoUrl
+            description: ''
+            data_type: string
+          - name: IsBroadcast
+            description: ''
+            data_type: boolean

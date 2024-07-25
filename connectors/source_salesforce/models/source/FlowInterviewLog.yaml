@@ -1,0 +1,65 @@
+version: 2
+
+sources:
+  - name: source_salesforce
+    schema: '{{ var(''target_schema'', target.schema) }}'
+    database: '{{ var(''target_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: FlowInterviewLog
+        columns:
+          - name: Id
+            description: ''
+            data_type: string
+          - name: OwnerId
+            description: ''
+            data_type: string
+          - name: IsDeleted
+            description: ''
+            data_type: boolean
+          - name: Name
+            description: ''
+            data_type: string
+          - name: CreatedDate
+            description: ''
+            data_type: string
+          - name: CreatedById
+            description: ''
+            data_type: string
+          - name: LastModifiedDate
+            description: ''
+            data_type: string
+          - name: LastModifiedById
+            description: ''
+            data_type: string
+          - name: SystemModstamp
+            description: ''
+            data_type: string
+          - name: FlowDeveloperName
+            description: ''
+            data_type: string
+          - name: FlowInterviewGuid
+            description: ''
+            data_type: string
+          - name: FlowVersionNumber
+            description: ''
+            data_type: integer
+          - name: InterviewStartTimestamp
+            description: ''
+            data_type: string
+          - name: InterviewEndTimestamp
+            description: ''
+            data_type: string
+          - name: InterviewDurationInMinutes
+            description: ''
+            data_type: number
+          - name: InterviewStatus
+            description: ''
+            data_type: string
+          - name: FlowNamespace
+            description: ''
+            data_type: string
+          - name: FlowLabel
+            description: ''
+            data_type: string

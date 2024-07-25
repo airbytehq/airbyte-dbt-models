@@ -1,0 +1,140 @@
+version: 2
+
+sources:
+  - name: source_salesforce
+    schema: '{{ var(''target_schema'', target.schema) }}'
+    database: '{{ var(''target_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: Describe
+        columns:
+          - name: actionOverrides
+            description: Specifies the action overrides for the object.
+            data_type: array
+          - name: activateable
+            description: Indicates if the object can be activated.
+            data_type: boolean
+          - name: associateEntityType
+            description: Specifies the associated entity type.
+            data_type: string
+          - name: associateParentEntity
+            description: Specifies the parent entity associated with the object.
+            data_type: string
+          - name: childRelationships
+            description: Contains information about the child relationships of the object.
+            data_type: array
+          - name: compactLayoutable
+            description: Indicates if the object supports compact layouts.
+            data_type: boolean
+          - name: createable
+            description: Indicates if the object can be created.
+            data_type: boolean
+          - name: custom
+            description: Indicates if the object is custom.
+            data_type: boolean
+          - name: customSetting
+            description: Indicates if the object is a custom setting.
+            data_type: boolean
+          - name: dataTranslationEnabled
+            description: Indicates if data translation is enabled for the object.
+            data_type: boolean
+          - name: deepCloneable
+            description: Indicates if the object can be deep cloned.
+            data_type: boolean
+          - name: defaultImplementation
+            description: Specifies the default implementation for the object.
+            data_type: string
+          - name: deletable
+            description: Indicates if the object can be deleted.
+            data_type: boolean
+          - name: deprecatedAndHidden
+            description: Indicates if the object is deprecated and hidden.
+            data_type: boolean
+          - name: extendedBy
+            description: Lists objects extended by this object.
+            data_type: string
+          - name: extendsInterfaces
+            description: Lists interfaces extended by this object.
+            data_type: string
+          - name: feedEnabled
+            description: Indicates if feeds are enabled for the object.
+            data_type: boolean
+          - name: fields
+            description: Contains information about the fields of the object.
+            data_type: array
+          - name: implementedBy
+            description: Specifies the objects implemented by this object.
+            data_type: string
+          - name: implementsInterfaces
+            description: Specifies the interfaces implemented by this object.
+            data_type: string
+          - name: isInterface
+            description: Indicates if the object is an interface.
+            data_type: boolean
+          - name: keyPrefix
+            description: Specifies the key prefix of the object.
+            data_type: string
+          - name: label
+            description: The label of the object.
+            data_type: string
+          - name: labelPlural
+            description: The plural label of the object.
+            data_type: string
+          - name: layoutable
+            description: Indicates if the object supports layouts.
+            data_type: boolean
+          - name: mergeable
+            description: Indicates if the object is mergeable.
+            data_type: boolean
+          - name: mruEnabled
+            description: Indicates if most recently used (MRU) is enabled for the object.
+            data_type: boolean
+          - name: name
+            description: The name of the object.
+            data_type: string
+          - name: namedLayoutInfos
+            description: Contains information about named layouts.
+            data_type: array
+          - name: networkScopeFieldName
+            description: Specifies the network scope field name.
+            data_type: string
+          - name: queryable
+            description: Indicates if the object is queryable.
+            data_type: boolean
+          - name: recordTypeInfos
+            description: Contains information about record types.
+            data_type: array
+          - name: replicateable
+            description: Indicates if the object can be replicated.
+            data_type: boolean
+          - name: retrieveable
+            description: Indicates if the object is retrieveable.
+            data_type: boolean
+          - name: searchable
+            description: Indicates if the object is searchable.
+            data_type: boolean
+          - name: searchLayoutable
+            description: Indicates if the object supports search layouts.
+            data_type: boolean
+          - name: supportedScopes
+            description: Contains information about supported scopes.
+            data_type: array
+          - name: triggerable
+            description: Indicates if the object is triggerable.
+            data_type: boolean
+          - name: undeletable
+            description: Indicates if the object is undeletable.
+            data_type: boolean
+          - name: updateable
+            description: Indicates if the object can be updated.
+            data_type: boolean
+          - name: urlDetail
+            description: The URL for the detailed view of the object.
+            data_type: string
+          - name: urlEdit
+            description: The URL for editing the object.
+            data_type: string
+          - name: urlNew
+            description: The URL for creating a new object.
+            data_type: string

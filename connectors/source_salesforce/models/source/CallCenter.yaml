@@ -1,0 +1,44 @@
+version: 2
+
+sources:
+  - name: source_salesforce
+    schema: '{{ var(''target_schema'', target.schema) }}'
+    database: '{{ var(''target_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: CallCenter
+        columns:
+          - name: Id
+            description: ''
+            data_type: string
+          - name: Name
+            description: ''
+            data_type: string
+          - name: InternalName
+            description: ''
+            data_type: string
+          - name: Version
+            description: ''
+            data_type: number
+          - name: AdapterUrl
+            description: ''
+            data_type: string
+          - name: CustomSettings
+            description: ''
+            data_type: string
+          - name: SystemModstamp
+            description: ''
+            data_type: string
+          - name: CreatedDate
+            description: ''
+            data_type: string
+          - name: CreatedById
+            description: ''
+            data_type: string
+          - name: LastModifiedDate
+            description: ''
+            data_type: string
+          - name: LastModifiedById
+            description: ''
+            data_type: string

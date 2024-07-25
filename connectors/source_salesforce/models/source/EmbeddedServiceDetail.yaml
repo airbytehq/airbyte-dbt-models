@@ -1,0 +1,107 @@
+version: 2
+
+sources:
+  - name: source_salesforce
+    schema: '{{ var(''target_schema'', target.schema) }}'
+    database: '{{ var(''target_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: EmbeddedServiceDetail
+        columns:
+          - name: Id
+            description: ''
+            data_type: string
+          - name: DurableId
+            description: ''
+            data_type: string
+          - name: Site
+            description: ''
+            data_type: string
+          - name: PrimaryColor
+            description: ''
+            data_type: string
+          - name: SecondaryColor
+            description: ''
+            data_type: string
+          - name: ContrastPrimaryColor
+            description: ''
+            data_type: string
+          - name: ContrastInvertedColor
+            description: ''
+            data_type: string
+          - name: NavBarColor
+            description: ''
+            data_type: string
+          - name: NavBarTextColor
+            description: ''
+            data_type: string
+          - name: SecondaryNavBarColor
+            description: ''
+            data_type: string
+          - name: Font
+            description: ''
+            data_type: string
+          - name: IsLiveAgentEnabled
+            description: ''
+            data_type: boolean
+          - name: IsFieldServiceEnabled
+            description: ''
+            data_type: boolean
+          - name: Width
+            description: ''
+            data_type: integer
+          - name: Height
+            description: ''
+            data_type: integer
+          - name: IsPrechatEnabled
+            description: ''
+            data_type: boolean
+          - name: CustomPrechatComponent
+            description: ''
+            data_type: string
+          - name: AvatarImg
+            description: ''
+            data_type: string
+          - name: SmallCompanyLogoImg
+            description: ''
+            data_type: string
+          - name: PrechatBackgroundImg
+            description: ''
+            data_type: string
+          - name: WaitingStateBackgroundImg
+            description: ''
+            data_type: string
+          - name: FontSize
+            description: ''
+            data_type: string
+          - name: OfflineCaseBackgroundImg
+            description: ''
+            data_type: string
+          - name: IsOfflineCaseEnabled
+            description: ''
+            data_type: boolean
+          - name: IsQueuePositionEnabled
+            description: ''
+            data_type: boolean
+          - name: ShouldShowNewAppointment
+            description: ''
+            data_type: boolean
+          - name: ShouldShowExistingAppointment
+            description: ''
+            data_type: boolean
+          - name: FieldServiceHomeImg
+            description: ''
+            data_type: string
+          - name: FieldServiceLogoImg
+            description: ''
+            data_type: string
+          - name: FieldServiceConfirmCardImg
+            description: ''
+            data_type: string
+          - name: ShouldHideAuthDialog
+            description: ''
+            data_type: boolean
+          - name: CustomMinimizedComponent
+            description: ''
+            data_type: string

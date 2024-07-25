@@ -1,0 +1,53 @@
+version: 2
+
+sources:
+  - name: source_salesforce
+    schema: '{{ var(''target_schema'', target.schema) }}'
+    database: '{{ var(''target_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: AuthSession
+        columns:
+          - name: Id
+            description: ''
+            data_type: string
+          - name: UsersId
+            description: ''
+            data_type: string
+          - name: CreatedDate
+            description: ''
+            data_type: string
+          - name: LastModifiedDate
+            description: ''
+            data_type: string
+          - name: NumSecondsValid
+            description: ''
+            data_type: integer
+          - name: UserType
+            description: ''
+            data_type: string
+          - name: SourceIp
+            description: ''
+            data_type: string
+          - name: LoginType
+            description: ''
+            data_type: string
+          - name: SessionType
+            description: ''
+            data_type: string
+          - name: SessionSecurityLevel
+            description: ''
+            data_type: string
+          - name: LogoutUrl
+            description: ''
+            data_type: string
+          - name: ParentId
+            description: ''
+            data_type: string
+          - name: LoginHistoryId
+            description: ''
+            data_type: string
+          - name: IsCurrent
+            description: ''
+            data_type: boolean

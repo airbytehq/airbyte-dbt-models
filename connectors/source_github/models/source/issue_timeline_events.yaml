@@ -1,0 +1,104 @@
+version: 2
+
+sources:
+  - name: source_github
+    schema: '{{ var(''target_schema'', target.schema) }}'
+    database: '{{ var(''target_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: issue_timeline_events
+        columns:
+          - name: repository
+            description: The repository associated with the issue
+            data_type: string
+          - name: issue_number
+            description: The number of the issue
+            data_type: integer
+          - name: labeled
+            description: ''
+            data_type: default
+          - name: unlabeled
+            description: ''
+            data_type: default
+          - name: milestoned
+            description: ''
+            data_type: default
+          - name: demilestoned
+            description: ''
+            data_type: default
+          - name: renamed
+            description: ''
+            data_type: default
+          - name: review_requested
+            description: ''
+            data_type: default
+          - name: review_request_removed
+            description: ''
+            data_type: default
+          - name: review_dismissed
+            description: ''
+            data_type: default
+          - name: locked
+            description: ''
+            data_type: default
+          - name: added_to_project
+            description: ''
+            data_type: default
+          - name: moved_columns_in_project
+            description: ''
+            data_type: default
+          - name: removed_from_project
+            description: ''
+            data_type: default
+          - name: converted_note_to_issue
+            description: ''
+            data_type: default
+          - name: comment
+            description: Timeline Comment Event
+            data_type: object
+          - name: cross-referenced
+            description: Timeline Cross Referenced Event
+            data_type: object
+          - name: committed
+            description: Timeline Committed Event
+            data_type: object
+          - name: closed
+            description: ''
+            data_type: default
+          - name: head_ref_deleted
+            description: ''
+            data_type: default
+          - name: head_ref_restored
+            description: ''
+            data_type: default
+          - name: reopened
+            description: ''
+            data_type: default
+          - name: reviewed
+            description: Timeline Reviewed Event
+            data_type: object
+          - name: commented
+            description: Timeline Comment Event
+            data_type: object
+          - name: commit_commented
+            description: Timeline Line Commented Event
+            data_type: object
+          - name: assigned
+            description: ''
+            data_type: default
+          - name: unassigned
+            description: ''
+            data_type: default
+          - name: state_change
+            description: ''
+            data_type: default
+          - name: connected
+            description: ''
+            data_type: default
+          - name: auto_squash_enabled
+            description: ''
+            data_type: default
+          - name: merged
+            description: ''
+            data_type: default

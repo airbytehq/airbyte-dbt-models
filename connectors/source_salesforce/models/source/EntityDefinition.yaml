@@ -1,0 +1,167 @@
+version: 2
+
+sources:
+  - name: source_salesforce
+    schema: '{{ var(''target_schema'', target.schema) }}'
+    database: '{{ var(''target_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: EntityDefinition
+        columns:
+          - name: Id
+            description: ''
+            data_type: string
+          - name: DurableId
+            description: ''
+            data_type: string
+          - name: LastModifiedDate
+            description: ''
+            data_type: string
+          - name: LastModifiedById
+            description: ''
+            data_type: string
+          - name: QualifiedApiName
+            description: ''
+            data_type: string
+          - name: NamespacePrefix
+            description: ''
+            data_type: string
+          - name: DeveloperName
+            description: ''
+            data_type: string
+          - name: MasterLabel
+            description: ''
+            data_type: string
+          - name: Label
+            description: ''
+            data_type: string
+          - name: PluralLabel
+            description: ''
+            data_type: string
+          - name: DefaultCompactLayoutId
+            description: ''
+            data_type: string
+          - name: IsCustomizable
+            description: ''
+            data_type: boolean
+          - name: IsApexTriggerable
+            description: ''
+            data_type: boolean
+          - name: IsWorkflowEnabled
+            description: ''
+            data_type: boolean
+          - name: IsProcessEnabled
+            description: ''
+            data_type: boolean
+          - name: IsCompactLayoutable
+            description: ''
+            data_type: boolean
+          - name: KeyPrefix
+            description: ''
+            data_type: string
+          - name: IsCustomSetting
+            description: ''
+            data_type: boolean
+          - name: IsDeprecatedAndHidden
+            description: ''
+            data_type: boolean
+          - name: IsReplicateable
+            description: ''
+            data_type: boolean
+          - name: IsRetrieveable
+            description: ''
+            data_type: boolean
+          - name: IsSearchLayoutable
+            description: ''
+            data_type: boolean
+          - name: IsSearchable
+            description: ''
+            data_type: boolean
+          - name: IsTriggerable
+            description: ''
+            data_type: boolean
+          - name: IsIdEnabled
+            description: ''
+            data_type: boolean
+          - name: IsEverCreatable
+            description: ''
+            data_type: boolean
+          - name: IsEverUpdatable
+            description: ''
+            data_type: boolean
+          - name: IsEverDeletable
+            description: ''
+            data_type: boolean
+          - name: IsFeedEnabled
+            description: ''
+            data_type: boolean
+          - name: IsQueryable
+            description: ''
+            data_type: boolean
+          - name: IsMruEnabled
+            description: ''
+            data_type: boolean
+          - name: DetailUrl
+            description: ''
+            data_type: string
+          - name: EditUrl
+            description: ''
+            data_type: string
+          - name: NewUrl
+            description: ''
+            data_type: string
+          - name: EditDefinitionUrl
+            description: ''
+            data_type: string
+          - name: HelpSettingPageName
+            description: ''
+            data_type: string
+          - name: HelpSettingPageUrl
+            description: ''
+            data_type: string
+          - name: RunningUserEntityAccessId
+            description: ''
+            data_type: string
+          - name: PublisherId
+            description: ''
+            data_type: string
+          - name: IsLayoutable
+            description: ''
+            data_type: boolean
+          - name: RecordTypesSupported
+            description: ''
+            data_type: string
+          - name: InternalSharingModel
+            description: ''
+            data_type: string
+          - name: ExternalSharingModel
+            description: ''
+            data_type: string
+          - name: HasSubtypes
+            description: ''
+            data_type: boolean
+          - name: IsSubtype
+            description: ''
+            data_type: boolean
+          - name: IsAutoActivityCaptureEnabled
+            description: ''
+            data_type: boolean
+          - name: IsInterface
+            description: ''
+            data_type: boolean
+          - name: ImplementsInterfaces
+            description: ''
+            data_type: string
+          - name: ImplementedBy
+            description: ''
+            data_type: string
+          - name: ExtendsInterfaces
+            description: ''
+            data_type: string
+          - name: ExtendedBy
+            description: ''
+            data_type: string
+          - name: DefaultImplementation
+            description: ''
+            data_type: string

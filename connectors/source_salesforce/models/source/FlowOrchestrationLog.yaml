@@ -1,0 +1,74 @@
+version: 2
+
+sources:
+  - name: source_salesforce
+    schema: '{{ var(''target_schema'', target.schema) }}'
+    database: '{{ var(''target_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: FlowOrchestrationLog
+        columns:
+          - name: Id
+            description: ''
+            data_type: string
+          - name: IsDeleted
+            description: ''
+            data_type: boolean
+          - name: Name
+            description: ''
+            data_type: string
+          - name: CreatedDate
+            description: ''
+            data_type: string
+          - name: CreatedById
+            description: ''
+            data_type: string
+          - name: LastModifiedDate
+            description: ''
+            data_type: string
+          - name: LastModifiedById
+            description: ''
+            data_type: string
+          - name: SystemModstamp
+            description: ''
+            data_type: string
+          - name: OrchestrationName
+            description: ''
+            data_type: string
+          - name: OrchestrationVersion
+            description: ''
+            data_type: integer
+          - name: OrchestrationInstanceId
+            description: ''
+            data_type: string
+          - name: StageName
+            description: ''
+            data_type: string
+          - name: StepName
+            description: ''
+            data_type: string
+          - name: Actor
+            description: ''
+            data_type: string
+          - name: Kind
+            description: ''
+            data_type: string
+          - name: Timestamp
+            description: ''
+            data_type: string
+          - name: Duration
+            description: ''
+            data_type: number
+          - name: Context
+            description: ''
+            data_type: string
+          - name: AssigneeType
+            description: ''
+            data_type: string
+          - name: Assignee
+            description: ''
+            data_type: string
+          - name: Comments
+            description: ''
+            data_type: string

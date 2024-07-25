@@ -1,0 +1,62 @@
+version: 2
+
+sources:
+  - name: source_salesforce
+    schema: '{{ var(''target_schema'', target.schema) }}'
+    database: '{{ var(''target_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: BriefcaseRule
+        columns:
+          - name: Id
+            description: ''
+            data_type: string
+          - name: IsDeleted
+            description: ''
+            data_type: boolean
+          - name: CreatedDate
+            description: ''
+            data_type: string
+          - name: CreatedById
+            description: ''
+            data_type: string
+          - name: LastModifiedDate
+            description: ''
+            data_type: string
+          - name: LastModifiedById
+            description: ''
+            data_type: string
+          - name: SystemModstamp
+            description: ''
+            data_type: string
+          - name: BriefcaseId
+            description: ''
+            data_type: string
+          - name: TargetEntity
+            description: ''
+            data_type: string
+          - name: ParentRuleId
+            description: ''
+            data_type: string
+          - name: FilterLogic
+            description: ''
+            data_type: string
+          - name: QueryScope
+            description: ''
+            data_type: string
+          - name: RecordLimit
+            description: ''
+            data_type: integer
+          - name: OrderBy
+            description: ''
+            data_type: string
+          - name: IsAscendingOrder
+            description: ''
+            data_type: boolean
+          - name: RelationshipField
+            description: ''
+            data_type: string
+          - name: RelationshipType
+            description: ''
+            data_type: string

@@ -1,0 +1,53 @@
+version: 2
+
+sources:
+  - name: source_github
+    schema: '{{ var(''target_schema'', target.schema) }}'
+    database: '{{ var(''target_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: teams
+        columns:
+          - name: organization
+            description: The organization to which the team belongs.
+            data_type: string
+          - name: id
+            description: The unique identifier of the team.
+            data_type: integer
+          - name: node_id
+            description: The node identifier of the team.
+            data_type: string
+          - name: url
+            description: The API URL of the team.
+            data_type: string
+          - name: html_url
+            description: The URL of the team on GitHub.
+            data_type: string
+          - name: name
+            description: The name of the team.
+            data_type: string
+          - name: slug
+            description: The unique URL-friendly name of the team.
+            data_type: string
+          - name: description
+            description: The description of the team.
+            data_type: string
+          - name: privacy
+            description: The privacy setting of the team.
+            data_type: string
+          - name: notification_setting
+            description: The notification setting of the team.
+            data_type: string
+          - name: permission
+            description: The permission level of the team.
+            data_type: string
+          - name: members_url
+            description: The URL to fetch members of the team.
+            data_type: string
+          - name: repositories_url
+            description: The URL to fetch repositories of the team.
+            data_type: string
+          - name: parent
+            description: The parent team of the team.
+            data_type: object

@@ -1,0 +1,35 @@
+version: 2
+
+sources:
+  - name: source_salesforce
+    schema: '{{ var(''target_schema'', target.schema) }}'
+    database: '{{ var(''target_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: UserShare
+        columns:
+          - name: Id
+            description: ''
+            data_type: string
+          - name: UserId
+            description: ''
+            data_type: string
+          - name: UserOrGroupId
+            description: ''
+            data_type: string
+          - name: UserAccessLevel
+            description: ''
+            data_type: string
+          - name: RowCause
+            description: ''
+            data_type: string
+          - name: LastModifiedDate
+            description: ''
+            data_type: string
+          - name: LastModifiedById
+            description: ''
+            data_type: string
+          - name: IsActive
+            description: ''
+            data_type: boolean

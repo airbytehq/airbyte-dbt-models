@@ -1,0 +1,59 @@
+version: 2
+
+sources:
+  - name: source_salesforce
+    schema: '{{ var(''target_schema'', target.schema) }}'
+    database: '{{ var(''target_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: UserAppMenuItem
+        columns:
+          - name: Id
+            description: ''
+            data_type: string
+          - name: AppMenuItemId
+            description: ''
+            data_type: string
+          - name: ApplicationId
+            description: ''
+            data_type: string
+          - name: Label
+            description: ''
+            data_type: string
+          - name: Description
+            description: ''
+            data_type: string
+          - name: Name
+            description: ''
+            data_type: string
+          - name: UserSortOrder
+            description: ''
+            data_type: integer
+          - name: SortOrder
+            description: ''
+            data_type: integer
+          - name: Type
+            description: ''
+            data_type: string
+          - name: LogoUrl
+            description: ''
+            data_type: string
+          - name: IconUrl
+            description: ''
+            data_type: string
+          - name: InfoUrl
+            description: ''
+            data_type: string
+          - name: StartUrl
+            description: ''
+            data_type: string
+          - name: MobileStartUrl
+            description: ''
+            data_type: string
+          - name: IsVisible
+            description: ''
+            data_type: boolean
+          - name: IsUsingAdminAuthorization
+            description: ''
+            data_type: boolean

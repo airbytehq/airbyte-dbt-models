@@ -1,0 +1,68 @@
+version: 2
+
+sources:
+  - name: source_github
+    schema: '{{ var(''target_schema'', target.schema) }}'
+    database: '{{ var(''target_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: users
+        columns:
+          - name: organization
+            description: The organization the user belongs to
+            data_type: string
+          - name: login
+            description: The username of the user
+            data_type: string
+          - name: id
+            description: The unique identification number of the user
+            data_type: integer
+          - name: node_id
+            description: The ID assigned to the user in the GraphQL API
+            data_type: string
+          - name: avatar_url
+            description: The URL of the user's avatar image
+            data_type: string
+          - name: gravatar_id
+            description: The Gravatar ID associated with the user's email
+            data_type: string
+          - name: url
+            description: The user's GitHub API URL
+            data_type: string
+          - name: html_url
+            description: The URL of the user's GitHub page
+            data_type: string
+          - name: followers_url
+            description: The URL listing the user's followers
+            data_type: string
+          - name: following_url
+            description: The URL listing the users being followed by the user
+            data_type: string
+          - name: gists_url
+            description: The URL of the user's gists
+            data_type: string
+          - name: starred_url
+            description: The URL listing repositories starred by the user
+            data_type: string
+          - name: subscriptions_url
+            description: The URL listing repositories the user is subscribed to
+            data_type: string
+          - name: organizations_url
+            description: The URL listing organizations the user belongs to
+            data_type: string
+          - name: repos_url
+            description: The URL listing repositories owned by the user
+            data_type: string
+          - name: events_url
+            description: The URL of the events that the user has been involved in
+            data_type: string
+          - name: received_events_url
+            description: The URL of events received by the user
+            data_type: string
+          - name: type
+            description: The type of user account (e.g., User or Organization)
+            data_type: string
+          - name: site_admin
+            description: Specifies if the user is a GitHub site administrator
+            data_type: boolean

@@ -1,0 +1,32 @@
+version: 2
+
+sources:
+  - name: source_github
+    schema: '{{ var(''target_schema'', target.schema) }}'
+    database: '{{ var(''target_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: pull_request_comment_reactions
+        columns:
+          - name: id
+            description: The unique identifier for the reaction.
+            data_type: integer
+          - name: node_id
+            description: A unique identifier for the reaction node.
+            data_type: string
+          - name: content
+            description: The type of reaction content, e.g., '+1', 'heart', 'laugh', etc.
+            data_type: string
+          - name: created_at
+            description: The timestamp when the reaction was created.
+            data_type: string
+          - name: user
+            description: ''
+            data_type: object
+          - name: repository
+            description: The repository associated with the pull request comment.
+            data_type: string
+          - name: comment_id
+            description: The ID of the pull request comment to which the reaction belongs.
+            data_type: integer

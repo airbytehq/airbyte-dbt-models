@@ -1,0 +1,74 @@
+version: 2
+
+sources:
+  - name: source_salesforce
+    schema: '{{ var(''target_schema'', target.schema) }}'
+    database: '{{ var(''target_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: Holiday
+        columns:
+          - name: Id
+            description: ''
+            data_type: string
+          - name: Name
+            description: ''
+            data_type: string
+          - name: Description
+            description: ''
+            data_type: string
+          - name: IsAllDay
+            description: ''
+            data_type: boolean
+          - name: ActivityDate
+            description: ''
+            data_type: string
+          - name: StartTimeInMinutes
+            description: ''
+            data_type: integer
+          - name: EndTimeInMinutes
+            description: ''
+            data_type: integer
+          - name: CreatedDate
+            description: ''
+            data_type: string
+          - name: CreatedById
+            description: ''
+            data_type: string
+          - name: LastModifiedDate
+            description: ''
+            data_type: string
+          - name: LastModifiedById
+            description: ''
+            data_type: string
+          - name: SystemModstamp
+            description: ''
+            data_type: string
+          - name: IsRecurrence
+            description: ''
+            data_type: boolean
+          - name: RecurrenceStartDate
+            description: ''
+            data_type: string
+          - name: RecurrenceEndDateOnly
+            description: ''
+            data_type: string
+          - name: RecurrenceType
+            description: ''
+            data_type: string
+          - name: RecurrenceInterval
+            description: ''
+            data_type: integer
+          - name: RecurrenceDayOfWeekMask
+            description: ''
+            data_type: integer
+          - name: RecurrenceDayOfMonth
+            description: ''
+            data_type: integer
+          - name: RecurrenceInstance
+            description: ''
+            data_type: string
+          - name: RecurrenceMonthOfYear
+            description: ''
+            data_type: string

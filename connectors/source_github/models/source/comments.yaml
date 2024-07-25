@@ -1,0 +1,53 @@
+version: 2
+
+sources:
+  - name: source_github
+    schema: '{{ var(''target_schema'', target.schema) }}'
+    database: '{{ var(''target_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: comments
+        columns:
+          - name: repository
+            description: Details about the repository to which the comment belongs
+            data_type: string
+          - name: id
+            description: The unique identifier of the comment
+            data_type: integer
+          - name: node_id
+            description: The unique identifier of the node
+            data_type: string
+          - name: user
+            description: ''
+            data_type: object
+          - name: url
+            description: The URL of the comment
+            data_type: string
+          - name: html_url
+            description: The URL of the comment on GitHub
+            data_type: string
+          - name: body
+            description: The content of the comment
+            data_type: string
+          - name: user_id
+            description: The unique identifier of the user
+            data_type: integer
+          - name: created_at
+            description: The date and time the comment was created
+            data_type: string
+          - name: updated_at
+            description: The date and time the comment was last updated
+            data_type: string
+          - name: issue_url
+            description: The URL of the issue to which the comment belongs
+            data_type: string
+          - name: author_association
+            description: The association of the comment author to the repository (e.g., owner, member, collaborator, contributor, etc.)
+            data_type: string
+          - name: reactions
+            description: ''
+            data_type: object
+          - name: performed_via_github_app
+            description: Details about the GitHub App that performed the action
+            data_type: object

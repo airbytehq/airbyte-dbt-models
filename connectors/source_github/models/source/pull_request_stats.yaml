@@ -1,0 +1,62 @@
+version: 2
+
+sources:
+  - name: source_github
+    schema: '{{ var(''target_schema'', target.schema) }}'
+    database: '{{ var(''target_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: pull_request_stats
+        columns:
+          - name: repository
+            description: The repository to which the pull request belongs.
+            data_type: string
+          - name: id
+            description: The unique identifier of the pull request.
+            data_type: integer
+          - name: node_id
+            description: The node ID of the pull request.
+            data_type: string
+          - name: number
+            description: The number of the pull request.
+            data_type: integer
+          - name: merged
+            description: Indicates if the pull request has been merged.
+            data_type: boolean
+          - name: mergeable
+            description: Indicates if the pull request is mergeable.
+            data_type: string
+          - name: can_be_rebased
+            description: Indicates whether the pull request can be rebased onto the base branch.
+            data_type: boolean
+          - name: merge_state_status
+            description: The status of the merge state for the pull request.
+            data_type: string
+          - name: merged_by
+            description: The user who merged the pull request.
+            data_type: object
+          - name: comments
+            description: The total number of comments on the pull request.
+            data_type: integer
+          - name: review_comments
+            description: The total number of review comments on the pull request.
+            data_type: integer
+          - name: maintainer_can_modify
+            description: Indicates if maintainers can modify the pull request.
+            data_type: boolean
+          - name: commits
+            description: The total number of commits in the pull request.
+            data_type: integer
+          - name: additions
+            description: The total number of lines added in the pull request.
+            data_type: integer
+          - name: deletions
+            description: The total number of lines deleted in the pull request.
+            data_type: integer
+          - name: changed_files
+            description: The number of files changed in the pull request.
+            data_type: integer
+          - name: updated_at
+            description: The date and time when the pull request was last updated.
+            data_type: string

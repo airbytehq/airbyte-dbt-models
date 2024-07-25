@@ -1,0 +1,62 @@
+version: 2
+
+sources:
+  - name: source_salesforce
+    schema: '{{ var(''target_schema'', target.schema) }}'
+    database: '{{ var(''target_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: RecordAction
+        columns:
+          - name: Id
+            description: ''
+            data_type: string
+          - name: IsDeleted
+            description: ''
+            data_type: boolean
+          - name: CreatedDate
+            description: ''
+            data_type: string
+          - name: CreatedById
+            description: ''
+            data_type: string
+          - name: LastModifiedDate
+            description: ''
+            data_type: string
+          - name: LastModifiedById
+            description: ''
+            data_type: string
+          - name: SystemModstamp
+            description: ''
+            data_type: string
+          - name: RecordId
+            description: ''
+            data_type: string
+          - name: FlowDefinition
+            description: ''
+            data_type: string
+          - name: FlowInterviewId
+            description: ''
+            data_type: string
+          - name: Order
+            description: ''
+            data_type: integer
+          - name: Status
+            description: ''
+            data_type: string
+          - name: Pinned
+            description: ''
+            data_type: string
+          - name: ActionType
+            description: ''
+            data_type: string
+          - name: ActionDefinition
+            description: ''
+            data_type: string
+          - name: IsMandatory
+            description: ''
+            data_type: boolean
+          - name: IsUiRemoveHidden
+            description: ''
+            data_type: boolean

@@ -1,0 +1,182 @@
+version: 2
+
+sources:
+  - name: source_github
+    schema: '{{ var(''target_schema'', target.schema) }}'
+    database: '{{ var(''target_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: organizations
+        columns:
+          - name: login
+            description: Login username of the organization.
+            data_type: string
+          - name: id
+            description: Unique identifier of the organization.
+            data_type: integer
+          - name: node_id
+            description: Node ID of the organization.
+            data_type: string
+          - name: url
+            description: URL to the organization's API endpoint.
+            data_type: string
+          - name: repos_url
+            description: URL to fetch repositories of the organization.
+            data_type: string
+          - name: events_url
+            description: URL to fetch events related to the organization.
+            data_type: string
+          - name: hooks_url
+            description: URL to manage webhooks for the organization.
+            data_type: string
+          - name: issues_url
+            description: URL to fetch issues related to the organization.
+            data_type: string
+          - name: members_url
+            description: URL to fetch members of the organization.
+            data_type: string
+          - name: public_members_url
+            description: URL to fetch public members of the organization.
+            data_type: string
+          - name: avatar_url
+            description: URL to the avatar image of the organization.
+            data_type: string
+          - name: description
+            description: Description of the organization.
+            data_type: string
+          - name: name
+            description: Name of the organization.
+            data_type: string
+          - name: company
+            description: Name of the company associated with the organization.
+            data_type: string
+          - name: blog
+            description: URL to the blog of the organization.
+            data_type: string
+          - name: location
+            description: Physical location of the organization.
+            data_type: string
+          - name: email
+            description: Email address of the organization.
+            data_type: string
+          - name: twitter_username
+            description: Twitter username of the organization.
+            data_type: string
+          - name: is_verified
+            description: Indicates if the organization is verified.
+            data_type: boolean
+          - name: has_organization_projects
+            description: Indicates if the organization has projects.
+            data_type: boolean
+          - name: has_repository_projects
+            description: Indicates if the organization has projects tied to repositories.
+            data_type: boolean
+          - name: public_repos
+            description: Number of public repositories owned by the organization.
+            data_type: integer
+          - name: public_gists
+            description: Number of public gists created by the organization.
+            data_type: integer
+          - name: followers
+            description: Number of followers the organization has.
+            data_type: integer
+          - name: following
+            description: Number of accounts the organization is following.
+            data_type: integer
+          - name: html_url
+            description: URL to the organization's profile page.
+            data_type: string
+          - name: created_at
+            description: Timestamp indicating when the organization was created.
+            data_type: string
+          - name: updated_at
+            description: Timestamp indicating when the organization was last updated.
+            data_type: string
+          - name: archived_at
+            description: Timestamp indicating when the organization was archived.
+            data_type: string
+          - name: type
+            description: Type of the organization.
+            data_type: string
+          - name: total_private_repos
+            description: Total number of private repositories owned by the organization.
+            data_type: integer
+          - name: owned_private_repos
+            description: Number of private repositories owned by the organization.
+            data_type: integer
+          - name: private_gists
+            description: Number of private gists created by the organization.
+            data_type: integer
+          - name: disk_usage
+            description: Disk space used by the organization.
+            data_type: integer
+          - name: collaborators
+            description: Number of collaborators the organization has.
+            data_type: integer
+          - name: billing_email
+            description: Email address associated with the organization's billing.
+            data_type: string
+          - name: default_repository_permission
+            description: Default permission level for new repositories.
+            data_type: string
+          - name: members_can_create_repositories
+            description: Indicates if members can create repositories.
+            data_type: boolean
+          - name: two_factor_requirement_enabled
+            description: Indicates if two-factor authentication is required for the organization.
+            data_type: boolean
+          - name: members_allowed_repository_creation_type
+            description: Type of repositories members are allowed to create.
+            data_type: string
+          - name: members_can_create_public_repositories
+            description: Indicates if members can create public repositories.
+            data_type: boolean
+          - name: members_can_create_private_repositories
+            description: Indicates if members can create private repositories.
+            data_type: boolean
+          - name: members_can_create_internal_repositories
+            description: Indicates if members can create internal repositories.
+            data_type: boolean
+          - name: members_can_create_pages
+            description: Indicates if members can create pages.
+            data_type: boolean
+          - name: members_can_fork_private_repositories
+            description: Indicates if members can fork private repositories.
+            data_type: boolean
+          - name: web_commit_signoff_required
+            description: Indicates if web commit signoff is required for the organization.
+            data_type: boolean
+          - name: members_can_create_public_pages
+            description: Indicates if members can create public pages.
+            data_type: boolean
+          - name: members_can_create_private_pages
+            description: Indicates if members can create private pages.
+            data_type: boolean
+          - name: plan
+            description: Information about the subscription plan of the organization.
+            data_type: object
+          - name: advanced_security_enabled_for_new_repositories
+            description: Indicates if advanced security features are enabled for new repositories within the organization.
+            data_type: boolean
+          - name: dependabot_alerts_enabled_for_new_repositories
+            description: Indicates if dependabot alerts are enabled for new repositories within the organization.
+            data_type: boolean
+          - name: dependabot_security_updates_enabled_for_new_repositories
+            description: Indicates if dependabot security updates are enabled for new repositories within the organization.
+            data_type: boolean
+          - name: dependency_graph_enabled_for_new_repositories
+            description: Indicates if dependency graph is enabled for new repositories within the organization.
+            data_type: boolean
+          - name: secret_scanning_enabled_for_new_repositories
+            description: Indicates if secret scanning is enabled for new repositories within the organization.
+            data_type: boolean
+          - name: secret_scanning_push_protection_enabled_for_new_repositories
+            description: Indicates if secret scanning push protection is enabled for new repositories.
+            data_type: boolean
+          - name: secret_scanning_push_protection_custom_link_enabled
+            description: Indicates if custom link for secret scanning push protection is enabled.
+            data_type: boolean
+          - name: secret_scanning_push_protection_custom_link
+            description: Custom link for secret scanning push protection.
+            data_type: string

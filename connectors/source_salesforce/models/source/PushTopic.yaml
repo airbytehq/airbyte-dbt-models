@@ -1,0 +1,65 @@
+version: 2
+
+sources:
+  - name: source_salesforce
+    schema: '{{ var(''target_schema'', target.schema) }}'
+    database: '{{ var(''target_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: PushTopic
+        columns:
+          - name: Id
+            description: ''
+            data_type: string
+          - name: Name
+            description: ''
+            data_type: string
+          - name: Query
+            description: ''
+            data_type: string
+          - name: ApiVersion
+            description: ''
+            data_type: number
+          - name: IsActive
+            description: ''
+            data_type: boolean
+          - name: NotifyForFields
+            description: ''
+            data_type: string
+          - name: NotifyForOperations
+            description: ''
+            data_type: string
+          - name: Description
+            description: ''
+            data_type: string
+          - name: NotifyForOperationCreate
+            description: ''
+            data_type: boolean
+          - name: NotifyForOperationUpdate
+            description: ''
+            data_type: boolean
+          - name: NotifyForOperationDelete
+            description: ''
+            data_type: boolean
+          - name: NotifyForOperationUndelete
+            description: ''
+            data_type: boolean
+          - name: IsDeleted
+            description: ''
+            data_type: boolean
+          - name: CreatedDate
+            description: ''
+            data_type: string
+          - name: CreatedById
+            description: ''
+            data_type: string
+          - name: LastModifiedDate
+            description: ''
+            data_type: string
+          - name: LastModifiedById
+            description: ''
+            data_type: string
+          - name: SystemModstamp
+            description: ''
+            data_type: string

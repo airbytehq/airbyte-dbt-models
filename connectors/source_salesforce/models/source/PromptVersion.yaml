@@ -1,0 +1,164 @@
+version: 2
+
+sources:
+  - name: source_salesforce
+    schema: '{{ var(''target_schema'', target.schema) }}'
+    database: '{{ var(''target_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: PromptVersion
+        columns:
+          - name: Id
+            description: ''
+            data_type: string
+          - name: IsDeleted
+            description: ''
+            data_type: boolean
+          - name: CreatedDate
+            description: ''
+            data_type: string
+          - name: CreatedById
+            description: ''
+            data_type: string
+          - name: LastModifiedDate
+            description: ''
+            data_type: string
+          - name: LastModifiedById
+            description: ''
+            data_type: string
+          - name: SystemModstamp
+            description: ''
+            data_type: string
+          - name: ParentId
+            description: ''
+            data_type: string
+          - name: MasterLabel
+            description: ''
+            data_type: string
+          - name: Description
+            description: ''
+            data_type: string
+          - name: DisplayType
+            description: ''
+            data_type: string
+          - name: DisplayPosition
+            description: ''
+            data_type: string
+          - name: TimesToDisplay
+            description: ''
+            data_type: integer
+          - name: DelayDays
+            description: ''
+            data_type: integer
+          - name: StartDate
+            description: ''
+            data_type: string
+          - name: EndDate
+            description: ''
+            data_type: string
+          - name: UserAccess
+            description: ''
+            data_type: string
+          - name: IsPublished
+            description: ''
+            data_type: boolean
+          - name: PublishedDate
+            description: ''
+            data_type: string
+          - name: PublishedByUserId
+            description: ''
+            data_type: string
+          - name: Header
+            description: ''
+            data_type: string
+          - name: DismissButtonLabel
+            description: ''
+            data_type: string
+          - name: ShouldDisplayActionButton
+            description: ''
+            data_type: boolean
+          - name: ActionButtonLabel
+            description: ''
+            data_type: string
+          - name: ActionButtonLink
+            description: ''
+            data_type: string
+          - name: Title
+            description: ''
+            data_type: string
+          - name: VersionNumber
+            description: ''
+            data_type: integer
+          - name: TargetPageType
+            description: ''
+            data_type: string
+          - name: TargetPageKey1
+            description: ''
+            data_type: string
+          - name: TargetPageKey2
+            description: ''
+            data_type: string
+          - name: TargetAppNamespacePrefix
+            description: ''
+            data_type: string
+          - name: TargetAppDeveloperName
+            description: ''
+            data_type: string
+          - name: Body
+            description: ''
+            data_type: string
+          - name: ShouldIgnoreGlobalDelay
+            description: ''
+            data_type: boolean
+          - name: UserProfileAccess
+            description: ''
+            data_type: string
+          - name: VideoLink
+            description: ''
+            data_type: string
+          - name: StepNumber
+            description: ''
+            data_type: integer
+          - name: ThemeColor
+            description: ''
+            data_type: string
+          - name: ThemeSaturation
+            description: ''
+            data_type: string
+          - name: TargetPageKey1Ref
+            description: ''
+            data_type: string
+          - name: ImageAltText
+            description: ''
+            data_type: string
+          - name: ImageId
+            description: ''
+            data_type: string
+          - name: ImageLink
+            description: ''
+            data_type: string
+          - name: ImageLocation
+            description: ''
+            data_type: string
+          - name: TargetPageKey3
+            description: ''
+            data_type: string
+          - name: ElementRelativePosition
+            description: ''
+            data_type: string
+          - name: ReferenceElementContext
+            description: ''
+            data_type: string
+          - name: IndexWithIsPublished
+            description: ''
+            data_type: string
+          - name: IndexWithoutIsPublished
+            description: ''
+            data_type: string
+          - name: TargetPageKey4
+            description: ''
+            data_type: string
+          - name: TargetRecordTypeId
+            description: ''
+            data_type: string

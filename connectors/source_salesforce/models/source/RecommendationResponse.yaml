@@ -1,0 +1,71 @@
+version: 2
+
+sources:
+  - name: source_salesforce
+    schema: '{{ var(''target_schema'', target.schema) }}'
+    database: '{{ var(''target_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: RecommendationResponse
+        columns:
+          - name: Id
+            description: ''
+            data_type: string
+          - name: IsDeleted
+            description: ''
+            data_type: boolean
+          - name: CreatedDate
+            description: ''
+            data_type: string
+          - name: CreatedById
+            description: ''
+            data_type: string
+          - name: LastModifiedDate
+            description: ''
+            data_type: string
+          - name: LastModifiedById
+            description: ''
+            data_type: string
+          - name: SystemModstamp
+            description: ''
+            data_type: string
+          - name: OnBehalfOf
+            description: ''
+            data_type: string
+          - name: OnBehalfOfType
+            description: ''
+            data_type: string
+          - name: OnBehalfOfName
+            description: ''
+            data_type: string
+          - name: RecommendationKey
+            description: ''
+            data_type: string
+          - name: RecommendationType
+            description: ''
+            data_type: string
+          - name: RecommendationName
+            description: ''
+            data_type: string
+          - name: ActionReference
+            description: ''
+            data_type: string
+          - name: Response
+            description: ''
+            data_type: string
+          - name: StrategyReference
+            description: ''
+            data_type: string
+          - name: StrategyVersion
+            description: ''
+            data_type: string
+          - name: ContextRecord
+            description: ''
+            data_type: string
+          - name: ContextRecordType
+            description: ''
+            data_type: string
+          - name: ContextRecordName
+            description: ''
+            data_type: string

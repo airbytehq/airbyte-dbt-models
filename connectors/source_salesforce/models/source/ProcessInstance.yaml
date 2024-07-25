@@ -1,0 +1,59 @@
+version: 2
+
+sources:
+  - name: source_salesforce
+    schema: '{{ var(''target_schema'', target.schema) }}'
+    database: '{{ var(''target_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: ProcessInstance
+        columns:
+          - name: Id
+            description: ''
+            data_type: string
+          - name: ProcessDefinitionId
+            description: ''
+            data_type: string
+          - name: TargetObjectId
+            description: ''
+            data_type: string
+          - name: Status
+            description: ''
+            data_type: string
+          - name: CompletedDate
+            description: ''
+            data_type: string
+          - name: LastActorId
+            description: ''
+            data_type: string
+          - name: ElapsedTimeInDays
+            description: ''
+            data_type: number
+          - name: ElapsedTimeInHours
+            description: ''
+            data_type: number
+          - name: ElapsedTimeInMinutes
+            description: ''
+            data_type: number
+          - name: SubmittedById
+            description: ''
+            data_type: string
+          - name: IsDeleted
+            description: ''
+            data_type: boolean
+          - name: CreatedDate
+            description: ''
+            data_type: string
+          - name: CreatedById
+            description: ''
+            data_type: string
+          - name: LastModifiedDate
+            description: ''
+            data_type: string
+          - name: LastModifiedById
+            description: ''
+            data_type: string
+          - name: SystemModstamp
+            description: ''
+            data_type: string

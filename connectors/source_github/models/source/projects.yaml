@@ -1,0 +1,53 @@
+version: 2
+
+sources:
+  - name: source_github
+    schema: '{{ var(''target_schema'', target.schema) }}'
+    database: '{{ var(''target_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: projects
+        columns:
+          - name: repository
+            description: The repository associated with the project.
+            data_type: string
+          - name: owner_url
+            description: The URL to view the owner or creator of the project.
+            data_type: string
+          - name: url
+            description: The URL for accessing the project.
+            data_type: string
+          - name: html_url
+            description: The HTML URL for viewing the project.
+            data_type: string
+          - name: columns_url
+            description: The URL to view the project's columns or categories.
+            data_type: string
+          - name: id
+            description: The unique identifier for the project.
+            data_type: integer
+          - name: node_id
+            description: The Node ID associated with the project.
+            data_type: string
+          - name: name
+            description: The name of the project.
+            data_type: string
+          - name: body
+            description: The description or main content of the project.
+            data_type: string
+          - name: number
+            description: The project number or identifier.
+            data_type: integer
+          - name: state
+            description: The state or status of the project.
+            data_type: string
+          - name: creator
+            description: ''
+            data_type: object
+          - name: created_at
+            description: The date and time when the project was created.
+            data_type: string
+          - name: updated_at
+            description: The date and time when the project was last updated.
+            data_type: string

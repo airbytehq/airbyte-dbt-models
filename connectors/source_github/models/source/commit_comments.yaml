@@ -1,0 +1,56 @@
+version: 2
+
+sources:
+  - name: source_github
+    schema: '{{ var(''target_schema'', target.schema) }}'
+    database: '{{ var(''target_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: commit_comments
+        columns:
+          - name: repository
+            description: Details of the repository to which the comment belongs
+            data_type: string
+          - name: html_url
+            description: The URL to view the comment on GitHub's web interface
+            data_type: string
+          - name: url
+            description: The API URL to fetch the details of the comment
+            data_type: string
+          - name: id
+            description: The unique identifier of the comment
+            data_type: integer
+          - name: node_id
+            description: The globally unique identifier for the comment
+            data_type: string
+          - name: body
+            description: The content of the comment
+            data_type: string
+          - name: path
+            description: The file path to which the comment is associated
+            data_type: string
+          - name: position
+            description: The position in the file at which the comment is located
+            data_type: integer
+          - name: line
+            description: The line number in the file at which the comment is located
+            data_type: integer
+          - name: commit_id
+            description: The identifier of the commit to which the comment is associated
+            data_type: string
+          - name: user
+            description: ''
+            data_type: object
+          - name: created_at
+            description: The date and time when the comment was created
+            data_type: string
+          - name: updated_at
+            description: The date and time when the comment was last updated
+            data_type: string
+          - name: author_association
+            description: The association of the user who made the comment with the repository (e.g., owner, collaborator, member, contributor)
+            data_type: string
+          - name: reactions
+            description: ''
+            data_type: object
