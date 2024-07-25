@@ -34,6 +34,11 @@ jobs:
         id: get_connector
         run: echo "::set-output name=connector::source_zendesk_support"
 
+      - name: Get what connector we are testing
+        run: |
+          pwd
+          ls
+
       - name: Run Integration Tests for Postgres
-        working-directory: ./connectors/${{ steps.get_connector.outputs.connector }}/integration_test
+        working-directory: connectors/${{ steps.get_connector.outputs.connector }}/integration_test
         run: dbt run --target postgres
