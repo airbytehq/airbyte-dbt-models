@@ -35,5 +35,5 @@ jobs:
         run: echo "::set-output name=connector::source_zendesk_support"
 
       - name: Run Integration Tests for Postgres
-        working-directory: /home/runner/work/airbyte-dbt-models/connectors/${{ steps.get_connector.outputs.connector }}/integration_test
+        working-directory: ./connectors/${{ steps.get_connector.outputs.connector }}/integration_test
         run: dbt run --target postgres
