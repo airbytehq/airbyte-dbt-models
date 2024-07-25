@@ -21,13 +21,16 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
 
+      - name: Install the project dependencies
+        run: poetry install
+
+      - name: Copy profiles
+        run: cp .github/ci/sample.profiles.yml ~/.dbt/profiles.yml
+
       - name: Get what connector we are testing
         id: get_connector
         run: echo "::set-output name=connector::source_zendesk_support"
 
-      - name: Install the project dependencies
-        working-directory: connectors/${{ steps.get_connector.outputs.connector }}
-        run: |
-          pwd
-          ls
-          poetry install
+      - name: Run dbt tests
+        working-directory: connectors/${{ steps.get_connector.outputs.connector }}/integration_test
+        run: dbt run --target postgres --vars '{"target_database": "postgres", "zendesk_database": "postgres"}'

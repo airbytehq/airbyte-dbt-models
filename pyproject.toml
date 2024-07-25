@@ -9,6 +9,8 @@ readme = "README.md"
 python = "^3.11"
 dbt = "^1.0.0.38.6"
 dbt-snowflake = "^1.8.3"
+dbt-bigquery = "^1.8.2"
+dbt-postgres = "^1.8.2"
 
 
 [build-system]
