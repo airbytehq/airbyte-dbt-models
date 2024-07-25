@@ -1,0 +1,935 @@
+version: 2
+
+sources:
+  - name: zendesk-support
+    schema: airbyte_schema
+    database: airbyte_database
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: sla_policies
+        columns:
+          - name: id
+            description: The unique identifier for the SLA policy.
+          - name: url
+            description: The URL link to access the SLA policy details.
+          - name: title
+            description: The title of the SLA policy.
+          - name: description
+            description: The description of the SLA policy.
+          - name: position
+            description: The position of the SLA policy.
+          - name: filter
+            description: Contains filtering criteria for retrieving SLA policies data.
+          - name: policy_metrics
+            description: Contains metrics associated with SLA policies.
+          - name: created_at
+            description: The timestamp for when the SLA policy was created.
+          - name: updated_at
+            description: The timestamp for when the SLA policy was last updated.
+      - name: satisfaction_ratings
+        columns:
+          - name: id
+            description: The unique identifier of the satisfaction rating entry.
+          - name: assignee_id
+            description: The unique identifier of the user assigned to the ticket.
+          - name: group_id
+            description: The unique identifier of the group associated with the ticket.
+          - name: reason_id
+            description: The unique identifier of the selected satisfaction rating reason.
+          - name: requester_id
+            description: The unique identifier of the requester who provided the rating.
+          - name: ticket_id
+            description: The unique identifier of the ticket associated with the satisfaction rating.
+          - name: updated_at
+            description: The date and time when the satisfaction rating was last updated.
+          - name: created_at
+            description: The date and time when the satisfaction rating was created.
+          - name: url
+            description: The URL to access the details of the satisfaction rating.
+          - name: score
+            description: The satisfaction score given by the requester (usually a numeric value).
+          - name: reason
+            description: The reason selected by the requester for the satisfaction rating.
+          - name: comment
+            description: The feedback comment provided by the requester.
+      - name: post_comments
+        columns:
+          - name: author_id
+            description: The unique identifier of the author of the comment.
+          - name: body
+            description: The content of the comment.
+          - name: created_at
+            description: The timestamp when the comment was created.
+          - name: html_url
+            description: The URL to access the comment in HTML format.
+          - name: id
+            description: The unique identifier of the comment.
+          - name: non_author_editor_id
+            description: The unique identifier of the non-author editor of the comment.
+          - name: non_author_updated_at
+            description: The timestamp when the comment was last updated by a non-author editor.
+          - name: official
+            description: Indicates if the comment is from an official source.
+          - name: post_id
+            description: The unique identifier of the post to which the comment belongs.
+          - name: updated_at
+            description: The timestamp when the comment was last updated.
+          - name: url
+            description: The URL to access the comment.
+          - name: vote_count
+            description: The total count of votes the comment has received.
+          - name: vote_sum
+            description: The sum of all votes (positive and negative) the comment has received.
+      - name: ticket_audits
+        columns:
+          - name: events
+            description: List of events related to the ticket audit
+          - name: author_id
+            description: ID of the author of the ticket audit
+          - name: metadata
+            description: Metadata associated with the ticket audit
+          - name: id
+            description: Unique identifier for the ticket audit
+          - name: created_at
+            description: Date and time when the ticket audit was created
+          - name: ticket_id
+            description: ID of the ticket associated with the audit
+          - name: via
+            description: Details of the channel via which the audit occurred
+          - name: attachments
+            description: Attachments associated with the ticket audit
+      - name: ticket_comments
+        columns:
+          - name: created_at
+            description: Timestamp indicating when the ticket comment was created.
+          - name: timestamp
+            description: UNIX timestamp representing the time the ticket comment was created.
+          - name: body
+            description: Text body of the ticket comment.
+          - name: id
+            description: Unique identifier for the ticket comment.
+          - name: ticket_id
+            description: Identifier of the ticket to which the comment belongs.
+          - name: event_type
+            description: Type of event associated with the ticket comment.
+          - name: type
+            description: Type of the ticket comment.
+          - name: via_reference_id
+            description: Reference ID associated with the channel through which the ticket comment was created.
+          - name: html_body
+            description: HTML formatted body of the ticket comment.
+          - name: plain_body
+            description: Plain text version of the ticket comment body.
+          - name: public
+            description: Flag indicating if the ticket comment is public or private.
+          - name: audit_id
+            description: Unique identifier for the audit associated with this ticket comment.
+          - name: author_id
+            description: Identifier of the author of the ticket comment.
+          - name: via
+            description: Channel through which the ticket comment was created.
+          - name: metadata
+            description: Additional metadata associated with the ticket comment.
+          - name: attachments
+            description: Information about any attachments included in the ticket comment.
+          - name: uploads
+            description: Information about any file uploads associated with the ticket comment.
+      - name: ticket_metrics
+        columns:
+          - name: metric
+            description: Ticket metrics data
+          - name: id
+            description: Unique identifier for the ticket
+          - name: time
+            description: Time related to the ticket
+          - name: instance_id
+            description: ID of the Zendesk instance associated with the ticket
+          - name: ticket_id
+            description: ID of the ticket
+          - name: status
+            description: The current status of the ticket (open, pending, solved, etc.).
+          - name: type
+            description: Type of ticket
+          - name: agent_wait_time_in_minutes
+            description: The total time an agent spent waiting before responding to the ticket.
+          - name: assignee_stations
+            description: Number of stations assigned to the ticket's assignee
+          - name: created_at
+            description: Timestamp when the ticket was created
+          - name: first_resolution_time_in_minutes
+            description: The time taken to provide the initial resolution to the ticket.
+          - name: full_resolution_time_in_minutes
+            description: The total time taken to completely resolve the ticket.
+          - name: group_stations
+            description: Number of stations assigned to the ticket's group
+          - name: latest_comment_added_at
+            description: Timestamp when the latest comment was added
+          - name: on_hold_time_in_minutes
+            description: The cumulative time the ticket spent on hold during its lifecycle.
+          - name: reopens
+            description: Number of times the ticket has been reopened
+          - name: replies
+            description: Number of replies made on the ticket
+          - name: reply_time_in_minutes
+            description: The time taken to reply to the ticket after initial submission.
+          - name: requester_updated_at
+            description: Timestamp when the requester information was last updated
+          - name: requester_wait_time_in_minutes
+            description: The time a requester had to wait before the ticket was assigned to an agent.
+          - name: status_updated_at
+            description: Timestamp when the status of the ticket was last updated
+          - name: updated_at
+            description: Timestamp when the ticket was last updated
+          - name: url
+            description: URL link to the ticket details
+          - name: initially_assigned_at
+            description: Timestamp when the ticket was initially assigned
+          - name: assigned_at
+            description: Timestamp when the ticket was assigned to an agent
+          - name: solved_at
+            description: Timestamp when the ticket was solved
+          - name: assignee_updated_at
+            description: Timestamp when the assignee was last updated
+          - name: custom_status_updated_at
+            description: Timestamp when the custom status was last updated
+          - name: reply_time_in_seconds
+            description: The time taken to reply to the ticket after initial submission in seconds.
+      - name: account_attributes
+        columns:
+          - name: id
+            description: The unique identifier for the account attribute.
+          - name: name
+            description: The name or label of the account attribute.
+          - name: created_at
+            description: The timestamp indicating when the account attribute was created.
+          - name: updated_at
+            description: The timestamp indicating when the account attribute was last updated.
+          - name: url
+            description: The URL that can be used to access the account attribute.
+      - name: deleted_tickets
+        columns:
+          - name: actor
+            description: The user who performed the deletion action
+          - name: id
+            description: The unique identifier of the deleted ticket
+          - name: subject
+            description: The subject or title of the deleted ticket
+          - name: description
+            description: Additional details or comments about the deleted ticket
+          - name: deleted_at
+            description: The timestamp when the ticket was deleted
+          - name: previous_state
+            description: The state of the ticket before it was deleted
+      - name: organizations
+        columns:
+          - name: group_id
+            description: The ID of the group to which the organization belongs
+          - name: created_at
+            description: The date and time when the organization was created
+          - name: tags
+            description: List of tags associated with the organization
+          - name: shared_tickets
+            description: Indicates if tickets are shared with this organization
+          - name: organization_fields
+            description: Custom fields associated with the organization
+          - name: notes
+            description: Any notes or comments related to the organization
+          - name: domain_names
+            description: List of domain names associated with the organization
+          - name: shared_comments
+            description: Indicates if comments are shared with this organization
+          - name: details
+            description: Additional details about the organization
+          - name: updated_at
+            description: The date and time when the organization was last updated
+          - name: name
+            description: The name of the organization
+          - name: external_id
+            description: The external ID of the organization
+          - name: url
+            description: The URL of the organization
+          - name: id
+            description: The unique ID of the organization
+          - name: deleted_at
+            description: The date and time when the organization was deleted
+      - name: group_memberships
+        columns:
+          - name: default
+            description: Flag indicating if this group membership is the default one.
+          - name: url
+            description: URL pointing to the group membership resource.
+          - name: user_id
+            description: The unique identifier of the user associated with this group membership.
+          - name: updated_at
+            description: Timestamp indicating when the group membership was last updated.
+          - name: group_id
+            description: The unique identifier of the group this membership belongs to.
+          - name: created_at
+            description: Timestamp indicating when the group membership was created.
+          - name: id
+            description: The unique identifier of the group membership.
+      - name: organization_fields
+        columns:
+          - name: active
+            description: Indicates whether the organization field is currently active or not
+          - name: created_at
+            description: The date and time when the organization field was created
+          - name: custom_field_options
+            description: The list of custom field options available for this organization field
+          - name: description
+            description: The description of the organization field
+          - name: id
+            description: The unique identifier of the organization field
+          - name: key
+            description: The key associated with the organization field
+          - name: position
+            description: The position of the organization field
+          - name: raw_description
+            description: The raw description of the organization field
+          - name: raw_title
+            description: The raw title of the organization field
+          - name: regexp_for_validation
+            description: Regular expression for validation of the organization field data
+          - name: relationship_filter
+            description: Relationship filter associated with the organization field
+          - name: relationship_target_type
+            description: The target type of the relationship for this organization field
+          - name: system
+            description: Indicates whether the organization field is a system field or not
+          - name: tag
+            description: Tags associated with the organization field
+          - name: title
+            description: The title of the organization field
+          - name: type
+            description: The type of the organization field data
+          - name: updated_at
+            description: The date and time when the organization field was last updated
+          - name: url
+            description: The URL associated with the organization field
+      - name: users
+        columns:
+          - name: verified
+            description: Indicates if the user's account is verified.
+          - name: role
+            description: The role or position of the user.
+          - name: tags
+            description: Tags associated with the user.
+          - name: chat_only
+            description: Specifies if the user can only participate in chat interactions.
+          - name: role_type
+            description: The type of role assigned to the user.
+          - name: phone
+            description: The phone number associated with the user.
+          - name: organization_id
+            description: The ID of the organization the user belongs to.
+          - name: details
+            description: Additional details or information about the user.
+          - name: email
+            description: The email address associated with the user.
+          - name: only_private_comments
+            description: Indicates if the user can only create private comments.
+          - name: signature
+            description: The user's email signature.
+          - name: restricted_agent
+            description: Specifies if the user is a restricted agent.
+          - name: moderator
+            description: Specifies if the user has moderator privileges.
+          - name: updated_at
+            description: The datetime when the user account was last updated.
+          - name: external_id
+            description: An external identifier for the user.
+          - name: time_zone
+            description: The time zone of the user.
+          - name: photo
+            description: Information about the user's profile photo.
+          - name: name
+            description: The name of the user.
+          - name: shared
+            description: Indicates if the user's account is shared.
+          - name: id
+            description: Unique identifier for the user.
+          - name: created_at
+            description: The datetime when the user account was created.
+          - name: suspended
+            description: Indicates if the user's account is suspended.
+          - name: shared_agent
+            description: Specifies if the user is a shared agent.
+          - name: shared_phone_number
+            description: Specifies if the user has a shared phone number.
+          - name: user_fields
+            description: Custom fields associated with the user.
+          - name: last_login_at
+            description: The datetime of the user's last login.
+          - name: alias
+            description: An alternative name or identifier for the user.
+          - name: two_factor_auth_enabled
+            description: Specifies if two-factor authentication is enabled for the user.
+          - name: notes
+            description: Any notes or comments related to the user.
+          - name: default_group_id
+            description: The default group ID for the user.
+          - name: url
+            description: The URL of the user's details.
+          - name: active
+            description: Indicates if the user is currently active.
+          - name: permanently_deleted
+            description: Specifies if the user has been permanently deleted.
+          - name: locale_id
+            description: The locale ID of the user.
+          - name: custom_role_id
+            description: The custom role ID assigned to the user.
+          - name: ticket_restriction
+            description: Specifies the user's ticket restriction.
+          - name: locale
+            description: The preferred locale of the user.
+          - name: report_csv
+            description: The report in CSV format associated with the user.
+          - name: iana_time_zone
+            description: The IANA time zone of the user.
+      - name: organization_memberships
+        columns:
+          - name: default
+            description: Flag indicating if this organization membership is the default one for the user.
+          - name: url
+            description: The URL for accessing the details of this organization membership.
+          - name: updated_at
+            description: The date and time when the organization membership was last updated.
+          - name: created_at
+            description: The date and time when the organization membership was created.
+          - name: id
+            description: Unique identifier for the organization membership.
+          - name: user_id
+            description: The ID of the user associated with the organization membership.
+          - name: organization_id
+            description: The ID of the organization associated with the membership.
+          - name: organization_name
+            description: The name of the organization associated with the membership.
+          - name: view_tickets
+            description: Flag indicating if the user can view tickets within the organization.
+      - name: ticket_metric_events
+        columns:
+          - name: metric
+            description: Type of metric being tracked for the ticket
+          - name: id
+            description: Unique identifier for the ticket metric event
+          - name: time
+            description: Timestamp when the metric event occurred
+          - name: instance_id
+            description: Unique identifier for the specific instance of the metric event
+          - name: ticket_id
+            description: Unique identifier for the ticket associated with the metric event
+          - name: type
+            description: Type of metric event (e.g., update, change, escalation)
+      - name: ticket_forms
+        columns:
+          - name: agent_conditions
+            description: Conditions that restrict when the ticket form is available to agents.
+          - name: end_user_conditions
+            description: Conditions that restrict when the ticket form is available to end users.
+          - name: created_at
+            description: The date and time when the ticket form was created.
+          - name: name
+            description: The name of the ticket form.
+          - name: display_name
+            description: The display name of the ticket form.
+          - name: raw_display_name
+            description: The raw display name of the ticket form.
+          - name: position
+            description: The order position of the ticket form within a list.
+          - name: raw_name
+            description: The raw name of the ticket form.
+          - name: updated_at
+            description: The date and time when the ticket form was last updated.
+          - name: active
+            description: Indicates if the ticket form is currently active.
+          - name: default
+            description: Indicates if the ticket form is the default form.
+          - name: in_all_brands
+            description: Indicates if the ticket form is available in all brands.
+          - name: end_user_visible
+            description: Indicates if the ticket form is visible to end users.
+          - name: url
+            description: The URL to access the ticket form.
+          - name: id
+            description: Unique identifier for the ticket form.
+          - name: restricted_brand_ids
+            description: An array of brand IDs under which the ticket form is restricted to be used.
+          - name: ticket_field_ids
+            description: An array of ticket field IDs that are associated with the ticket form.
+      - name: attribute_definitions
+        columns:
+          - name: title
+            description: Title of the attribute definition.
+          - name: subject
+            description: Subject or topic of this attribute definition.
+          - name: type
+            description: Data type of the attribute.
+          - name: group
+            description: The group to which this attribute definition belongs.
+          - name: nullable
+            description: Indicates if this attribute definition can be null.
+          - name: repeatable
+            description: Specifies if this attribute definition can be repeated.
+          - name: operators
+            description: List of operators allowed for this attribute definition.
+          - name: values
+            description: List of values available for this attribute definition.
+          - name: condition
+            description: The condition that needs to be met for this attribute definition.
+          - name: confition
+            description: Missing field description, please add.
+          - name: metadata
+            description: Additional metadata related to this attribute definition.
+      - name: macros
+        columns:
+          - name: id
+            description: Unique identifier for the macro
+          - name: position
+            description: The position/order of the macro
+          - name: restriction
+            description: Restrictions applied to the macro.
+          - name: title
+            description: The title of the macro
+          - name: created_at
+            description: The date and time when the macro was created
+          - name: url
+            description: URL to access the macro details
+          - name: description
+            description: Additional information or notes about the macro
+          - name: default
+            description: Indicates if the macro is set as the default
+          - name: updated_at
+            description: The date and time when the macro was last updated
+          - name: active
+            description: Indicates if the macro is currently active
+          - name: raw_title
+            description: The title of the macro in its raw form
+          - name: actions
+            description: List of actions defined within the macro.
+      - name: ticket_fields
+        columns:
+          - name: created_at
+            description: The date and time when the ticket field was created.
+          - name: title_in_portal
+            description: The title of the ticket field visible in the portal.
+          - name: visible_in_portal
+            description: Indicates whether the ticket field is visible in the portal or not.
+          - name: collapsed_for_agents
+            description: Specifies if the ticket field is collapsed for agents.
+          - name: regexp_for_validation
+            description: Regular expression for validation of the ticket field value.
+          - name: title
+            description: The title of the ticket field.
+          - name: position
+            description: Position of the ticket field.
+          - name: type
+            description: Type of the ticket field.
+          - name: editable_in_portal
+            description: Indicates whether the ticket field is editable in the portal or not.
+          - name: raw_title_in_portal
+            description: The raw title of the ticket field visible in the portal.
+          - name: raw_description
+            description: The raw description of the ticket field.
+          - name: custom_field_options
+            description: Options for custom ticket field with properties like default, id, name, raw_name, and value.
+          - name: updated_at
+            description: The date and time when the ticket field was last updated.
+          - name: tag
+            description: Tag associated with the ticket field.
+          - name: removable
+            description: Specifies if the ticket field is removable.
+          - name: active
+            description: Indicates whether the ticket field is active or not.
+          - name: url
+            description: URL of the ticket field.
+          - name: raw_title
+            description: The raw title of the ticket field.
+          - name: required
+            description: Indicates if the ticket field is required.
+          - name: id
+            description: The unique identifier of the ticket field.
+          - name: description
+            description: Description of the ticket field.
+          - name: agent_description
+            description: The description of the ticket field visible to agents.
+          - name: required_in_portal
+            description: Specifies if the ticket field is required in the portal.
+          - name: system_field_options
+            description: Options for the system field associated with the ticket field.
+          - name: custom_statuses
+            description: Custom statuses associated with the ticket field.
+          - name: key
+            description: Key associated with the ticket field.
+          - name: sub_type_id
+            description: The subtype identifier of the ticket field.
+      - name: schedules
+        columns:
+          - name: id
+            description: The unique identifier for the schedule
+          - name: name
+            description: The name of the schedule
+          - name: intervals
+            description: List of time intervals within the schedule
+          - name: time_zone
+            description: The time zone in which the schedule operates
+          - name: created_at
+            description: The date and time when the schedule was created
+          - name: updated_at
+            description: The date and time when the schedule was last updated
+      - name: groups
+        columns:
+          - name: name
+            description: The name of the group.
+          - name: created_at
+            description: The date and time when the group was created.
+          - name: url
+            description: The URL of the group.
+          - name: updated_at
+            description: The date and time when the group was last updated.
+          - name: default
+            description: Indicates if the group is set as the default group.
+          - name: deleted
+            description: Indicates if the group has been deleted.
+          - name: description
+            description: The description or details about the group.
+          - name: id
+            description: The unique identifier of the group.
+          - name: is_public
+            description: Indicates whether the group is public or private.
+      - name: posts
+        columns:
+          - name: author_id
+            description: The unique identifier of the author of the post.
+          - name: closed
+            description: Indicates whether the post is closed or open for further comments.
+          - name: comment_count
+            description: The total number of comments on the post.
+          - name: content_tag_ids
+            description: Array containing unique identifiers of tags associated with the post.
+          - name: details
+            description: Additional details or content of the post.
+          - name: featured
+            description: Indicates whether the post is featured or not.
+          - name: follower_count
+            description: The number of users following the post for updates.
+          - name: frozen
+            description: Indicates whether the post content is frozen or editable.
+          - name: html_url
+            description: The URL that directs to the HTML version of the post.
+          - name: id
+            description: The unique identifier of the post.
+          - name: non_author_editor_id
+            description: The unique identifier of a user who is not the author but edited the post.
+          - name: non_author_updated_at
+            description: The date and time when a non-author user last updated the post.
+          - name: pinned
+            description: Indicates if the post is pinned to stay on top of the list.
+          - name: status
+            description: The current status of the post, such as 'open', 'solved', 'archived', etc.
+          - name: title
+            description: The title or headline of the post.
+          - name: topic_id
+            description: The identifier of the topic under which the post belongs.
+          - name: vote_count
+            description: The total count of votes the post has received.
+          - name: vote_sum
+            description: The sum of all votes received considering both upvotes and downvotes.
+          - name: created_at
+            description: The date and time when the post was created.
+          - name: url
+            description: The URL that points to the post details.
+          - name: description
+            description: A brief summary or overview of the post content.
+          - name: updated_at
+            description: The date and time of the last update made to the post.
+      - name: user_fields
+        columns:
+          - name: active
+            description: Flag indicating if the user field is currently active or not.
+          - name: created_at
+            description: Timestamp indicating when the user field was created.
+          - name: description
+            description: Detailed description of the user field.
+          - name: id
+            description: Unique identifier for the user field.
+          - name: key
+            description: Unique key associated with the user field.
+          - name: position
+            description: Position index of the user field in the user profile.
+          - name: raw_description
+            description: Raw HTML content for the user field description.
+          - name: raw_title
+            description: Raw HTML content for the user field title.
+          - name: regexp_for_validation
+            description: Regular expression for validating the user field value.
+          - name: system
+            description: Flag indicating if the user field is a system default field or a custom field.
+          - name: tag
+            description: Tag associated with the user field for categorization.
+          - name: title
+            description: Title or name of the user field.
+          - name: type
+            description: Data type of the user field value.
+          - name: updated_at
+            description: Timestamp indicating when the user field was last updated.
+          - name: url
+            description: URL pointing to the user field's endpoint for detailed information.
+      - name: votes
+        columns:
+          - name: created_at
+            description: Timestamp when the vote was created
+          - name: id
+            description: Unique identifier for the vote
+          - name: item_id
+            description: Identifier of the item that was voted on
+          - name: item_type
+            description: Type of the item that was voted on (e.g., ticket, article)
+          - name: updated_at
+            description: Timestamp when the vote was last updated
+          - name: url
+            description: URL of the resource related to the vote
+          - name: user_id
+            description: Unique identifier of the user who voted
+          - name: value
+            description: Value of the vote (e.g., upvote, downvote)
+      - name: brands
+        columns:
+          - name: id
+            description: Unique identifier for the brand.
+          - name: name
+            description: Name of the brand.
+          - name: logo
+            description: URL of the brand's logo.
+          - name: brand_url
+            description: URL of the brand's website.
+          - name: host_mapping
+            description: Mapping for the brand's host.
+          - name: subdomain
+            description: Subdomain assigned to the brand.
+          - name: url
+            description: URL of the brand's API endpoint.
+          - name: ticket_form_ids
+            description: List of IDs for ticket forms associated with the brand.
+          - name: signature_template
+            description: Template for the brand's signature.
+          - name: has_help_center
+            description: Indicates whether the brand has a help center.
+          - name: help_center_state
+            description: State of the help center for the brand.
+          - name: active
+            description: Indicates whether the brand is currently active or not.
+          - name: default
+            description: Indicates if the brand is the default brand.
+          - name: is_deleted
+            description: Indicates if the brand has been deleted.
+          - name: created_at
+            description: Timestamp of when the brand was created.
+          - name: updated_at
+            description: Timestamp of when the brand was last updated.
+      - name: articles
+        columns:
+          - name: author_id
+            description: The unique identifier of the author who created the article.
+          - name: body
+            description: The main content or body of the article.
+          - name: comments_disabled
+            description: Indicates whether comments are disabled for the article.
+          - name: content_tag_ids
+            description: An array of unique identifiers of content tags associated with the article.
+          - name: created_at
+            description: The date and time when the article was created.
+          - name: draft
+            description: Indicates whether the article is in draft mode.
+          - name: edited_at
+            description: The date and time when the article was last edited.
+          - name: html_url
+            description: The URL of the article in HTML format.
+          - name: id
+            description: The unique identifier of the article.
+          - name: label_names
+            description: An array of label names associated with the article.
+          - name: locale
+            description: The language locale of the article.
+          - name: name
+            description: The name of the article.
+          - name: outdated
+            description: Indicates whether the article is outdated.
+          - name: outdated_locales
+            description: An array of language locales in which the article is outdated.
+          - name: permission_group_id
+            description: The unique identifier of the permission group for the article.
+          - name: position
+            description: The position order of the article within its section.
+          - name: promoted
+            description: Indicates whether the article is promoted.
+          - name: section_id
+            description: The unique identifier of the section to which the article belongs.
+          - name: source_locale
+            description: The original language locale of the article.
+          - name: title
+            description: The title or heading of the article.
+          - name: updated_at
+            description: The date and time when the article was last updated.
+          - name: url
+            description: The URL of the article.
+          - name: user_segment_id
+            description: The unique identifier of the user segment targeted by the article.
+          - name: vote_count
+            description: The total count of votes received for the article.
+          - name: vote_sum
+            description: The sum of votes received for the article (considering upvotes and downvotes).
+      - name: tags
+        columns:
+          - name: count
+            description: The number of tags associated with the fetched data.
+          - name: name
+            description: The name of the tag associated with the fetched data.
+      - name: audit_logs
+        columns:
+          - name: action
+            description: The type of action performed in the audit log.
+          - name: action_label
+            description: A human-readable label representing the action.
+          - name: actor_id
+            description: The ID of the actor (user) who performed the action.
+          - name: actor_name
+            description: The name of the actor (user) who performed the action.
+          - name: change_description
+            description: Description of the change made.
+          - name: created_at
+            description: The date and time when the audit log entry was created.
+          - name: id
+            description: Unique identifier for the audit log entry.
+          - name: ip_address
+            description: The IP address from which the action was performed.
+          - name: source_id
+            description: The ID of the source object related to the action.
+          - name: source_label
+            description: A human-readable label representing the source object.
+          - name: source_type
+            description: The type of the source object.
+          - name: url
+            description: The URL associated with the action or source object.
+      - name: ticket_skips
+        columns:
+          - name: created_at
+            description: The timestamp when the ticket skip entry was created
+          - name: id
+            description: Unique identifier for the ticket skip entry
+          - name: reason
+            description: The reason for skipping the ticket
+          - name: ticket_id
+            description: The unique identifier of the skipped ticket
+          - name: updated_at
+            description: The timestamp when the ticket skip entry was last updated
+          - name: user_id
+            description: The unique identifier of the user who skipped the ticket
+          - name: ticket
+            description: Information related to the skipped ticket
+      - name: ticket_activities
+        columns:
+          - name: actor
+            description: The full user record of the user responsible for the ticket activity. See Users
+          - name: actor_id
+            description: The id of the user responsible for the ticket activity. An actor_id of -1 is a Zendesk system user, such as an automations action.
+          - name: created_at
+            description: When the record was created
+          - name: description
+            description: Description of the activity
+          - name: id
+            description: Automatically assigned on creation
+          - name: object
+            description: The content of the activity. Can be a ticket, comment, or change.
+          - name: target
+            description: The target of the activity, a ticket.
+          - name: title
+            description: Description of the activity
+          - name: updated_at
+            description: When the record was last updated
+          - name: url
+            description: The API url of the activity
+          - name: user
+            description: The full user record of the agent making the request. See Users
+          - name: user_id
+            description: The id of the agent making the request
+          - name: verb
+            description: The type of activity. Can be tickets.assignment, tickets.comment, or tickets.priority_increase
+      - name: custom_roles
+        columns:
+          - name: id
+            description: Unique identifier of the custom role
+          - name: name
+            description: Name of the custom role
+          - name: description
+            description: Brief description of the custom role
+          - name: role_type
+            description: Type of the custom role (e.g., admin, agent, etc)
+          - name: team_member_count
+            description: Number of team members with this custom role
+          - name: configuration
+            description: This object contains custom configuration settings.
+          - name: created_at
+            description: Date and time of the creation of the custom role
+          - name: updated_at
+            description: Date and time of the last update of the custom role
+          - name: manage_macro_content_suggestions
+            description: Ability to manage macro content suggestions
+          - name: read_macro_content_suggestions
+            description: Access for reading macro content suggestions
+      - name: article_comments
+        columns:
+          - name: author_id
+            description: The unique identifier of the author of the comment.
+          - name: body
+            description: The content or text of the comment.
+          - name: created_at
+            description: The timestamp when the comment was created.
+          - name: html_url
+            description: The URL link to the HTML representation of the comment.
+          - name: id
+            description: The unique identifier of the comment.
+          - name: locale
+            description: The locale or language of the comment.
+          - name: non_author_editor_id
+            description: The unique identifier of a non-author who edited the comment.
+          - name: non_author_updated_at
+            description: The timestamp when the non-author last updated the comment.
+          - name: source_id
+            description: The ID of the source associated with the comment.
+          - name: source_type
+            description: The type of the source associated with the comment.
+          - name: updated_at
+            description: The timestamp when the comment was last updated.
+          - name: url
+            description: The URL link to the comment resource.
+          - name: vote_count
+            description: The total count of votes received on the comment.
+          - name: vote_sum
+            description: The sum of votes received on the comment, considering upvotes and downvotes.
+      - name: topics
+        columns:
+          - name: html_url
+            description: The URL of the topic in HTML format.
+          - name: id
+            description: The unique identifier of the topic.
+          - name: name
+            description: The name/title of the topic.
+          - name: url
+            description: The URL of the topic in API format.
+          - name: created_at
+            description: The date and time when this topic was created.
+          - name: community_id
+            description: The unique identifier of the community to which this topic belongs.
+          - name: updated_at
+            description: The date and time when this topic was last updated.
+          - name: description
+            description: The textual description of the topic.
+          - name: manageable_by
+            description: The user or group who can manage this topic.
+          - name: follower_count
+            description: The count of users following this topic.
+          - name: position
+            description: The order position of this topic relative to others.
+          - name: user_segment_id
+            description: The identifier of the user segment associated with this topic.

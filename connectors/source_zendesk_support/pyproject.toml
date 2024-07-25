@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "dbt-zendesk-support"
+version = "0.1.0"
+description = ""
+authors = ["marcosmarxm <marcosmarxm@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+dbt = "^1.0.0.38.6"
+dbt-snowflake = "^1.8.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

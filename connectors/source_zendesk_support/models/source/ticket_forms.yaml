@@ -1,0 +1,62 @@
+version: 2
+
+sources:
+  - name: source_zendesk_support
+    schema: '{{ var(''target_schema'', target.schema) }}'
+    database: '{{ var(''target_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: ticket_forms
+        columns:
+          - name: agent_conditions
+            description: Conditions that restrict when the ticket form is available to agents.
+            data_type: array
+          - name: end_user_conditions
+            description: Conditions that restrict when the ticket form is available to end users.
+            data_type: array
+          - name: created_at
+            description: The date and time when the ticket form was created.
+            data_type: string
+          - name: name
+            description: The name of the ticket form.
+            data_type: string
+          - name: display_name
+            description: The display name of the ticket form.
+            data_type: string
+          - name: raw_display_name
+            description: The raw display name of the ticket form.
+            data_type: string
+          - name: position
+            description: The order position of the ticket form within a list.
+            data_type: integer
+          - name: raw_name
+            description: The raw name of the ticket form.
+            data_type: string
+          - name: updated_at
+            description: The date and time when the ticket form was last updated.
+            data_type: string
+          - name: active
+            description: Indicates if the ticket form is currently active.
+            data_type: boolean
+          - name: default
+            description: Indicates if the ticket form is the default form.
+            data_type: boolean
+          - name: in_all_brands
+            description: Indicates if the ticket form is available in all brands.
+            data_type: boolean
+          - name: end_user_visible
+            description: Indicates if the ticket form is visible to end users.
+            data_type: boolean
+          - name: url
+            description: The URL to access the ticket form.
+            data_type: string
+          - name: id
+            description: Unique identifier for the ticket form.
+            data_type: integer
+          - name: restricted_brand_ids
+            description: An array of brand IDs under which the ticket form is restricted to be used.
+            data_type: array
+          - name: ticket_field_ids
+            description: An array of ticket field IDs that are associated with the ticket form.
+            data_type: array

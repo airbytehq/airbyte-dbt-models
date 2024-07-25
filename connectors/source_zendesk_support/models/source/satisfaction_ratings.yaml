@@ -1,0 +1,47 @@
+version: 2
+
+sources:
+  - name: source_zendesk_support
+    schema: '{{ var(''target_schema'', target.schema) }}'
+    database: '{{ var(''target_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: satisfaction_ratings
+        columns:
+          - name: id
+            description: The unique identifier of the satisfaction rating entry.
+            data_type: integer
+          - name: assignee_id
+            description: The unique identifier of the user assigned to the ticket.
+            data_type: integer
+          - name: group_id
+            description: The unique identifier of the group associated with the ticket.
+            data_type: integer
+          - name: reason_id
+            description: The unique identifier of the selected satisfaction rating reason.
+            data_type: integer
+          - name: requester_id
+            description: The unique identifier of the requester who provided the rating.
+            data_type: integer
+          - name: ticket_id
+            description: The unique identifier of the ticket associated with the satisfaction rating.
+            data_type: integer
+          - name: updated_at
+            description: The date and time when the satisfaction rating was last updated.
+            data_type: string
+          - name: created_at
+            description: The date and time when the satisfaction rating was created.
+            data_type: string
+          - name: url
+            description: The URL to access the details of the satisfaction rating.
+            data_type: string
+          - name: score
+            description: The satisfaction score given by the requester (usually a numeric value).
+            data_type: string
+          - name: reason
+            description: The reason selected by the requester for the satisfaction rating.
+            data_type: string
+          - name: comment
+            description: The feedback comment provided by the requester.
+            data_type: string

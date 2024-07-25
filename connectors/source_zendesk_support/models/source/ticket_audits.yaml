@@ -1,0 +1,35 @@
+version: 2
+
+sources:
+  - name: source_zendesk_support
+    schema: '{{ var(''target_schema'', target.schema) }}'
+    database: '{{ var(''target_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: ticket_audits
+        columns:
+          - name: events
+            description: List of events related to the ticket audit
+            data_type: array
+          - name: author_id
+            description: ID of the author of the ticket audit
+            data_type: integer
+          - name: metadata
+            description: Metadata associated with the ticket audit
+            data_type: object
+          - name: id
+            description: Unique identifier for the ticket audit
+            data_type: integer
+          - name: created_at
+            description: Date and time when the ticket audit was created
+            data_type: string
+          - name: ticket_id
+            description: ID of the ticket associated with the audit
+            data_type: integer
+          - name: via
+            description: Details of the channel via which the audit occurred
+            data_type: object
+          - name: attachments
+            description: Attachments associated with the ticket audit
+            data_type: array

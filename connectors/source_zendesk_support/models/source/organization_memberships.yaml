@@ -1,0 +1,38 @@
+version: 2
+
+sources:
+  - name: source_zendesk_support
+    schema: '{{ var(''target_schema'', target.schema) }}'
+    database: '{{ var(''target_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: organization_memberships
+        columns:
+          - name: default
+            description: Flag indicating if this organization membership is the default one for the user.
+            data_type: boolean
+          - name: url
+            description: The URL for accessing the details of this organization membership.
+            data_type: string
+          - name: updated_at
+            description: The date and time when the organization membership was last updated.
+            data_type: string
+          - name: created_at
+            description: The date and time when the organization membership was created.
+            data_type: string
+          - name: id
+            description: Unique identifier for the organization membership.
+            data_type: integer
+          - name: user_id
+            description: The ID of the user associated with the organization membership.
+            data_type: integer
+          - name: organization_id
+            description: The ID of the organization associated with the membership.
+            data_type: integer
+          - name: organization_name
+            description: The name of the organization associated with the membership.
+            data_type: string
+          - name: view_tickets
+            description: Flag indicating if the user can view tickets within the organization.
+            data_type: boolean
