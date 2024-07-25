@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "dbt-zendesk-support"
+name = "airbyte-dbt-models"
 version = "0.1.0"
 description = ""
 authors = ["marcosmarxm <marcosmarxm@gmail.com>"]
