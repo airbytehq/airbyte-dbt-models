@@ -31,5 +31,5 @@ jobs:
       - name: Install the project dependencies
         run: poetry install
 
-      - name: Install the project dependencies
+      - name: Run pwd
         run: echo pwd
