@@ -23,7 +23,13 @@ jobs:
 
       - name: Get what connector we are testing
         id: get_connector
-        run: echo "source_zendesk_support"
+        run: echo "::set-output name=connector::source_zendesk_support"
+
+      - name: Access folder
+        run: cd connectors/${{ steps.get_connector.outputs.connector }}
 
       - name: Install the project dependencies
         run: poetry install
+
+      - name: Install the project dependencies
+        run: echo pwd
