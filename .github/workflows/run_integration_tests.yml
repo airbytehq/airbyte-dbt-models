@@ -74,4 +74,4 @@ jobs:
           AIRBYTE_DATABASE: "dataline-integration-testing"
         run: |
           poetry run dbt deps
-          poetry run dbt run --target bigquery --full-refresh --vars '{airbyte_database:${AIRBYTE_DATABASE}, fivetran_database:${AIRBYTE_DATABASE}}'
+          poetry run dbt run --target bigquery --full-refresh --vars '{airbyte_database: $AIRBYTE_DATABASE}, fivetran_database: $AIRBYTE_DATABASE}'
