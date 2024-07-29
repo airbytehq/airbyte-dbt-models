@@ -1,4 +1,4 @@
-name: Run Integration Tests for Dbt Models
+name: run-dbt-test
 
 on:
   workflow_dispatch:
@@ -38,7 +38,6 @@ jobs:
       #   run: echo "::set-output name=connector::source_zendesk_support"
       - name: Get what connector we are testing
         id: connector_name
-        uses: peter-evans/create-or-update-comment@v4
         run: |
           connector_name=${{ github.event.client_payload.slash_command.args.named.connector }}
           if [[ -z "$connector_name" ]]; then connector_name="not_found"; fi
