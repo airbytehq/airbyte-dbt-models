@@ -1,1 +1,1 @@
-{"airbyte_database": "$AB_DB", "zendesk_database": "$AB_DB"}
+{"airbyte_database": "$AB_DB","zendesk_database": "$AB_DB"}
