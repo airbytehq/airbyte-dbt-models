@@ -46,7 +46,7 @@ jobs:
           AIRBYTE_DATABASE: "postgres"
         run: |
           poetry run dbt deps
-          poetry run dbt run --target postgres --full-refresh '{airbyte_database:${AIRBYTE_DATABASE}, fivetran_database:${AIRBYTE_DATABASE}}'
+          poetry run dbt run --target postgres --full-refresh --vars '{airbyte_database:${AIRBYTE_DATABASE}, fivetran_database:${AIRBYTE_DATABASE}}'
 
       - name: Run Integration Tests for Snowflake
         if: always()
@@ -62,7 +62,7 @@ jobs:
           AIRBYTE_DATABASE: "INTEGRATION_TEST_DESTINATION"
         run: |
           poetry run dbt deps
-          poetry run dbt run --target snowflake --full-refresh '{airbyte_database:${AIRBYTE_DATABASE}, fivetran_database:${AIRBYTE_DATABASE}}'
+          poetry run dbt run --target snowflake --full-refresh --vars '{airbyte_database:${AIRBYTE_DATABASE}, fivetran_database:${AIRBYTE_DATABASE}}'
 
       - name: Run Integration Tests for BigQuery
         if: always()
@@ -74,4 +74,4 @@ jobs:
           AIRBYTE_DATABASE: "dataline-integration-testing"
         run: |
           poetry run dbt deps
-          poetry run dbt run --target bigquery --full-refresh '{airbyte_database:${AIRBYTE_DATABASE}, fivetran_database:${AIRBYTE_DATABASE}}'
+          poetry run dbt run --target bigquery --full-refresh --vars '{airbyte_database:${AIRBYTE_DATABASE}, fivetran_database:${AIRBYTE_DATABASE}}'
