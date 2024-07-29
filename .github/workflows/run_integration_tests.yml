@@ -1,14 +1,8 @@
 name: run-dbt-test
 
 on:
-  workflow_dispatch:
-    inputs:
-      connector:
-        description: "Connector to run dbt tests"
-        required: true
-      schema:
-        description: "Schema to run dbt tests"
-        required: true
+  pull_request:
+    types: [opened, synchronize, reopened]
 
 jobs:
   run-dbt-tests:
@@ -35,6 +29,13 @@ jobs:
 
       - name: Copy profiles
         run: cp .github/ci/sample.profiles.yml ~/.dbt/profiles.yml
+
+      - name: Get list of files changed
+        id: files_changed
+        run: |
+          git fetch origin ${{ github.event.pull_request.base.ref }} --depth=1
+          git diff --name-only origin/${{ github.event.pull_request.base.ref }} ${{ github.sha }} > changed_files.txt
+          cat changed_files.txt
 
       # - name: Get what connector we are testing
       #   id: get_connector
