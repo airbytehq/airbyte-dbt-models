@@ -77,4 +77,4 @@ jobs:
           GCLOUD_SERVICE_KEY: ${{ secrets.GCLOUD_SERVICE_KEY }}
         run: |
           poetry run dbt deps
-          poetry run dbt run --target bigquery --full-refresh --vars ${{ env.DBT_VARS }}
+          poetry run dbt run --target bigquery --full-refresh --vars $DBT_VARS
