@@ -25,12 +25,12 @@ require-dbt-version:
 
 models:
   airbyte_dbt_source_zendesk_support:
-    materialized: table
+    materialized: view
     +schema: dbt_zendesk_support
     staging:
-      materialized: table
+      materialized: view
     tmp:
-      materialized: table
+      materialized: view
 
 vars:
   # Required by Airbyte dbt model
