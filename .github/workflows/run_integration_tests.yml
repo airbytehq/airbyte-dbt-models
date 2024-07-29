@@ -71,7 +71,7 @@ jobs:
           BIGQUERY_DBT_PROJECT: ${{ secrets.BIGQUERY_DBT_PROJECT }}
           BIGQUERY_DBT_DATASET: ${{ secrets.BIGQUERY_DBT_DATASET }}
           GCLOUD_SERVICE_KEY: ${{ secrets.GCLOUD_SERVICE_KEY }}
-          BIGQUERY_VARS: "{airbyte_database:${{env.BIGQUERY_DBT_PROJECT}}, fivetran_database:${{env.BIGQUERY_DBT_PROJECT}}}"
+          BIGQUERY_VARS: "{airbyte_database:${{ secrets.BIGQUERY_DBT_PROJECT }}, fivetran_database:${{ secrets.BIGQUERY_DBT_PROJECT }}}"
         run: |
           poetry run dbt deps
           poetry run dbt run --target bigquery --full-refresh --vars $BIGQUERY_VARS
