@@ -43,10 +43,10 @@ jobs:
           POSTGRES_DBT_PASSWORD: ${{ secrets.POSTGRES_DBT_PASSWORD }}
           POSTGRES_DBT_DBNAME: ${{ secrets.POSTGRES_DBT_DBNAME }}
           POSTGRES_DBT_SCHEMA: ${{ secrets.POSTGRES_DBT_SCHEMA }}
-          AIRBYTE_DATABASE: "postgres"
+          POSTGRES_VARS: '{airbyte_database:${{ secrets.POSTGRES_DBT_DBNAME }}, fivetran_database:${{ secrets.POSTGRES_DBT_DBNAME }}}''
         run: |
           poetry run dbt deps
-          poetry run dbt run --target postgres --full-refresh --vars '{airbyte_database:${AIRBYTE_DATABASE}, fivetran_database:${AIRBYTE_DATABASE}}'
+          poetry run dbt run --target postgres --full-refresh --vars $POSTGRES_VARS
 
       - name: Run Integration Tests for Snowflake
         if: always()
@@ -59,10 +59,10 @@ jobs:
           SNOWFLAKE_DBT_DATABASE: ${{ secrets.SNOWFLAKE_DBT_DATABASE }}
           SNOWFLAKE_DBT_WAREHOUSE: ${{ secrets.SNOWFLAKE_DBT_WAREHOUSE }}
           SNOWFLAKE_DBT_SCHEMA: ${{ secrets.SNOWFLAKE_DBT_SCHEMA }}
-          AIRBYTE_DATABASE: "INTEGRATION_TEST_DESTINATION"
+          SNOWFLAKE_VARS: '{airbyte_database:${{ secrets.SNOWFLAKE_DBT_DATABASE }}, fivetran_database:${{ secrets.SNOWFLAKE_DBT_DATABASE }}}''
         run: |
           poetry run dbt deps
-          poetry run dbt run --target snowflake --full-refresh --vars '{airbyte_database:${AIRBYTE_DATABASE}, fivetran_database:${AIRBYTE_DATABASE}}'
+          poetry run dbt run --target snowflake --full-refresh --vars $SNOWFLAKE_VARS
 
       - name: Run Integration Tests for BigQuery
         if: always()
@@ -71,7 +71,7 @@ jobs:
           BIGQUERY_DBT_PROJECT: ${{ secrets.BIGQUERY_DBT_PROJECT }}
           BIGQUERY_DBT_DATASET: ${{ secrets.BIGQUERY_DBT_DATASET }}
           GCLOUD_SERVICE_KEY: ${{ secrets.GCLOUD_SERVICE_KEY }}
-          BIGQUERY_VARS: "{airbyte_database:${{ secrets.BIGQUERY_DBT_PROJECT }}, fivetran_database:${{ secrets.BIGQUERY_DBT_PROJECT }}}"
+          BIGQUERY_VARS: '{airbyte_database:${{ secrets.BIGQUERY_DBT_PROJECT }}, fivetran_database:${{ secrets.BIGQUERY_DBT_PROJECT }}}''
         run: |
           poetry run dbt deps
           poetry run dbt run --target bigquery --full-refresh --vars $BIGQUERY_VARS
