@@ -76,7 +76,8 @@ jobs:
           BIGQUERY_DBT_PROJECT: ${{ secrets.BIGQUERY_DBT_PROJECT }}
           BIGQUERY_DBT_DATASET: ${{ secrets.BIGQUERY_DBT_DATASET }}
           GCLOUD_SERVICE_KEY: ${{ secrets.GCLOUD_SERVICE_KEY }}
-          DBT_VARS: echo $(cat vars | sed "s/\$AB_DB/${{ secrets.BIGQUERY_DBT_PROJECT }}/g")
         run: |
+          export DBT_VARS=$(cat vars | sed "s/\$AB_DB/${{ secrets.BIGQUERY_DBT_PROJECT }}/g")
+          echo "My variable is $DBT_VARS"
           poetry run dbt deps
           poetry run dbt run --target bigquery --full-refresh --vars $DBT_VARS
