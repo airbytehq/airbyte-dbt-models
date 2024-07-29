@@ -36,6 +36,11 @@ jobs:
 
       - name: Run Integration Tests for Postgres
         working-directory: connectors/${{ steps.get_connector.outputs.connector }}/integration_tests
+        run: |
+          echo DBT_VARS=$(cat vars | sed "s/\$AB_DB/${{ secrets.BIGQUERY_DBT_PROJECT }}/g") >> $GITHUB_ENV
+
+      - name: Run Integration Tests for Postgres
+        working-directory: connectors/${{ steps.get_connector.outputs.connector }}/integration_tests
         if: always()
         env:
           POSTGRES_DBT_HOST: ${{ secrets.POSTGRES_DBT_HOST }}
@@ -72,6 +77,5 @@ jobs:
           BIGQUERY_DBT_DATASET: ${{ secrets.BIGQUERY_DBT_DATASET }}
           GCLOUD_SERVICE_KEY: ${{ secrets.GCLOUD_SERVICE_KEY }}
         run: |
-          echo DBT_VARS=$(cat vars | sed "s/\$AB_DB/${{ secrets.BIGQUERY_DBT_PROJECT }}/g") >> $GITHUB_ENV
           poetry run dbt deps
           poetry run dbt run --target bigquery --full-refresh --vars $DBT_VARS
