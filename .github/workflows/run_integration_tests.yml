@@ -6,6 +6,9 @@ on:
       connector:
         description: "Connector to run dbt tests"
         required: true
+      schema:
+        description: "Schema to run dbt tests"
+        required: true
 
 jobs:
   run-dbt-tests:
@@ -36,21 +39,38 @@ jobs:
       # - name: Get what connector we are testing
       #   id: get_connector
       #   run: echo "::set-output name=connector::source_zendesk_support"
-      - name: Get what connector we are testing
-        id: connector_name
-        run: |
-          connector_name=${{ github.event.client_payload.slash_command.args.named.connector }}
-          if [[ -z "$connector_name" ]]; then connector_name="not_found"; fi
-          echo "connector_name=$connector_name" >> $GITHUB_OUTPUT
 
       - name: Run Integration Tests for Postgres
-        working-directory: connectors/${{ steps.connector_name.outputs.connector }}/integration_tests
+        working-directory: connectors/${{ inputs.connector }}/integration_tests
         env:
           POSTGRES_DBT_HOST: ${{ secrets.POSTGRES_DBT_HOST }}
           POSTGRES_DBT_USER: ${{ secrets.POSTGRES_DBT_USER }}
           POSTGRES_DBT_PASSWORD: ${{ secrets.POSTGRES_DBT_PASSWORD }}
           POSTGRES_DBT_DBNAME: ${{ secrets.POSTGRES_DBT_DBNAME }}
-          CONNECTOR_NAME: airbyte_dbt_zendesk_support
+          POSTGRES_DBT_SCHEMA: ${{ inputs.schema }}
         run: |
           poetry run dbt deps
           poetry run dbt run --target postgres --full-refresh
+
+      - name: Run Integration Tests for Snowflake
+        working-directory: connectors/${{ inputs.connector }}/integration_tests
+        env:
+          SNOWFLAKE_DBT_ACCOUNT: ${{ secrets.SNOWFLAKE_DBT_ACCOUNT }}
+          SNOWFLAKE_DBT_USER: ${{ secrets.SNOWFLAKE_DBT_USER }}
+          SNOWFLAKE_DBT_PASSWORD: ${{ secrets.SNOWFLAKE_DBT_PASSWORD }}
+          SNOWFLAKE_DBT_ROLE: ${{ secrets.SNOWFLAKE_DBT_DATABASE }}
+          SNOWFLAKE_DBT_WAREHOUSE: ${{ secrets.SNOWFLAKE_DBT_WAREHOUSE }}
+          SNOWFLAKE_DBT_SCHEMA: ${{ inputs.schema }}
+        run: |
+          poetry run dbt deps
+          poetry run dbt run --target snowflake --full-refresh
+
+      - name: Run Integration Tests for BigQuery
+        working-directory: connectors/${{ inputs.connector }}/integration_tests
+        env:
+          BIGQUERY_DBT_PROJECT: ${{ secrets.BIGQUERY_DBT_PROJECT }}
+          BIGQUERY_DBT_DATASET: ${{ secrets.BIGQUERY_DBT_DATASET }}
+          GCLOUD_SERVICE_KEY: ${{ secrets.GCLOUD_SERVICE_KEY }}
+        run: |
+          poetry run dbt deps
+          poetry run dbt run --target bigquery --full-refresh

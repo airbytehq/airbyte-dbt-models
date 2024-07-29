@@ -8,23 +8,23 @@ config:
 integration_tests:
   target: bigquery
   outputs:
-    # bigquery:
-    #   type: bigquery
-    #   method: service-account-json
-    #   project: "dbt-package-testing"
-    #   schema: github_integration_tests
-    #   threads: 8
-    #   keyfile_json: "{{ env_var('GCLOUD_SERVICE_KEY') | as_native }}"
-    # snowflake:
-    #   type: snowflake
-    #   account: "{{ env_var('SNOWFLAKE_DBT_ACCOUNT') }}"
-    #   user: "{{ env_var('SNOWFLAKE_DBT_USER') }}"
-    #   password: "{{ env_var('SNOWFLAKE_DBT_PASSWORD') }}"
-    #   role: "{{ env_var('SNOWFLAKE_DBT_ROLE') }}"
-    #   database: "{{ env_var('SNOWFLAKE_DBT_DATABASE') }}"
-    #   warehouse: "{{ env_var('SNOWFLAKE_DBT_WAREHOUSE') }}"
-    #   schema: TEXT_SCHEMA
-    #   threads: 8
+    bigquery:
+      type: bigquery
+      method: service-account-json
+      project: "{{ env_var('BIGQUERY_DBT_PROJECT') }}"
+      dataset: "{{ env_var('BIGQUERY_DBT_DATASET') }}"
+      threads: 8
+      keyfile_json: "{{ env_var('GCLOUD_SERVICE_KEY') | as_native }}"
+    snowflake:
+      type: snowflake
+      account: "{{ env_var('SNOWFLAKE_DBT_ACCOUNT') }}"
+      user: "{{ env_var('SNOWFLAKE_DBT_USER') }}"
+      password: "{{ env_var('SNOWFLAKE_DBT_PASSWORD') }}"
+      role: "{{ env_var('SNOWFLAKE_DBT_ROLE') }}"
+      database: "{{ env_var('SNOWFLAKE_DBT_DATABASE') }}"
+      warehouse: "{{ env_var('SNOWFLAKE_DBT_WAREHOUSE') }}"
+      schema: "{{ env_var('SNOWFLAKE_DBT_SCHEMA') }}"
+      threads: 8
     postgres:
       type: postgres
       host: "{{ env_var('POSTGRES_DBT_HOST') }}"
@@ -32,5 +32,5 @@ integration_tests:
       pass: "{{ env_var('POSTGRES_DBT_PASSWORD') }}"
       dbname: "{{ env_var('POSTGRES_DBT_DBNAME') }}"
       port: 5432
-      schema: "{{ env_var('CONNECTOR_NAME') }}"
+      schema: "{{ env_var('POSTGRES_DBT_SCHEMA') }}"
       threads: 8
