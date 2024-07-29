@@ -48,8 +48,8 @@ vars:
   # target_database: INTEGRATION_TEST_DESTINATION
   # target_schema: airbyte_dbt_zendesk_support
 
-  airbyte_database: "{{ env_var('AIRBYTE_DATABASE') }}"
-  airbyte_schema: "{{ env_var('AIRBYTE_SCHEMA') }}"
+  airbyte_database: "..."
+  airbyte_schema: "..."
 
   # Required by Fivetran dbt model
   zendesk_database: "{{ env_var('AIRBYTE_DATABASE') }}"
