@@ -76,4 +76,4 @@ jobs:
           BIGQUERY_DBT_PROJECT: ${{ secrets.BIGQUERY_DBT_PROJECT }}
           BIGQUERY_DBT_DATASET: ${{ secrets.BIGQUERY_DBT_DATASET }}
           GCLOUD_SERVICE_KEY: ${{ secrets.GCLOUD_SERVICE_KEY }}
-        run: ./run.sh
+        run: sh run.sh
