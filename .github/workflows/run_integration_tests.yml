@@ -79,4 +79,4 @@ jobs:
         run: |
           export DBT_VARS="$(cat vars | sed "s/\$AB_DB/${{ secrets.BIGQUERY_DBT_PROJECT }}/g")"
           poetry run dbt deps
-          poetry run dbt run --target bigquery --full-refresh --vars $DBT_VARS
+          poetry run dbt run --target bigquery --full-refresh --vars "$DBT_VARS"
