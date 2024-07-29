@@ -1,11 +1,14 @@
 name: Run Integration Tests for Dbt Models
 
 on:
-  pull_request:
-    types: [opened, synchronize, reopened]
+  workflow_dispatch:
+    inputs:
+      connector:
+        description: "Connector to run dbt tests"
+        required: true
 
 jobs:
-  build:
+  run-dbt-tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -30,12 +33,19 @@ jobs:
       - name: Copy profiles
         run: cp .github/ci/sample.profiles.yml ~/.dbt/profiles.yml
 
+      # - name: Get what connector we are testing
+      #   id: get_connector
+      #   run: echo "::set-output name=connector::source_zendesk_support"
       - name: Get what connector we are testing
-        id: get_connector
-        run: echo "::set-output name=connector::source_zendesk_support"
+        id: connector_name
+        uses: peter-evans/create-or-update-comment@v4
+        run: |
+          connector_name=${{ github.event.client_payload.slash_command.args.named.connector }}
+          if [[ -z "$connector_name" ]]; then connector_name="not_found"; fi
+          echo "connector_name=$connector_name" >> $GITHUB_OUTPUT
 
       - name: Run Integration Tests for Postgres
-        working-directory: connectors/${{ steps.get_connector.outputs.connector }}/integration_tests
+        working-directory: connectors/${{ steps.connector_name.outputs.connector }}/integration_tests
         env:
           POSTGRES_DBT_HOST: ${{ secrets.POSTGRES_DBT_HOST }}
           POSTGRES_DBT_USER: ${{ secrets.POSTGRES_DBT_USER }}
