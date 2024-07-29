@@ -1,0 +1,47 @@
+name: Run Integration Tests for Dbt Models
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.12
+
+      - name: Install poetry
+        uses: abatilo/actions-poetry@v2
+
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: Install the project dependencies
+        run: poetry install
+
+      - name: Ensure .dbt directory exists
+        run: mkdir -p ~/.dbt
+
+      - name: Copy profiles
+        run: cp .github/ci/sample.profiles.yml ~/.dbt/profiles.yml
+
+      - name: Get what connector we are testing
+        id: get_connector
+        run: echo "::set-output name=connector::source_zendesk_support"
+
+      - name: Run Integration Tests for Postgres
+        working-directory: connectors/${{ steps.get_connector.outputs.connector }}/integration_tests
+        env:
+          POSTGRES_DBT_HOST: ${{ secrets.POSTGRES_DBT_HOST }}
+          POSTGRES_DBT_USER: ${{ secrets.POSTGRES_DBT_USER }}
+          POSTGRES_DBT_PASSWORD: ${{ secrets.POSTGRES_DBT_PASSWORD }}
+          POSTGRES_DBT_DBNAME: ${{ secrets.POSTGRES_DBT_DBNAME }}
+          CONNECTOR_NAME: airbyte_dbt_zendesk_support
+        run: |
+          poetry run dbt deps
+          poetry run dbt run --target postgres --full-refresh

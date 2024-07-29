@@ -1,0 +1,36 @@
+# HEY! This file is used in the dbt package integrations tests with Buildkite.
+# You should __NEVER__ check credentials into version control. Thanks for reading :)
+
+config:
+  send_anonymous_usage_stats: False
+  use_colors: True
+
+integration_tests:
+  target: bigquery
+  outputs:
+    # bigquery:
+    #   type: bigquery
+    #   method: service-account-json
+    #   project: "dbt-package-testing"
+    #   schema: github_integration_tests
+    #   threads: 8
+    #   keyfile_json: "{{ env_var('GCLOUD_SERVICE_KEY') | as_native }}"
+    # snowflake:
+    #   type: snowflake
+    #   account: "{{ env_var('SNOWFLAKE_DBT_ACCOUNT') }}"
+    #   user: "{{ env_var('SNOWFLAKE_DBT_USER') }}"
+    #   password: "{{ env_var('SNOWFLAKE_DBT_PASSWORD') }}"
+    #   role: "{{ env_var('SNOWFLAKE_DBT_ROLE') }}"
+    #   database: "{{ env_var('SNOWFLAKE_DBT_DATABASE') }}"
+    #   warehouse: "{{ env_var('SNOWFLAKE_DBT_WAREHOUSE') }}"
+    #   schema: TEXT_SCHEMA
+    #   threads: 8
+    postgres:
+      type: postgres
+      host: "{{ env_var('POSTGRES_DBT_HOST') }}"
+      user: "{{ env_var('POSTGRES_DBT_USER') }}"
+      pass: "{{ env_var('POSTGRES_DBT_PASSWORD') }}"
+      dbname: "{{ env_var('POSTGRES_DBT_DBNAME') }}"
+      port: 5432
+      schema: "{{ env_var('CONNECTOR_NAME') }}"
+      threads: 8
