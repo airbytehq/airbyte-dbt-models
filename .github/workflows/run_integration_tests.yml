@@ -49,6 +49,8 @@ jobs:
           POSTGRES_DBT_PASSWORD: ${{ secrets.POSTGRES_DBT_PASSWORD }}
           POSTGRES_DBT_DBNAME: ${{ secrets.POSTGRES_DBT_DBNAME }}
           POSTGRES_DBT_SCHEMA: ${{ inputs.schema }}
+          AIRBYTE_DATABASE: "postgres"
+          AIRBYTE_SCHEMA: ${{ inputs.schema }}
         run: |
           poetry run dbt deps
           poetry run dbt run --target postgres --full-refresh
@@ -63,6 +65,8 @@ jobs:
           SNOWFLAKE_DBT_ROLE: ${{ secrets.SNOWFLAKE_DBT_DATABASE }}
           SNOWFLAKE_DBT_WAREHOUSE: ${{ secrets.SNOWFLAKE_DBT_WAREHOUSE }}
           SNOWFLAKE_DBT_SCHEMA: ${{ inputs.schema }}
+          AIRBYTE_DATABASE: "INTEGRATION_TEST_DESTINATION"
+          AIRBYTE_SCHEMA: ${{ inputs.schema }}
         run: |
           poetry run dbt deps
           poetry run dbt run --target snowflake --full-refresh
@@ -74,6 +78,8 @@ jobs:
           BIGQUERY_DBT_PROJECT: ${{ secrets.BIGQUERY_DBT_PROJECT }}
           BIGQUERY_DBT_DATASET: ${{ secrets.BIGQUERY_DBT_DATASET }}
           GCLOUD_SERVICE_KEY: ${{ secrets.GCLOUD_SERVICE_KEY }}
+          AIRBYTE_DATABASE: "dataline-integration-testing"
+          AIRBYTE_SCHEMA: ${{ inputs.schema }}
         run: |
           poetry run dbt deps
           poetry run dbt run --target bigquery --full-refresh
