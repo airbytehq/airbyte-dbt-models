@@ -2,58 +2,58 @@ version: 2
 
 sources:
   - name: source_salesforce
-    schema: '{{ var(''target_schema'', target.schema) }}'
-    database: '{{ var(''target_database'', target.database) }}'
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
     loader: airbyte
     loaded_at_field: _airbyte_extracted_at
     tables:
       - name: RecentlyViewed
         columns:
           - name: Id
-            description: ''
+            description: ""
             data_type: string
           - name: Name
-            description: ''
+            description: ""
             data_type: string
           - name: LastName
-            description: ''
+            description: ""
             data_type: string
           - name: FirstName
-            description: ''
+            description: ""
             data_type: string
           - name: MiddleName
-            description: ''
+            description: ""
             data_type: string
           - name: Suffix
-            description: ''
+            description: ""
             data_type: string
           - name: Type
-            description: ''
+            description: ""
             data_type: string
           - name: Alias
-            description: ''
+            description: ""
             data_type: string
           - name: IsActive
-            description: ''
+            description: ""
             data_type: boolean
           - name: Title
-            description: ''
+            description: ""
             data_type: string
           - name: Email
-            description: ''
+            description: ""
             data_type: string
           - name: Phone
-            description: ''
+            description: ""
             data_type: string
           - name: NameOrAlias
-            description: ''
+            description: ""
             data_type: string
           - name: LastViewedDate
-            description: ''
+            description: ""
             data_type: string
           - name: LastReferencedDate
-            description: ''
+            description: ""
             data_type: string
           - name: Language
-            description: ''
+            description: ""
             data_type: string

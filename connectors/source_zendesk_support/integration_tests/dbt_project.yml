@@ -37,23 +37,23 @@ vars:
   using_fivetran_model: True
 
   # pg
-  # target_database: postgres
-  # target_schema: airbyte_dbt_zendesk_support
+  # airbyte_database: postgres
+  # airbyte_schema: airbyte_dbt_zendesk_support
 
   # bq
-  # target_database: dataline-integration-testing
-  # target_schema: airbyte_dbt_zendesk_support
+  # airbyte_database: dataline-integration-testing
+  # airbyte_schema: airbyte_dbt_zendesk_support
 
   # snowflake
-  # target_database: INTEGRATION_TEST_DESTINATION
-  # target_schema: airbyte_dbt_zendesk_support
+  # airbyte_database: INTEGRATION_TEST_DESTINATION
+  # airbyte_schema: airbyte_dbt_zendesk_support
 
-  airbyte_database: "..."
-  airbyte_schema: "..."
+  airbyte_database: "postgres"
+  airbyte_schema: "airbyte_dbt_zendesk_support"
 
   # Required by Fivetran dbt model
-  zendesk_database: "{{ env_var('AIRBYTE_DATABASE') }}"
-  zendesk_schema: "{{ env_var('AIRBYTE_SCHEMA') }}"
+  zendesk_database: "postgres"
+  zendesk_schema: "airbyte_dbt_zendesk_support"
 
   using_schedules: False
   using_domain_names: False

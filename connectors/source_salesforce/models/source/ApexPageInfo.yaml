@@ -2,31 +2,31 @@ version: 2
 
 sources:
   - name: source_salesforce
-    schema: '{{ var(''target_schema'', target.schema) }}'
-    database: '{{ var(''target_database'', target.database) }}'
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
     loader: airbyte
     loaded_at_field: _airbyte_extracted_at
     tables:
       - name: ApexPageInfo
         columns:
           - name: Id
-            description: ''
+            description: ""
             data_type: string
           - name: DurableId
-            description: ''
+            description: ""
             data_type: string
           - name: ApexPageId
-            description: ''
+            description: ""
             data_type: string
           - name: Name
-            description: ''
+            description: ""
             data_type: string
           - name: NameSpacePrefix
-            description: ''
+            description: ""
             data_type: string
           - name: IsAvailableInTouch
-            description: ''
+            description: ""
             data_type: boolean
           - name: MasterLabel
-            description: ''
+            description: ""
             data_type: string

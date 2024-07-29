@@ -2,166 +2,166 @@ version: 2
 
 sources:
   - name: source_salesforce
-    schema: '{{ var(''target_schema'', target.schema) }}'
-    database: '{{ var(''target_database'', target.database) }}'
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
     loader: airbyte
     loaded_at_field: _airbyte_extracted_at
     tables:
       - name: EntityDefinition
         columns:
           - name: Id
-            description: ''
+            description: ""
             data_type: string
           - name: DurableId
-            description: ''
+            description: ""
             data_type: string
           - name: LastModifiedDate
-            description: ''
+            description: ""
             data_type: string
           - name: LastModifiedById
-            description: ''
+            description: ""
             data_type: string
           - name: QualifiedApiName
-            description: ''
+            description: ""
             data_type: string
           - name: NamespacePrefix
-            description: ''
+            description: ""
             data_type: string
           - name: DeveloperName
-            description: ''
+            description: ""
             data_type: string
           - name: MasterLabel
-            description: ''
+            description: ""
             data_type: string
           - name: Label
-            description: ''
+            description: ""
             data_type: string
           - name: PluralLabel
-            description: ''
+            description: ""
             data_type: string
           - name: DefaultCompactLayoutId
-            description: ''
+            description: ""
             data_type: string
           - name: IsCustomizable
-            description: ''
+            description: ""
             data_type: boolean
           - name: IsApexTriggerable
-            description: ''
+            description: ""
             data_type: boolean
           - name: IsWorkflowEnabled
-            description: ''
+            description: ""
             data_type: boolean
           - name: IsProcessEnabled
-            description: ''
+            description: ""
             data_type: boolean
           - name: IsCompactLayoutable
-            description: ''
+            description: ""
             data_type: boolean
           - name: KeyPrefix
-            description: ''
+            description: ""
             data_type: string
           - name: IsCustomSetting
-            description: ''
+            description: ""
             data_type: boolean
           - name: IsDeprecatedAndHidden
-            description: ''
+            description: ""
             data_type: boolean
           - name: IsReplicateable
-            description: ''
+            description: ""
             data_type: boolean
           - name: IsRetrieveable
-            description: ''
+            description: ""
             data_type: boolean
           - name: IsSearchLayoutable
-            description: ''
+            description: ""
             data_type: boolean
           - name: IsSearchable
-            description: ''
+            description: ""
             data_type: boolean
           - name: IsTriggerable
-            description: ''
+            description: ""
             data_type: boolean
           - name: IsIdEnabled
-            description: ''
+            description: ""
             data_type: boolean
           - name: IsEverCreatable
-            description: ''
+            description: ""
             data_type: boolean
           - name: IsEverUpdatable
-            description: ''
+            description: ""
             data_type: boolean
           - name: IsEverDeletable
-            description: ''
+            description: ""
             data_type: boolean
           - name: IsFeedEnabled
-            description: ''
+            description: ""
             data_type: boolean
           - name: IsQueryable
-            description: ''
+            description: ""
             data_type: boolean
           - name: IsMruEnabled
-            description: ''
+            description: ""
             data_type: boolean
           - name: DetailUrl
-            description: ''
+            description: ""
             data_type: string
           - name: EditUrl
-            description: ''
+            description: ""
             data_type: string
           - name: NewUrl
-            description: ''
+            description: ""
             data_type: string
           - name: EditDefinitionUrl
-            description: ''
+            description: ""
             data_type: string
           - name: HelpSettingPageName
-            description: ''
+            description: ""
             data_type: string
           - name: HelpSettingPageUrl
-            description: ''
+            description: ""
             data_type: string
           - name: RunningUserEntityAccessId
-            description: ''
+            description: ""
             data_type: string
           - name: PublisherId
-            description: ''
+            description: ""
             data_type: string
           - name: IsLayoutable
-            description: ''
+            description: ""
             data_type: boolean
           - name: RecordTypesSupported
-            description: ''
+            description: ""
             data_type: string
           - name: InternalSharingModel
-            description: ''
+            description: ""
             data_type: string
           - name: ExternalSharingModel
-            description: ''
+            description: ""
             data_type: string
           - name: HasSubtypes
-            description: ''
+            description: ""
             data_type: boolean
           - name: IsSubtype
-            description: ''
+            description: ""
             data_type: boolean
           - name: IsAutoActivityCaptureEnabled
-            description: ''
+            description: ""
             data_type: boolean
           - name: IsInterface
-            description: ''
+            description: ""
             data_type: boolean
           - name: ImplementsInterfaces
-            description: ''
+            description: ""
             data_type: string
           - name: ImplementedBy
-            description: ''
+            description: ""
             data_type: string
           - name: ExtendsInterfaces
-            description: ''
+            description: ""
             data_type: string
           - name: ExtendedBy
-            description: ''
+            description: ""
             data_type: string
           - name: DefaultImplementation
-            description: ''
+            description: ""
             data_type: string

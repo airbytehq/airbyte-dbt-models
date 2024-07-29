@@ -2,46 +2,46 @@ version: 2
 
 sources:
   - name: source_salesforce
-    schema: '{{ var(''target_schema'', target.schema) }}'
-    database: '{{ var(''target_database'', target.database) }}'
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
     loader: airbyte
     loaded_at_field: _airbyte_extracted_at
     tables:
       - name: UserListViewCriterion
         columns:
           - name: Id
-            description: ''
+            description: ""
             data_type: string
           - name: IsDeleted
-            description: ''
+            description: ""
             data_type: boolean
           - name: CreatedDate
-            description: ''
+            description: ""
             data_type: string
           - name: CreatedById
-            description: ''
+            description: ""
             data_type: string
           - name: LastModifiedDate
-            description: ''
+            description: ""
             data_type: string
           - name: LastModifiedById
-            description: ''
+            description: ""
             data_type: string
           - name: SystemModstamp
-            description: ''
+            description: ""
             data_type: string
           - name: UserListViewId
-            description: ''
+            description: ""
             data_type: string
           - name: SortOrder
-            description: ''
+            description: ""
             data_type: integer
           - name: ColumnName
-            description: ''
+            description: ""
             data_type: string
           - name: Operation
-            description: ''
+            description: ""
             data_type: string
           - name: Value
-            description: ''
+            description: ""
             data_type: string

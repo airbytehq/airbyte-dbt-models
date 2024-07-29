@@ -2,8 +2,8 @@ version: 2
 
 sources:
   - name: source_github
-    schema: '{{ var(''target_schema'', target.schema) }}'
-    database: '{{ var(''target_database'', target.database) }}'
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
     loader: airbyte
     loaded_at_field: _airbyte_extracted_at
     tables:
@@ -16,43 +16,43 @@ sources:
             description: The number of the issue
             data_type: integer
           - name: labeled
-            description: ''
+            description: ""
             data_type: default
           - name: unlabeled
-            description: ''
+            description: ""
             data_type: default
           - name: milestoned
-            description: ''
+            description: ""
             data_type: default
           - name: demilestoned
-            description: ''
+            description: ""
             data_type: default
           - name: renamed
-            description: ''
+            description: ""
             data_type: default
           - name: review_requested
-            description: ''
+            description: ""
             data_type: default
           - name: review_request_removed
-            description: ''
+            description: ""
             data_type: default
           - name: review_dismissed
-            description: ''
+            description: ""
             data_type: default
           - name: locked
-            description: ''
+            description: ""
             data_type: default
           - name: added_to_project
-            description: ''
+            description: ""
             data_type: default
           - name: moved_columns_in_project
-            description: ''
+            description: ""
             data_type: default
           - name: removed_from_project
-            description: ''
+            description: ""
             data_type: default
           - name: converted_note_to_issue
-            description: ''
+            description: ""
             data_type: default
           - name: comment
             description: Timeline Comment Event
@@ -64,16 +64,16 @@ sources:
             description: Timeline Committed Event
             data_type: object
           - name: closed
-            description: ''
+            description: ""
             data_type: default
           - name: head_ref_deleted
-            description: ''
+            description: ""
             data_type: default
           - name: head_ref_restored
-            description: ''
+            description: ""
             data_type: default
           - name: reopened
-            description: ''
+            description: ""
             data_type: default
           - name: reviewed
             description: Timeline Reviewed Event
@@ -85,20 +85,20 @@ sources:
             description: Timeline Line Commented Event
             data_type: object
           - name: assigned
-            description: ''
+            description: ""
             data_type: default
           - name: unassigned
-            description: ''
+            description: ""
             data_type: default
           - name: state_change
-            description: ''
+            description: ""
             data_type: default
           - name: connected
-            description: ''
+            description: ""
             data_type: default
           - name: auto_squash_enabled
-            description: ''
+            description: ""
             data_type: default
           - name: merged
-            description: ''
+            description: ""
             data_type: default

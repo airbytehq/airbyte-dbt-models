@@ -2,91 +2,91 @@ version: 2
 
 sources:
   - name: source_salesforce
-    schema: '{{ var(''target_schema'', target.schema) }}'
-    database: '{{ var(''target_database'', target.database) }}'
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
     loader: airbyte
     loaded_at_field: _airbyte_extracted_at
     tables:
       - name: ContentDistribution
         columns:
           - name: Id
-            description: ''
+            description: ""
             data_type: string
           - name: CreatedDate
-            description: ''
+            description: ""
             data_type: string
           - name: CreatedById
-            description: ''
+            description: ""
             data_type: string
           - name: OwnerId
-            description: ''
+            description: ""
             data_type: string
           - name: LastModifiedDate
-            description: ''
+            description: ""
             data_type: string
           - name: LastModifiedById
-            description: ''
+            description: ""
             data_type: string
           - name: SystemModstamp
-            description: ''
+            description: ""
             data_type: string
           - name: Name
-            description: ''
+            description: ""
             data_type: string
           - name: IsDeleted
-            description: ''
+            description: ""
             data_type: boolean
           - name: ContentVersionId
-            description: ''
+            description: ""
             data_type: string
           - name: ContentDocumentId
-            description: ''
+            description: ""
             data_type: string
           - name: PreferencesAllowPDFDownload
-            description: ''
+            description: ""
             data_type: boolean
           - name: PreferencesAllowOriginalDownload
-            description: ''
+            description: ""
             data_type: boolean
           - name: PreferencesPasswordRequired
-            description: ''
+            description: ""
             data_type: boolean
           - name: PreferencesNotifyOnVisit
-            description: ''
+            description: ""
             data_type: boolean
           - name: PreferencesLinkLatestVersion
-            description: ''
+            description: ""
             data_type: boolean
           - name: PreferencesAllowViewInBrowser
-            description: ''
+            description: ""
             data_type: boolean
           - name: PreferencesExpires
-            description: ''
+            description: ""
             data_type: boolean
           - name: PreferencesNotifyRndtnComplete
-            description: ''
+            description: ""
             data_type: boolean
           - name: ExpiryDate
-            description: ''
+            description: ""
             data_type: string
           - name: Password
-            description: ''
+            description: ""
             data_type: string
           - name: ViewCount
-            description: ''
+            description: ""
             data_type: integer
           - name: FirstViewDate
-            description: ''
+            description: ""
             data_type: string
           - name: LastViewDate
-            description: ''
+            description: ""
             data_type: string
           - name: DistributionPublicUrl
-            description: ''
+            description: ""
             data_type: string
           - name: ContentDownloadUrl
-            description: ''
+            description: ""
             data_type: string
           - name: PdfDownloadUrl
-            description: ''
+            description: ""
             data_type: string

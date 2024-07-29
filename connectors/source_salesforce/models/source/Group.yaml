@@ -2,52 +2,52 @@ version: 2
 
 sources:
   - name: source_salesforce
-    schema: '{{ var(''target_schema'', target.schema) }}'
-    database: '{{ var(''target_database'', target.database) }}'
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
     loader: airbyte
     loaded_at_field: _airbyte_extracted_at
     tables:
       - name: Group
         columns:
           - name: Id
-            description: ''
+            description: ""
             data_type: string
           - name: Name
-            description: ''
+            description: ""
             data_type: string
           - name: DeveloperName
-            description: ''
+            description: ""
             data_type: string
           - name: RelatedId
-            description: ''
+            description: ""
             data_type: string
           - name: Type
-            description: ''
+            description: ""
             data_type: string
           - name: Email
-            description: ''
+            description: ""
             data_type: string
           - name: OwnerId
-            description: ''
+            description: ""
             data_type: string
           - name: DoesSendEmailToMembers
-            description: ''
+            description: ""
             data_type: boolean
           - name: DoesIncludeBosses
-            description: ''
+            description: ""
             data_type: boolean
           - name: CreatedDate
-            description: ''
+            description: ""
             data_type: string
           - name: CreatedById
-            description: ''
+            description: ""
             data_type: string
           - name: LastModifiedDate
-            description: ''
+            description: ""
             data_type: string
           - name: LastModifiedById
-            description: ''
+            description: ""
             data_type: string
           - name: SystemModstamp
-            description: ''
+            description: ""
             data_type: string

@@ -2,40 +2,40 @@ version: 2
 
 sources:
   - name: source_salesforce
-    schema: '{{ var(''target_schema'', target.schema) }}'
-    database: '{{ var(''target_database'', target.database) }}'
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
     loader: airbyte
     loaded_at_field: _airbyte_extracted_at
     tables:
       - name: OauthToken
         columns:
           - name: Id
-            description: ''
+            description: ""
             data_type: string
           - name: AccessToken
-            description: ''
+            description: ""
             data_type: string
           - name: UserId
-            description: ''
+            description: ""
             data_type: string
           - name: RequestToken
-            description: ''
+            description: ""
             data_type: string
           - name: CreatedDate
-            description: ''
+            description: ""
             data_type: string
           - name: AppName
-            description: ''
+            description: ""
             data_type: string
           - name: LastUsedDate
-            description: ''
+            description: ""
             data_type: string
           - name: UseCount
-            description: ''
+            description: ""
             data_type: integer
           - name: DeleteToken
-            description: ''
+            description: ""
             data_type: string
           - name: AppMenuItemId
-            description: ''
+            description: ""
             data_type: string

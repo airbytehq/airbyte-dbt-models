@@ -2,76 +2,76 @@ version: 2
 
 sources:
   - name: source_salesforce
-    schema: '{{ var(''target_schema'', target.schema) }}'
-    database: '{{ var(''target_database'', target.database) }}'
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
     loader: airbyte
     loaded_at_field: _airbyte_extracted_at
     tables:
       - name: FeedComment
         columns:
           - name: Id
-            description: ''
+            description: ""
             data_type: string
           - name: FeedItemId
-            description: ''
+            description: ""
             data_type: string
           - name: ParentId
-            description: ''
+            description: ""
             data_type: string
           - name: CreatedById
-            description: ''
+            description: ""
             data_type: string
           - name: CreatedDate
-            description: ''
+            description: ""
             data_type: string
           - name: SystemModstamp
-            description: ''
+            description: ""
             data_type: string
           - name: Revision
-            description: ''
+            description: ""
             data_type: integer
           - name: LastEditById
-            description: ''
+            description: ""
             data_type: string
           - name: LastEditDate
-            description: ''
+            description: ""
             data_type: string
           - name: CommentBody
-            description: ''
+            description: ""
             data_type: string
           - name: IsDeleted
-            description: ''
+            description: ""
             data_type: boolean
           - name: InsertedById
-            description: ''
+            description: ""
             data_type: string
           - name: CommentType
-            description: ''
+            description: ""
             data_type: string
           - name: RelatedRecordId
-            description: ''
+            description: ""
             data_type: string
           - name: IsRichText
-            description: ''
+            description: ""
             data_type: boolean
           - name: IsVerified
-            description: ''
+            description: ""
             data_type: boolean
           - name: HasEntityLinks
-            description: ''
+            description: ""
             data_type: boolean
           - name: Status
-            description: ''
+            description: ""
             data_type: string
           - name: ThreadParentId
-            description: ''
+            description: ""
             data_type: string
           - name: ThreadLevel
-            description: ''
+            description: ""
             data_type: integer
           - name: ThreadChildrenCount
-            description: ''
+            description: ""
             data_type: integer
           - name: ThreadLastUpdatedDate
-            description: ''
+            description: ""
             data_type: string
