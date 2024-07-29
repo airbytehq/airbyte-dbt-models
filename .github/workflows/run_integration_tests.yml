@@ -1,4 +1,4 @@
-name: Run Integration Tests for Dbt Models
+name: run-dbt-test
 
 on:
   workflow_dispatch:
