@@ -80,4 +80,4 @@ jobs:
           export DBT_VARS=$(cat vars | sed "s/\$AB_DB/${{ secrets.BIGQUERY_DBT_PROJECT }}/g")
           echo "My variable is $DBT_VARS"
           poetry run dbt deps
-          poetry run dbt run --target bigquery --full-refresh --vars 'airbyte_database: dataline-integration-testing' --vars 'zendesk_database: dataline-integration-testing'
+          poetry run dbt run --target bigquery --full-refresh --vars $DBT_VARS
