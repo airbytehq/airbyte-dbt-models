@@ -43,7 +43,7 @@ jobs:
           POSTGRES_DBT_PASSWORD: ${{ secrets.POSTGRES_DBT_PASSWORD }}
           POSTGRES_DBT_DBNAME: ${{ secrets.POSTGRES_DBT_DBNAME }}
           POSTGRES_DBT_SCHEMA: ${{ secrets.POSTGRES_DBT_SCHEMA }}
-          POSTGRES_VARS: '{airbyte_database:${{ secrets.POSTGRES_DBT_DBNAME }}, fivetran_database:${{ secrets.POSTGRES_DBT_DBNAME }}}''
+          POSTGRES_VARS: '{airbyte_database:${{ secrets.POSTGRES_DBT_DBNAME }}, fivetran_database:${{ secrets.POSTGRES_DBT_DBNAME }}}'
         run: |
           poetry run dbt deps
           poetry run dbt run --target postgres --full-refresh --vars $POSTGRES_VARS
@@ -59,7 +59,7 @@ jobs:
           SNOWFLAKE_DBT_DATABASE: ${{ secrets.SNOWFLAKE_DBT_DATABASE }}
           SNOWFLAKE_DBT_WAREHOUSE: ${{ secrets.SNOWFLAKE_DBT_WAREHOUSE }}
           SNOWFLAKE_DBT_SCHEMA: ${{ secrets.SNOWFLAKE_DBT_SCHEMA }}
-          SNOWFLAKE_VARS: '{airbyte_database:${{ secrets.SNOWFLAKE_DBT_DATABASE }}, fivetran_database:${{ secrets.SNOWFLAKE_DBT_DATABASE }}}''
+          SNOWFLAKE_VARS: '{airbyte_database:${{ secrets.SNOWFLAKE_DBT_DATABASE }}, fivetran_database:${{ secrets.SNOWFLAKE_DBT_DATABASE }}}'
         run: |
           poetry run dbt deps
           poetry run dbt run --target snowflake --full-refresh --vars $SNOWFLAKE_VARS
