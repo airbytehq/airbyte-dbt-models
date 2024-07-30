@@ -20,15 +20,19 @@ clean-targets:
   - logs
 
 require-dbt-version:
-  - '>=1.0.0'
+  - ">=1.0.0"
   - <2.0.0
 
 models:
-  source_zendesk_support:
-    materialized: table
+  airbyte_dbt_source_zendesk_support:
+    materialized: view
+    +schema: dbt_zendesk_support
     staging:
+      materialized: view
+    tmp:
       materialized: view
 
 vars:
-  database: postgres
-  schema: source_zendesk_support
+  airbyte_database: airbyte_dbt_default
+  airbyte_schema: airbyte_schema_default
+  using_fivetran: False
