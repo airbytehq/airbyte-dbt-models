@@ -2,481 +2,481 @@ version: 2
 
 sources:
   - name: source_salesforce
-    schema: '{{ var(''target_schema'', target.schema) }}'
-    database: '{{ var(''target_database'', target.database) }}'
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
     loader: airbyte
     loaded_at_field: _airbyte_extracted_at
     tables:
       - name: User
         columns:
           - name: Id
-            description: ''
+            description: ""
             data_type: string
           - name: Username
-            description: ''
+            description: ""
             data_type: string
           - name: LastName
-            description: ''
+            description: ""
             data_type: string
           - name: FirstName
-            description: ''
+            description: ""
             data_type: string
           - name: MiddleName
-            description: ''
+            description: ""
             data_type: string
           - name: Suffix
-            description: ''
+            description: ""
             data_type: string
           - name: Name
-            description: ''
+            description: ""
             data_type: string
           - name: CompanyName
-            description: ''
+            description: ""
             data_type: string
           - name: Division
-            description: ''
+            description: ""
             data_type: string
           - name: Department
-            description: ''
+            description: ""
             data_type: string
           - name: Title
-            description: ''
+            description: ""
             data_type: string
           - name: Street
-            description: ''
+            description: ""
             data_type: string
           - name: City
-            description: ''
+            description: ""
             data_type: string
           - name: State
-            description: ''
+            description: ""
             data_type: string
           - name: PostalCode
-            description: ''
+            description: ""
             data_type: string
           - name: Country
-            description: ''
+            description: ""
             data_type: string
           - name: Latitude
-            description: ''
+            description: ""
             data_type: number
           - name: Longitude
-            description: ''
+            description: ""
             data_type: number
           - name: GeocodeAccuracy
-            description: ''
+            description: ""
             data_type: string
           - name: Address
-            description: ''
+            description: ""
             data_type: object
           - name: Email
-            description: ''
+            description: ""
             data_type: string
           - name: EmailPreferencesAutoBcc
-            description: ''
+            description: ""
             data_type: boolean
           - name: EmailPreferencesAutoBccStayInTouch
-            description: ''
+            description: ""
             data_type: boolean
           - name: EmailPreferencesStayInTouchReminder
-            description: ''
+            description: ""
             data_type: boolean
           - name: SenderEmail
-            description: ''
+            description: ""
             data_type: string
           - name: SenderName
-            description: ''
+            description: ""
             data_type: string
           - name: Signature
-            description: ''
+            description: ""
             data_type: string
           - name: StayInTouchSubject
-            description: ''
+            description: ""
             data_type: string
           - name: StayInTouchSignature
-            description: ''
+            description: ""
             data_type: string
           - name: StayInTouchNote
-            description: ''
+            description: ""
             data_type: string
           - name: Phone
-            description: ''
+            description: ""
             data_type: string
           - name: Fax
-            description: ''
+            description: ""
             data_type: string
           - name: MobilePhone
-            description: ''
+            description: ""
             data_type: string
           - name: Alias
-            description: ''
+            description: ""
             data_type: string
           - name: CommunityNickname
-            description: ''
+            description: ""
             data_type: string
           - name: BadgeText
-            description: ''
+            description: ""
             data_type: string
           - name: IsActive
-            description: ''
+            description: ""
             data_type: boolean
           - name: TimeZoneSidKey
-            description: ''
+            description: ""
             data_type: string
           - name: LocaleSidKey
-            description: ''
+            description: ""
             data_type: string
           - name: ReceivesInfoEmails
-            description: ''
+            description: ""
             data_type: boolean
           - name: ReceivesAdminInfoEmails
-            description: ''
+            description: ""
             data_type: boolean
           - name: EmailEncodingKey
-            description: ''
+            description: ""
             data_type: string
           - name: UserType
-            description: ''
+            description: ""
             data_type: string
           - name: LanguageLocaleKey
-            description: ''
+            description: ""
             data_type: string
           - name: EmployeeNumber
-            description: ''
+            description: ""
             data_type: string
           - name: DelegatedApproverId
-            description: ''
+            description: ""
             data_type: string
           - name: ManagerId
-            description: ''
+            description: ""
             data_type: string
           - name: LastLoginDate
-            description: ''
+            description: ""
             data_type: string
           - name: CreatedDate
-            description: ''
+            description: ""
             data_type: string
           - name: CreatedById
-            description: ''
+            description: ""
             data_type: string
           - name: LastModifiedDate
-            description: ''
+            description: ""
             data_type: string
           - name: LastModifiedById
-            description: ''
+            description: ""
             data_type: string
           - name: SystemModstamp
-            description: ''
+            description: ""
             data_type: string
           - name: OfflineTrialExpirationDate
-            description: ''
+            description: ""
             data_type: string
           - name: OfflinePdaTrialExpirationDate
-            description: ''
+            description: ""
             data_type: string
           - name: UserPermissionsMarketingUser
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPermissionsOfflineUser
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPermissionsAvantgoUser
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPermissionsCallCenterAutoLogin
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPermissionsSFContentUser
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPermissionsInteractionUser
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPermissionsSupportUser
-            description: ''
+            description: ""
             data_type: boolean
           - name: ForecastEnabled
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesActivityRemindersPopup
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesEventRemindersCheckboxDefault
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesTaskRemindersCheckboxDefault
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesReminderSoundOff
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesDisableAllFeedsEmail
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesDisableFollowersEmail
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesDisableProfilePostEmail
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesDisableChangeCommentEmail
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesDisableLaterCommentEmail
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesDisProfPostCommentEmail
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesHideCSNGetChatterMobileTask
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesDisableMentionsPostEmail
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesDisMentionsCommentEmail
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesHideCSNDesktopTask
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesHideChatterOnboardingSplash
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesHideSecondChatterOnboardingSplash
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesDisCommentAfterLikeEmail
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesDisableLikeEmail
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesSortFeedByComment
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesDisableMessageEmail
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesDisableBookmarkEmail
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesDisableSharePostEmail
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesEnableAutoSubForFeeds
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesDisableFileShareNotificationsForApi
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesShowTitleToExternalUsers
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesShowManagerToExternalUsers
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesShowEmailToExternalUsers
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesShowWorkPhoneToExternalUsers
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesShowMobilePhoneToExternalUsers
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesShowFaxToExternalUsers
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesShowStreetAddressToExternalUsers
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesShowCityToExternalUsers
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesShowStateToExternalUsers
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesShowPostalCodeToExternalUsers
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesShowCountryToExternalUsers
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesShowProfilePicToGuestUsers
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesShowTitleToGuestUsers
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesShowCityToGuestUsers
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesShowStateToGuestUsers
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesShowPostalCodeToGuestUsers
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesShowCountryToGuestUsers
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesShowForecastingChangeSignals
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesHideS1BrowserUI
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesDisableEndorsementEmail
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesPathAssistantCollapsed
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesCacheDiagnostics
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesShowEmailToGuestUsers
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesShowManagerToGuestUsers
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesShowWorkPhoneToGuestUsers
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesShowMobilePhoneToGuestUsers
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesShowFaxToGuestUsers
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesShowStreetAddressToGuestUsers
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesLightningExperiencePreferred
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesHideEndUserOnboardingAssistantModal
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesHideLightningMigrationModal
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesHideSfxWelcomeMat
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesHideBiggerPhotoCallout
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesGlobalNavBarWTShown
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesGlobalNavGridMenuWTShown
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesCreateLEXAppsWTShown
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesFavoritesWTShown
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesRecordHomeSectionCollapseWTShown
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesRecordHomeReservedWTShown
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesFavoritesShowTopFavorites
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesExcludeMailAppAttachments
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesSuppressTaskSFXReminders
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesSuppressEventSFXReminders
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesPreviewCustomTheme
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesHasCelebrationBadge
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesUserDebugModePref
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesSRHOverrideActivities
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesHasSentWarningEmail
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesHasSentWarningEmail238
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesHasSentWarningEmail240
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesHideBrowseProductRedirectConfirmation
-            description: ''
+            description: ""
             data_type: boolean
           - name: UserPreferencesHideOnlineSalesAppWelcomeMat
-            description: ''
+            description: ""
             data_type: boolean
           - name: CallCenterId
-            description: ''
+            description: ""
             data_type: string
           - name: Extension
-            description: ''
+            description: ""
             data_type: string
           - name: FederationIdentifier
-            description: ''
+            description: ""
             data_type: string
           - name: AboutMe
-            description: ''
+            description: ""
             data_type: string
           - name: FullPhotoUrl
-            description: ''
+            description: ""
             data_type: string
           - name: SmallPhotoUrl
-            description: ''
+            description: ""
             data_type: string
           - name: IsExtIndicatorVisible
-            description: ''
+            description: ""
             data_type: boolean
           - name: OutOfOfficeMessage
-            description: ''
+            description: ""
             data_type: string
           - name: MediumPhotoUrl
-            description: ''
+            description: ""
             data_type: string
           - name: DigestFrequency
-            description: ''
+            description: ""
             data_type: string
           - name: DefaultGroupNotificationFrequency
-            description: ''
+            description: ""
             data_type: string
           - name: LastViewedDate
-            description: ''
+            description: ""
             data_type: string
           - name: LastReferencedDate
-            description: ''
+            description: ""
             data_type: string
           - name: BannerPhotoUrl
-            description: ''
+            description: ""
             data_type: string
           - name: SmallBannerPhotoUrl
-            description: ''
+            description: ""
             data_type: string
           - name: MediumBannerPhotoUrl
-            description: ''
+            description: ""
             data_type: string
           - name: IsProfilePhotoActive
-            description: ''
+            description: ""
             data_type: boolean
           - name: User_Casesafe_ID__c
-            description: ''
+            description: ""
             data_type: string

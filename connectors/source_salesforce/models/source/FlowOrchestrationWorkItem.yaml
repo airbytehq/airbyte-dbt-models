@@ -2,67 +2,67 @@ version: 2
 
 sources:
   - name: source_salesforce
-    schema: '{{ var(''target_schema'', target.schema) }}'
-    database: '{{ var(''target_database'', target.database) }}'
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
     loader: airbyte
     loaded_at_field: _airbyte_extracted_at
     tables:
       - name: FlowOrchestrationWorkItem
         columns:
           - name: Id
-            description: ''
+            description: ""
             data_type: string
           - name: OwnerId
-            description: ''
+            description: ""
             data_type: string
           - name: IsDeleted
-            description: ''
+            description: ""
             data_type: boolean
           - name: Name
-            description: ''
+            description: ""
             data_type: string
           - name: CreatedDate
-            description: ''
+            description: ""
             data_type: string
           - name: CreatedById
-            description: ''
+            description: ""
             data_type: string
           - name: LastModifiedDate
-            description: ''
+            description: ""
             data_type: string
           - name: LastModifiedById
-            description: ''
+            description: ""
             data_type: string
           - name: SystemModstamp
-            description: ''
+            description: ""
             data_type: string
           - name: LastViewedDate
-            description: ''
+            description: ""
             data_type: string
           - name: LastReferencedDate
-            description: ''
+            description: ""
             data_type: string
           - name: StepInstanceId
-            description: ''
+            description: ""
             data_type: string
           - name: Status
-            description: ''
+            description: ""
             data_type: string
           - name: RelatedRecordId
-            description: ''
+            description: ""
             data_type: string
           - name: Label
-            description: ''
+            description: ""
             data_type: string
           - name: Description
-            description: ''
+            description: ""
             data_type: string
           - name: AssigneeId
-            description: ''
+            description: ""
             data_type: string
           - name: ScreenFlow
-            description: ''
+            description: ""
             data_type: string
           - name: ScreenFlowInputs
-            description: ''
+            description: ""
             data_type: string

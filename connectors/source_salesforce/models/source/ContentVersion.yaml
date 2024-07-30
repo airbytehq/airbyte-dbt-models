@@ -2,136 +2,136 @@ version: 2
 
 sources:
   - name: source_salesforce
-    schema: '{{ var(''target_schema'', target.schema) }}'
-    database: '{{ var(''target_database'', target.database) }}'
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
     loader: airbyte
     loaded_at_field: _airbyte_extracted_at
     tables:
       - name: ContentVersion
         columns:
           - name: Id
-            description: ''
+            description: ""
             data_type: string
           - name: ContentDocumentId
-            description: ''
+            description: ""
             data_type: string
           - name: IsLatest
-            description: ''
+            description: ""
             data_type: boolean
           - name: ContentUrl
-            description: ''
+            description: ""
             data_type: string
           - name: ContentBodyId
-            description: ''
+            description: ""
             data_type: string
           - name: VersionNumber
-            description: ''
+            description: ""
             data_type: string
           - name: Title
-            description: ''
+            description: ""
             data_type: string
           - name: Description
-            description: ''
+            description: ""
             data_type: string
           - name: ReasonForChange
-            description: ''
+            description: ""
             data_type: string
           - name: SharingOption
-            description: ''
+            description: ""
             data_type: string
           - name: SharingPrivacy
-            description: ''
+            description: ""
             data_type: string
           - name: PathOnClient
-            description: ''
+            description: ""
             data_type: string
           - name: RatingCount
-            description: ''
+            description: ""
             data_type: integer
           - name: IsDeleted
-            description: ''
+            description: ""
             data_type: boolean
           - name: ContentModifiedDate
-            description: ''
+            description: ""
             data_type: string
           - name: ContentModifiedById
-            description: ''
+            description: ""
             data_type: string
           - name: PositiveRatingCount
-            description: ''
+            description: ""
             data_type: integer
           - name: NegativeRatingCount
-            description: ''
+            description: ""
             data_type: integer
           - name: FeaturedContentBoost
-            description: ''
+            description: ""
             data_type: integer
           - name: FeaturedContentDate
-            description: ''
+            description: ""
             data_type: string
           - name: OwnerId
-            description: ''
+            description: ""
             data_type: string
           - name: CreatedById
-            description: ''
+            description: ""
             data_type: string
           - name: CreatedDate
-            description: ''
+            description: ""
             data_type: string
           - name: LastModifiedById
-            description: ''
+            description: ""
             data_type: string
           - name: LastModifiedDate
-            description: ''
+            description: ""
             data_type: string
           - name: SystemModstamp
-            description: ''
+            description: ""
             data_type: string
           - name: TagCsv
-            description: ''
+            description: ""
             data_type: string
           - name: FileType
-            description: ''
+            description: ""
             data_type: string
           - name: PublishStatus
-            description: ''
+            description: ""
             data_type: string
           - name: VersionData
-            description: ''
+            description: ""
             data_type: string
           - name: ContentSize
-            description: ''
+            description: ""
             data_type: integer
           - name: FileExtension
-            description: ''
+            description: ""
             data_type: string
           - name: FirstPublishLocationId
-            description: ''
+            description: ""
             data_type: string
           - name: Origin
-            description: ''
+            description: ""
             data_type: string
           - name: ContentLocation
-            description: ''
+            description: ""
             data_type: string
           - name: TextPreview
-            description: ''
+            description: ""
             data_type: string
           - name: ExternalDocumentInfo1
-            description: ''
+            description: ""
             data_type: string
           - name: ExternalDocumentInfo2
-            description: ''
+            description: ""
             data_type: string
           - name: Checksum
-            description: ''
+            description: ""
             data_type: string
           - name: IsMajorVersion
-            description: ''
+            description: ""
             data_type: boolean
           - name: IsAssetEnabled
-            description: ''
+            description: ""
             data_type: boolean
           - name: VersionDataUrl
-            description: ''
+            description: ""
             data_type: string

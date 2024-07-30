@@ -2,130 +2,130 @@ version: 2
 
 sources:
   - name: source_zendesk_support
-    schema: '{{ var(''target_schema'', target.schema) }}'
-    database: '{{ var(''target_database'', target.database) }}'
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
     loader: airbyte
     loaded_at_field: _airbyte_extracted_at
     tables:
       - name: tickets
         columns:
           - name: organization_id
-            description: ''
+            description: ""
             data_type: integer
           - name: requester_id
-            description: ''
+            description: ""
             data_type: integer
           - name: problem_id
-            description: ''
+            description: ""
             data_type: integer
           - name: is_public
-            description: ''
+            description: ""
             data_type: boolean
           - name: description
-            description: ''
+            description: ""
             data_type: string
           - name: follower_ids
-            description: ''
+            description: ""
             data_type: array
           - name: submitter_id
-            description: ''
+            description: ""
             data_type: integer
           - name: generated_timestamp
-            description: ''
+            description: ""
             data_type: integer
           - name: brand_id
-            description: ''
+            description: ""
             data_type: integer
           - name: id
-            description: ''
+            description: ""
             data_type: integer
           - name: group_id
-            description: ''
+            description: ""
             data_type: integer
           - name: type
-            description: ''
+            description: ""
             data_type: string
           - name: recipient
-            description: ''
+            description: ""
             data_type: string
           - name: collaborator_ids
-            description: ''
+            description: ""
             data_type: array
           - name: tags
-            description: ''
+            description: ""
             data_type: array
           - name: has_incidents
-            description: ''
+            description: ""
             data_type: boolean
           - name: created_at
-            description: ''
+            description: ""
             data_type: string
           - name: raw_subject
-            description: ''
+            description: ""
             data_type: string
           - name: status
-            description: ''
+            description: ""
             data_type: string
           - name: updated_at
-            description: ''
+            description: ""
             data_type: string
           - name: fields
-            description: ''
+            description: ""
             data_type: array
           - name: custom_fields
-            description: ''
+            description: ""
             data_type: array
           - name: url
-            description: ''
+            description: ""
             data_type: string
           - name: allow_channelback
-            description: ''
+            description: ""
             data_type: boolean
           - name: allow_attachments
-            description: ''
+            description: ""
             data_type: boolean
           - name: due_at
-            description: ''
+            description: ""
             data_type: string
           - name: followup_ids
-            description: ''
+            description: ""
             data_type: array
           - name: priority
-            description: ''
+            description: ""
             data_type: string
           - name: assignee_id
-            description: ''
+            description: ""
             data_type: integer
           - name: subject
-            description: ''
+            description: ""
             data_type: string
           - name: external_id
-            description: ''
+            description: ""
             data_type: string
           - name: via
-            description: ''
+            description: ""
             data_type: object
           - name: ticket_form_id
-            description: ''
+            description: ""
             data_type: integer
           - name: deleted_ticket_form_id
-            description: ''
+            description: ""
             data_type: integer
           - name: satisfaction_rating
-            description: ''
+            description: ""
             data_type: object
           - name: sharing_agreement_ids
-            description: ''
+            description: ""
             data_type: array
           - name: email_cc_ids
-            description: ''
+            description: ""
             data_type: array
           - name: forum_topic_id
-            description: ''
+            description: ""
             data_type: integer
           - name: custom_status_id
-            description: ''
+            description: ""
             data_type: integer
           - name: from_messaging_channel
-            description: ''
+            description: ""
             data_type: boolean

@@ -2,106 +2,106 @@ version: 2
 
 sources:
   - name: source_salesforce
-    schema: '{{ var(''target_schema'', target.schema) }}'
-    database: '{{ var(''target_database'', target.database) }}'
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
     loader: airbyte
     loaded_at_field: _airbyte_extracted_at
     tables:
       - name: EmbeddedServiceDetail
         columns:
           - name: Id
-            description: ''
+            description: ""
             data_type: string
           - name: DurableId
-            description: ''
+            description: ""
             data_type: string
           - name: Site
-            description: ''
+            description: ""
             data_type: string
           - name: PrimaryColor
-            description: ''
+            description: ""
             data_type: string
           - name: SecondaryColor
-            description: ''
+            description: ""
             data_type: string
           - name: ContrastPrimaryColor
-            description: ''
+            description: ""
             data_type: string
           - name: ContrastInvertedColor
-            description: ''
+            description: ""
             data_type: string
           - name: NavBarColor
-            description: ''
+            description: ""
             data_type: string
           - name: NavBarTextColor
-            description: ''
+            description: ""
             data_type: string
           - name: SecondaryNavBarColor
-            description: ''
+            description: ""
             data_type: string
           - name: Font
-            description: ''
+            description: ""
             data_type: string
           - name: IsLiveAgentEnabled
-            description: ''
+            description: ""
             data_type: boolean
           - name: IsFieldServiceEnabled
-            description: ''
+            description: ""
             data_type: boolean
           - name: Width
-            description: ''
+            description: ""
             data_type: integer
           - name: Height
-            description: ''
+            description: ""
             data_type: integer
           - name: IsPrechatEnabled
-            description: ''
+            description: ""
             data_type: boolean
           - name: CustomPrechatComponent
-            description: ''
+            description: ""
             data_type: string
           - name: AvatarImg
-            description: ''
+            description: ""
             data_type: string
           - name: SmallCompanyLogoImg
-            description: ''
+            description: ""
             data_type: string
           - name: PrechatBackgroundImg
-            description: ''
+            description: ""
             data_type: string
           - name: WaitingStateBackgroundImg
-            description: ''
+            description: ""
             data_type: string
           - name: FontSize
-            description: ''
+            description: ""
             data_type: string
           - name: OfflineCaseBackgroundImg
-            description: ''
+            description: ""
             data_type: string
           - name: IsOfflineCaseEnabled
-            description: ''
+            description: ""
             data_type: boolean
           - name: IsQueuePositionEnabled
-            description: ''
+            description: ""
             data_type: boolean
           - name: ShouldShowNewAppointment
-            description: ''
+            description: ""
             data_type: boolean
           - name: ShouldShowExistingAppointment
-            description: ''
+            description: ""
             data_type: boolean
           - name: FieldServiceHomeImg
-            description: ''
+            description: ""
             data_type: string
           - name: FieldServiceLogoImg
-            description: ''
+            description: ""
             data_type: string
           - name: FieldServiceConfirmCardImg
-            description: ''
+            description: ""
             data_type: string
           - name: ShouldHideAuthDialog
-            description: ''
+            description: ""
             data_type: boolean
           - name: CustomMinimizedComponent
-            description: ''
+            description: ""
             data_type: string

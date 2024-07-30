@@ -2,67 +2,67 @@ version: 2
 
 sources:
   - name: source_salesforce
-    schema: '{{ var(''target_schema'', target.schema) }}'
-    database: '{{ var(''target_database'', target.database) }}'
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
     loader: airbyte
     loaded_at_field: _airbyte_extracted_at
     tables:
       - name: CalendarView
         columns:
           - name: Id
-            description: ''
+            description: ""
             data_type: string
           - name: OwnerId
-            description: ''
+            description: ""
             data_type: string
           - name: IsDeleted
-            description: ''
+            description: ""
             data_type: boolean
           - name: Name
-            description: ''
+            description: ""
             data_type: string
           - name: CreatedDate
-            description: ''
+            description: ""
             data_type: string
           - name: CreatedById
-            description: ''
+            description: ""
             data_type: string
           - name: LastModifiedDate
-            description: ''
+            description: ""
             data_type: string
           - name: LastModifiedById
-            description: ''
+            description: ""
             data_type: string
           - name: SystemModstamp
-            description: ''
+            description: ""
             data_type: string
           - name: IsDisplayed
-            description: ''
+            description: ""
             data_type: boolean
           - name: Color
-            description: ''
+            description: ""
             data_type: string
           - name: FillPattern
-            description: ''
+            description: ""
             data_type: string
           - name: ListViewFilterId
-            description: ''
+            description: ""
             data_type: string
           - name: DateHandlingType
-            description: ''
+            description: ""
             data_type: string
           - name: StartField
-            description: ''
+            description: ""
             data_type: string
           - name: EndField
-            description: ''
+            description: ""
             data_type: string
           - name: DisplayField
-            description: ''
+            description: ""
             data_type: string
           - name: SobjectType
-            description: ''
+            description: ""
             data_type: string
           - name: PublisherId
-            description: ''
+            description: ""
             data_type: string

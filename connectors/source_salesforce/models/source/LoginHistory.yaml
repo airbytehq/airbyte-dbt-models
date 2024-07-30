@@ -2,70 +2,70 @@ version: 2
 
 sources:
   - name: source_salesforce
-    schema: '{{ var(''target_schema'', target.schema) }}'
-    database: '{{ var(''target_database'', target.database) }}'
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
     loader: airbyte
     loaded_at_field: _airbyte_extracted_at
     tables:
       - name: LoginHistory
         columns:
           - name: Id
-            description: ''
+            description: ""
             data_type: string
           - name: UserId
-            description: ''
+            description: ""
             data_type: string
           - name: LoginTime
-            description: ''
+            description: ""
             data_type: string
           - name: LoginType
-            description: ''
+            description: ""
             data_type: string
           - name: SourceIp
-            description: ''
+            description: ""
             data_type: string
           - name: LoginUrl
-            description: ''
+            description: ""
             data_type: string
           - name: TlsProtocol
-            description: ''
+            description: ""
             data_type: string
           - name: CipherSuite
-            description: ''
+            description: ""
             data_type: string
           - name: OptionsIsGet
-            description: ''
+            description: ""
             data_type: boolean
           - name: OptionsIsPost
-            description: ''
+            description: ""
             data_type: boolean
           - name: Browser
-            description: ''
+            description: ""
             data_type: string
           - name: Platform
-            description: ''
+            description: ""
             data_type: string
           - name: Status
-            description: ''
+            description: ""
             data_type: string
           - name: Application
-            description: ''
+            description: ""
             data_type: string
           - name: ClientVersion
-            description: ''
+            description: ""
             data_type: string
           - name: ApiType
-            description: ''
+            description: ""
             data_type: string
           - name: ApiVersion
-            description: ''
+            description: ""
             data_type: string
           - name: CountryIso
-            description: ''
+            description: ""
             data_type: string
           - name: AuthMethodReference
-            description: ''
+            description: ""
             data_type: string
           - name: LoginSubType
-            description: ''
+            description: ""
             data_type: string

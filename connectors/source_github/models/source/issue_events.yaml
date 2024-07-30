@@ -2,8 +2,8 @@ version: 2
 
 sources:
   - name: source_github
-    schema: '{{ var(''target_schema'', target.schema) }}'
-    database: '{{ var(''target_database'', target.database) }}'
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
     loader: airbyte
     loaded_at_field: _airbyte_extracted_at
     tables:
@@ -22,7 +22,7 @@ sources:
             description: The URL of the event
             data_type: string
           - name: actor
-            description: ''
+            description: ""
             data_type: object
           - name: event
             description: The type of event that occurred
@@ -43,7 +43,7 @@ sources:
             description: Details about a label
             data_type: object
           - name: review_requester
-            description: ''
+            description: ""
             data_type: object
           - name: issue
             description: Information about the associated issue
@@ -55,10 +55,10 @@ sources:
             description: Details about a milestone
             data_type: object
           - name: assignee
-            description: ''
+            description: ""
             data_type: object
           - name: assigner
-            description: ''
+            description: ""
             data_type: object
           - name: project_card
             description: Details about a project card
@@ -73,5 +73,5 @@ sources:
             description: Details about a rename action
             data_type: object
           - name: requested_reviewer
-            description: ''
+            description: ""
             data_type: object

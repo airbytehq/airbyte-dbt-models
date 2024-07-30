@@ -2,49 +2,49 @@ version: 2
 
 sources:
   - name: source_salesforce
-    schema: '{{ var(''target_schema'', target.schema) }}'
-    database: '{{ var(''target_database'', target.database) }}'
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
     loader: airbyte
     loaded_at_field: _airbyte_extracted_at
     tables:
       - name: ProcessInstanceStep
         columns:
           - name: Id
-            description: ''
+            description: ""
             data_type: string
           - name: ProcessInstanceId
-            description: ''
+            description: ""
             data_type: string
           - name: StepStatus
-            description: ''
+            description: ""
             data_type: string
           - name: OriginalActorId
-            description: ''
+            description: ""
             data_type: string
           - name: ActorId
-            description: ''
+            description: ""
             data_type: string
           - name: Comments
-            description: ''
+            description: ""
             data_type: string
           - name: StepNodeId
-            description: ''
+            description: ""
             data_type: string
           - name: ElapsedTimeInDays
-            description: ''
+            description: ""
             data_type: number
           - name: ElapsedTimeInHours
-            description: ''
+            description: ""
             data_type: number
           - name: ElapsedTimeInMinutes
-            description: ''
+            description: ""
             data_type: number
           - name: CreatedDate
-            description: ''
+            description: ""
             data_type: string
           - name: CreatedById
-            description: ''
+            description: ""
             data_type: string
           - name: SystemModstamp
-            description: ''
+            description: ""
             data_type: string

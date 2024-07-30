@@ -2,8 +2,8 @@ version: 2
 
 sources:
   - name: source_github
-    schema: '{{ var(''target_schema'', target.schema) }}'
-    database: '{{ var(''target_database'', target.database) }}'
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
     loader: airbyte
     loaded_at_field: _airbyte_extracted_at
     tables:
@@ -46,7 +46,7 @@ sources:
             description: Title of the issue.
             data_type: string
           - name: user
-            description: ''
+            description: ""
             data_type: object
           - name: body
             description: The content of the issue.
@@ -58,7 +58,7 @@ sources:
             description: List of labels attached to the issue.
             data_type: array
           - name: assignee
-            description: ''
+            description: ""
             data_type: object
           - name: assignees
             description: List of users assigned to the issue.
@@ -94,7 +94,7 @@ sources:
             description: Flag indicating if the issue is a draft.
             data_type: boolean
           - name: reactions
-            description: ''
+            description: ""
             data_type: object
           - name: timeline_url
             description: URL to retrieve the timeline of the issue.

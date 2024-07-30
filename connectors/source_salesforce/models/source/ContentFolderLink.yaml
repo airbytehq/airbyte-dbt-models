@@ -2,25 +2,25 @@ version: 2
 
 sources:
   - name: source_salesforce
-    schema: '{{ var(''target_schema'', target.schema) }}'
-    database: '{{ var(''target_database'', target.database) }}'
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
     loader: airbyte
     loaded_at_field: _airbyte_extracted_at
     tables:
       - name: ContentFolderLink
         columns:
           - name: Id
-            description: ''
+            description: ""
             data_type: string
           - name: ParentEntityId
-            description: ''
+            description: ""
             data_type: string
           - name: ContentFolderId
-            description: ''
+            description: ""
             data_type: string
           - name: IsDeleted
-            description: ''
+            description: ""
             data_type: boolean
           - name: EnableFolderStatus
-            description: ''
+            description: ""
             data_type: string
