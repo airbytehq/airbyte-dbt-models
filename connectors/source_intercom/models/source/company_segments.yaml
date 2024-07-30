@@ -1,0 +1,32 @@
+version: 2
+
+sources:
+  - name: source_intercom
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: company_segments
+        columns:
+          - name: created_at
+            description: The timestamp when the company segment was created.
+            data_type: integer
+          - name: count
+            description: The count of company segments returned in the response.
+            data_type: integer
+          - name: id
+            description: The unique identifier associated with the company segment.
+            data_type: string
+          - name: name
+            description: The name of the company segment.
+            data_type: string
+          - name: type
+            description: The category or type of the company segment.
+            data_type: string
+          - name: person_type
+            description: The type of person associated with the company segment.
+            data_type: string
+          - name: updated_at
+            description: The timestamp when the company segment was last updated.
+            data_type: integer

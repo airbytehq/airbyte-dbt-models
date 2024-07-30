@@ -1,0 +1,173 @@
+version: 2
+
+sources:
+  - name: source_intercom
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: contacts
+        columns:
+          - name: type
+            description: Type of contact.
+            data_type: string
+          - name: id
+            description: The unique identifier of the contact.
+            data_type: string
+          - name: workspace_id
+            description: The unique identifier of the workspace associated with the contact.
+            data_type: string
+          - name: external_id
+            description: External identifier for the contact.
+            data_type: string
+          - name: role
+            description: Role or position of the contact.
+            data_type: string
+          - name: email
+            description: The email address of the contact.
+            data_type: string
+          - name: phone
+            description: The phone number of the contact.
+            data_type: string
+          - name: name
+            description: The name of the contact.
+            data_type: string
+          - name: avatar
+            description: URL pointing to the contact's avatar image.
+            data_type: string
+          - name: owner_id
+            description: The unique identifier of the contact's owner.
+            data_type: integer
+          - name: social_profiles
+            description: Social profiles associated with the contact.
+            data_type: object
+          - name: has_hard_bounced
+            description: Flag indicating if the contact has hard bounced.
+            data_type: boolean
+          - name: marked_email_as_spam
+            description: Flag indicating if the contact's email was marked as spam.
+            data_type: boolean
+          - name: unsubscribed_from_emails
+            description: Flag indicating if the contact unsubscribed from emails.
+            data_type: boolean
+          - name: unsubscribed_from_sms
+            description: Flag indicating if the contact unsubscribed from SMS.
+            data_type: boolean
+          - name: created_at
+            description: The date and time when the contact was created.
+            data_type: integer
+          - name: updated_at
+            description: The date and time when the contact was last updated.
+            data_type: integer
+          - name: signed_up_at
+            description: The date and time when the contact signed up.
+            data_type: integer
+          - name: sms_consent
+            description: Consent status for SMS communication.
+            data_type: boolean
+          - name: last_seen_at
+            description: The date and time when the contact was last seen overall.
+            data_type: integer
+          - name: last_replied_at
+            description: The date and time when the contact last replied.
+            data_type: integer
+          - name: last_contacted_at
+            description: The date and time when the contact was last contacted.
+            data_type: integer
+          - name: last_email_opened_at
+            description: The date and time when the contact last opened an email.
+            data_type: integer
+          - name: last_email_clicked_at
+            description: The date and time when the contact last clicked an email.
+            data_type: integer
+          - name: language_override
+            description: Language override set for the contact.
+            data_type: string
+          - name: browser
+            description: The browser used by the contact.
+            data_type: string
+          - name: browser_version
+            description: The version of the browser used by the contact.
+            data_type: string
+          - name: browser_language
+            description: The language preference set in the contact's browser.
+            data_type: string
+          - name: os
+            description: Operating system of the contact's device.
+            data_type: string
+          - name: location
+            description: Location details of the contact.
+            data_type: object
+          - name: android_app_name
+            description: The name of the Android app associated with the contact.
+            data_type: string
+          - name: android_app_version
+            description: The version of the Android app associated with the contact.
+            data_type: string
+          - name: android_device
+            description: The device used by the contact for Android.
+            data_type: string
+          - name: android_os_version
+            description: The operating system version of the Android device.
+            data_type: string
+          - name: android_sdk_version
+            description: The SDK version of the Android device.
+            data_type: string
+          - name: android_last_seen_at
+            description: The date and time when the contact was last seen on Android.
+            data_type: string
+          - name: ios_app_name
+            description: The name of the iOS app associated with the contact.
+            data_type: string
+          - name: ios_app_version
+            description: The version of the iOS app associated with the contact.
+            data_type: string
+          - name: ios_device
+            description: The device used by the contact for iOS.
+            data_type: string
+          - name: ios_os_version
+            description: The operating system version of the iOS device.
+            data_type: string
+          - name: ios_sdk_version
+            description: The SDK version of the iOS device.
+            data_type: string
+          - name: ios_last_seen_at
+            description: The date and time when the contact was last seen on iOS.
+            data_type: integer
+          - name: custom_attributes
+            description: Custom attributes defined for the contact.
+            data_type: object
+          - name: tags
+            description: Tags associated with the contact.
+            data_type: object
+          - name: notes
+            description: Notes associated with the contact.
+            data_type: object
+          - name: companies
+            description: Companies associated with the contact.
+            data_type: object
+          - name: opted_out_subscription_types
+            description: Subscription types the contact opted out from.
+            data_type: object
+          - name: opted_in_subscription_types
+            description: Subscription types the contact opted into.
+            data_type: object
+          - name: utm_content
+            description: Content data from UTM parameters.
+            data_type: string
+          - name: utm_campaign
+            description: Campaign data from UTM parameters.
+            data_type: string
+          - name: utm_source
+            description: Source data from UTM parameters.
+            data_type: string
+          - name: referrer
+            description: Referrer information related to the contact.
+            data_type: string
+          - name: utm_term
+            description: Term data from UTM parameters.
+            data_type: string
+          - name: utm_medium
+            description: Medium data from UTM parameters.
+            data_type: string

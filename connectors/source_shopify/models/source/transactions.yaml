@@ -1,0 +1,98 @@
+version: 2
+
+sources:
+  - name: source_shopify
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: transactions
+        columns:
+          - name: error_code
+            description: Error code associated with the transaction
+            data_type: string
+          - name: device_id
+            description: ID of the device used to process the transaction
+            data_type: integer
+          - name: user_id
+            description: ID of the user associated with the transaction
+            data_type: integer
+          - name: parent_id
+            description: ID of the parent transaction if applicable
+            data_type: integer
+          - name: test
+            description: Flag to indicate if the transaction is a test transaction
+            data_type: boolean
+          - name: kind
+            description: Type of transaction
+            data_type: string
+          - name: order_id
+            description: ID of the order associated with the transaction
+            data_type: integer
+          - name: amount
+            description: The amount of the transaction
+            data_type: number
+          - name: amount_set
+            description: The amount and currency of the transaction in shop
+            data_type: object
+          - name: fees
+            description: The transaction fees charged on the order transaction. Only present for Shopify Payments transactions.
+            data_type: array
+          - name: authorization
+            description: Authorization code for the transaction
+            data_type: string
+          - name: currency
+            description: Currency of the transaction
+            data_type: string
+          - name: source_name
+            description: Name of the source that initiated the transaction
+            data_type: string
+          - name: message
+            description: Additional message or notes regarding the transaction
+            data_type: string
+          - name: id
+            description: Unique identifier of the transaction
+            data_type: integer
+          - name: created_at
+            description: Date and time when the transaction was created
+            data_type: string
+          - name: status
+            description: Status of the transaction
+            data_type: string
+          - name: total_unsettled_set
+            description: Total unsettled amount of the transaction
+            data_type: object
+          - name: payment_id
+            description: ID of the payment associated with the transaction
+            data_type: string
+          - name: payment_details
+            description: Details of the payment transaction
+            data_type: object
+          - name: processed_at
+            description: Date and time when the transaction was processed
+            data_type: string
+          - name: gateway
+            description: Payment gateway used for the transaction
+            data_type: string
+          - name: admin_graphql_api_id
+            description: Unique identifier for the resource in the GraphQL Admin API
+            data_type: string
+          - name: receipt
+            description: Receipt information related to the transaction
+            data_type: default
+          - name: location_id
+            description: ID of the location where the transaction took place
+            data_type: integer
+          - name: accountNumber
+            description: The masked account number associated with the payment method.
+            data_type: integer
+          - name: formattedGateway
+            description: The human-readable payment gateway name used to process the transaction.
+            data_type: string
+          - name: manuallyCapturable
+            description: Whether the transaction can be manually captured.
+            data_type: boolean
+          - name: shop_url
+            description: URL of the shop where the transaction occurred
+            data_type: string

@@ -1,0 +1,47 @@
+version: 2
+
+sources:
+  - name: source_twilio
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: conversation_participants
+        columns:
+          - name: account_sid
+            description: The Twilio account SID of the conversation participant.
+            data_type: string
+          - name: conversation_sid
+            description: The SID of the conversation the participant belongs to.
+            data_type: string
+          - name: sid
+            description: The unique SID of the conversation participant.
+            data_type: string
+          - name: identity
+            description: The identity of the participant in the conversation.
+            data_type: string
+          - name: attributes
+            description: Additional attributes related to the conversation participant.
+            data_type: string
+          - name: messaging_binding
+            description: Details about the messaging binding for the conversation participant.
+            data_type: object
+          - name: role_sid
+            description: The SID of the role assigned to the participant in the conversation.
+            data_type: string
+          - name: date_created
+            description: The date and time when the conversation participant was created.
+            data_type: string
+          - name: date_updated
+            description: The date and time when the conversation participant was last updated.
+            data_type: string
+          - name: url
+            description: The URL for accessing more details about the conversation participant.
+            data_type: string
+          - name: last_read_message_index
+            description: The index of the last message that the participant has read.
+            data_type: string
+          - name: last_read_timestamp
+            description: The timestamp when the participant last read a message.
+            data_type: string

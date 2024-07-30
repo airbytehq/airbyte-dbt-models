@@ -1,0 +1,53 @@
+version: 2
+
+sources:
+  - name: source_twilio
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: conference_participants
+        columns:
+          - name: account_sid
+            description: The unique identifier for the Twilio account associated with the conference participant.
+            data_type: string
+          - name: call_sid
+            description: The unique identifier for the call made by the participant.
+            data_type: string
+          - name: label
+            description: A custom label assigned to the participant for identification.
+            data_type: string
+          - name: conference_sid
+            description: The unique identifier for the conference the participant is a part of.
+            data_type: string
+          - name: date_created
+            description: The date and time when the participant was added to the conference.
+            data_type: string
+          - name: date_updated
+            description: The date and time when the participant's information was last updated.
+            data_type: string
+          - name: end_conference_on_exit
+            description: Indicates whether the conference will end when the participant exits.
+            data_type: boolean
+          - name: muted
+            description: Indicates whether the participant's audio is muted.
+            data_type: boolean
+          - name: hold
+            description: Indicates whether the participant is on hold.
+            data_type: boolean
+          - name: status
+            description: The current status of the participant in the conference.
+            data_type: string
+          - name: start_conference_on_enter
+            description: Indicates whether the conference will start when the participant enters.
+            data_type: boolean
+          - name: coaching
+            description: Indicates whether the participant is in coaching mode.
+            data_type: boolean
+          - name: call_sid_to_coach
+            description: The unique identifier for the call made to the coach.
+            data_type: string
+          - name: uri
+            description: The URI for accessing the details of the conference participant.
+            data_type: string

@@ -1,0 +1,41 @@
+version: 2
+
+sources:
+  - name: source_twilio
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: accounts
+        columns:
+          - name: auth_token
+            description: The authentication token for the account
+            data_type: string
+          - name: date_created
+            description: The timestamp when the account was created
+            data_type: string
+          - name: date_updated
+            description: The timestamp when the account was last updated
+            data_type: string
+          - name: friendly_name
+            description: A user-defined friendly name for the account
+            data_type: string
+          - name: owner_account_sid
+            description: The SID of the owner account
+            data_type: string
+          - name: sid
+            description: The unique identifier for the account
+            data_type: string
+          - name: status
+            description: The current status of the account
+            data_type: string
+          - name: subresource_uris
+            description: URIs for accessing various subresources related to the account
+            data_type: object
+          - name: type
+            description: The type of the account
+            data_type: string
+          - name: uri
+            description: The URI for accessing the account resource
+            data_type: string

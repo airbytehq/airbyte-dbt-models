@@ -1,0 +1,131 @@
+version: 2
+
+sources:
+  - name: source_shopify
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: products
+        columns:
+          - name: published_at
+            description: The date and time when the product was published.
+            data_type: string
+          - name: created_at
+            description: The date and time when the product was created.
+            data_type: string
+          - name: published_scope
+            description: The scope of where the product is available for purchase.
+            data_type: string
+          - name: status
+            description: The status of the product.
+            data_type: string
+          - name: vendor
+            description: The vendor or manufacturer of the product.
+            data_type: string
+          - name: updated_at
+            description: The date and time when the product was last updated.
+            data_type: string
+          - name: body_html
+            description: The HTML description of the product.
+            data_type: string
+          - name: product_type
+            description: The type or category of the product.
+            data_type: string
+          - name: tags
+            description: Tags associated with the product.
+            data_type: string
+          - name: options
+            description: Represents different customizable options available for the product.
+            data_type: array
+          - name: image
+            description: Represents the main product image linked to one or more variants.
+            data_type: object
+          - name: handle
+            description: The human-readable URL for the product.
+            data_type: string
+          - name: images
+            description: Represents a collection of additional images related to the product.
+            data_type: array
+          - name: template_suffix
+            description: The template suffix used for the product.
+            data_type: string
+          - name: title
+            description: The title of the product.
+            data_type: string
+          - name: variants
+            description: Represents different versions or variations of the product.
+            data_type: array
+          - name: admin_graphql_api_id
+            description: The unique identifier of the product in the Admin GraphQL API.
+            data_type: string
+          - name: id
+            description: The unique identifier of the product.
+            data_type: integer
+          - name: shop_url
+            description: The URL of the shop where the product is listed.
+            data_type: string
+          - name: deleted_at
+            description: The date and time when the product was deleted.
+            data_type: string
+          - name: deleted_message
+            description: Message related to the deletion of the product.
+            data_type: string
+          - name: deleted_description
+            description: Description of the reason for deletion.
+            data_type: string
+          - name: description
+            description: The product's description.
+            data_type: string
+          - name: description_html
+            description: The product's description in HTML format.
+            data_type: string
+          - name: is_gift_card
+            description: Indicates whether the product is a gift card.
+            data_type: boolean
+          - name: legacy_resource_id
+            description: The legacy resource ID of the product.
+            data_type: string
+          - name: media_count
+            description: The total count of media (images/videos) associated with the product.
+            data_type: integer
+          - name: online_store_preview_url
+            description: The URL for previewing the product on the online store.
+            data_type: string
+          - name: online_store_url
+            description: The URL of the product on the online store.
+            data_type: string
+          - name: total_inventory
+            description: The total inventory count of the product.
+            data_type: integer
+          - name: total_variants
+            description: The total number of variants available for the product.
+            data_type: integer
+          - name: tracks_inventory
+            description: Indicates whether inventory tracking is enabled for the product.
+            data_type: boolean
+          - name: has_only_default_variant
+            description: Whether the product has only a single variant with the default option and value.
+            data_type: boolean
+          - name: has_out_of_stock_variants
+            description: Whether the product has out of stock variants.
+            data_type: boolean
+          - name: requires_sellin_plan
+            description: Whether the product can only be purchased with a selling plan (subscription)
+            data_type: boolean
+          - name: price_range_v2
+            description: The price range of the product with prices formatted as decimals.
+            data_type: object
+          - name: featured_image
+            description: The featured image for the product.
+            data_type: object
+          - name: seo
+            description: SEO information of the product.
+            data_type: object
+          - name: featured_media
+            description: The featured media for the product.
+            data_type: object
+          - name: feedback
+            description: Information about the product that's provided through resource feedback.
+            data_type: object

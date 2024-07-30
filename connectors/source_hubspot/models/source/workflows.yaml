@@ -1,0 +1,74 @@
+version: 2
+
+sources:
+  - name: source_hubspot
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: workflows
+        columns:
+          - name: name
+            description: Name of the workflow
+            data_type: string
+          - name: id
+            description: Unique identifier of the workflow
+            data_type: integer
+          - name: type
+            description: Type of the workflow
+            data_type: string
+          - name: enabled
+            description: Flag indicating if the workflow is enabled
+            data_type: boolean
+          - name: insertedAt
+            description: Timestamp when the workflow was inserted
+            data_type: integer
+          - name: updatedAt
+            description: Timestamp when the workflow was last updated
+            data_type: integer
+          - name: personaTagIds
+            description: IDs of persona tags associated with the workflow
+            data_type: array
+          - name: contactListIds
+            description: IDs of contact lists associated with the workflow
+            data_type: object
+          - name: contactListIds_enrolled
+            description: ID of the contact list containing enrolled contacts
+            data_type: integer
+          - name: contactListIds_active
+            description: ID of the contact list containing active contacts
+            data_type: integer
+          - name: contactListIds_completed
+            description: ID of the contact list containing completed contacts
+            data_type: integer
+          - name: contactListIds_succeeded
+            description: ID of the contact list containing succeeded contacts
+            data_type: integer
+          - name: contactListIds_steps
+            description: List of steps within the workflow
+            data_type: array
+          - name: lastUpdatedByUserId
+            description: ID of the user who last updated the workflow
+            data_type: integer
+          - name: contactCounts
+            description: Counts of contacts in various stages within the workflow
+            data_type: object
+          - name: description
+            description: Description of the workflow
+            data_type: string
+          - name: originalAuthorUserId
+            description: ID of the original author of the workflow
+            data_type: integer
+          - name: migrationStatus
+            description: Status and details of workflow migration
+            data_type: object
+          - name: updateSource
+            description: Details of the workflow update source
+            data_type: object
+          - name: creationSource
+            description: Details of the workflow creation source
+            data_type: object
+          - name: portalId
+            description: ID of the portal associated with the workflow
+            data_type: integer

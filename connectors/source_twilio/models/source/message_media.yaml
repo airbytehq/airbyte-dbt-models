@@ -1,0 +1,32 @@
+version: 2
+
+sources:
+  - name: source_twilio
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: message_media
+        columns:
+          - name: sid
+            description: The unique identifier of the message media.
+            data_type: string
+          - name: account_sid
+            description: The unique identifier of the account associated with this message media.
+            data_type: string
+          - name: parent_sid
+            description: The unique identifier of the parent message associated with this media.
+            data_type: string
+          - name: content_type
+            description: The MIME type of the media content.
+            data_type: string
+          - name: date_created
+            description: The date and time when the message media was created.
+            data_type: string
+          - name: date_updated
+            description: The date and time when the message media was last updated.
+            data_type: string
+          - name: uri
+            description: The URI that can be used to access this message media resource.
+            data_type: string

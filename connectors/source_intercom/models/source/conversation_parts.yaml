@@ -1,0 +1,59 @@
+version: 2
+
+sources:
+  - name: source_intercom
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: conversation_parts
+        columns:
+          - name: assigned_to
+            description: The user or team member who is assigned to handle this conversation part.
+            data_type: default
+          - name: attachments
+            description: Represents the attachments associated with the conversation part.
+            data_type: array
+          - name: author
+            description: Represents the author of the conversation part.
+            data_type: object
+          - name: body
+            description: The main content or message body of the conversation part.
+            data_type: string
+          - name: conversation_id
+            description: The unique identifier of the conversation.
+            data_type: string
+          - name: conversation_created_at
+            description: The date and time when the conversation was created.
+            data_type: integer
+          - name: conversation_updated_at
+            description: The date and time when the conversation was last updated.
+            data_type: integer
+          - name: conversation_total_parts
+            description: The total number of parts in the conversation.
+            data_type: integer
+          - name: created_at
+            description: The date and time when the conversation part was created.
+            data_type: integer
+          - name: external_id
+            description: An external identifier associated with the conversation part.
+            data_type: string
+          - name: id
+            description: The unique identifier of the conversation part.
+            data_type: string
+          - name: notified_at
+            description: The date and time when the conversation part was last notified.
+            data_type: integer
+          - name: part_type
+            description: The type or category of the conversation part.
+            data_type: string
+          - name: type
+            description: The type of conversation part, such as message or note.
+            data_type: string
+          - name: updated_at
+            description: The date and time when the conversation part was last updated.
+            data_type: integer
+          - name: redacted
+            description: Indicates if the conversation part has been redacted or censored.
+            data_type: boolean

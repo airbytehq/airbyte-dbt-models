@@ -1,0 +1,56 @@
+version: 2
+
+sources:
+  - name: source_shopify
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: order_refunds
+        columns:
+          - name: order_id
+            description: ID of the original order for which the refund was issued
+            data_type: integer
+          - name: restock
+            description: Indicates if the refund involves restocking items
+            data_type: boolean
+          - name: order_adjustments
+            description: Adjustments made to the original order as part of the refund
+            data_type: array
+          - name: processed_at
+            description: Date and time when the refund was processed
+            data_type: string
+          - name: user_id
+            description: ID of the user who initiated the refund
+            data_type: integer
+          - name: note
+            description: Any additional notes or comments regarding the refund
+            data_type: string
+          - name: id
+            description: Unique identifier for the order refund resource
+            data_type: integer
+          - name: created_at
+            description: Date and time when the order refund was created
+            data_type: string
+          - name: admin_graphql_api_id
+            description: ID of the Shopify API resource
+            data_type: string
+          - name: duties
+            description: Information about any duties associated with the refund
+            data_type: string
+          - name: refund_line_items
+            description: Line items included in the refund
+            data_type: array
+          - name: return
+            description: Details of the return associated with the refund
+            data_type: object
+          - name: transactions
+            description: Payment transactions related to the refund
+            data_type: array
+          - name: shop_url
+            description: URL of the shop where the refund was processed
+            data_type: string
+          - name: total_duties_set
+            description: Details of the total duties amount
+            data_type: object

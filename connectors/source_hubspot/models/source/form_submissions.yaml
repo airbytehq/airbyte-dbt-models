@@ -1,0 +1,26 @@
+version: 2
+
+sources:
+  - name: source_hubspot
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: form_submissions
+        columns:
+          - name: submittedAt
+            description: The timestamp when the form was submitted.
+            data_type: integer
+          - name: updatedAt
+            description: The timestamp when the form submission data was last updated.
+            data_type: integer
+          - name: values
+            description: An array of form field values submitted in the form.
+            data_type: array
+          - name: pageUrl
+            description: The URL of the web page where the form was submitted.
+            data_type: string
+          - name: formId
+            description: The unique identifier of the form associated with the submission.
+            data_type: string

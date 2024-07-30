@@ -1,0 +1,89 @@
+version: 2
+
+sources:
+  - name: source_mailchimp
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: reports
+        columns:
+          - name: id
+            description: A string that uniquely identifies this campaign.
+            data_type: string
+          - name: campaign_title
+            description: The title of the campaign.
+            data_type: string
+          - name: type
+            description: The type of campaign (regular, plain-text, ab_split, rss, automation, variate, or auto).
+            data_type: string
+          - name: list_id
+            description: The unique list id.
+            data_type: string
+          - name: list_is_active
+            description: The status of the list used, namely if it's deleted or disabled.
+            data_type: boolean
+          - name: list_name
+            description: The name of the list.
+            data_type: string
+          - name: subject_line
+            description: The subject line for the campaign.
+            data_type: string
+          - name: preview_text
+            description: The preview text for the campaign.
+            data_type: string
+          - name: emails_sent
+            description: The total number of emails sent for this campaign.
+            data_type: integer
+          - name: abuse_reports
+            description: The number of abuse reports generated for this campaign.
+            data_type: integer
+          - name: unsubscribed
+            description: The total number of unsubscribed members for this campaign.
+            data_type: integer
+          - name: send_time
+            description: The date and time a campaign was sent in ISO 8601 format.
+            data_type: string
+          - name: rss_last_send
+            description: For RSS campaigns, the date and time of the last send in ISO 8601 format.
+            data_type: string
+          - name: bounces
+            description: An object describing the bounce summary for the campaign.
+            data_type: object
+          - name: forwards
+            description: An object describing the forwards and forward activity for the campaign.
+            data_type: object
+          - name: opens
+            description: An object describing the open activity for the campaign.
+            data_type: object
+          - name: clicks
+            description: An object describing the click activity for the campaign.
+            data_type: object
+          - name: facebook_likes
+            description: An object describing campaign engagement on Facebook.
+            data_type: object
+          - name: industry_stats
+            description: The average campaign statistics for your industry.
+            data_type: object
+          - name: list_stats
+            description: The average campaign statistics for your list. This won't be present if we haven't calculated it yet for this list.
+            data_type: object
+          - name: ab_split
+            description: General stats about different groups of an A/B Split campaign. Does not return information about Multivariate Campaigns.
+            data_type: object
+          - name: timewarp
+            description: An hourly breakdown of sends, opens, and clicks if a campaign is sent using timewarp.
+            data_type: array
+          - name: timeseries
+            description: An hourly breakdown of the performance of the campaign over the first 24 hours.
+            data_type: array
+          - name: share_report
+            description: The url and password for the VIP report.
+            data_type: object
+          - name: ecommerce
+            description: E-Commerce stats for a campaign.
+            data_type: object
+          - name: delivery_status
+            description: Updates on campaigns in the process of sending.
+            data_type: object

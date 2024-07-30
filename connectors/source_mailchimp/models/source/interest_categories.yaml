@@ -1,0 +1,26 @@
+version: 2
+
+sources:
+  - name: source_mailchimp
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: interest_categories
+        columns:
+          - name: list_id
+            description: The ID of the list to which this interest category belongs.
+            data_type: string
+          - name: id
+            description: The unique identifier for the interest category.
+            data_type: string
+          - name: title
+            description: The title or name of the interest category.
+            data_type: string
+          - name: display_order
+            description: The order in which this interest category should be displayed in the UI.
+            data_type: integer
+          - name: type
+            description: The type of interest category, e.g., 'checkboxes', 'hidden', 'dropdown'.
+            data_type: string

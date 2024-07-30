@@ -1,0 +1,626 @@
+version: 2
+
+sources:
+  - name: source_hubspot
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: deals_archived
+        columns:
+          - name: id
+            description: ''
+            data_type: string
+          - name: properties
+            description: ''
+            data_type: object
+          - name: properties_amount
+            description: ''
+            data_type: number
+          - name: properties_amount_in_home_currency
+            description: ''
+            data_type: number
+          - name: properties_closed_lost_reason
+            description: ''
+            data_type: string
+          - name: properties_closed_won_reason
+            description: ''
+            data_type: string
+          - name: properties_closedate
+            description: ''
+            data_type: string
+          - name: properties_createdate
+            description: ''
+            data_type: string
+          - name: properties_days_to_close
+            description: ''
+            data_type: number
+          - name: properties_dealname
+            description: ''
+            data_type: string
+          - name: properties_dealstage
+            description: ''
+            data_type: string
+          - name: properties_dealtype
+            description: ''
+            data_type: string
+          - name: properties_description
+            description: ''
+            data_type: string
+          - name: properties_engagements_last_meeting_booked
+            description: ''
+            data_type: string
+          - name: properties_engagements_last_meeting_booked_campaign
+            description: ''
+            data_type: string
+          - name: properties_engagements_last_meeting_booked_medium
+            description: ''
+            data_type: string
+          - name: properties_engagements_last_meeting_booked_source
+            description: ''
+            data_type: string
+          - name: properties_hs_acv
+            description: ''
+            data_type: number
+          - name: properties_hs_all_accessible_team_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_all_assigned_business_unit_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_all_owner_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_all_team_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_analytics_source
+            description: ''
+            data_type: string
+          - name: properties_hs_analytics_source_data_1
+            description: ''
+            data_type: string
+          - name: properties_hs_analytics_source_data_2
+            description: ''
+            data_type: string
+          - name: properties_hs_arr
+            description: ''
+            data_type: number
+          - name: properties_hs_closed_amount
+            description: ''
+            data_type: number
+          - name: properties_hs_closed_amount_in_home_currency
+            description: ''
+            data_type: number
+          - name: properties_hs_created_by_user_id
+            description: ''
+            data_type: number
+          - name: properties_hs_createdate
+            description: ''
+            data_type: string
+          - name: properties_hs_date_entered_9567448
+            description: ''
+            data_type: string
+          - name: properties_hs_date_entered_9567449
+            description: ''
+            data_type: string
+          - name: properties_hs_date_entered_appointmentscheduled
+            description: ''
+            data_type: string
+          - name: properties_hs_date_entered_closedlost
+            description: ''
+            data_type: string
+          - name: properties_hs_date_entered_closedwon
+            description: ''
+            data_type: string
+          - name: properties_hs_date_entered_contractsent
+            description: ''
+            data_type: string
+          - name: properties_hs_date_entered_customclosedwonstage
+            description: ''
+            data_type: string
+          - name: properties_hs_date_entered_decisionmakerboughtin
+            description: ''
+            data_type: string
+          - name: properties_hs_date_entered_presentationscheduled
+            description: ''
+            data_type: string
+          - name: properties_hs_date_entered_qualifiedtobuy
+            description: ''
+            data_type: string
+          - name: properties_hs_date_exited_9567448
+            description: ''
+            data_type: string
+          - name: properties_hs_date_exited_9567449
+            description: ''
+            data_type: string
+          - name: properties_hs_date_exited_appointmentscheduled
+            description: ''
+            data_type: string
+          - name: properties_hs_date_exited_closedlost
+            description: ''
+            data_type: string
+          - name: properties_hs_date_exited_closedwon
+            description: ''
+            data_type: string
+          - name: properties_hs_date_exited_contractsent
+            description: ''
+            data_type: string
+          - name: properties_hs_date_exited_customclosedwonstage
+            description: ''
+            data_type: string
+          - name: properties_hs_date_exited_decisionmakerboughtin
+            description: ''
+            data_type: string
+          - name: properties_hs_date_exited_presentationscheduled
+            description: ''
+            data_type: string
+          - name: properties_hs_date_exited_qualifiedtobuy
+            description: ''
+            data_type: string
+          - name: properties_hs_deal_amount_calculation_preference
+            description: ''
+            data_type: string
+          - name: properties_hs_deal_stage_probability
+            description: ''
+            data_type: number
+          - name: properties_hs_deal_stage_probability_shadow
+            description: ''
+            data_type: number
+          - name: properties_hs_forecast_amount
+            description: ''
+            data_type: number
+          - name: properties_hs_forecast_probability
+            description: ''
+            data_type: number
+          - name: properties_hs_is_closed
+            description: ''
+            data_type: boolean
+          - name: properties_hs_is_closed_won
+            description: ''
+            data_type: boolean
+          - name: properties_hs_lastmodifieddate
+            description: ''
+            data_type: string
+          - name: properties_hs_latest_meeting_activity
+            description: ''
+            data_type: string
+          - name: properties_hs_likelihood_to_close
+            description: ''
+            data_type: number
+          - name: properties_hs_line_item_global_term_hs_discount_percentage
+            description: ''
+            data_type: string
+          - name: properties_hs_line_item_global_term_hs_discount_percentage_enabled
+            description: ''
+            data_type: boolean
+          - name: properties_hs_line_item_global_term_hs_recurring_billing_period
+            description: ''
+            data_type: string
+          - name: properties_hs_line_item_global_term_hs_recurring_billing_period_enabled
+            description: ''
+            data_type: boolean
+          - name: properties_hs_line_item_global_term_hs_recurring_billing_start_date
+            description: ''
+            data_type: string
+          - name: properties_hs_line_item_global_term_hs_recurring_billing_start_date_enabled
+            description: ''
+            data_type: boolean
+          - name: properties_hs_line_item_global_term_recurringbillingfrequency
+            description: ''
+            data_type: string
+          - name: properties_hs_line_item_global_term_recurringbillingfrequency_enabled
+            description: ''
+            data_type: boolean
+          - name: properties_hs_manual_forecast_category
+            description: ''
+            data_type: string
+          - name: properties_hs_merged_object_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_mrr
+            description: ''
+            data_type: number
+          - name: properties_hs_next_step
+            description: ''
+            data_type: string
+          - name: properties_hs_num_target_accounts
+            description: ''
+            data_type: number
+          - name: properties_hs_object_id
+            description: ''
+            data_type: number
+          - name: properties_hs_predicted_amount
+            description: ''
+            data_type: number
+          - name: properties_hs_predicted_amount_in_home_currency
+            description: ''
+            data_type: number
+          - name: properties_hs_priority
+            description: ''
+            data_type: string
+          - name: properties_hs_projected_amount
+            description: ''
+            data_type: number
+          - name: properties_hs_projected_amount_in_home_currency
+            description: ''
+            data_type: number
+          - name: properties_hs_sales_email_last_replied
+            description: ''
+            data_type: string
+          - name: properties_hs_tcv
+            description: ''
+            data_type: number
+          - name: properties_hs_unique_creation_key
+            description: ''
+            data_type: string
+          - name: properties_hs_updated_by_user_id
+            description: ''
+            data_type: number
+          - name: properties_hs_user_ids_of_all_notification_followers
+            description: ''
+            data_type: string
+          - name: properties_hs_user_ids_of_all_notification_unfollowers
+            description: ''
+            data_type: string
+          - name: properties_hs_user_ids_of_all_owners
+            description: ''
+            data_type: string
+          - name: properties_hubspot_owner_assigneddate
+            description: ''
+            data_type: string
+          - name: properties_hubspot_owner_id
+            description: ''
+            data_type: string
+          - name: properties_hubspot_team_id
+            description: ''
+            data_type: string
+          - name: properties_notes_last_contacted
+            description: ''
+            data_type: string
+          - name: properties_notes_last_updated
+            description: ''
+            data_type: string
+          - name: properties_notes_next_activity_date
+            description: ''
+            data_type: string
+          - name: properties_num_associated_contacts
+            description: ''
+            data_type: number
+          - name: properties_num_contacted_notes
+            description: ''
+            data_type: number
+          - name: properties_num_notes
+            description: ''
+            data_type: number
+          - name: properties_pipeline
+            description: ''
+            data_type: string
+          - name: createdAt
+            description: ''
+            data_type: string
+          - name: updatedAt
+            description: ''
+            data_type: string
+          - name: archived
+            description: ''
+            data_type: boolean
+          - name: archivedAt
+            description: The date and time when the deal was archived
+            data_type: string
+          - name: companies
+            description: ''
+            data_type: array
+          - name: contacts
+            description: ''
+            data_type: array
+          - name: line_items
+            description: ''
+            data_type: array
+          - name: properties_hs_all_collaborator_owner_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_all_deal_split_owner_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_analytics_latest_source
+            description: ''
+            data_type: string
+          - name: properties_hs_analytics_latest_source_company
+            description: ''
+            data_type: string
+          - name: properties_hs_analytics_latest_source_contact
+            description: ''
+            data_type: string
+          - name: properties_hs_analytics_latest_source_data_1
+            description: ''
+            data_type: string
+          - name: properties_hs_analytics_latest_source_data_1_company
+            description: ''
+            data_type: string
+          - name: properties_hs_analytics_latest_source_data_1_contact
+            description: ''
+            data_type: string
+          - name: properties_hs_analytics_latest_source_data_2
+            description: ''
+            data_type: string
+          - name: properties_hs_analytics_latest_source_data_2_company
+            description: ''
+            data_type: string
+          - name: properties_hs_analytics_latest_source_data_2_contact
+            description: ''
+            data_type: string
+          - name: properties_hs_analytics_latest_source_timestamp
+            description: ''
+            data_type: string
+          - name: properties_hs_analytics_latest_source_timestamp_company
+            description: ''
+            data_type: string
+          - name: properties_hs_analytics_latest_source_timestamp_contact
+            description: ''
+            data_type: string
+          - name: properties_hs_campaign
+            description: ''
+            data_type: string
+          - name: properties_hs_closed_deal_close_date
+            description: ''
+            data_type: number
+          - name: properties_hs_closed_deal_create_date
+            description: ''
+            data_type: number
+          - name: properties_hs_closed_won_count
+            description: ''
+            data_type: number
+          - name: properties_hs_closed_won_date
+            description: ''
+            data_type: string
+          - name: properties_hs_date_entered_66894120
+            description: ''
+            data_type: string
+          - name: properties_hs_date_exited_66894120
+            description: ''
+            data_type: string
+          - name: properties_hs_days_to_close_raw
+            description: ''
+            data_type: number
+          - name: properties_hs_deal_score
+            description: ''
+            data_type: number
+          - name: properties_hs_exchange_rate
+            description: ''
+            data_type: number
+          - name: properties_hs_has_empty_conditional_stage_properties
+            description: ''
+            data_type: boolean
+          - name: properties_hs_is_deal_split
+            description: ''
+            data_type: boolean
+          - name: properties_hs_is_in_first_deal_stage
+            description: ''
+            data_type: boolean
+          - name: properties_hs_is_open_count
+            description: ''
+            data_type: number
+          - name: properties_hs_latest_approval_status
+            description: ''
+            data_type: string
+          - name: properties_hs_latest_approval_status_approval_id
+            description: ''
+            data_type: number
+          - name: properties_hs_notes_next_activity_type
+            description: ''
+            data_type: string
+          - name: properties_hs_num_associated_deal_splits
+            description: ''
+            data_type: number
+          - name: properties_hs_num_of_associated_line_items
+            description: ''
+            data_type: number
+          - name: properties_hs_object_source
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_detail_1
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_detail_2
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_detail_3
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_id
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_label
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_user_id
+            description: ''
+            data_type: number
+          - name: properties_hs_open_deal_create_date
+            description: ''
+            data_type: number
+          - name: properties_hs_pinned_engagement_id
+            description: ''
+            data_type: number
+          - name: properties_hs_read_only
+            description: ''
+            data_type: boolean
+          - name: properties_hs_shared_team_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_shared_user_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_tag_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_time_in_66894120
+            description: ''
+            data_type: number
+          - name: properties_hs_time_in_9567448
+            description: ''
+            data_type: number
+          - name: properties_hs_time_in_9567449
+            description: ''
+            data_type: number
+          - name: properties_hs_time_in_appointmentscheduled
+            description: ''
+            data_type: number
+          - name: properties_hs_time_in_closedlost
+            description: ''
+            data_type: number
+          - name: properties_hs_time_in_closedwon
+            description: ''
+            data_type: number
+          - name: properties_hs_time_in_contractsent
+            description: ''
+            data_type: number
+          - name: properties_hs_time_in_customclosedwonstage
+            description: ''
+            data_type: number
+          - name: properties_hs_time_in_decisionmakerboughtin
+            description: ''
+            data_type: number
+          - name: properties_hs_time_in_presentationscheduled
+            description: ''
+            data_type: number
+          - name: properties_hs_time_in_qualifiedtobuy
+            description: ''
+            data_type: number
+          - name: properties_hs_v2_cumulative_time_in_66894120
+            description: ''
+            data_type: number
+          - name: properties_hs_v2_cumulative_time_in_9567448
+            description: ''
+            data_type: number
+          - name: properties_hs_v2_cumulative_time_in_9567449
+            description: ''
+            data_type: number
+          - name: properties_hs_v2_cumulative_time_in_appointmentscheduled
+            description: ''
+            data_type: number
+          - name: properties_hs_v2_cumulative_time_in_closedlost
+            description: ''
+            data_type: number
+          - name: properties_hs_v2_cumulative_time_in_closedwon
+            description: ''
+            data_type: number
+          - name: properties_hs_v2_cumulative_time_in_contractsent
+            description: ''
+            data_type: number
+          - name: properties_hs_v2_cumulative_time_in_customclosedwonstage
+            description: ''
+            data_type: number
+          - name: properties_hs_v2_cumulative_time_in_decisionmakerboughtin
+            description: ''
+            data_type: number
+          - name: properties_hs_v2_cumulative_time_in_presentationscheduled
+            description: ''
+            data_type: number
+          - name: properties_hs_v2_cumulative_time_in_qualifiedtobuy
+            description: ''
+            data_type: number
+          - name: properties_hs_v2_date_entered_66894120
+            description: ''
+            data_type: string
+          - name: properties_hs_v2_date_entered_9567448
+            description: ''
+            data_type: string
+          - name: properties_hs_v2_date_entered_9567449
+            description: ''
+            data_type: string
+          - name: properties_hs_v2_date_entered_appointmentscheduled
+            description: ''
+            data_type: string
+          - name: properties_hs_v2_date_entered_closedlost
+            description: ''
+            data_type: string
+          - name: properties_hs_v2_date_entered_closedwon
+            description: ''
+            data_type: string
+          - name: properties_hs_v2_date_entered_contractsent
+            description: ''
+            data_type: string
+          - name: properties_hs_v2_date_entered_customclosedwonstage
+            description: ''
+            data_type: string
+          - name: properties_hs_v2_date_entered_decisionmakerboughtin
+            description: ''
+            data_type: string
+          - name: properties_hs_v2_date_entered_presentationscheduled
+            description: ''
+            data_type: string
+          - name: properties_hs_v2_date_entered_qualifiedtobuy
+            description: ''
+            data_type: string
+          - name: properties_hs_v2_date_exited_66894120
+            description: ''
+            data_type: string
+          - name: properties_hs_v2_date_exited_9567448
+            description: ''
+            data_type: string
+          - name: properties_hs_v2_date_exited_9567449
+            description: ''
+            data_type: string
+          - name: properties_hs_v2_date_exited_appointmentscheduled
+            description: ''
+            data_type: string
+          - name: properties_hs_v2_date_exited_closedlost
+            description: ''
+            data_type: string
+          - name: properties_hs_v2_date_exited_closedwon
+            description: ''
+            data_type: string
+          - name: properties_hs_v2_date_exited_contractsent
+            description: ''
+            data_type: string
+          - name: properties_hs_v2_date_exited_customclosedwonstage
+            description: ''
+            data_type: string
+          - name: properties_hs_v2_date_exited_decisionmakerboughtin
+            description: ''
+            data_type: string
+          - name: properties_hs_v2_date_exited_presentationscheduled
+            description: ''
+            data_type: string
+          - name: properties_hs_v2_date_exited_qualifiedtobuy
+            description: ''
+            data_type: string
+          - name: properties_hs_v2_latest_time_in_66894120
+            description: ''
+            data_type: number
+          - name: properties_hs_v2_latest_time_in_9567448
+            description: ''
+            data_type: number
+          - name: properties_hs_v2_latest_time_in_9567449
+            description: ''
+            data_type: number
+          - name: properties_hs_v2_latest_time_in_appointmentscheduled
+            description: ''
+            data_type: number
+          - name: properties_hs_v2_latest_time_in_closedlost
+            description: ''
+            data_type: number
+          - name: properties_hs_v2_latest_time_in_closedwon
+            description: ''
+            data_type: number
+          - name: properties_hs_v2_latest_time_in_contractsent
+            description: ''
+            data_type: number
+          - name: properties_hs_v2_latest_time_in_customclosedwonstage
+            description: ''
+            data_type: number
+          - name: properties_hs_v2_latest_time_in_decisionmakerboughtin
+            description: ''
+            data_type: number
+          - name: properties_hs_v2_latest_time_in_presentationscheduled
+            description: ''
+            data_type: number
+          - name: properties_hs_v2_latest_time_in_qualifiedtobuy
+            description: ''
+            data_type: number
+          - name: properties_hs_was_imported
+            description: ''
+            data_type: boolean

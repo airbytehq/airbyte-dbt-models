@@ -1,0 +1,32 @@
+version: 2
+
+sources:
+  - name: source_twilio
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: outgoing_caller_ids
+        columns:
+          - name: account_sid
+            description: The unique identifier for the Twilio account associated with this outgoing caller ID.
+            data_type: string
+          - name: date_created
+            description: The date and time when the outgoing caller ID was created.
+            data_type: string
+          - name: date_updated
+            description: The date and time when the outgoing caller ID was last updated.
+            data_type: string
+          - name: friendly_name
+            description: A user-defined friendly name for the outgoing caller ID.
+            data_type: string
+          - name: phone_number
+            description: The phone number associated with the outgoing caller ID.
+            data_type: string
+          - name: sid
+            description: The unique identifier for the outgoing caller ID.
+            data_type: string
+          - name: uri
+            description: The URI for accessing detailed information about the outgoing caller ID.
+            data_type: string

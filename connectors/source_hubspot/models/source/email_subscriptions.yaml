@@ -1,0 +1,44 @@
+version: 2
+
+sources:
+  - name: source_hubspot
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: email_subscriptions
+        columns:
+          - name: active
+            description: Indicates whether the subscription is currently active or not
+            data_type: boolean
+          - name: portalId
+            description: The unique identifier for the portal associated with the subscription
+            data_type: integer
+          - name: description
+            description: Additional information or details about the subscription
+            data_type: string
+          - name: id
+            description: The unique identifier for the subscription
+            data_type: integer
+          - name: name
+            description: The display name of the subscription
+            data_type: string
+          - name: order
+            description: The order in which the subscription is displayed or processed
+            data_type: integer
+          - name: businessUnitId
+            description: The unique identifier for the business unit associated with the subscription
+            data_type: integer
+          - name: internal
+            description: Indicates whether the subscription is for internal use only
+            data_type: boolean
+          - name: internalName
+            description: The internal name for the subscription
+            data_type: string
+          - name: category
+            description: The category to which the subscription belongs
+            data_type: string
+          - name: channel
+            description: The communication channel through which the subscription is managed
+            data_type: string

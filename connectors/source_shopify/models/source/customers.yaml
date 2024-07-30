@@ -1,0 +1,95 @@
+version: 2
+
+sources:
+  - name: source_shopify
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: customers
+        columns:
+          - name: last_order_name
+            description: Name of the customer's last order.
+            data_type: string
+          - name: currency
+            description: Currency associated with the customer.
+            data_type: string
+          - name: email
+            description: Customer's email address.
+            data_type: string
+          - name: multipass_identifier
+            description: Multipass identifier for the customer.
+            data_type: string
+          - name: shop_url
+            description: URL of the customer's associated shop.
+            data_type: string
+          - name: default_address
+            description: Customer's default address
+            data_type: object
+          - name: email_marketing_consent
+            description: Indicates if the customer has consented to receive marketing emails
+            data_type: object
+          - name: orders_count
+            description: Total number of orders placed by the customer.
+            data_type: integer
+          - name: state
+            description: Current state or status of the customer.
+            data_type: string
+          - name: verified_email
+            description: Indicates if the customer's email address has been verified.
+            data_type: boolean
+          - name: total_spent
+            description: Total amount spent by the customer.
+            data_type: number
+          - name: last_order_id
+            description: Unique identifier for the customer's last order.
+            data_type: integer
+          - name: first_name
+            description: Customer's first name.
+            data_type: string
+          - name: updated_at
+            description: Timestamp when the customer data was last updated.
+            data_type: string
+          - name: note
+            description: Additional notes or comments related to the customer.
+            data_type: string
+          - name: phone
+            description: Customer's phone number.
+            data_type: string
+          - name: admin_graphql_api_id
+            description: Unique identifier for the customer in the Admin GraphQL API.
+            data_type: string
+          - name: addresses
+            description: List of addresses associated with the customer
+            data_type: array
+          - name: last_name
+            description: Customer's last name.
+            data_type: string
+          - name: tags
+            description: Tags associated with the customer for categorization.
+            data_type: string
+          - name: tax_exempt
+            description: Indicates if the customer is tax exempt.
+            data_type: boolean
+          - name: id
+            description: Unique identifier for the customer.
+            data_type: integer
+          - name: accepts_marketing
+            description: Indicates if the customer has agreed to receive marketing materials.
+            data_type: boolean
+          - name: accepts_marketing_updated_at
+            description: Timestamp when the marketing consent status was last updated.
+            data_type: default
+          - name: created_at
+            description: Timestamp when the customer was created.
+            data_type: string
+          - name: sms_marketing_consent
+            description: Indicates if the customer has consented to receive marketing SMS messages
+            data_type: object
+          - name: tax_exemptions
+            description: Information about tax exemptions for the customer.
+            data_type: string
+          - name: marketing_opt_in_level
+            description: Level of opt-in for marketing activities.
+            data_type: string

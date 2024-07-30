@@ -1,0 +1,56 @@
+version: 2
+
+sources:
+  - name: source_twilio
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: conversation_messages
+        columns:
+          - name: sid
+            description: The unique identifier of the conversation_message.
+            data_type: string
+          - name: account_sid
+            description: The unique identifier of the account associated with the conversation_messages data.
+            data_type: string
+          - name: conversation_sid
+            description: The unique identifier of the conversation to which the message belongs.
+            data_type: string
+          - name: body
+            description: The textual content of the conversation message.
+            data_type: string
+          - name: media
+            description: List of media items attached to the message
+            data_type: array
+          - name: author
+            description: The author or sender of the conversation message.
+            data_type: string
+          - name: participant_sid
+            description: The unique identifier of the participant associated with the message.
+            data_type: string
+          - name: attributes
+            description: Additional attributes or metadata related to the conversation message.
+            data_type: string
+          - name: date_created
+            description: The date and time when the message was created.
+            data_type: string
+          - name: date_updated
+            description: The date and time when the message was last updated.
+            data_type: string
+          - name: index
+            description: The index of the message within the conversation.
+            data_type: integer
+          - name: delivery
+            description: Information related to message delivery
+            data_type: object
+          - name: content_sid
+            description: The unique identifier of the content associated with the conversation message.
+            data_type: string
+          - name: url
+            description: The URL of the conversation message for accessing or viewing.
+            data_type: string
+          - name: links
+            description: Links related to the conversation
+            data_type: object

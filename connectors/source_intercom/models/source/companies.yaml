@@ -1,0 +1,65 @@
+version: 2
+
+sources:
+  - name: source_intercom
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: companies
+        columns:
+          - name: type
+            description: The type of the company
+            data_type: string
+          - name: company_id
+            description: The unique identifier of the company
+            data_type: string
+          - name: id
+            description: The ID of the company
+            data_type: string
+          - name: app_id
+            description: The ID of the application associated with the company
+            data_type: string
+          - name: name
+            description: The name of the company
+            data_type: string
+          - name: created_at
+            description: The date and time when the company was created
+            data_type: integer
+          - name: updated_at
+            description: The date and time when the company was last updated
+            data_type: integer
+          - name: monthly_spend
+            description: The monthly spend of the company
+            data_type: number
+          - name: session_count
+            description: The number of sessions related to the company
+            data_type: integer
+          - name: user_count
+            description: The number of users associated with the company
+            data_type: integer
+          - name: size
+            description: The size of the company
+            data_type: integer
+          - name: tags
+            description: Tags associated with the company
+            data_type: object
+          - name: segments
+            description: Segments associated with the company
+            data_type: object
+          - name: plan
+            description: Details of the company's subscription plan
+            data_type: object
+          - name: custom_attributes
+            description: Custom attributes specific to the company
+            data_type: object
+          - name: industry
+            description: The industry in which the company operates
+            data_type: string
+          - name: remote_created_at
+            description: The remote date and time when the company was created
+            data_type: integer
+          - name: website
+            description: The website of the company
+            data_type: string

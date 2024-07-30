@@ -1,0 +1,50 @@
+version: 2
+
+sources:
+  - name: source_shopify
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: collections
+        columns:
+          - name: id
+            description: The unique identifier for the collection.
+            data_type: integer
+          - name: handle
+            description: A unique URL-friendly string that represents the collection.
+            data_type: string
+          - name: title
+            description: The title or name of the collection.
+            data_type: string
+          - name: updated_at
+            description: The datetime when the collection was last updated.
+            data_type: string
+          - name: body_html
+            description: The HTML content describing the collection.
+            data_type: string
+          - name: published_at
+            description: The datetime when the collection was published.
+            data_type: string
+          - name: sort_order
+            description: The order in which the collection should be sorted.
+            data_type: string
+          - name: template_suffix
+            description: The name of the template that is used to render the collection.
+            data_type: string
+          - name: products_count
+            description: The number of products within the collection.
+            data_type: integer
+          - name: collection_type
+            description: The type or category of the collection.
+            data_type: string
+          - name: published_scope
+            description: The visibility of the collection to customers.
+            data_type: string
+          - name: admin_graphql_api_id
+            description: The unique identifier for the collection in the Admin GraphQL API.
+            data_type: string
+          - name: shop_url
+            description: The URL of the shop where the collection belongs.
+            data_type: string

@@ -1,0 +1,26 @@
+version: 2
+
+sources:
+  - name: source_linkedin_ads
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: account_users
+        columns:
+          - name: account
+            description: The account associated with the user
+            data_type: string
+          - name: created
+            description: The date and time when the user account was created
+            data_type: string
+          - name: lastModified
+            description: The date and time when the user account was last modified
+            data_type: string
+          - name: role
+            description: The role assigned to the user in the account
+            data_type: string
+          - name: user
+            description: The user details including name, email, etc.
+            data_type: string

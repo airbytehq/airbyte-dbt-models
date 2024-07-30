@@ -1,0 +1,107 @@
+version: 2
+
+sources:
+  - name: source_shopify
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: product_variants
+        columns:
+          - name: id
+            description: The unique identifier for the variant
+            data_type: integer
+          - name: product_id
+            description: The unique identifier for the product associated with the variant
+            data_type: integer
+          - name: title
+            description: The title of the variant
+            data_type: string
+          - name: price
+            description: The price of the variant
+            data_type: number
+          - name: sku
+            description: The unique SKU (stock keeping unit) of the variant
+            data_type: string
+          - name: position
+            description: The position of the variant in the product's list of variants
+            data_type: integer
+          - name: inventory_policy
+            description: The inventory policy for the variant
+            data_type: string
+          - name: compare_at_price
+            description: The original price of the variant before any discount
+            data_type: string
+          - name: fulfillment_service
+            description: The fulfillment service for the variant
+            data_type: string
+          - name: inventory_management
+            description: The method used to manage inventory for the variant
+            data_type: string
+          - name: option1
+            description: The value for option 1 of the variant
+            data_type: string
+          - name: option2
+            description: The value for option 2 of the variant
+            data_type: string
+          - name: option3
+            description: The value for option 3 of the variant
+            data_type: string
+          - name: options
+            description: List of product options applied to the variant.
+            data_type: array
+          - name: created_at
+            description: The date and time when the variant was created
+            data_type: string
+          - name: updated_at
+            description: The date and time when the variant was last updated
+            data_type: string
+          - name: taxable
+            description: Indicates whether taxes are applied to the variant
+            data_type: boolean
+          - name: barcode
+            description: The barcode associated with the variant
+            data_type: string
+          - name: grams
+            description: The weight of the variant in grams
+            data_type: integer
+          - name: image_id
+            description: The unique identifier for the image associated with the variant
+            data_type: integer
+          - name: weight
+            description: The weight of the variant
+            data_type: number
+          - name: weight_unit
+            description: The unit of measurement for the weight of the variant
+            data_type: string
+          - name: inventory_item_id
+            description: The unique identifier for the inventory item associated with the variant
+            data_type: integer
+          - name: inventory_quantity
+            description: The current inventory quantity for the variant
+            data_type: integer
+          - name: old_inventory_quantity
+            description: The previous inventory quantity for the variant
+            data_type: integer
+          - name: presentment_prices
+            description: The prices of the variant for presentation in different currencies
+            data_type: array
+          - name: requires_shipping
+            description: Indicates whether the variant requires shipping
+            data_type: boolean
+          - name: admin_graphql_api_id
+            description: The unique identifier for the variant used by the GraphQL Admin API
+            data_type: string
+          - name: shop_url
+            description: The URL of the shop where the variant is listed
+            data_type: string
+          - name: available_for_sale
+            description: Whether the product variant is available for sale.
+            data_type: boolean
+          - name: display_name
+            description: Display name of the variant, based on product's title + variant's title.
+            data_type: string
+          - name: tax_code
+            description: The tax code for the product variant.
+            data_type: string

@@ -1,0 +1,59 @@
+version: 2
+
+sources:
+  - name: source_google_ads
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: click_view
+        columns:
+          - name: ad_group.name
+            description: The name of the ad group.
+            data_type: string
+          - name: click_view.gclid
+            description: The Google Click Identifier for tracking purposes.
+            data_type: string
+          - name: click_view.ad_group_ad
+            description: Details of the ad in the ad group that was clicked.
+            data_type: string
+          - name: click_view.keyword
+            description: The keyword that triggered the ad click.
+            data_type: string
+          - name: click_view.keyword_info.match_type
+            description: The match type of the keyword triggering the ad click.
+            data_type: string
+          - name: click_view.keyword_info.text
+            description: The text of the keyword that triggered the ad click.
+            data_type: string
+          - name: campaign.id
+            description: The unique identifier for the campaign.
+            data_type: integer
+          - name: ad_group.id
+            description: The unique identifier for the ad group.
+            data_type: integer
+          - name: segments.date
+            description: The date when the click occurred.
+            data_type: string
+          - name: customer.id
+            description: The unique identifier for the customer account.
+            data_type: integer
+          - name: campaign.name
+            description: The name of the campaign.
+            data_type: string
+          - name: segments.ad_network_type
+            description: Type of ad network where the click originated.
+            data_type: string
+          - name: campaign.network_settings.target_content_network
+            description: Boolean indicating if the campaign is targeting the content network.
+            data_type: boolean
+          - name: campaign.network_settings.target_google_search
+            description: Boolean indicating if the campaign is targeting Google search.
+            data_type: boolean
+          - name: campaign.network_settings.target_partner_search_network
+            description: Boolean indicating if the campaign is targeting partner search network.
+            data_type: boolean
+          - name: campaign.network_settings.target_search_network
+            description: Boolean indicating if the campaign is targeting search network.
+            data_type: boolean

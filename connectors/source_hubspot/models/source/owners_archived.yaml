@@ -1,0 +1,38 @@
+version: 2
+
+sources:
+  - name: source_hubspot
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: owners_archived
+        columns:
+          - name: id
+            description: The unique identifier of the owner.
+            data_type: string
+          - name: email
+            description: The email address of the owner.
+            data_type: string
+          - name: firstName
+            description: The first name of the owner.
+            data_type: string
+          - name: lastName
+            description: The last name of the owner.
+            data_type: string
+          - name: userId
+            description: The user ID associated with the owner.
+            data_type: integer
+          - name: createdAt
+            description: The date and time the owner was created.
+            data_type: string
+          - name: updatedAt
+            description: The date and time the owner was last updated.
+            data_type: string
+          - name: archived
+            description: Indicates if the owner is archived or not.
+            data_type: boolean
+          - name: teams
+            description: A list of teams the owner belongs to.
+            data_type: array

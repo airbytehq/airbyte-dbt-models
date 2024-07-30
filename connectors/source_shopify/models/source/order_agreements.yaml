@@ -1,0 +1,29 @@
+version: 2
+
+sources:
+  - name: source_shopify
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: order_agreements
+        columns:
+          - name: id
+            description: A globally-unique Order ID
+            data_type: integer
+          - name: created_at
+            description: The date and time when the order was created
+            data_type: string
+          - name: updated_at
+            description: The date and time when the order was last updated
+            data_type: string
+          - name: admin_graphql_api_id
+            description: The original order id reference for the shopify api
+            data_type: string
+          - name: shop_url
+            description: URL of the shop where the order was placed.
+            data_type: string
+          - name: agreements
+            description: A list of sales agreements associated with the order.
+            data_type: array

@@ -1,0 +1,41 @@
+version: 2
+
+sources:
+  - name: source_mailchimp
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: automations
+        columns:
+          - name: create_time
+            description: The timestamp when the automation was created
+            data_type: string
+          - name: emails_sent
+            description: The number of emails sent as part of the automation
+            data_type: number
+          - name: id
+            description: The unique identifier for the automation
+            data_type: string
+          - name: recipients
+            description: Details about the recipients of the automation
+            data_type: object
+          - name: report_summary
+            description: Summary of the report generated for the automation
+            data_type: object
+          - name: settings
+            description: Settings related to the automation
+            data_type: object
+          - name: start_time
+            description: The timestamp when the automation started
+            data_type: string
+          - name: status
+            description: Current status of the automation
+            data_type: string
+          - name: tracking
+            description: Tracking settings for the automation
+            data_type: object
+          - name: trigger_settings
+            description: Settings related to the triggers of the automation
+            data_type: object

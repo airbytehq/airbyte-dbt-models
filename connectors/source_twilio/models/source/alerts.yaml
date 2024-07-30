@@ -1,0 +1,56 @@
+version: 2
+
+sources:
+  - name: source_twilio
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: alerts
+        columns:
+          - name: log_level
+            description: The severity level of the alert (info, warning, error)
+            data_type: string
+          - name: resource_sid
+            description: The SID of the specific resource associated with the alert
+            data_type: string
+          - name: date_updated
+            description: The date and time when the alert was last updated
+            data_type: string
+          - name: account_sid
+            description: The unique identifier for the account associated with the alert
+            data_type: string
+          - name: url
+            description: The URL or endpoint related to the alert
+            data_type: string
+          - name: request_method
+            description: The method used in the HTTP request that triggered the alert
+            data_type: string
+          - name: date_generated
+            description: The date and time when the alert data was generated
+            data_type: string
+          - name: alert_text
+            description: The actual content or text of the alert message
+            data_type: string
+          - name: sid
+            description: The unique identifier (SID) for the alert entry
+            data_type: string
+          - name: date_created
+            description: The date and time when the alert was created
+            data_type: string
+          - name: request_url
+            description: The URL that was requested and triggered the alert
+            data_type: string
+          - name: service_sid
+            description: The SID of the Twilio service related to the alert
+            data_type: string
+          - name: error_code
+            description: The code representing the error, if an error occurred
+            data_type: string
+          - name: api_version
+            description: The version of the Twilio API used for the alert
+            data_type: string
+          - name: more_info
+            description: Additional information or details related to the alert
+            data_type: string

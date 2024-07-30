@@ -1,0 +1,95 @@
+version: 2
+
+sources:
+  - name: source_linkedin_ads
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: campaigns
+        columns:
+          - name: targetingCriteria
+            description: Criteria for targeting in the campaign.
+            data_type: object
+          - name: servingStatuses
+            description: The serving statuses of the campaign.
+            data_type: array
+          - name: type
+            description: The type of campaign.
+            data_type: string
+          - name: locale
+            description: The locale settings for the campaign.
+            data_type: object
+          - name: version
+            description: The version information for the campaign.
+            data_type: object
+          - name: associatedEntity
+            description: The entity associated with the campaign.
+            data_type: string
+          - name: runSchedule
+            description: The schedule for running the campaign.
+            data_type: object
+          - name: optimizationTargetType
+            description: The type of optimization target for the campaign.
+            data_type: string
+          - name: created
+            description: The date and time when the campaign was created.
+            data_type: string
+          - name: lastModified
+            description: The date and time when the campaign was last modified.
+            data_type: string
+          - name: campaignGroup
+            description: The group to which the campaign belongs.
+            data_type: string
+          - name: dailyBudget
+            description: The daily budget set for the campaign.
+            data_type: object
+          - name: totalBudget
+            description: The total budget amount for the campaign.
+            data_type: object
+          - name: unitCost
+            description: The unit cost for the campaign.
+            data_type: object
+          - name: creativeSelection
+            description: Information about the creative selection for the campaign.
+            data_type: string
+          - name: costType
+            description: The type of cost associated with the campaign.
+            data_type: string
+          - name: name
+            description: The name of the campaign.
+            data_type: string
+          - name: offsiteDeliveryEnabled
+            description: Indicates if offsite delivery is enabled for the campaign.
+            data_type: boolean
+          - name: id
+            description: The unique identifier of the campaign.
+            data_type: integer
+          - name: audienceExpansionEnabled
+            description: Indicates if audience expansion is enabled for this campaign.
+            data_type: boolean
+          - name: test
+            description: Indicates if the campaign is a test campaign.
+            data_type: boolean
+          - name: account
+            description: The account associated with the campaign data.
+            data_type: string
+          - name: status
+            description: The status of the campaign.
+            data_type: string
+          - name: storyDeliveryEnabled
+            description: Indicates if story delivery is enabled for the campaign.
+            data_type: boolean
+          - name: pacingStrategy
+            description: The pacing strategy for the campaign.
+            data_type: string
+          - name: format
+            description: The format of the campaign.
+            data_type: string
+          - name: objectiveType
+            description: The type of objective for the campaign.
+            data_type: string
+          - name: offsitePreferences
+            description: Preferences related to offsite delivery.
+            data_type: object

@@ -1,0 +1,92 @@
+version: 2
+
+sources:
+  - name: source_twilio
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: calls
+        columns:
+          - name: sid
+            description: The unique identifier for the call.
+            data_type: string
+          - name: date_created
+            description: The date and time when the call record was created.
+            data_type: string
+          - name: date_updated
+            description: The date and time when the call record was last updated.
+            data_type: string
+          - name: parent_call_sid
+            description: The SID of the parent call if this call is part of a conference.
+            data_type: string
+          - name: account_sid
+            description: The unique identifier for the account associated with the call.
+            data_type: string
+          - name: to
+            description: The phone number that received the call.
+            data_type: string
+          - name: to_formatted
+            description: The formatted version of the 'to' phone number.
+            data_type: string
+          - name: from
+            description: The phone number that made the call.
+            data_type: string
+          - name: from_formatted
+            description: The formatted version of the 'from' phone number.
+            data_type: string
+          - name: phone_number_sid
+            description: The SID of the phone number used for the call.
+            data_type: string
+          - name: status
+            description: The current status of the call, such as 'completed' or 'in-progress'.
+            data_type: string
+          - name: start_time
+            description: The date and time when the call started.
+            data_type: string
+          - name: end_time
+            description: The date and time when the call ended.
+            data_type: string
+          - name: duration
+            description: The duration of the call in seconds.
+            data_type: integer
+          - name: price
+            description: The cost of the call.
+            data_type: number
+          - name: price_unit
+            description: The currency unit of the call cost.
+            data_type: string
+          - name: direction
+            description: The direction of the call, either 'inbound' or 'outbound'.
+            data_type: string
+          - name: answered_by
+            description: The name of the entity or system that answered the call.
+            data_type: string
+          - name: annotation
+            description: Any additional notes or context added to the call.
+            data_type: string
+          - name: api_version
+            description: The version of the Twilio API used for this call.
+            data_type: string
+          - name: forwarded_from
+            description: The phone number that initiated the call forwarding.
+            data_type: string
+          - name: group_sid
+            description: The unique identifier of the call group to which this call belongs.
+            data_type: string
+          - name: caller_name
+            description: The name of the caller as supplied by the caller ID service.
+            data_type: string
+          - name: queue_time
+            description: The time the call spent in a queue before being answered.
+            data_type: integer
+          - name: trunk_sid
+            description: The unique identifier of the trunk used for the call.
+            data_type: string
+          - name: uri
+            description: The URI for this call record.
+            data_type: string
+          - name: subresource_uris
+            description: Contains URIs for related subresources such as recordings or notifications.
+            data_type: object

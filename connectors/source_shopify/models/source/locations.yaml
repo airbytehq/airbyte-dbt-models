@@ -1,0 +1,71 @@
+version: 2
+
+sources:
+  - name: source_shopify
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: locations
+        columns:
+          - name: active
+            description: Indicates if the location is currently active or not.
+            data_type: boolean
+          - name: address1
+            description: The first line of the location's address.
+            data_type: string
+          - name: address2
+            description: The second line of the location's address.
+            data_type: string
+          - name: admin_graphql_api_id
+            description: The Admin GraphQL API ID of the location.
+            data_type: string
+          - name: city
+            description: The city where the location is based.
+            data_type: string
+          - name: country
+            description: The full name of the country where the location is located.
+            data_type: string
+          - name: country_code
+            description: The ISO country code of the location.
+            data_type: string
+          - name: country_name
+            description: The name of the country where the location is located.
+            data_type: string
+          - name: created_at
+            description: The date and time when the location was created.
+            data_type: string
+          - name: id
+            description: The unique identifier of the location.
+            data_type: integer
+          - name: legacy
+            description: Indicates if the location is a legacy location or not.
+            data_type: boolean
+          - name: name
+            description: The name of the location.
+            data_type: string
+          - name: phone
+            description: The phone number associated with the location.
+            data_type: string
+          - name: province
+            description: The full name of the province or state where the location is located.
+            data_type: string
+          - name: province_code
+            description: The ISO code of the province or state where the location is located.
+            data_type: string
+          - name: updated_at
+            description: The date and time when the location was last updated.
+            data_type: string
+          - name: zip
+            description: The postal or ZIP code of the location.
+            data_type: string
+          - name: localized_country_name
+            description: The localized name of the country where the location is located.
+            data_type: string
+          - name: localized_province_name
+            description: The localized name of the province or state of the location.
+            data_type: string
+          - name: shop_url
+            description: The URL of the shop associated with the location.
+            data_type: string

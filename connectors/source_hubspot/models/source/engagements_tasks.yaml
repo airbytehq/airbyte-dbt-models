@@ -1,0 +1,335 @@
+version: 2
+
+sources:
+  - name: source_hubspot
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: engagements_tasks
+        columns:
+          - name: id
+            description: Unique identifier for the task
+            data_type: string
+          - name: properties
+            description: ''
+            data_type: object
+          - name: properties_hs_all_assigned_business_unit_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_at_mentioned_owner_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_attachment_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_body_preview
+            description: ''
+            data_type: string
+          - name: properties_hs_body_preview_html
+            description: ''
+            data_type: string
+          - name: properties_hs_body_preview_is_truncated
+            description: ''
+            data_type: boolean
+          - name: properties_hs_calendar_event_id
+            description: ''
+            data_type: string
+          - name: properties_hs_created_by
+            description: ''
+            data_type: number
+          - name: properties_hs_created_by_user_id
+            description: ''
+            data_type: number
+          - name: properties_hs_createdate
+            description: ''
+            data_type: string
+          - name: properties_hs_engagement_source
+            description: ''
+            data_type: string
+          - name: properties_hs_engagement_source_id
+            description: ''
+            data_type: string
+          - name: properties_hs_follow_up_action
+            description: ''
+            data_type: string
+          - name: properties_hs_gdpr_deleted
+            description: ''
+            data_type: boolean
+          - name: properties_hs_lastmodifieddate
+            description: ''
+            data_type: string
+          - name: properties_hs_merged_object_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_modified_by
+            description: ''
+            data_type: number
+          - name: properties_hs_msteams_message_id
+            description: ''
+            data_type: string
+          - name: properties_hs_num_associated_companies
+            description: Number of companies associated with the task.
+            data_type: number
+          - name: properties_hs_num_associated_contacts
+            description: Number of contacts associated with the task.
+            data_type: number
+          - name: properties_hs_num_associated_deals
+            description: Number of deals associated with the task.
+            data_type: number
+          - name: properties_hs_num_associated_queue_objects
+            description: Number of queue objects associated with the task.
+            data_type: number
+          - name: properties_hs_num_associated_tickets
+            description: Number of tickets associated with the task.
+            data_type: number
+          - name: properties_hs_object_id
+            description: ''
+            data_type: number
+          - name: properties_hs_product_name
+            description: ''
+            data_type: string
+          - name: properties_hs_queue_membership_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_scheduled_tasks
+            description: ''
+            data_type: string
+          - name: properties_hs_task_body
+            description: ''
+            data_type: string
+          - name: properties_hs_task_completion_date
+            description: ''
+            data_type: string
+          - name: properties_hs_task_contact_timezone
+            description: ''
+            data_type: string
+          - name: properties_hs_task_for_object_type
+            description: ''
+            data_type: string
+          - name: properties_hs_task_is_all_day
+            description: ''
+            data_type: boolean
+          - name: properties_hs_task_last_contact_outreach
+            description: ''
+            data_type: string
+          - name: properties_hs_task_last_sales_activity_timestamp
+            description: ''
+            data_type: string
+          - name: properties_hs_task_priority
+            description: ''
+            data_type: string
+          - name: properties_hs_task_probability_to_complete
+            description: ''
+            data_type: number
+          - name: properties_hs_task_relative_reminders
+            description: ''
+            data_type: string
+          - name: properties_hs_task_reminders
+            description: ''
+            data_type: string
+          - name: properties_hs_task_repeat_interval
+            description: ''
+            data_type: string
+          - name: properties_hs_task_send_default_reminder
+            description: ''
+            data_type: boolean
+          - name: properties_hs_task_sequence_enrollment_active
+            description: ''
+            data_type: boolean
+          - name: properties_hs_task_sequence_step_enrollment_id
+            description: ''
+            data_type: string
+          - name: properties_hs_task_sequence_step_order
+            description: ''
+            data_type: number
+          - name: properties_hs_task_status
+            description: ''
+            data_type: string
+          - name: properties_hs_task_subject
+            description: ''
+            data_type: string
+          - name: properties_hs_task_template_id
+            description: ''
+            data_type: number
+          - name: properties_hs_task_type
+            description: ''
+            data_type: string
+          - name: properties_hs_timestamp
+            description: ''
+            data_type: string
+          - name: properties_hs_unique_creation_key
+            description: ''
+            data_type: string
+          - name: properties_hs_unique_id
+            description: ''
+            data_type: string
+          - name: properties_hs_updated_by_user_id
+            description: ''
+            data_type: number
+          - name: properties_hs_user_ids_of_all_notification_followers
+            description: ''
+            data_type: string
+          - name: properties_hs_user_ids_of_all_notification_unfollowers
+            description: ''
+            data_type: string
+          - name: properties_hs_user_ids_of_all_owners
+            description: ''
+            data_type: string
+          - name: properties_hubspot_owner_assigneddate
+            description: ''
+            data_type: string
+          - name: properties_hubspot_owner_id
+            description: ''
+            data_type: string
+          - name: properties_hubspot_team_id
+            description: ''
+            data_type: string
+          - name: properties_hs_all_owner_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_all_team_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_all_accessible_team_ids
+            description: ''
+            data_type: string
+          - name: createdAt
+            description: The date and time when the task was created
+            data_type: string
+          - name: updatedAt
+            description: The date and time when the task was last updated
+            data_type: string
+          - name: archived
+            description: Indicates if the task has been archived
+            data_type: boolean
+          - name: contacts
+            description: List of contacts associated with the task
+            data_type: array
+          - name: deals
+            description: List of deals associated with the task
+            data_type: array
+          - name: companies
+            description: List of companies associated with the task
+            data_type: array
+          - name: tickets
+            description: List of tickets associated with the task
+            data_type: array
+          - name: properties_hs_date_entered_60b5c368_04c4_4d32_9b4a_457e159f49b7_13292096
+            description: ''
+            data_type: string
+          - name: properties_hs_date_entered_61bafb31_e7fa_46ed_aaa9_1322438d6e67_1866552342
+            description: ''
+            data_type: string
+          - name: properties_hs_date_entered_af0e6a5c_2ea3_4c72_b69f_7c6cb3fdb591_1652950531
+            description: ''
+            data_type: string
+          - name: properties_hs_date_entered_dd5826e4_c976_4654_a527_b59ada542e52_2144133616
+            description: ''
+            data_type: string
+          - name: properties_hs_date_entered_fc8148fb_3a2d_4b59_834e_69b7859347cb_1813133675
+            description: ''
+            data_type: string
+          - name: properties_hs_date_exited_60b5c368_04c4_4d32_9b4a_457e159f49b7_13292096
+            description: ''
+            data_type: string
+          - name: properties_hs_date_exited_61bafb31_e7fa_46ed_aaa9_1322438d6e67_1866552342
+            description: ''
+            data_type: string
+          - name: properties_hs_date_exited_af0e6a5c_2ea3_4c72_b69f_7c6cb3fdb591_1652950531
+            description: ''
+            data_type: string
+          - name: properties_hs_date_exited_dd5826e4_c976_4654_a527_b59ada542e52_2144133616
+            description: ''
+            data_type: string
+          - name: properties_hs_date_exited_fc8148fb_3a2d_4b59_834e_69b7859347cb_1813133675
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_detail_1
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_detail_2
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_detail_3
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_id
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_label
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_user_id
+            description: ''
+            data_type: number
+          - name: properties_hs_read_only
+            description: ''
+            data_type: boolean
+          - name: properties_hs_repeat_status
+            description: ''
+            data_type: string
+          - name: properties_hs_shared_team_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_shared_user_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_task_completion_count
+            description: ''
+            data_type: number
+          - name: properties_hs_task_family
+            description: ''
+            data_type: string
+          - name: properties_hs_task_is_completed
+            description: ''
+            data_type: number
+          - name: properties_hs_task_is_completed_call
+            description: ''
+            data_type: number
+          - name: properties_hs_task_is_completed_email
+            description: ''
+            data_type: number
+          - name: properties_hs_task_is_completed_linked_in
+            description: ''
+            data_type: number
+          - name: properties_hs_task_is_completed_sequence
+            description: ''
+            data_type: number
+          - name: properties_hs_task_is_overdue
+            description: ''
+            data_type: boolean
+          - name: properties_hs_task_is_past_due_date
+            description: ''
+            data_type: boolean
+          - name: properties_hs_task_missed_due_date
+            description: ''
+            data_type: boolean
+          - name: properties_hs_task_missed_due_date_count
+            description: ''
+            data_type: number
+          - name: properties_hs_task_ms_teams_payload
+            description: ''
+            data_type: string
+          - name: properties_hs_time_in_60b5c368_04c4_4d32_9b4a_457e159f49b7_13292096
+            description: ''
+            data_type: number
+          - name: properties_hs_time_in_61bafb31_e7fa_46ed_aaa9_1322438d6e67_1866552342
+            description: ''
+            data_type: number
+          - name: properties_hs_time_in_af0e6a5c_2ea3_4c72_b69f_7c6cb3fdb591_1652950531
+            description: ''
+            data_type: number
+          - name: properties_hs_time_in_dd5826e4_c976_4654_a527_b59ada542e52_2144133616
+            description: ''
+            data_type: number
+          - name: properties_hs_time_in_fc8148fb_3a2d_4b59_834e_69b7859347cb_1813133675
+            description: ''
+            data_type: number
+          - name: properties_hs_was_imported
+            description: ''
+            data_type: boolean

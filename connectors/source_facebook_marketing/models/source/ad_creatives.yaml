@@ -1,0 +1,113 @@
+version: 2
+
+sources:
+  - name: source_facebook_marketing
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: ad_creatives
+        columns:
+          - name: body
+            description: The body text of the ad creative.
+            data_type: string
+          - name: object_story_id
+            description: Story ID associated with the object.
+            data_type: string
+          - name: image_url
+            description: URL of the main image used in the ad creative.
+            data_type: string
+          - name: id
+            description: The unique identifier of the ad creative.
+            data_type: string
+          - name: account_id
+            description: The unique identifier of the Facebook ad account associated with the ad creative.
+            data_type: string
+          - name: actor_id
+            description: The unique identifier of the actor associated with the ad creative.
+            data_type: string
+          - name: adlabels
+            description: A collection of ad labels associated with the ad creative.
+            data_type: array
+          - name: applink_treatment
+            description: Specifies how the app link is treated.
+            data_type: string
+          - name: asset_feed_spec
+            description: Specifies the asset customization rules, call to actions, and groups for the ad creative.
+            data_type: object
+          - name: call_to_action_type
+            description: The type of call-to-action for the ad creative.
+            data_type: string
+          - name: effective_instagram_story_id
+            description: The effective Instagram story ID associated with the ad creative.
+            data_type: string
+          - name: effective_object_story_id
+            description: The effective object story ID for the ad creative.
+            data_type: string
+          - name: title
+            description: Title of the ad creative.
+            data_type: string
+          - name: name
+            description: Name or title of the ad creative.
+            data_type: string
+          - name: image_crops
+            description: ''
+            data_type: object
+          - name: instagram_actor_id
+            description: Instagram actor ID associated with the ad creative.
+            data_type: string
+          - name: instagram_permalink_url
+            description: Permalink URL of the ad creative on Instagram.
+            data_type: string
+          - name: instagram_story_id
+            description: ID of the story on Instagram.
+            data_type: string
+          - name: link_og_id
+            description: Open Graph ID related to the link.
+            data_type: string
+          - name: object_id
+            description: ID of the associated object.
+            data_type: string
+          - name: object_story_spec
+            description: Specification for the object story associated with the ad creative.
+            data_type: object
+          - name: object_type
+            description: Type of object associated with the ad creative.
+            data_type: string
+          - name: object_url
+            description: URL of the associated object.
+            data_type: string
+          - name: product_set_id
+            description: ID of the product set linked to the ad creative.
+            data_type: string
+          - name: source_instagram_media_id
+            description: ''
+            data_type: string
+          - name: status
+            description: Status of the ad creative.
+            data_type: string
+          - name: template_url
+            description: URL of the template used in the ad creative.
+            data_type: string
+          - name: template_url_spec
+            description: Specification for the template URL.
+            data_type: object
+          - name: thumbnail_data_url
+            description: URL of the thumbnail data.
+            data_type: string
+          - name: thumbnail_url
+            description: URL of the thumbnail image.
+            data_type: string
+          - name: image_hash
+            description: Hash value representing the image used in the ad creative.
+            data_type: string
+          - name: url_tags
+            description: Tags added to the URL of the ad creative.
+            data_type: string
+          - name: video_id
+            description: ID of the video used in the ad creative.
+            data_type: string
+          - name: link_url
+            description: URL associated with the ad creative.
+            data_type: string

@@ -1,0 +1,41 @@
+version: 2
+
+sources:
+  - name: source_hubspot
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: deal_pipelines
+        columns:
+          - name: label
+            description: The label or name of the deal pipeline.
+            data_type: string
+          - name: displayOrder
+            description: The ordering of the deal pipeline for display.
+            data_type: integer
+          - name: active
+            description: Indicates if the deal pipeline is currently active or not.
+            data_type: boolean
+          - name: stages
+            description: List of deal stages within the pipeline.
+            data_type: array
+          - name: objectType
+            description: The type of object this deal pipeline is associated with.
+            data_type: string
+          - name: objectTypeId
+            description: The ID of the object type this deal pipeline is associated with.
+            data_type: string
+          - name: pipelineId
+            description: The unique identifier of the deal pipeline.
+            data_type: string
+          - name: createdAt
+            description: Timestamp for the creation date of the deal pipeline.
+            data_type: integer
+          - name: updatedAt
+            description: Timestamp for the last update to the deal pipeline.
+            data_type: integer
+          - name: default
+            description: Indicates if this pipeline is the default one in the system.
+            data_type: boolean

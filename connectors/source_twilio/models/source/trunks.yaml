@@ -1,0 +1,62 @@
+version: 2
+
+sources:
+  - name: source_twilio
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: trunks
+        columns:
+          - name: sid
+            description: The unique identifier for the trunk.
+            data_type: string
+          - name: account_sid
+            description: The unique identifier of the account associated with the trunk.
+            data_type: string
+          - name: domain_name
+            description: The domain name associated with the trunk.
+            data_type: string
+          - name: disaster_recovery_method
+            description: The method used for disaster recovery for this trunk.
+            data_type: string
+          - name: disaster_recovery_url
+            description: The URL set up for disaster recovery in case of trunk failure.
+            data_type: string
+          - name: friendly_name
+            description: A user-friendly name for the trunk.
+            data_type: string
+          - name: secure
+            description: Indicates whether the trunk connection is secure.
+            data_type: boolean
+          - name: cnam_lookup_enabled
+            description: Indicates whether Caller ID Name (CNAM) lookup is enabled for this trunk.
+            data_type: boolean
+          - name: recording
+            description: Settings related to call recording on the trunk.
+            data_type: object
+          - name: transfer_mode
+            description: The mode used for call transfer on this trunk.
+            data_type: string
+          - name: transfer_caller_id
+            description: The Caller ID used when transferring calls through this trunk.
+            data_type: string
+          - name: auth_type
+            description: The authentication type used for this trunk.
+            data_type: string
+          - name: auth_type_set
+            description: A set of authentication types associated with the trunk.
+            data_type: array
+          - name: date_created
+            description: The date and time the trunk was created.
+            data_type: string
+          - name: date_updated
+            description: The date and time the trunk was last updated.
+            data_type: string
+          - name: url
+            description: The URL of the trunk.
+            data_type: string
+          - name: links
+            description: Links to related resources associated with the trunk.
+            data_type: object

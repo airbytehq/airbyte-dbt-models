@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: source_tiktok_marketing
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: creative_assets_portfolios
+        columns:
+          - name: creative_portfolio_id
+            description: The unique identifier for the creative portfolio.
+            data_type: string
+          - name: creative_portfolio_type
+            description: The type of the creative portfolio, such as image, video, or carousel.
+            data_type: string
+          - name: creative_portfolio_preview_url
+            description: The URL pointing to a preview image or video of the creative portfolio.
+            data_type: string

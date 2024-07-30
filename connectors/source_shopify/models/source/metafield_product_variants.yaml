@@ -1,0 +1,50 @@
+version: 2
+
+sources:
+  - name: source_shopify
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: metafield_product_variants
+        columns:
+          - name: id
+            description: The unique identifier for the metafield
+            data_type: integer
+          - name: namespace
+            description: The namespace for grouping metafields
+            data_type: string
+          - name: key
+            description: The key associated with the metafield for identifying purposes
+            data_type: string
+          - name: value
+            description: The actual value of the metafield
+            data_type: string
+          - name: value_type
+            description: The type that the value of the metafield represents (e.g., URL, text)
+            data_type: string
+          - name: description
+            description: The description of the metafield content
+            data_type: string
+          - name: owner_id
+            description: The unique identifier of the entity that owns the metafield
+            data_type: integer
+          - name: created_at
+            description: The date and time when the metafield was created
+            data_type: string
+          - name: updated_at
+            description: The date and time when the metafield was last updated
+            data_type: string
+          - name: owner_resource
+            description: The resource type that owns the metafield (e.g., product, variant)
+            data_type: string
+          - name: type
+            description: The data type of the metafield value (e.g., string, integer)
+            data_type: string
+          - name: admin_graphql_api_id
+            description: The unique identifier for the metafield in the GraphQL Admin API
+            data_type: string
+          - name: shop_url
+            description: The URL of the shop where the metafield is associated
+            data_type: string

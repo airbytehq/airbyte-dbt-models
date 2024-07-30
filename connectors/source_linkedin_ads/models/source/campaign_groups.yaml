@@ -1,0 +1,47 @@
+version: 2
+
+sources:
+  - name: source_linkedin_ads
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: campaign_groups
+        columns:
+          - name: runSchedule
+            description: Schedule for running the campaign group.
+            data_type: object
+          - name: created
+            description: The date and time when the campaign group was created.
+            data_type: string
+          - name: lastModified
+            description: The date and time when the campaign group was last modified.
+            data_type: string
+          - name: name
+            description: Name of the campaign group.
+            data_type: string
+          - name: test
+            description: Indicates if the campaign group is a test campaign.
+            data_type: boolean
+          - name: totalBudget
+            description: Total budget allocated for the campaign group.
+            data_type: object
+          - name: servingStatuses
+            description: List of serving statuses for the campaign group.
+            data_type: array
+          - name: backfilled
+            description: Indicates if the campaign group was backfilled.
+            data_type: boolean
+          - name: id
+            description: Unique identifier for the campaign group.
+            data_type: integer
+          - name: account
+            description: The account associated with the campaign group.
+            data_type: string
+          - name: status
+            description: Current status of the campaign group.
+            data_type: string
+          - name: allowedCampaignTypes
+            description: List of campaign types allowed for this campaign group.
+            data_type: array

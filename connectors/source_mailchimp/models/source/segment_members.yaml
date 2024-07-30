@@ -1,0 +1,74 @@
+version: 2
+
+sources:
+  - name: source_mailchimp
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: segment_members
+        columns:
+          - name: id
+            description: The unique identifier of the segment member.
+            data_type: string
+          - name: email_address
+            description: The email address of the segment member.
+            data_type: string
+          - name: unique_email_id
+            description: The unique identifier related to the email address.
+            data_type: string
+          - name: email_type
+            description: The type of email the segment member receives.
+            data_type: string
+          - name: status
+            description: The subscription status of the segment member.
+            data_type: string
+          - name: merge_fields
+            description: Additional information merged with the segment member data.
+            data_type: object
+          - name: interests
+            description: Interests or preferences of the segment member.
+            data_type: object
+          - name: stats
+            description: Statistics related to the email engagement of the segment member.
+            data_type: object
+          - name: ip_signup
+            description: The IP address where the segment member signed up.
+            data_type: string
+          - name: timestamp_signup
+            description: The date and time when the segment member signed up.
+            data_type: string
+          - name: ip_opt
+            description: The IP address where the segment member opted in.
+            data_type: string
+          - name: timestamp_opt
+            description: The date and time when the segment member opted in.
+            data_type: string
+          - name: member_rating
+            description: The rating assigned to the segment member.
+            data_type: integer
+          - name: last_changed
+            description: The date and time when the segment member record was last updated.
+            data_type: string
+          - name: language
+            description: The preferred language of the segment member.
+            data_type: string
+          - name: vip
+            description: Flag indicating if the segment member is a VIP.
+            data_type: boolean
+          - name: email_client
+            description: The client used by the segment member to access their email.
+            data_type: string
+          - name: location
+            description: Geographical location information of the segment member.
+            data_type: object
+          - name: last_note
+            description: The last note added for the segment member.
+            data_type: object
+          - name: list_id
+            description: The identifier of the list to which the segment member belongs.
+            data_type: string
+          - name: segment_id
+            description: The identifier of the segment the member belongs to.
+            data_type: integer

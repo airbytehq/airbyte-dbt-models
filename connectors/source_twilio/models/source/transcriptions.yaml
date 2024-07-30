@@ -1,0 +1,50 @@
+version: 2
+
+sources:
+  - name: source_twilio
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: transcriptions
+        columns:
+          - name: account_sid
+            description: The unique identifier for the account associated with the transcription data.
+            data_type: string
+          - name: api_version
+            description: The version of the Twilio API used for the transcription.
+            data_type: string
+          - name: date_created
+            description: The date and time when the transcription was created.
+            data_type: string
+          - name: date_updated
+            description: The date and time when the transcription was last updated.
+            data_type: string
+          - name: duration
+            description: The duration of the audio recording for which the transcription was generated.
+            data_type: integer
+          - name: price
+            description: The cost of the transcription service.
+            data_type: number
+          - name: price_unit
+            description: The currency unit used for pricing the transcription service.
+            data_type: string
+          - name: recording_sid
+            description: The unique identifier for the recording associated with the transcription.
+            data_type: string
+          - name: sid
+            description: The unique identifier for the transcription data.
+            data_type: string
+          - name: status
+            description: The current status of the transcription (e.g., in-progress, completed).
+            data_type: string
+          - name: transcription_text
+            description: The text content of the transcription generated from the audio recording.
+            data_type: string
+          - name: type
+            description: The type of transcription (e.g., automatic, human-generated).
+            data_type: string
+          - name: uri
+            description: The URI where the transcription data can be accessed.
+            data_type: string

@@ -1,0 +1,50 @@
+version: 2
+
+sources:
+  - name: source_facebook_marketing
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: activities
+        columns:
+          - name: account_id
+            description: The unique identifier for the account associated with the activity.
+            data_type: string
+          - name: actor_id
+            description: The unique identifier for the actor (user/page) who performed the activity.
+            data_type: string
+          - name: actor_name
+            description: The name of the actor (user/page) who performed the activity.
+            data_type: string
+          - name: application_id
+            description: The unique identifier for the application involved in the activity.
+            data_type: string
+          - name: application_name
+            description: The name of the application involved in the activity.
+            data_type: string
+          - name: date_time_in_timezone
+            description: The date and time of the activity adjusted to the timezone.
+            data_type: string
+          - name: event_time
+            description: The exact date and time when the activity occurred.
+            data_type: string
+          - name: event_type
+            description: The type of event/action performed in the activity.
+            data_type: string
+          - name: extra_data
+            description: Additional data associated with the activity.
+            data_type: string
+          - name: object_id
+            description: The unique identifier for the object (post/ad/etc.) related to the activity.
+            data_type: string
+          - name: object_name
+            description: The name/label of the object related to the activity.
+            data_type: string
+          - name: object_type
+            description: The type/category of the object related to the activity.
+            data_type: string
+          - name: translated_event_type
+            description: The translated or localized version of the event type.
+            data_type: string

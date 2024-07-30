@@ -1,0 +1,293 @@
+version: 2
+
+sources:
+  - name: source_shopify
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: orders
+        columns:
+          - name: id
+            description: The unique identifier of the order
+            data_type: integer
+          - name: admin_graphql_api_id
+            description: The unique identifier of the order in the GraphQL Admin API
+            data_type: string
+          - name: app_id
+            description: The ID of the app that created the order
+            data_type: integer
+          - name: browser_ip
+            description: The IP address of the customer's browser
+            data_type: string
+          - name: buyer_accepts_marketing
+            description: Indicates if the customer has agreed to receive marketing emails
+            data_type: boolean
+          - name: cancel_reason
+            description: The reason provided if the order was canceled
+            data_type: string
+          - name: cancelled_at
+            description: The date and time when the order was canceled
+            data_type: string
+          - name: cart_token
+            description: Token representing the cart associated with the order
+            data_type: string
+          - name: checkout_id
+            description: The ID of the checkout that processed the order
+            data_type: integer
+          - name: checkout_token
+            description: Token representing the checkout associated with the order
+            data_type: string
+          - name: client_details
+            description: ''
+            data_type: object
+          - name: closed_at
+            description: The date and time when the order was closed
+            data_type: string
+          - name: company
+            description: The name of the company associated with the order
+            data_type: string
+          - name: confirmed
+            description: Indicates if the order has been confirmed
+            data_type: boolean
+          - name: confirmation_number
+            description: The unique number for confirming the order
+            data_type: string
+          - name: contact_email
+            description: The email address for order-related contacts
+            data_type: string
+          - name: created_at
+            description: The date and time when the order was created
+            data_type: string
+          - name: currency
+            description: The currency used for the order
+            data_type: string
+          - name: current_subtotal_price
+            description: The current subtotal price of the order
+            data_type: number
+          - name: current_subtotal_price_set
+            description: ''
+            data_type: object
+          - name: current_total_discounts
+            description: The current total discounts applied to the order
+            data_type: number
+          - name: current_total_discounts_set
+            description: ''
+            data_type: object
+          - name: current_total_duties_set
+            description: The current total duties set for the order
+            data_type: string
+          - name: current_total_price
+            description: The current total price of the order
+            data_type: number
+          - name: current_total_price_set
+            description: ''
+            data_type: object
+          - name: current_total_tax
+            description: The current total tax amount for the order
+            data_type: number
+          - name: current_total_tax_set
+            description: ''
+            data_type: object
+          - name: current_total_additional_fees_set
+            description: ''
+            data_type: object
+          - name: customer_locale
+            description: The locale of the customer
+            data_type: string
+          - name: device_id
+            description: The ID of the device used to place the order
+            data_type: string
+          - name: discount_applications
+            description: ''
+            data_type: array
+          - name: discount_codes
+            description: ''
+            data_type: array
+          - name: email
+            description: The email address of the customer
+            data_type: string
+          - name: estimated_taxes
+            description: Estimated taxes for the order
+            data_type: boolean
+          - name: financial_status
+            description: The financial status of the order
+            data_type: string
+          - name: fulfillment_status
+            description: The fulfillment status of the order
+            data_type: string
+          - name: landing_site
+            description: The landing site of the order
+            data_type: string
+          - name: landing_site_ref
+            description: Reference for the landing site of the order
+            data_type: string
+          - name: location_id
+            description: The location ID associated with the order
+            data_type: integer
+          - name: merchant_of_record_app_id
+            description: The app ID of the merchant of record
+            data_type: string
+          - name: name
+            description: The name of the order
+            data_type: string
+          - name: note
+            description: Additional notes related to the order
+            data_type: string
+          - name: note_attributes
+            description: Custom note attributes associated with the order
+            data_type: array
+          - name: number
+            description: The order number
+            data_type: integer
+          - name: order_number
+            description: The unique number assigned to the order
+            data_type: integer
+          - name: order_status_url
+            description: URL to check the status of the order
+            data_type: string
+          - name: original_total_duties_set
+            description: The original total duties set for the order
+            data_type: string
+          - name: original_total_additional_fees_set
+            description: ''
+            data_type: object
+          - name: payment_gateway_names
+            description: ''
+            data_type: array
+          - name: payment_terms
+            description: The terms of payment for the order
+            data_type: string
+          - name: phone
+            description: The phone number of the customer
+            data_type: string
+          - name: presentment_currency
+            description: The currency used for presenting the order
+            data_type: string
+          - name: processed_at
+            description: The date and time when the order was processed
+            data_type: string
+          - name: po_number
+            description: The purchase order number
+            data_type: string
+          - name: reference
+            description: Reference associated with the order
+            data_type: string
+          - name: referring_site
+            description: The referring site of the order
+            data_type: string
+          - name: source_identifier
+            description: Identifier for the order's source
+            data_type: string
+          - name: source_name
+            description: Name of the order's source
+            data_type: string
+          - name: source_url
+            description: URL of the order's source
+            data_type: string
+          - name: shop_url
+            description: URL of the shop associated with the order
+            data_type: string
+          - name: subtotal_price
+            description: The subtotal price of the order
+            data_type: number
+          - name: subtotal_price_set
+            description: ''
+            data_type: object
+          - name: tags
+            description: Tags associated with the order
+            data_type: string
+          - name: tax_exempt
+            description: Indicates if the order is tax exempt
+            data_type: boolean
+          - name: tax_lines
+            description: ''
+            data_type: array
+          - name: taxes_included
+            description: Indicates if taxes are included in the prices
+            data_type: boolean
+          - name: test
+            description: Indicates if the order is a test order
+            data_type: boolean
+          - name: token
+            description: Token associated with the order
+            data_type: string
+          - name: total_discounts
+            description: The total amount of discounts applied to the order
+            data_type: number
+          - name: total_discounts_set
+            description: ''
+            data_type: object
+          - name: total_line_items_price
+            description: The total price of all line items in the order
+            data_type: number
+          - name: total_line_items_price_set
+            description: ''
+            data_type: object
+          - name: total_outstanding
+            description: The total outstanding amount for the order
+            data_type: number
+          - name: total_price
+            description: The total price of the order
+            data_type: number
+          - name: total_price_set
+            description: ''
+            data_type: object
+          - name: total_price_usd
+            description: The total price of the order in USD
+            data_type: number
+          - name: total_shipping_price_set
+            description: The details of the total shipping price for the order.
+            data_type: object
+          - name: total_tax
+            description: The total tax amount for the order
+            data_type: number
+          - name: total_tax_set
+            description: The details of the total tax applied to the order.
+            data_type: object
+          - name: total_tip_received
+            description: The total tip amount received, if any
+            data_type: number
+          - name: total_weight
+            description: The total weight of all items in the order
+            data_type: integer
+          - name: updated_at
+            description: The date and time when the order was last updated
+            data_type: string
+          - name: user_id
+            description: The unique identifier of the user associated with the order
+            data_type: number
+          - name: billing_address
+            description: ''
+            data_type: object
+          - name: customer
+            description: ''
+            data_type: object
+          - name: discount_allocations
+            description: ''
+            data_type: array
+          - name: fulfillments
+            description: ''
+            data_type: array
+          - name: line_items
+            description: Details of the products within an order
+            data_type: array
+          - name: refunds
+            description: Information about the refunds associated with the order
+            data_type: array
+          - name: shipping_address
+            description: ''
+            data_type: object
+          - name: shipping_lines
+            description: ''
+            data_type: array
+          - name: deleted_at
+            description: The date and time when the order was deleted
+            data_type: string
+          - name: deleted_message
+            description: Message provided when the order was deleted
+            data_type: string
+          - name: deleted_description
+            description: Description provided when the order was deleted
+            data_type: string

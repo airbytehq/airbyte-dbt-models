@@ -1,0 +1,173 @@
+version: 2
+
+sources:
+  - name: source_facebook_marketing
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: ad_account
+        columns:
+          - name: account_id
+            description: The unique identifier for the Facebook ad account.
+            data_type: string
+          - name: account_status
+            description: The status of the Facebook ad account.
+            data_type: integer
+          - name: age
+            description: Age associated with the ad account.
+            data_type: number
+          - name: amount_spent
+            description: Total amount spent on ads by the ad account.
+            data_type: string
+          - name: balance
+            description: Current balance of the ad account.
+            data_type: string
+          - name: business
+            description: Represents information about the business associated with the ad account.
+            data_type: object
+          - name: business_city
+            description: City associated with the business.
+            data_type: string
+          - name: business_country_code
+            description: Country code associated with the business.
+            data_type: string
+          - name: business_name
+            description: Name of the business.
+            data_type: string
+          - name: business_state
+            description: State associated with the business.
+            data_type: string
+          - name: business_street
+            description: Street address of the business.
+            data_type: string
+          - name: business_street2
+            description: Additional street information of the business.
+            data_type: string
+          - name: business_zip
+            description: ZIP code associated with the business.
+            data_type: string
+          - name: can_create_brand_lift_study
+            description: Flag indicating if the ad account can create brand lift studies.
+            data_type: boolean
+          - name: capabilities
+            description: Specifies the capabilities of the ad account.
+            data_type: array
+          - name: created_time
+            description: Date and time when the ad account was created.
+            data_type: string
+          - name: currency
+            description: Currency used by the ad account.
+            data_type: string
+          - name: disable_reason
+            description: Reason for disabling the ad account.
+            data_type: number
+          - name: end_advertiser
+            description: The end advertiser associated with the ad account.
+            data_type: number
+          - name: end_advertiser_name
+            description: Name of the end advertiser.
+            data_type: string
+          - name: extended_credit_invoice_group
+            description: Contains details about the extended credit invoice group linked to the ad account.
+            data_type: object
+          - name: failed_delivery_checks
+            description: List of failed delivery checks performed for the ad account.
+            data_type: array
+          - name: fb_entity
+            description: Facebook entity associated with the ad account.
+            data_type: number
+          - name: funding_source
+            description: Source of funding for the ad account.
+            data_type: number
+          - name: funding_source_details
+            description: Provides information about the funding source linked to the ad account.
+            data_type: object
+          - name: has_migrated_permissions
+            description: Flag indicating if permissions have been migrated.
+            data_type: boolean
+          - name: id
+            description: Unique identifier for the ad account.
+            data_type: string
+          - name: io_number
+            description: IO number associated with the ad account.
+            data_type: number
+          - name: is_attribution_spec_system_default
+            description: Flag indicating if attribution specification is system default.
+            data_type: boolean
+          - name: is_direct_deals_enabled
+            description: Flag indicating if direct deals are enabled.
+            data_type: boolean
+          - name: is_in_3ds_authorization_enabled_market
+            description: Flag indicating if the ad account is in a 3DS authorization enabled market.
+            data_type: boolean
+          - name: is_notifications_enabled
+            description: Flag indicating if notifications are enabled for the ad account.
+            data_type: boolean
+          - name: is_personal
+            description: Flag indicating if the ad account is personal.
+            data_type: number
+          - name: is_prepay_account
+            description: Flag indicating if the ad account is a prepay account.
+            data_type: boolean
+          - name: is_tax_id_required
+            description: Flag indicating if a tax ID is required for the ad account.
+            data_type: boolean
+          - name: line_numbers
+            description: Line numbers associated with the ad account.
+            data_type: number
+          - name: media_agency
+            description: Media agency associated with the ad account.
+            data_type: number
+          - name: min_campaign_group_spend_cap
+            description: Minimum campaign group spend cap for the ad account.
+            data_type: number
+          - name: min_daily_budget
+            description: Minimum daily budget for the ad account.
+            data_type: number
+          - name: name
+            description: Name of the ad account.
+            data_type: string
+          - name: offsite_pixels_tos_accepted
+            description: Flag indicating if offsite pixels terms of service are accepted.
+            data_type: boolean
+          - name: owner
+            description: Owner of the ad account.
+            data_type: number
+          - name: partner
+            description: Partner associated with the ad account.
+            data_type: number
+          - name: rf_spec
+            description: Specifications related to reach and frequency for the ad account.
+            data_type: object
+          - name: spend_cap
+            description: Spend cap for the ad account.
+            data_type: string
+          - name: tax_id
+            description: Tax ID associated with the ad account.
+            data_type: string
+          - name: tax_id_status
+            description: Status of the tax ID associated with the ad account.
+            data_type: number
+          - name: tax_id_type
+            description: Type of tax ID associated with the ad account.
+            data_type: string
+          - name: timezone_id
+            description: Timezone ID associated with the ad account.
+            data_type: number
+          - name: timezone_name
+            description: Name of the timezone associated with the ad account.
+            data_type: string
+          - name: timezone_offset_hours_utc
+            description: Timezone offset hours in UTC for the ad account.
+            data_type: number
+          - name: tos_accepted
+            description: Indicates whether the terms of service have been accepted for the ad account.
+            data_type: object
+          - name: user_tasks
+            description: Tasks assigned to users associated with the ad account.
+            data_type: array
+          - name: user_tos_accepted
+            description: Records the acceptance of terms of service by users of the ad account.
+            data_type: object

@@ -1,0 +1,50 @@
+version: 2
+
+sources:
+  - name: source_tiktok_marketing
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: creative_assets_images
+        columns:
+          - name: image_id
+            description: The unique identifier for the image.
+            data_type: string
+          - name: format
+            description: The format type of the image file.
+            data_type: string
+          - name: image_url
+            description: The URL to access the image.
+            data_type: string
+          - name: height
+            description: The height dimension of the image.
+            data_type: integer
+          - name: width
+            description: The width dimension of the image.
+            data_type: integer
+          - name: signature
+            description: The signature of the image for security purposes.
+            data_type: string
+          - name: size
+            description: The size of the image file.
+            data_type: integer
+          - name: material_id
+            description: The ID associated with the material of the image.
+            data_type: string
+          - name: is_carousel_usable
+            description: Flag indicating if the image can be used in a carousel.
+            data_type: boolean
+          - name: file_name
+            description: The name of the image file.
+            data_type: string
+          - name: create_time
+            description: The timestamp when the creative asset image was created.
+            data_type: string
+          - name: modify_time
+            description: The timestamp when the creative asset image was last modified.
+            data_type: string
+          - name: displayable
+            description: Flag indicating if the image is displayable or not.
+            data_type: boolean

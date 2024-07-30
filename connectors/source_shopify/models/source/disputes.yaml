@@ -1,0 +1,47 @@
+version: 2
+
+sources:
+  - name: source_shopify
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: disputes
+        columns:
+          - name: id
+            description: The unique identifier of the dispute
+            data_type: integer
+          - name: order_id
+            description: The identifier of the order associated with the dispute
+            data_type: integer
+          - name: type
+            description: The type of dispute (e.g., chargeback, refund request)
+            data_type: string
+          - name: currency
+            description: The currency in which the dispute amount is represented
+            data_type: string
+          - name: amount
+            description: The disputed amount in the currency specified
+            data_type: string
+          - name: reason
+            description: The reason provided for the dispute
+            data_type: string
+          - name: network_reason_code
+            description: The reason code provided by the network for the dispute
+            data_type: string
+          - name: status
+            description: The current status of the dispute
+            data_type: string
+          - name: initiated_at
+            description: The date and time when the dispute was initiated
+            data_type: string
+          - name: evidence_due_by
+            description: The date by which evidence needs to be submitted for the dispute
+            data_type: string
+          - name: evidence_sent_on
+            description: The date when evidence was sent for the dispute
+            data_type: string
+          - name: finalized_on
+            description: The date when the dispute was finalized
+            data_type: string

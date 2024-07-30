@@ -1,0 +1,38 @@
+version: 2
+
+sources:
+  - name: source_twilio
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: flows
+        columns:
+          - name: sid
+            description: Unique identifier for the flow.
+            data_type: string
+          - name: account_sid
+            description: Unique identifier for the account associated with the flow.
+            data_type: string
+          - name: date_created
+            description: Date and time when the flow was created.
+            data_type: string
+          - name: date_updated
+            description: Date and time when the flow was last updated.
+            data_type: string
+          - name: friendly_name
+            description: A user-friendly name given to the flow.
+            data_type: string
+          - name: status
+            description: Status of the flow (e.g., active, inactive).
+            data_type: string
+          - name: version
+            description: Version number of the flow.
+            data_type: integer
+          - name: url
+            description: URL endpoint for the flow.
+            data_type: string
+          - name: links
+            description: Represents links related to the flow data.
+            data_type: object

@@ -1,0 +1,77 @@
+version: 2
+
+sources:
+  - name: source_shopify
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: fulfillments
+        columns:
+          - name: admin_graphql_api_id
+            description: The unique identifier of the resource in the Admin GraphQL API.
+            data_type: string
+          - name: created_at
+            description: The date and time when the fulfillment was created.
+            data_type: string
+          - name: id
+            description: The unique identifier of the fulfillment.
+            data_type: integer
+          - name: location_id
+            description: The location identifier where the fulfillment takes place.
+            data_type: integer
+          - name: name
+            description: The name of the fulfillment.
+            data_type: string
+          - name: notify_customer
+            description: Indicates if the customer should be notified about the fulfillment.
+            data_type: boolean
+          - name: order_id
+            description: The unique identifier of the order associated with the fulfillment.
+            data_type: integer
+          - name: origin_address
+            description: Address information for the origin of the fulfillment
+            data_type: object
+          - name: receipt
+            description: Receipt details for the fulfillment
+            data_type: object
+          - name: service
+            description: The service used for the fulfillment.
+            data_type: string
+          - name: shipment_status
+            description: The status of the shipment.
+            data_type: string
+          - name: status
+            description: The status of the fulfillment.
+            data_type: string
+          - name: tracking_company
+            description: The company responsible for tracking the shipment.
+            data_type: string
+          - name: tracking_numbers
+            description: Tracking numbers associated with the fulfillment
+            data_type: array
+          - name: tracking_urls
+            description: Tracking URLs for tracking the fulfillment
+            data_type: array
+          - name: tracking_url
+            description: The tracking URL of the shipment.
+            data_type: string
+          - name: tracking_number
+            description: The tracking number of the shipment.
+            data_type: string
+          - name: updated_at
+            description: The date and time when the fulfillment was last updated.
+            data_type: string
+          - name: variant_inventory_management
+            description: The inventory management method for the variant.
+            data_type: string
+          - name: line_items
+            description: Information about line items included in the fulfillment
+            data_type: array
+          - name: duties
+            description: Information about duties associated with the fulfillment
+            data_type: array
+          - name: shop_url
+            description: The URL of the shop associated with the fulfillment.
+            data_type: string

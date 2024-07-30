@@ -1,0 +1,86 @@
+version: 2
+
+sources:
+  - name: source_facebook_marketing
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: custom_audiences
+        columns:
+          - name: id
+            description: The unique identifier for the custom audience.
+            data_type: string
+          - name: account_id
+            description: The ID of the Facebook account associated with the custom audience.
+            data_type: string
+          - name: approximate_count_lower_bound
+            description: An estimated lower bound count of the size of the custom audience.
+            data_type: integer
+          - name: approximate_count_upper_bound
+            description: An estimated upper bound count of the size of the custom audience.
+            data_type: integer
+          - name: customer_file_source
+            description: The source of the customer file used to create the custom audience.
+            data_type: string
+          - name: data_source
+            description: Information about the source of the custom audience.
+            data_type: object
+          - name: delivery_status
+            description: Status of the delivery related to the custom audience.
+            data_type: object
+          - name: description
+            description: Description or any additional information related to the custom audience.
+            data_type: string
+          - name: is_value_based
+            description: Indicates if the custom audience is value-based or not.
+            data_type: boolean
+          - name: lookalike_audience_ids
+            description: IDs of lookalike audiences based on this custom audience.
+            data_type: array
+          - name: lookalike_spec
+            description: Specifications for creating lookalike audiences.
+            data_type: object
+          - name: name
+            description: The name given to the custom audience.
+            data_type: string
+          - name: operation_status
+            description: Status of ongoing operations related to the custom audience.
+            data_type: object
+          - name: opt_out_link
+            description: The link for opting out of the custom audience.
+            data_type: string
+          - name: page_deletion_marked_delete_time
+            description: The time when the page deletion was marked for deletion.
+            data_type: integer
+          - name: permission_for_actions
+            description: Permissions granted for actions associated with the custom audience.
+            data_type: object
+          - name: pixel_id
+            description: The ID of the pixel associated with the custom audience.
+            data_type: string
+          - name: retention_days
+            description: The number of days data for the custom audience will be retained.
+            data_type: integer
+          - name: rule
+            description: The rule or condition used to define the custom audience.
+            data_type: string
+          - name: rule_aggregation
+            description: The aggregation method used for rules in the custom audience.
+            data_type: string
+          - name: sharing_status
+            description: Status of sharing permissions for the custom audience.
+            data_type: object
+          - name: subtype
+            description: The subtype of the custom audience.
+            data_type: string
+          - name: time_content_updated
+            description: The time when the content of the custom audience was last updated.
+            data_type: integer
+          - name: time_created
+            description: The time when the custom audience was created.
+            data_type: integer
+          - name: time_updated
+            description: The time when the custom audience was last updated.
+            data_type: integer

@@ -1,0 +1,47 @@
+version: 2
+
+sources:
+  - name: source_intercom
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: admins
+        columns:
+          - name: admin_ids
+            description: Array of unique identifiers for admins
+            data_type: default
+          - name: avatar
+            description: Admin avatar details
+            data_type: object
+          - name: away_mode_enabled
+            description: Flag indicating if away mode is enabled for the admin
+            data_type: boolean
+          - name: away_mode_reassign
+            description: Flag indicating if away mode reassignment is enabled for the admin
+            data_type: boolean
+          - name: email
+            description: Email address of the admin
+            data_type: string
+          - name: has_inbox_seat
+            description: Flag indicating if the admin has a seat in the inbox
+            data_type: boolean
+          - name: id
+            description: Unique identifier for the admin
+            data_type: string
+          - name: job_title
+            description: Job title of the admin
+            data_type: string
+          - name: name
+            description: Name of the admin
+            data_type: string
+          - name: team_ids
+            description: Array of team identifiers the admin belongs to
+            data_type: default
+          - name: type
+            description: Type of the admin (e.g., full-time, part-time)
+            data_type: string
+          - name: team_priority_level
+            description: Detailed team priority level information for the admin
+            data_type: object

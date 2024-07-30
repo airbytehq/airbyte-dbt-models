@@ -1,0 +1,251 @@
+version: 2
+
+sources:
+  - name: source_google_ads
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: display_keyword_view
+        columns:
+          - name: customer.currency_code
+            description: The currency code of the customer
+            data_type: string
+          - name: customer.descriptive_name
+            description: The descriptive name of the customer
+            data_type: string
+          - name: customer.time_zone
+            description: The time zone of the customer
+            data_type: string
+          - name: metrics.active_view_cpm
+            description: The active view CPM metric
+            data_type: number
+          - name: metrics.active_view_ctr
+            description: The active view CTR metric
+            data_type: number
+          - name: metrics.active_view_impressions
+            description: The number of active view impressions
+            data_type: integer
+          - name: metrics.active_view_measurability
+            description: The measurability of active view impressions
+            data_type: number
+          - name: metrics.active_view_measurable_cost_micros
+            description: The cost of meausurable active view impressions in micros
+            data_type: integer
+          - name: metrics.active_view_measurable_impressions
+            description: The number of measurable active view impressions
+            data_type: integer
+          - name: metrics.active_view_viewability
+            description: The viewability of active view impressions
+            data_type: number
+          - name: ad_group.id
+            description: The ID of the ad group
+            data_type: integer
+          - name: ad_group.name
+            description: The name of the ad group
+            data_type: string
+          - name: ad_group.status
+            description: The status of the ad group
+            data_type: string
+          - name: segments.ad_network_type
+            description: The type of ad network
+            data_type: string
+          - name: metrics.all_conversions_from_interactions_rate
+            description: The rate of conversions from interactions
+            data_type: number
+          - name: metrics.all_conversions_value
+            description: The total value of all conversions
+            data_type: number
+          - name: metrics.all_conversions
+            description: The total number of conversions
+            data_type: number
+          - name: metrics.average_cost
+            description: The average cost per click
+            data_type: number
+          - name: metrics.average_cpc
+            description: The average cost per click
+            data_type: number
+          - name: metrics.average_cpe
+            description: The average cost per engagement
+            data_type: number
+          - name: metrics.average_cpm
+            description: The average cost per thousand impressions
+            data_type: number
+          - name: metrics.average_cpv
+            description: The average cost per view
+            data_type: number
+          - name: ad_group.base_ad_group
+            description: The base ad group associated with the keyword
+            data_type: string
+          - name: campaign.base_campaign
+            description: The base campaign associated with the ad group
+            data_type: string
+          - name: campaign.bidding_strategy
+            description: The bidding strategy of the campaign
+            data_type: string
+          - name: campaign.bidding_strategy_type
+            description: The type of bidding strategy used for the campaign
+            data_type: string
+          - name: campaign.id
+            description: The ID of the campaign
+            data_type: integer
+          - name: campaign.name
+            description: The name of the campaign
+            data_type: string
+          - name: campaign.status
+            description: The status of the campaign
+            data_type: string
+          - name: metrics.clicks
+            description: The total number of clicks
+            data_type: integer
+          - name: metrics.conversions_from_interactions_rate
+            description: The rate of conversions from interactions
+            data_type: number
+          - name: metrics.conversions_value
+            description: The total value of conversions
+            data_type: number
+          - name: metrics.conversions
+            description: The number of conversions
+            data_type: number
+          - name: metrics.cost_micros
+            description: The total cost in micros
+            data_type: integer
+          - name: metrics.cost_per_all_conversions
+            description: The cost per all conversions
+            data_type: number
+          - name: metrics.cost_per_conversion
+            description: The cost per conversion
+            data_type: number
+          - name: ad_group_criterion.effective_cpc_bid_micros
+            description: The effective CPC bid in micros for the criterion
+            data_type: integer
+          - name: ad_group_criterion.effective_cpc_bid_source
+            description: The source of the effective CPC bid
+            data_type: string
+          - name: ad_group_criterion.effective_cpm_bid_micros
+            description: The effective CPM bid in micros for the criterion
+            data_type: integer
+          - name: ad_group_criterion.effective_cpm_bid_source
+            description: The source of the effective CPM bid
+            data_type: string
+          - name: ad_group_criterion.effective_cpv_bid_micros
+            description: The effective CPV bid in micros for the criterion
+            data_type: integer
+          - name: ad_group_criterion.effective_cpv_bid_source
+            description: The source of the effective CPV bid
+            data_type: string
+          - name: ad_group_criterion.keyword.text
+            description: The text of the keyword
+            data_type: string
+          - name: metrics.cross_device_conversions
+            description: The number of cross-device conversions
+            data_type: number
+          - name: metrics.ctr
+            description: The click-through rate
+            data_type: number
+          - name: segments.day_of_week
+            description: The day of the week segment
+            data_type: string
+          - name: segments.device
+            description: The device segment
+            data_type: string
+          - name: metrics.engagement_rate
+            description: The engagement rate
+            data_type: number
+          - name: metrics.engagements
+            description: The total number of engagements
+            data_type: integer
+          - name: customer.id
+            description: The ID of the customer
+            data_type: integer
+          - name: ad_group_criterion.final_mobile_urls
+            description: The final mobile URLs for the criterion
+            data_type: array
+          - name: ad_group_criterion.final_urls
+            description: The final URLs for the criterion
+            data_type: array
+          - name: metrics.gmail_forwards
+            description: The number of Gmail forwards
+            data_type: integer
+          - name: metrics.gmail_saves
+            description: The number of Gmail saves
+            data_type: integer
+          - name: metrics.gmail_secondary_clicks
+            description: The number of secondary clicks on Gmail ads
+            data_type: integer
+          - name: ad_group_criterion.criterion_id
+            description: The ID of the criterion
+            data_type: integer
+          - name: metrics.impressions
+            description: The total number of impressions
+            data_type: integer
+          - name: metrics.interaction_rate
+            description: The interaction rate
+            data_type: number
+          - name: metrics.interaction_event_types
+            description: The types of interaction events
+            data_type: array
+          - name: metrics.interactions
+            description: The total number of interactions
+            data_type: integer
+          - name: ad_group_criterion.negative
+            description: Indicates if the criterion is a negative keyword
+            data_type: boolean
+          - name: ad_group.targeting_setting.target_restrictions
+            description: The target restrictions applied to the ad group
+            data_type: array
+          - name: segments.month
+            description: The month segment
+            data_type: string
+          - name: segments.quarter
+            description: The quarter segment
+            data_type: string
+          - name: ad_group_criterion.status
+            description: The status of the criterion
+            data_type: string
+          - name: ad_group_criterion.tracking_url_template
+            description: The tracking URL template for the criterion
+            data_type: string
+          - name: ad_group_criterion.keyword.match_type
+            description: The match type of the keyword
+            data_type: string
+          - name: ad_group_criterion.url_custom_parameters
+            description: The custom parameters for the criterion
+            data_type: array
+          - name: metrics.value_per_all_conversions
+            description: The value per all conversions
+            data_type: number
+          - name: metrics.value_per_conversion
+            description: The value per conversion
+            data_type: number
+          - name: metrics.video_quartile_p100_rate
+            description: The quartile p100 rate for video views
+            data_type: number
+          - name: metrics.video_quartile_p25_rate
+            description: The quartile p25 rate for video views
+            data_type: number
+          - name: metrics.video_quartile_p50_rate
+            description: The quartile p50 rate for video views
+            data_type: number
+          - name: metrics.video_quartile_p75_rate
+            description: The quartile p75 rate for video views
+            data_type: number
+          - name: metrics.video_view_rate
+            description: The video view rate
+            data_type: number
+          - name: metrics.video_views
+            description: The total number of video views
+            data_type: integer
+          - name: metrics.view_through_conversions
+            description: The number of view-through conversions
+            data_type: integer
+          - name: segments.week
+            description: The week segment
+            data_type: string
+          - name: segments.year
+            description: The year segment
+            data_type: integer
+          - name: segments.date
+            description: The date segment
+            data_type: string

@@ -1,0 +1,50 @@
+version: 2
+
+sources:
+  - name: source_shopify
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: metafield_blogs
+        columns:
+          - name: owner_id
+            description: The unique identifier of the owner associated with the metafield data
+            data_type: integer
+          - name: admin_graphql_api_id
+            description: The unique identifier for the metafield data in the Admin GraphQL API
+            data_type: string
+          - name: owner_resource
+            description: The resource type of the owner associated with the metafield data
+            data_type: string
+          - name: value_type
+            description: The data type of the value stored in the metafield
+            data_type: string
+          - name: key
+            description: The key associated with the metafield data
+            data_type: string
+          - name: created_at
+            description: The date and time when the metafield data was created
+            data_type: string
+          - name: id
+            description: The unique identifier for the metafield data
+            data_type: integer
+          - name: namespace
+            description: The namespace of the metafield data
+            data_type: string
+          - name: description
+            description: The description of the metafield data
+            data_type: string
+          - name: value
+            description: The value of the metafield data
+            data_type: string
+          - name: updated_at
+            description: The date and time when the metafield data was last updated
+            data_type: string
+          - name: shop_url
+            description: The URL of the shop where the metafield data belongs
+            data_type: string
+          - name: type
+            description: The type of data stored in the metafield
+            data_type: string

@@ -1,0 +1,74 @@
+version: 2
+
+sources:
+  - name: source_google_ads
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: customer
+        columns:
+          - name: customer.auto_tagging_enabled
+            description: Indicates whether auto-tagging is enabled for the customer
+            data_type: boolean
+          - name: customer.call_reporting_setting.call_conversion_action
+            description: The call conversion action associated with the customer's call reporting setting
+            data_type: string
+          - name: customer.call_reporting_setting.call_conversion_reporting_enabled
+            description: Indicates whether call conversion reporting is enabled
+            data_type: boolean
+          - name: customer.call_reporting_setting.call_reporting_enabled
+            description: Indicates whether call reporting is enabled for the customer
+            data_type: boolean
+          - name: customer.conversion_tracking_setting.conversion_tracking_id
+            description: The conversion tracking ID set for the customer
+            data_type: integer
+          - name: customer.conversion_tracking_setting.cross_account_conversion_tracking_id
+            description: The cross-account conversion tracking ID set for the customer
+            data_type: integer
+          - name: customer.currency_code
+            description: The currency code used for the customer
+            data_type: string
+          - name: customer.descriptive_name
+            description: The descriptive name of the customer account
+            data_type: string
+          - name: customer.final_url_suffix
+            description: The final URL suffix for the customer
+            data_type: string
+          - name: customer.has_partners_badge
+            description: Indicates whether the customer has a partners badge
+            data_type: boolean
+          - name: customer.id
+            description: The unique identifier of the customer
+            data_type: integer
+          - name: customer.manager
+            description: The manager associated with the customer
+            data_type: boolean
+          - name: customer.optimization_score
+            description: The optimization score of the customer
+            data_type: number
+          - name: customer.optimization_score_weight
+            description: The weight of the optimization score for the customer
+            data_type: number
+          - name: customer.pay_per_conversion_eligibility_failure_reasons
+            description: The reasons for pay per conversion eligibility failure
+            data_type: array
+          - name: customer.remarketing_setting.google_global_site_tag
+            description: The Google global site tag set for customer's remarketing
+            data_type: string
+          - name: customer.resource_name
+            description: The resource name of the customer
+            data_type: string
+          - name: customer.test_account
+            description: Indicates whether the customer account is a test account
+            data_type: boolean
+          - name: customer.time_zone
+            description: The time zone set for the customer account
+            data_type: string
+          - name: customer.tracking_url_template
+            description: The tracking URL template for the customer
+            data_type: string
+          - name: segments.date
+            description: The date segment format
+            data_type: string

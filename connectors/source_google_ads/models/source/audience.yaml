@@ -1,0 +1,35 @@
+version: 2
+
+sources:
+  - name: source_google_ads
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: audience
+        columns:
+          - name: customer.id
+            description: Unique identifier for the customer associated with the audience segment.
+            data_type: integer
+          - name: audience.description
+            description: Description of the audience segment, providing more details about the specific audience group.
+            data_type: string
+          - name: audience.dimensions
+            description: Dimensions or attributes associated with the audience segment.
+            data_type: array
+          - name: audience.exclusion_dimension
+            description: Dimension used to exclude specific criteria from targeting this audience.
+            data_type: string
+          - name: audience.id
+            description: Unique identifier for the audience segment.
+            data_type: integer
+          - name: audience.name
+            description: Name or title given to the audience segment.
+            data_type: string
+          - name: audience.resource_name
+            description: Resource name associated with the audience segment.
+            data_type: string
+          - name: audience.status
+            description: Status of the audience segment indicating if it is active or inactive.
+            data_type: string

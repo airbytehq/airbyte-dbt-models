@@ -1,0 +1,68 @@
+version: 2
+
+sources:
+  - name: source_shopify
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: customer_address
+        columns:
+          - name: address1
+            description: The first line of the customer's street address.
+            data_type: string
+          - name: address2
+            description: The second line of the customer's street address.
+            data_type: string
+          - name: city
+            description: The city where the customer resides.
+            data_type: string
+          - name: country
+            description: The full name of the country associated with the address.
+            data_type: string
+          - name: country_code
+            description: The ISO 3166-1 alpha-2 country code of the address country.
+            data_type: string
+          - name: country_name
+            description: The name of the country associated with the address.
+            data_type: string
+          - name: company
+            description: The company name associated with the customer's address.
+            data_type: string
+          - name: customer_id
+            description: The unique identifier of the customer to whom the address belongs.
+            data_type: integer
+          - name: first_name
+            description: The first name of the customer.
+            data_type: string
+          - name: id
+            description: The unique identifier of the address.
+            data_type: integer
+          - name: last_name
+            description: The last name of the customer.
+            data_type: string
+          - name: name
+            description: The full name of the customer associated with the address.
+            data_type: string
+          - name: phone
+            description: The phone number associated with the address.
+            data_type: string
+          - name: province
+            description: The region or state where the customer resides.
+            data_type: string
+          - name: province_code
+            description: The code or abbreviation of the region or state.
+            data_type: string
+          - name: zip
+            description: The postal code or ZIP code of the address.
+            data_type: string
+          - name: default
+            description: Indicates whether this is the default address for the customer.
+            data_type: boolean
+          - name: shop_url
+            description: The URL of the shop associated with the customer's address.
+            data_type: string
+          - name: updated_at
+            description: The date and time when the address was last updated.
+            data_type: string

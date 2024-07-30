@@ -1,0 +1,44 @@
+version: 2
+
+sources:
+  - name: source_tiktok_marketing
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: audiences
+        columns:
+          - name: shared
+            description: Flag indicating if the audience is shared with others
+            data_type: boolean
+          - name: is_creator
+            description: Flag indicating if the audience creator is the user
+            data_type: boolean
+          - name: audience_id
+            description: Unique identifier for the audience
+            data_type: string
+          - name: cover_num
+            description: Number of audience members covered
+            data_type: integer
+          - name: create_time
+            description: Timestamp indicating when the audience was created
+            data_type: string
+          - name: is_valid
+            description: Flag indicating if the audience data is valid
+            data_type: boolean
+          - name: is_expiring
+            description: Flag indicating if the audience data is expiring soon
+            data_type: boolean
+          - name: expired_time
+            description: Timestamp indicating when the audience data expires
+            data_type: string
+          - name: name
+            description: Name of the audience
+            data_type: string
+          - name: audience_type
+            description: Type of audience (e.g., demographic, interest-based)
+            data_type: string
+          - name: calculate_type
+            description: Method used to calculate audience data
+            data_type: string

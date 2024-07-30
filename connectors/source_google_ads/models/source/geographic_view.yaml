@@ -1,0 +1,29 @@
+version: 2
+
+sources:
+  - name: source_google_ads
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: geographic_view
+        columns:
+          - name: customer.id
+            description: The ID of the customer associated with the geographic view data
+            data_type: integer
+          - name: customer.descriptive_name
+            description: The descriptive name of the customer associated with the geographic view data
+            data_type: string
+          - name: geographic_view.country_criterion_id
+            description: The criterion ID for the country in the geographic view data
+            data_type: integer
+          - name: geographic_view.location_type
+            description: The type of location (such as city or region) in the geographic view data
+            data_type: string
+          - name: ad_group.id
+            description: The ID of the ad group associated with the geographic view data
+            data_type: integer
+          - name: segments.date
+            description: The date segment within the geographic view data
+            data_type: string

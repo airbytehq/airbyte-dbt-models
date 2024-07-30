@@ -1,0 +1,32 @@
+version: 2
+
+sources:
+  - name: source_google_ads
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: user_interest
+        columns:
+          - name: user_interest.availabilities
+            description: List of availabilities for the user interest.
+            data_type: array
+          - name: user_interest.launched_to_all
+            description: Indicates if this user interest is launched to all users.
+            data_type: boolean
+          - name: user_interest.name
+            description: Name of the user interest.
+            data_type: string
+          - name: user_interest.resource_name
+            description: Resource name of the user interest.
+            data_type: string
+          - name: user_interest.taxonomy_type
+            description: Type of taxonomy associated with the user interest.
+            data_type: string
+          - name: user_interest.user_interest_id
+            description: Unique identifier for the user interest.
+            data_type: integer
+          - name: user_interest.user_interest_parent
+            description: Parent user interest if this interest is a subcategory.
+            data_type: string

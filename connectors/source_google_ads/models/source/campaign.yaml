@@ -1,0 +1,302 @@
+version: 2
+
+sources:
+  - name: source_google_ads
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: campaign
+        columns:
+          - name: campaign.accessible_bidding_strategy
+            description: The accessible bidding strategy of the campaign.
+            data_type: string
+          - name: campaign.ad_serving_optimization_status
+            description: The optimization status for serving ads within the campaign.
+            data_type: string
+          - name: campaign.advertising_channel_sub_type
+            description: The sub-type of advertising channel for the campaign.
+            data_type: string
+          - name: campaign.advertising_channel_type
+            description: The type of advertising channel for the campaign.
+            data_type: string
+          - name: campaign.app_campaign_setting.app_id
+            description: The ID of the app associated with the app campaign setting.
+            data_type: string
+          - name: campaign.app_campaign_setting.app_store
+            description: The app store for the mobile app associated with the app campaign setting.
+            data_type: string
+          - name: campaign.app_campaign_setting.bidding_strategy_goal_type
+            description: The goal type for the app campaign's bidding strategy.
+            data_type: string
+          - name: campaign.base_campaign
+            description: The base campaign linked to the current campaign.
+            data_type: string
+          - name: campaign.bidding_strategy
+            description: The bidding strategy used for the campaign.
+            data_type: string
+          - name: campaign.bidding_strategy_type
+            description: The type of bidding strategy employed for the campaign.
+            data_type: string
+          - name: campaign.campaign_budget
+            description: The budget allocated for the campaign.
+            data_type: string
+          - name: campaign_budget.amount_micros
+            description: The budget amount in micros allocated for the campaign.
+            data_type: integer
+          - name: campaign.commission.commission_rate_micros
+            description: The commission rate in micros for the campaign.
+            data_type: integer
+          - name: campaign.dynamic_search_ads_setting.domain_name
+            description: The domain name set for dynamic search ads within the campaign.
+            data_type: string
+          - name: campaign.dynamic_search_ads_setting.feeds
+            description: List of feeds utilized for dynamic search ads.
+            data_type: array
+          - name: campaign.dynamic_search_ads_setting.language_code
+            description: The language code associated with dynamic search ads.
+            data_type: string
+          - name: campaign.dynamic_search_ads_setting.use_supplied_urls_only
+            description: Flag indicating whether only supplied URLs are used for dynamic search ads.
+            data_type: boolean
+          - name: campaign.end_date
+            description: The end date of the campaign.
+            data_type: string
+          - name: campaign.excluded_parent_asset_field_types
+            description: Types of parent asset fields excluded from the campaign.
+            data_type: array
+          - name: campaign.experiment_type
+            description: The type of experiment conducted for the campaign.
+            data_type: string
+          - name: campaign.final_url_suffix
+            description: The final URL suffix used for tracking in the campaign.
+            data_type: string
+          - name: campaign.frequency_caps
+            description: Caps on ad serving frequency for the campaign.
+            data_type: array
+          - name: campaign.geo_target_type_setting.negative_geo_target_type
+            description: The negative geo target type settings for the campaign.
+            data_type: string
+          - name: campaign.geo_target_type_setting.positive_geo_target_type
+            description: The positive geo target type settings for the campaign.
+            data_type: string
+          - name: campaign.hotel_setting.hotel_center_id
+            description: The hotel center ID associated with hotel campaigns.
+            data_type: integer
+          - name: campaign.id
+            description: The unique identifier of the campaign.
+            data_type: integer
+          - name: campaign.labels
+            description: Labels associated with the campaign.
+            data_type: array
+          - name: campaign.local_campaign_setting.location_source_type
+            description: The source type for location targeting in local campaigns.
+            data_type: string
+          - name: campaign.manual_cpc.enhanced_cpc_enabled
+            description: Indication of whether Enhanced CPC is enabled for manual CPC campaigns.
+            data_type: boolean
+          - name: campaign.manual_cpm
+            description: Manual CPM bidding used in the campaign.
+            data_type: string
+          - name: campaign.manual_cpv
+            description: Manual CPV bidding used in the campaign.
+            data_type: string
+          - name: campaign.maximize_conversion_value.target_roas
+            description: Target ROAS set for maximizing conversion value in the campaign.
+            data_type: number
+          - name: campaign.maximize_conversions.target_cpa_micros
+            description: Target CPA in micros set for maximizing conversions in the campaign.
+            data_type: integer
+          - name: campaign.name
+            description: The name of the campaign.
+            data_type: string
+          - name: campaign.network_settings.target_content_network
+            description: Indication of targeting the content network in network settings.
+            data_type: boolean
+          - name: campaign.network_settings.target_google_search
+            description: Indication of targeting Google Search in network settings.
+            data_type: boolean
+          - name: campaign.network_settings.target_partner_search_network
+            description: Indication of targeting partner search network in network settings.
+            data_type: boolean
+          - name: campaign.network_settings.target_search_network
+            description: Indication of targeting search network in network settings.
+            data_type: boolean
+          - name: campaign.optimization_goal_setting.optimization_goal_types
+            description: Types of optimization goals set for the campaign.
+            data_type: array
+          - name: campaign.optimization_score
+            description: The optimization score of the campaign.
+            data_type: number
+          - name: campaign.payment_mode
+            description: The payment mode chosen for the campaign.
+            data_type: string
+          - name: campaign.percent_cpc.cpc_bid_ceiling_micros
+            description: The CPC bid ceiling in micros for percent CPC bidding.
+            data_type: integer
+          - name: campaign.percent_cpc.enhanced_cpc_enabled
+            description: Indication of Enhanced CPC enabled for percent CPC bidding.
+            data_type: boolean
+          - name: campaign.real_time_bidding_setting.opt_in
+            description: Opt-in status for real-time bidding within the campaign.
+            data_type: boolean
+          - name: campaign.resource_name
+            description: The resource name of the campaign.
+            data_type: string
+          - name: campaign.selective_optimization.conversion_actions
+            description: Conversion actions selected for selective optimization within the campaign.
+            data_type: array
+          - name: campaign.serving_status
+            description: The serving status of the campaign.
+            data_type: string
+          - name: campaign.shopping_setting.campaign_priority
+            description: Campaign priority set for shopping campaigns.
+            data_type: integer
+          - name: campaign.shopping_setting.enable_local
+            description: Flag indicating whether local shopping is enabled for the campaign.
+            data_type: boolean
+          - name: campaign.shopping_setting.merchant_id
+            description: The merchant ID associated with shopping campaigns.
+            data_type: integer
+          - name: campaign.start_date
+            description: The start date of the campaign.
+            data_type: string
+          - name: campaign.status
+            description: The status of the campaign.
+            data_type: string
+          - name: campaign.target_cpa.cpc_bid_ceiling_micros
+            description: The CPC bid ceiling in micros for target CPA bidding.
+            data_type: integer
+          - name: campaign.target_cpa.cpc_bid_floor_micros
+            description: The CPC bid floor in micros for target CPA bidding.
+            data_type: integer
+          - name: campaign.target_cpa.target_cpa_micros
+            description: The target CPA in micros for target CPA bidding.
+            data_type: integer
+          - name: campaign.target_cpm.target_frequency_goal.target_count
+            description: The target count set for target frequency goal in target CPM bidding.
+            data_type: integer
+          - name: campaign.target_cpm.target_frequency_goal.time_unit
+            description: The time unit set for target frequency goal in target CPM bidding.
+            data_type: string
+          - name: campaign.target_impression_share.cpc_bid_ceiling_micros
+            description: The CPC bid ceiling in micros for target impression share bidding.
+            data_type: integer
+          - name: campaign.target_impression_share.location
+            description: The location targeted for target impression share bidding.
+            data_type: string
+          - name: campaign.target_impression_share.location_fraction_micros
+            description: The location fraction in micros for target impression share bidding.
+            data_type: integer
+          - name: campaign.target_roas.cpc_bid_ceiling_micros
+            description: The CPC bid ceiling in micros for target ROAS bidding.
+            data_type: integer
+          - name: campaign.target_roas.cpc_bid_floor_micros
+            description: The CPC bid floor in micros for target ROAS bidding.
+            data_type: integer
+          - name: campaign.target_roas.target_roas
+            description: The target ROAS set for target ROAS bidding.
+            data_type: number
+          - name: campaign.target_spend.cpc_bid_ceiling_micros
+            description: The CPC bid ceiling in micros for target spend bidding.
+            data_type: integer
+          - name: campaign.target_spend.target_spend_micros
+            description: The target spend in micros for target spend bidding.
+            data_type: integer
+          - name: campaign.targeting_setting.target_restrictions
+            description: Restrictions applied to targeting within the campaign.
+            data_type: array
+          - name: campaign.tracking_setting.tracking_url
+            description: The tracking URL set for campaign tracking.
+            data_type: string
+          - name: campaign.tracking_url_template
+            description: The template for tracking URLs in the campaign.
+            data_type: string
+          - name: campaign.url_custom_parameters
+            description: Custom parameters added to campaign URLs.
+            data_type: array
+          - name: campaign.vanity_pharma.vanity_pharma_display_url_mode
+            description: The display URL mode set for vanity pharma in the campaign.
+            data_type: string
+          - name: campaign.vanity_pharma.vanity_pharma_text
+            description: The text used for vanity pharma in the campaign.
+            data_type: string
+          - name: campaign.video_brand_safety_suitability
+            description: The brand safety suitability settings for video ads within the campaign.
+            data_type: string
+          - name: metrics.clicks
+            description: Total number of clicks in the campaign.
+            data_type: integer
+          - name: metrics.ctr
+            description: Click-through rate (CTR) metric for the campaign.
+            data_type: number
+          - name: metrics.conversions
+            description: Total number of conversions in the campaign.
+            data_type: number
+          - name: metrics.conversions_value
+            description: Total value of conversions in the campaign.
+            data_type: number
+          - name: metrics.cost_micros
+            description: Total cost in micros incurred for the campaign.
+            data_type: integer
+          - name: metrics.impressions
+            description: Total number of impressions for the campaign.
+            data_type: integer
+          - name: metrics.video_views
+            description: Total number of video views in the campaign.
+            data_type: integer
+          - name: metrics.video_quartile_p100_rate
+            description: Rate of viewers reaching the 100% quartile in video ads.
+            data_type: number
+          - name: metrics.active_view_cpm
+            description: Active View CPM metric for the campaign.
+            data_type: number
+          - name: metrics.active_view_ctr
+            description: Active View CTR metric for the campaign.
+            data_type: number
+          - name: metrics.active_view_impressions
+            description: Number of active view impressions for the campaign.
+            data_type: integer
+          - name: metrics.active_view_measurability
+            description: Active view measurability metric for the campaign.
+            data_type: number
+          - name: metrics.active_view_measurable_cost_micros
+            description: Cost in micros for measurable active view impressions.
+            data_type: integer
+          - name: metrics.active_view_measurable_impressions
+            description: Number of measurable active view impressions.
+            data_type: integer
+          - name: metrics.active_view_viewability
+            description: Active view viewability metric for the campaign.
+            data_type: number
+          - name: metrics.average_cost
+            description: Average cost metric for the campaign.
+            data_type: number
+          - name: metrics.average_cpc
+            description: Average CPC metric for the campaign.
+            data_type: number
+          - name: metrics.average_cpm
+            description: Average CPM metric for the campaign.
+            data_type: number
+          - name: metrics.interactions
+            description: Total number of interactions in the campaign.
+            data_type: integer
+          - name: metrics.interaction_event_types
+            description: Types of interaction events recorded in the campaign metrics.
+            data_type: array
+          - name: metrics.value_per_conversion
+            description: Average value per conversion in the campaign.
+            data_type: number
+          - name: metrics.cost_per_conversion
+            description: Cost per conversion metric for the campaign.
+            data_type: number
+          - name: segments.date
+            description: Date segment used for campaign data.
+            data_type: string
+          - name: segments.hour
+            description: Hour segment used for campaign data.
+            data_type: integer
+          - name: segments.ad_network_type
+            description: The type of ad network used for segmentation.
+            data_type: string

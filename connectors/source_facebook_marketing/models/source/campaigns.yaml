@@ -1,0 +1,86 @@
+version: 2
+
+sources:
+  - name: source_facebook_marketing
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: campaigns
+        columns:
+          - name: account_id
+            description: The ID of the Facebook Ads account associated with the campaign.
+            data_type: string
+          - name: adlabels
+            description: Labels associated with the ad campaigns.
+            data_type: array
+          - name: bid_strategy
+            description: The bid strategy used for the campaign.
+            data_type: string
+          - name: boosted_object_id
+            description: The ID of the boosted object associated with the campaign.
+            data_type: string
+          - name: budget_rebalance_flag
+            description: A flag indicating whether the budget is set to rebalance.
+            data_type: boolean
+          - name: budget_remaining
+            description: The remaining budget for the campaign.
+            data_type: number
+          - name: buying_type
+            description: The type of buying for the campaign.
+            data_type: string
+          - name: daily_budget
+            description: The daily budget set for the campaign.
+            data_type: number
+          - name: created_time
+            description: The date and time when the campaign was created.
+            data_type: string
+          - name: configured_status
+            description: The configured status of the campaign.
+            data_type: string
+          - name: effective_status
+            description: The effective status of the campaign.
+            data_type: string
+          - name: id
+            description: The ID of the campaign.
+            data_type: string
+          - name: issues_info
+            description: Information on any issues related to the campaigns.
+            data_type: array
+          - name: lifetime_budget
+            description: The lifetime budget set for the campaign.
+            data_type: number
+          - name: name
+            description: The name of the campaign.
+            data_type: string
+          - name: objective
+            description: The objective of the campaign.
+            data_type: string
+          - name: smart_promotion_type
+            description: The type of smart promotion used for the campaign.
+            data_type: string
+          - name: source_campaign_id
+            description: The ID of the source campaign, if any.
+            data_type: number
+          - name: special_ad_category
+            description: The special ad category associated with the campaign.
+            data_type: string
+          - name: special_ad_category_country
+            description: The country associated with the special ad category.
+            data_type: array
+          - name: spend_cap
+            description: The spend cap set for the campaign.
+            data_type: number
+          - name: start_time
+            description: The start date and time of the campaign.
+            data_type: string
+          - name: status
+            description: The status of the campaign.
+            data_type: string
+          - name: stop_time
+            description: The end date and time of the campaign.
+            data_type: string
+          - name: updated_time
+            description: The date and time when the campaign was last updated.
+            data_type: string

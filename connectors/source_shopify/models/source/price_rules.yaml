@@ -1,0 +1,116 @@
+version: 2
+
+sources:
+  - name: source_shopify
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: price_rules
+        columns:
+          - name: allocation_method
+            description: The method used to allocate the discount
+            data_type: string
+          - name: admin_graphql_api_id
+            description: The unique identifier for the price rule in the GraphQL Admin API
+            data_type: string
+          - name: created_at
+            description: The date and time when the price rule was created
+            data_type: string
+          - name: customer_segment_prerequisite_ids
+            description: An array of customer segment IDs as prerequisites for the discount
+            data_type: array
+          - name: updated_at
+            description: The date and time when the price rule was last updated
+            data_type: string
+          - name: customer_selection
+            description: The customer selection criteria for the discount
+            data_type: string
+          - name: ends_at
+            description: The date and time when the discount ends
+            data_type: string
+          - name: entitled_collection_ids
+            description: An array of collection IDs entitled to the discount
+            data_type: array
+          - name: entitled_country_ids
+            description: An array of country IDs entitled to the discount
+            data_type: array
+          - name: entitled_product_ids
+            description: An array of product IDs entitled to the discount
+            data_type: array
+          - name: entitled_variant_ids
+            description: An array of variant IDs entitled to the discount
+            data_type: array
+          - name: id
+            description: The unique identifier for the price rule
+            data_type: integer
+          - name: once_per_customer
+            description: Whether the discount can only be applied once per customer
+            data_type: boolean
+          - name: prerequisite_customer_ids
+            description: An array of customer IDs required as prerequisites for the discount
+            data_type: array
+          - name: prerequisite_quantity_range
+            description: The required quantity range for the discount
+            data_type: object
+          - name: prerequisite_saved_search_ids
+            description: An array of saved search IDs that act as prerequisites for the discount
+            data_type: array
+          - name: prerequisite_shipping_price_range
+            description: The maximum shipping price required for the discount
+            data_type: object
+          - name: prerequisite_subtotal_range
+            description: The required subtotal range for the discount
+            data_type: object
+          - name: prerequisite_to_entitlement_purchase
+            description: The amount required for a purchase to be entitled to the discount
+            data_type: object
+          - name: starts_at
+            description: The date and time when the discount starts
+            data_type: string
+          - name: target_selection
+            description: The target selection criteria for the discount
+            data_type: string
+          - name: target_type
+            description: The type of target for the discount
+            data_type: string
+          - name: title
+            description: The title of the price rule
+            data_type: string
+          - name: usage_limit
+            description: The limit on the total number of times the discount can be used
+            data_type: integer
+          - name: prerequisite_product_ids
+            description: An array of product IDs required as prerequisites for the discount
+            data_type: array
+          - name: prerequisite_variant_ids
+            description: An array of variant IDs required as prerequisites for the discount
+            data_type: array
+          - name: prerequisite_collection_ids
+            description: An array of collection IDs required as prerequisites for the discount
+            data_type: array
+          - name: value
+            description: The value of the discount
+            data_type: string
+          - name: value_type
+            description: The type of value for the discount
+            data_type: string
+          - name: prerequisite_to_entitlement_quantity_ratio
+            description: The quantity ratio required for entitlement to the discount
+            data_type: object
+          - name: allocation_limit
+            description: The maximum number of times the discount can be applied
+            data_type: integer
+          - name: shop_url
+            description: The URL of the shop where the price rule is applied
+            data_type: string
+          - name: deleted_at
+            description: The date and time when the price rule was deleted
+            data_type: string
+          - name: deleted_message
+            description: Message displayed when the price rule is deleted
+            data_type: string
+          - name: deleted_description
+            description: Description of why the price rule was deleted
+            data_type: string

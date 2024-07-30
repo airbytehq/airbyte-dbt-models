@@ -1,0 +1,47 @@
+version: 2
+
+sources:
+  - name: source_shopify
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: product_images
+        columns:
+          - name: created_at
+            description: Date and time when the image was created
+            data_type: string
+          - name: id
+            description: Unique identifier for the image
+            data_type: integer
+          - name: position
+            description: Position order of the image relative to other images of the same product
+            data_type: integer
+          - name: product_id
+            description: Unique identifier of the product associated with the image
+            data_type: integer
+          - name: variant_ids
+            description: Array of unique identifiers for the product variants associated with the image
+            data_type: array
+          - name: src
+            description: URL of the image
+            data_type: string
+          - name: width
+            description: Width of the image in pixels
+            data_type: integer
+          - name: height
+            description: Height of the image in pixels
+            data_type: integer
+          - name: updated_at
+            description: Date and time when the image was last updated
+            data_type: string
+          - name: admin_graphql_api_id
+            description: Unique identifier for the image in the Admin GraphQL API
+            data_type: string
+          - name: alt
+            description: Alternative text description of the image for accessibility
+            data_type: string
+          - name: shop_url
+            description: URL of the shop where the image is hosted
+            data_type: string

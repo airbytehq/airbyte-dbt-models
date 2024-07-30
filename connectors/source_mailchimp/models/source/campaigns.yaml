@@ -1,0 +1,77 @@
+version: 2
+
+sources:
+  - name: source_mailchimp
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: campaigns
+        columns:
+          - name: ab_split_opts
+            description: '[A/B Testing](https://mailchimp.com/help/about-ab-testing-campaigns/) options for a campaign.'
+            data_type: object
+          - name: archive_url
+            description: The link to the campaign's archive version in ISO 8601 format.
+            data_type: string
+          - name: content_type
+            description: How the campaign's content is put together.
+            data_type: string
+          - name: create_time
+            description: The date and time the campaign was created in ISO 8601 format.
+            data_type: string
+          - name: delivery_status
+            description: Updates on campaigns in the process of sending.
+            data_type: object
+          - name: emails_sent
+            description: The total number of emails sent for this campaign.
+            data_type: integer
+          - name: id
+            description: A string that uniquely identifies this campaign.
+            data_type: string
+          - name: long_archive_url
+            description: The original link to the campaign's archive version.
+            data_type: string
+          - name: needs_block_refresh
+            description: Determines if the campaign needs its blocks refreshed by opening the web-based campaign editor. Deprecated and will always return false.
+            data_type: boolean
+          - name: parent_campaign_id
+            description: If this campaign is the child of another campaign, this identifies the parent campaign. For Example, for RSS or Automation children.
+            data_type: string
+          - name: recipients
+            description: List settings for the campaign.
+            data_type: object
+          - name: report_summary
+            description: For sent campaigns, a summary of opens, clicks, and e-commerce data.
+            data_type: object
+          - name: resendable
+            description: Determines if the campaign qualifies to be resent to non-openers.
+            data_type: boolean
+          - name: rss_opts
+            description: '[RSS](https://mailchimp.com/help/share-your-blog-posts-with-mailchimp/) options for a campaign.'
+            data_type: object
+          - name: send_time
+            description: The date and time a campaign was sent.
+            data_type: string
+          - name: settings
+            description: The settings for your campaign, including subject, from name, reply-to address, and more.
+            data_type: object
+          - name: social_card
+            description: The preview for the campaign, rendered by social networks like Facebook and Twitter. [Learn more](https://mailchimp.com/help/enable-and-customize-social-cards/).
+            data_type: object
+          - name: status
+            description: The current status of the campaign.
+            data_type: string
+          - name: tracking
+            description: The tracking options for a campaign.
+            data_type: object
+          - name: type
+            description: There are four types of [campaigns](https://mailchimp.com/help/getting-started-with-campaigns/) you can create in Mailchimp. A/B Split campaigns have been deprecated and variate campaigns should be used instead.
+            data_type: string
+          - name: variate_settings
+            description: The settings specific to A/B test campaigns.
+            data_type: object
+          - name: web_id
+            description: The ID used in the Mailchimp web application. View this campaign in your Mailchimp account at `https://{dc}.admin.mailchimp.com/campaigns/show/?id={web_id}`.
+            data_type: integer

@@ -1,0 +1,59 @@
+version: 2
+
+sources:
+  - name: source_snapchat_marketing
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: adaccounts
+        columns:
+          - name: id
+            description: The unique identifier for the ad account.
+            data_type: string
+          - name: updated_at
+            description: The timestamp when the ad account details were last updated.
+            data_type: string
+          - name: created_at
+            description: The timestamp when the ad account was created.
+            data_type: string
+          - name: name
+            description: The name or title of the ad account.
+            data_type: string
+          - name: type
+            description: The type or category of the ad account.
+            data_type: string
+          - name: status
+            description: The current status or state of the ad account.
+            data_type: string
+          - name: organization_id
+            description: The ID of the organization that owns the ad account.
+            data_type: string
+          - name: funding_source_ids
+            description: IDs of the funding sources linked to the ad account.
+            data_type: array
+          - name: currency
+            description: The currency used for financial transactions within the ad account.
+            data_type: string
+          - name: timezone
+            description: The timezone setting for the ad account operations.
+            data_type: string
+          - name: advertiser_organization_id
+            description: The ID of the organization that is advertising on the platform.
+            data_type: string
+          - name: billing_center_id
+            description: The ID of the billing center associated with the ad account.
+            data_type: string
+          - name: billing_type
+            description: The type of billing arrangement for the ad account.
+            data_type: string
+          - name: agency_representing_client
+            description: The agency representing the client for ad account management.
+            data_type: boolean
+          - name: client_paying_invoices
+            description: Indicates if the client is responsible for paying the invoices.
+            data_type: boolean
+          - name: regulations
+            description: Regulatory information associated with the ad account.
+            data_type: object

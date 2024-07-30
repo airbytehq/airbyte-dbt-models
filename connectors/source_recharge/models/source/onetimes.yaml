@@ -1,0 +1,59 @@
+version: 2
+
+sources:
+  - name: source_recharge
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: onetimes
+        columns:
+          - name: id
+            description: ''
+            data_type: integer
+          - name: address_id
+            description: ''
+            data_type: string
+          - name: created_at
+            description: ''
+            data_type: string
+          - name: customer_id
+            description: ''
+            data_type: string
+          - name: next_charge_scheduled_at
+            description: ''
+            data_type: string
+          - name: price
+            description: ''
+            data_type: string
+          - name: product_title
+            description: ''
+            data_type: string
+          - name: properties
+            description: ''
+            data_type: array
+          - name: quantity
+            description: ''
+            data_type: integer
+          - name: recharge_product_id
+            description: ''
+            data_type: integer
+          - name: shopify_product_id
+            description: ''
+            data_type: integer
+          - name: shopify_variant_id
+            description: ''
+            data_type: integer
+          - name: sku
+            description: ''
+            data_type: string
+          - name: status
+            description: ''
+            data_type: string
+          - name: updated_at
+            description: ''
+            data_type: string
+          - name: variant_title
+            description: ''
+            data_type: string

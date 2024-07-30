@@ -1,0 +1,56 @@
+version: 2
+
+sources:
+  - name: source_twilio
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: usage_records
+        columns:
+          - name: category
+            description: The category to which the usage data belongs, such as calls, SMS, or recordings.
+            data_type: string
+          - name: count
+            description: The number of units consumed in the usage record.
+            data_type: integer
+          - name: price_unit
+            description: The currency unit in which the price is denoted, such as USD or EUR.
+            data_type: string
+          - name: subresource_uris
+            description: Contains references to sub-resources related to the usage record.
+            data_type: object
+          - name: description
+            description: A brief explanation or summary of the usage record data.
+            data_type: string
+          - name: end_date
+            description: The end date of the usage record period.
+            data_type: string
+          - name: usage_unit
+            description: The unit of measurement for the usage field, corresponding to the usage count unit.
+            data_type: string
+          - name: price
+            description: The total price incurred for the consumed units in the usage record.
+            data_type: number
+          - name: uri
+            description: The unique resource identifier for the usage record.
+            data_type: string
+          - name: account_sid
+            description: The unique identifier for the account associated with the usage record.
+            data_type: string
+          - name: usage
+            description: The total usage value, which could be a cumulative count or a sum of values depending on the category.
+            data_type: number
+          - name: start_date
+            description: The start date and time of the usage record period.
+            data_type: string
+          - name: count_unit
+            description: The unit of measurement for the count field, such as minutes, messages, or bytes.
+            data_type: string
+          - name: as_of
+            description: The timestamp indicating the date and time up to which the usage data is accurate.
+            data_type: string
+          - name: api_version
+            description: The version of the Twilio API used in the interaction that generated the usage record.
+            data_type: string

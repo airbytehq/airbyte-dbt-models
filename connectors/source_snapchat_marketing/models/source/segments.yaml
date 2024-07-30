@@ -1,0 +1,53 @@
+version: 2
+
+sources:
+  - name: source_snapchat_marketing
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: segments
+        columns:
+          - name: id
+            description: Unique identifier for the segment.
+            data_type: string
+          - name: updated_at
+            description: The date and time when the segment was last updated.
+            data_type: string
+          - name: created_at
+            description: The date and time when the segment was created.
+            data_type: string
+          - name: name
+            description: Name or title of the segment.
+            data_type: string
+          - name: ad_account_id
+            description: The unique identifier for the ad account associated with the segment.
+            data_type: string
+          - name: organization_id
+            description: Unique identifier for the organization to which the segment belongs.
+            data_type: string
+          - name: description
+            description: Brief description of the segment.
+            data_type: string
+          - name: status
+            description: Current status of the segment (e.g., active, inactive).
+            data_type: string
+          - name: targetable_status
+            description: Status indicating whether the segment can be targeted in marketing campaigns.
+            data_type: string
+          - name: upload_status
+            description: Status of the segment upload process (e.g., pending, completed).
+            data_type: string
+          - name: source_type
+            description: Type of the source data used to create the segment.
+            data_type: string
+          - name: retention_in_days
+            description: Number of days for which the segment data is retained.
+            data_type: integer
+          - name: approximate_number_users
+            description: Approximate number of users within the segment.
+            data_type: integer
+          - name: visible_to
+            description: Visibility setting for the segment, determining who can access it.
+            data_type: array

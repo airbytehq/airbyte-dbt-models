@@ -1,0 +1,80 @@
+version: 2
+
+sources:
+  - name: source_twilio
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: services
+        columns:
+          - name: account_sid
+            description: The unique identifier of the account related to the service.
+            data_type: string
+          - name: consumption_report_interval
+            description: The interval at which consumption reports are generated.
+            data_type: number
+          - name: date_created
+            description: The date and time when the service was created.
+            data_type: string
+          - name: date_updated
+            description: The date and time when the service was last updated.
+            data_type: string
+          - name: default_channel_creator_role_sid
+            description: The default role assigned to the creator of a channel.
+            data_type: string
+          - name: default_channel_role_sid
+            description: The default role assigned to all users in a channel.
+            data_type: string
+          - name: default_service_role_sid
+            description: The default role assigned to users of the service.
+            data_type: string
+          - name: friendly_name
+            description: A user-friendly name given to the service.
+            data_type: string
+          - name: limits
+            description: Limits applied to the service.
+            data_type: object
+          - name: links
+            description: Links to different resources related to the service.
+            data_type: object
+          - name: notifications
+            description: Notification settings for users.
+            data_type: object
+          - name: post_webhook_url
+            description: URL for the post webhook.
+            data_type: string
+          - name: pre_webhook_url
+            description: URL for the pre webhook.
+            data_type: string
+          - name: pre_webhook_retry_count
+            description: Number of retries for the pre webhook.
+            data_type: number
+          - name: post_webhook_retry_count
+            description: Number of retries for the post webhook.
+            data_type: number
+          - name: reachability_enabled
+            description: Flag indicating if reachability is enabled.
+            data_type: boolean
+          - name: read_status_enabled
+            description: Flag indicating if read status is enabled.
+            data_type: boolean
+          - name: sid
+            description: The unique identifier of the service.
+            data_type: string
+          - name: typing_indicator_timeout
+            description: Timeout duration for typing indicators.
+            data_type: number
+          - name: url
+            description: URL of the service.
+            data_type: string
+          - name: webhook_filters
+            description: Filters for webhooks.
+            data_type: array
+          - name: webhook_method
+            description: HTTP method used for webhooks.
+            data_type: string
+          - name: media
+            description: Media settings for the service.
+            data_type: object

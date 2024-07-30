@@ -1,0 +1,89 @@
+version: 2
+
+sources:
+  - name: source_amplitude
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: cohorts
+        columns:
+          - name: appId
+            description: The unique identifier of the application.
+            data_type: integer
+          - name: archived
+            description: Indicates if the cohort data is archived or not.
+            data_type: boolean
+          - name: definition
+            description: The specific definition or criteria for the cohort.
+            data_type: object
+          - name: description
+            description: A brief explanation or summary of the cohort data.
+            data_type: string
+          - name: finished
+            description: Indicates if the cohort data has been finalized.
+            data_type: boolean
+          - name: id
+            description: The unique identifier for the cohort.
+            data_type: string
+          - name: name
+            description: The name or title of the cohort.
+            data_type: string
+          - name: owners
+            description: The owners or administrators of the cohort.
+            data_type: array
+          - name: published
+            description: Status indicating if the cohort data is published or not.
+            data_type: boolean
+          - name: size
+            description: Size or scale of the cohort data.
+            data_type: integer
+          - name: type
+            description: The type or category of the cohort.
+            data_type: string
+          - name: lastMod
+            description: Timestamp of the last modification made to the cohort.
+            data_type: integer
+          - name: lastComputed
+            description: Timestamp of the last computation of cohort data.
+            data_type: integer
+          - name: hidden
+            description: Flag to determine if the cohort is hidden from view.
+            data_type: boolean
+          - name: is_predictive
+            description: Flag to indicate if the cohort is predictive in nature.
+            data_type: boolean
+          - name: is_official_content
+            description: Indicates if the cohort data is official content.
+            data_type: boolean
+          - name: chart_id
+            description: The identifier of the chart associated with the cohort.
+            data_type: string
+          - name: createdAt
+            description: The timestamp when the cohort was created.
+            data_type: integer
+          - name: edit_id
+            description: The ID for editing purposes or version control.
+            data_type: string
+          - name: last_viewed
+            description: Timestamp when the cohort was last viewed.
+            data_type: integer
+          - name: location_id
+            description: Identifier of the location associated with the cohort.
+            data_type: string
+          - name: metadata
+            description: Additional information or data related to the cohort.
+            data_type: array
+          - name: popularity
+            description: Popularity rank or score of the cohort.
+            data_type: integer
+          - name: shortcut_ids
+            description: Identifiers of any shortcuts associated with the cohort.
+            data_type: array
+          - name: view_count
+            description: The total count of views on the cohort data.
+            data_type: integer
+          - name: viewers
+            description: Users or viewers who have access to the cohort data.
+            data_type: array

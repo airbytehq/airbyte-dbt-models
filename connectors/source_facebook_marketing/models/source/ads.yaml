@@ -1,0 +1,71 @@
+version: 2
+
+sources:
+  - name: source_facebook_marketing
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: ads
+        columns:
+          - name: bid_type
+            description: The type of bid strategy used for the ad.
+            data_type: string
+          - name: account_id
+            description: The unique identifier for the Facebook ad account.
+            data_type: string
+          - name: campaign_id
+            description: The unique identifier for the campaign associated with the ad.
+            data_type: string
+          - name: adset_id
+            description: The unique identifier for the ad set associated with the ad.
+            data_type: string
+          - name: adlabels
+            description: Ad labels associated with the ad
+            data_type: array
+          - name: bid_amount
+            description: The bid amount set for the ad.
+            data_type: integer
+          - name: bid_info
+            description: Bid information for the ad
+            data_type: object
+          - name: status
+            description: The current status of the ad.
+            data_type: string
+          - name: creative
+            description: Details of the creative used in the ad
+            data_type: object
+          - name: id
+            description: The unique identifier for the ad.
+            data_type: string
+          - name: updated_time
+            description: The date and time when the ad was last updated.
+            data_type: string
+          - name: created_time
+            description: The date and time when the ad was created.
+            data_type: string
+          - name: name
+            description: The name of the ad.
+            data_type: string
+          - name: targeting
+            description: ''
+            data_type: object
+          - name: effective_status
+            description: The current effectiveness status of the ad.
+            data_type: string
+          - name: last_updated_by_app_id
+            description: The unique identifier for the last app that updated the ad.
+            data_type: string
+          - name: recommendations
+            description: Recommended actions or strategies for the ad
+            data_type: array
+          - name: source_ad_id
+            description: The source ad identifier, if the ad was copied from another ad.
+            data_type: string
+          - name: tracking_specs
+            description: Specifications for tracking ad performance
+            data_type: array
+          - name: conversion_specs
+            description: Specifications for tracking conversions
+            data_type: array

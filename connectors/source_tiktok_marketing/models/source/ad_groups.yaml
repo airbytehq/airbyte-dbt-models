@@ -1,0 +1,338 @@
+version: 2
+
+sources:
+  - name: source_tiktok_marketing
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: ad_groups
+        columns:
+          - name: adgroup_id
+            description: The unique identifier of the ad group
+            data_type: integer
+          - name: campaign_id
+            description: The unique identifier of the campaign
+            data_type: integer
+          - name: advertiser_id
+            description: The unique identifier of the advertiser
+            data_type: integer
+          - name: adgroup_name
+            description: The name of the ad group
+            data_type: string
+          - name: placement_type
+            description: The type of ad placement
+            data_type: string
+          - name: placements
+            description: Information about the ad placements targeted
+            data_type: array
+          - name: inventory_filter_enabled
+            description: Flag indicating if inventory filter is enabled
+            data_type: boolean
+          - name: comment_disabled
+            description: Flag indicating if comments are disabled
+            data_type: boolean
+          - name: app_id
+            description: The unique identifier of the app
+            data_type: integer
+          - name: promotion_type
+            description: The type of promotion
+            data_type: string
+          - name: app_download_url
+            description: The URL for downloading the associated app
+            data_type: string
+          - name: package
+            description: The package used for the ad group
+            data_type: string
+          - name: pixel_id
+            description: The ID of the pixel used for tracking
+            data_type: integer
+          - name: optimization_event
+            description: The event used for optimization
+            data_type: string
+          - name: secondary_optimization_event
+            description: Additional event used for optimization
+            data_type: string
+          - name: creative_material_mode
+            description: The mode for creative materials
+            data_type: string
+          - name: modify_time
+            description: The timestamp for when the ad group was last modified
+            data_type: string
+          - name: create_time
+            description: The timestamp for when the ad group was created
+            data_type: string
+          - name: audience_ids
+            description: The IDs of the targeted audience
+            data_type: array
+          - name: excluded_audience_ids
+            description: The IDs of excluded audiences
+            data_type: array
+          - name: audience_type
+            description: The type of audience being targeted
+            data_type: string
+          - name: location_ids
+            description: The IDs of targeted locations
+            data_type: array
+          - name: is_hfss
+            description: Flag indicating if high-frequency short sequences are included
+            data_type: boolean
+          - name: interest_category_ids
+            description: The IDs of interest categories for targeting
+            data_type: array
+          - name: interest_keyword_ids
+            description: The IDs of interest keywords for targeting
+            data_type: array
+          - name: age_groups
+            description: The targeted age groups for the ad group
+            data_type: array
+          - name: gender
+            description: The targeted gender for the ad group
+            data_type: string
+          - name: languages
+            description: The targeted languages for the ad group
+            data_type: array
+          - name: operating_systems
+            description: The targeted operating systems
+            data_type: array
+          - name: network_types
+            description: The types of networks targeted
+            data_type: array
+          - name: device_price_ranges
+            description: The price ranges for devices
+            data_type: array
+          - name: min_android_version
+            description: The minimum required Android version
+            data_type: string
+          - name: ios14_targeting
+            description: Information about iOS 14 targeting settings
+            data_type: string
+          - name: device_model_ids
+            description: The IDs of targeted device models
+            data_type: array
+          - name: min_ios_version
+            description: The minimum required iOS version
+            data_type: string
+          - name: budget_mode
+            description: The mode for managing the budget
+            data_type: string
+          - name: budget
+            description: The allocated budget for the ad group
+            data_type: number
+          - name: schedule_type
+            description: The type of scheduling
+            data_type: string
+          - name: schedule_start_time
+            description: The start time of the scheduling
+            data_type: string
+          - name: schedule_end_time
+            description: The end time of the scheduling
+            data_type: string
+          - name: dayparting
+            description: Information about dayparting settings
+            data_type: string
+          - name: optimization_goal
+            description: The goal set for optimization
+            data_type: string
+          - name: cpv_video_duration
+            description: The duration for cost-per-view video
+            data_type: string
+          - name: conversion_window
+            description: The window for tracking conversions
+            data_type: string
+          - name: pacing
+            description: Information about the pacing settings
+            data_type: string
+          - name: billing_event
+            description: The event used for billing
+            data_type: string
+          - name: skip_learning_phase
+            description: Flag indicating if the learning phase is skipped
+            data_type: integer
+          - name: bid_type
+            description: The type of bidding
+            data_type: string
+          - name: bid_price
+            description: The price set for bidding
+            data_type: number
+          - name: conversion_bid_price
+            description: The bid price for conversions
+            data_type: number
+          - name: deep_bid_type
+            description: The type of deep bid strategy
+            data_type: string
+          - name: deep_cpa_bid
+            description: The bid amount for deep cost-per-action
+            data_type: number
+          - name: secondary_status
+            description: The secondary status of the ad group
+            data_type: string
+          - name: operation_status
+            description: The status of the operation
+            data_type: string
+          - name: frequency
+            description: The frequency of ad display
+            data_type: integer
+          - name: frequency_schedule
+            description: The schedule for frequency capping
+            data_type: integer
+          - name: statistic_type
+            description: The type of statistics being tracked
+            data_type: string
+          - name: carrier_ids
+            description: The IDs of the targeted carriers
+            data_type: array
+          - name: carriers
+            description: Information about the targeted carriers
+            data_type: array
+          - name: video_download_disabled
+            description: Flag indicating if video downloads are disabled
+            data_type: boolean
+          - name: blocked_pangle_app_ids
+            description: The IDs of the blocked Pangle apps
+            data_type: array
+          - name: action_category_ids
+            description: The IDs of the action categories associated with the ad group
+            data_type: array
+          - name: action_days
+            description: The number of days the action has been performed
+            data_type: integer
+          - name: video_actions
+            description: Information about video-specific actions
+            data_type: array
+          - name: rf_purchased_type
+            description: Type of purchased results
+            data_type: string
+          - name: purchased_impression
+            description: Information about purchased impressions
+            data_type: number
+          - name: purchased_reach
+            description: Information about purchased reach
+            data_type: number
+          - name: rf_estimated_cpr
+            description: Estimated cost per result
+            data_type: number
+          - name: rf_estimated_frequency
+            description: Estimated frequency of results
+            data_type: number
+          - name: included_pangle_audience_package_ids
+            description: The IDs of included Pangle audience packages
+            data_type: array
+          - name: excluded_pangle_audience_package_ids
+            description: The IDs of excluded Pangle audience packages
+            data_type: array
+          - name: is_new_structure
+            description: Flag indicating if the ad group follows a new structure
+            data_type: boolean
+          - name: is_smart_performance_campaign
+            description: Flag indicating if the campaign is using smart performance
+            data_type: boolean
+          - name: catalog_id
+            description: The unique identifier of the catalog
+            data_type: integer
+          - name: product_set_id
+            description: The ID of the product set
+            data_type: integer
+          - name: catalog_authorized_bc_id
+            description: The authorized Business Center ID for the catalog
+            data_type: integer
+          - name: audience_rule
+            description: The rule set for targeting the audience
+            data_type: object
+          - name: included_custom_actions
+            description: Custom actions that are included
+            data_type: array
+          - name: excluded_custom_actions
+            description: Custom actions that are excluded
+            data_type: array
+          - name: shopping_ads_retargeting_type
+            description: The type of retargeting used for shopping ads
+            data_type: string
+          - name: split_test_adgroup_ids
+            description: The IDs of ad groups participating in split testing
+            data_type: array
+          - name: brand_safety_type
+            description: The type of brand safety measures
+            data_type: string
+          - name: brand_safety_partner
+            description: Information about the brand safety partners
+            data_type: string
+          - name: promotion_website_type
+            description: The type of website used for promotion
+            data_type: string
+          - name: ios_quota_type
+            description: The type of iOS quota
+            data_type: string
+          - name: roas_bid
+            description: The bid amount set for return on ad spend
+            data_type: number
+          - name: actions
+            description: Information about the actions taken on the ad group
+            data_type: array
+          - name: targeting_expansion
+            description: Settings for targeting expansion
+            data_type: object
+          - name: schedule_infos
+            description: Information about the scheduling arrangements
+            data_type: array
+          - name: share_disabled
+            description: Flag indicating if sharing is disabled
+            data_type: boolean
+          - name: auto_targeting_enabled
+            description: Flag indicating if auto-targeting is enabled
+            data_type: boolean
+          - name: ios14_quota_type
+            description: The type of iOS 14 quota
+            data_type: string
+          - name: campaign_name
+            description: The name of the campaign
+            data_type: string
+          - name: bid_display_mode
+            description: The display mode for bidding
+            data_type: string
+          - name: scheduled_budget
+            description: The budget allocated for scheduling
+            data_type: number
+          - name: adgroup_app_profile_page_state
+            description: The state of the app profile page related to the ad group
+            data_type: string
+          - name: keywords
+            description: Keywords associated with the ad group
+            data_type: string
+          - name: next_day_retention
+            description: Retention information for the next day
+            data_type: number
+          - name: category_id
+            description: The ID of the category for the ad group
+            data_type: integer
+          - name: search_result_enabled
+            description: Flag indicating if search results are enabled
+            data_type: boolean
+          - name: app_type
+            description: The type of the associated app
+            data_type: string
+          - name: feed_type
+            description: The type of feed used
+            data_type: string
+          - name: delivery_mode
+            description: The mode for delivery
+            data_type: string
+          - name: category_exclusion_ids
+            description: The IDs of the excluded categories
+            data_type: array
+          - name: contextual_tag_ids
+            description: The IDs of contextual tags for targeting
+            data_type: array
+          - name: household_income
+            description: The targeted household income groups
+            data_type: array
+          - name: isp_ids
+            description: The IDs of the targeted internet service providers
+            data_type: array
+          - name: spending_power
+            description: Information about the spending power targeted
+            data_type: string
+          - name: zipcode_ids
+            description: The IDs of targeted ZIP codes
+            data_type: array

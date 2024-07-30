@@ -1,0 +1,53 @@
+version: 2
+
+sources:
+  - name: source_linkedin_ads
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: creatives
+        columns:
+          - name: servingHoldReasons
+            description: Reasons for holding the creative from serving.
+            data_type: array
+          - name: lastModifiedAt
+            description: The timestamp when the creative was last modified.
+            data_type: integer
+          - name: lastModifiedBy
+            description: The user who last modified the creative.
+            data_type: string
+          - name: content
+            description: The actual content of the creative.
+            data_type: object
+          - name: createdAt
+            description: The timestamp when the creative was created.
+            data_type: integer
+          - name: isTest
+            description: Boolean indicating if the creative is a test creative.
+            data_type: boolean
+          - name: createdBy
+            description: The user who created the creative.
+            data_type: string
+          - name: review
+            description: Review information for the creative.
+            data_type: object
+          - name: isServing
+            description: Boolean indicating if the creative is currently serving.
+            data_type: boolean
+          - name: campaign
+            description: The campaign to which the creative belongs.
+            data_type: string
+          - name: id
+            description: The unique identifier of the creative.
+            data_type: string
+          - name: intendedStatus
+            description: The intended status of the creative.
+            data_type: string
+          - name: account
+            description: The account associated with the creative.
+            data_type: string
+          - name: leadgenCallToAction
+            description: Call-to-action information for lead generation purposes.
+            data_type: object

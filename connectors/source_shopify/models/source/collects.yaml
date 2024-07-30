@@ -1,0 +1,35 @@
+version: 2
+
+sources:
+  - name: source_shopify
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: collects
+        columns:
+          - name: id
+            description: The unique identifier for the collect.
+            data_type: integer
+          - name: collection_id
+            description: The unique identifier for the collection.
+            data_type: integer
+          - name: created_at
+            description: The date and time when the collect was created.
+            data_type: string
+          - name: position
+            description: The position of the product in the collection.
+            data_type: integer
+          - name: product_id
+            description: The unique identifier of the product.
+            data_type: integer
+          - name: sort_value
+            description: The value used to sort the products in the collection.
+            data_type: string
+          - name: shop_url
+            description: The URL of the shop associated with the collect.
+            data_type: string
+          - name: updated_at
+            description: The date and time when the collect was last updated.
+            data_type: string

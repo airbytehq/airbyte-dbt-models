@@ -1,0 +1,89 @@
+version: 2
+
+sources:
+  - name: source_google_ads
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: keyword_view
+        columns:
+          - name: customer.id
+            description: The unique ID of the customer.
+            data_type: integer
+          - name: customer.descriptive_name
+            description: The name or description of the customer.
+            data_type: string
+          - name: campaign.id
+            description: The ID of the campaign the keyword belongs to.
+            data_type: integer
+          - name: ad_group.id
+            description: The ID of the ad group the keyword belongs to.
+            data_type: integer
+          - name: ad_group_criterion.type
+            description: The type of the ad group criterion (e.g., keyword, placement).
+            data_type: string
+          - name: ad_group_criterion.keyword.text
+            description: The actual text of the keyword.
+            data_type: string
+          - name: ad_group_criterion.negative
+            description: Specifies whether the keyword is a negative keyword.
+            data_type: boolean
+          - name: ad_group_criterion.keyword.match_type
+            description: The match type of the keyword (e.g., exact, broad, phrase).
+            data_type: string
+          - name: metrics.historical_quality_score
+            description: The historical quality score of the keyword.
+            data_type: integer
+          - name: metrics.ctr
+            description: The click-through rate (clicks divided by impressions) for the keyword.
+            data_type: number
+          - name: segments.date
+            description: The date when the data was recorded.
+            data_type: string
+          - name: campaign.bidding_strategy_type
+            description: The type of bidding strategy used for the campaign.
+            data_type: string
+          - name: metrics.clicks
+            description: The number of clicks on the keyword.
+            data_type: integer
+          - name: metrics.cost_micros
+            description: The cost of the keyword advertising in micros.
+            data_type: integer
+          - name: metrics.impressions
+            description: The number of times the keyword was displayed.
+            data_type: integer
+          - name: metrics.active_view_impressions
+            description: The number of viewable impressions.
+            data_type: integer
+          - name: metrics.active_view_measurability
+            description: The ratio of viewable impressions to the number of measurable impressions.
+            data_type: number
+          - name: metrics.active_view_measurable_cost_micros
+            description: The cost for measurable viewable impressions in micros.
+            data_type: integer
+          - name: metrics.active_view_measurable_impressions
+            description: The number of impressions that were measurable for viewability.
+            data_type: integer
+          - name: metrics.active_view_viewability
+            description: The ratio of viewable impressions to measurable impressions.
+            data_type: number
+          - name: metrics.conversions
+            description: The number of conversions attributed to the keyword.
+            data_type: number
+          - name: metrics.conversions_value
+            description: The total value of conversions attributed to the keyword.
+            data_type: number
+          - name: metrics.interactions
+            description: The total number of interactions (clicks, video views, etc.) on the keyword.
+            data_type: integer
+          - name: metrics.interaction_event_types
+            description: The types of interactions that occurred (e.g., click, video view).
+            data_type: array
+          - name: metrics.view_through_conversions
+            description: The number of conversions that occurred after a view of the ad without a click.
+            data_type: integer
+          - name: ad_group_criterion.criterion_id
+            description: The unique ID of the ad group criterion.
+            data_type: integer

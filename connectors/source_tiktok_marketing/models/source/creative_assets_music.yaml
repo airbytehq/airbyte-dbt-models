@@ -1,0 +1,56 @@
+version: 2
+
+sources:
+  - name: source_tiktok_marketing
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: creative_assets_music
+        columns:
+          - name: music_id
+            description: The unique identifier for the music asset.
+            data_type: string
+          - name: material_id
+            description: The unique ID assigned to the music asset.
+            data_type: string
+          - name: sources
+            description: The list of different sources or versions available for the music asset.
+            data_type: array
+          - name: author
+            description: The author of the music asset.
+            data_type: string
+          - name: liked
+            description: The number of likes received by the music asset.
+            data_type: boolean
+          - name: cover_url
+            description: The URL to the cover image associated with the music asset.
+            data_type: string
+          - name: url
+            description: The URL to access or play the music asset.
+            data_type: string
+          - name: duration
+            description: The duration of the music asset in seconds.
+            data_type: number
+          - name: style
+            description: The style or genre of the music asset.
+            data_type: string
+          - name: signature
+            description: The digital signature associated with the music asset.
+            data_type: string
+          - name: name
+            description: The name or title of the music asset.
+            data_type: string
+          - name: file_name
+            description: The file name of the music asset.
+            data_type: string
+          - name: copyright
+            description: The copyright information related to the music asset.
+            data_type: string
+          - name: create_time
+            description: The timestamp indicating when the music asset was created.
+            data_type: string
+          - name: modify_time
+            description: The timestamp indicating when the music asset was last modified.
+            data_type: string

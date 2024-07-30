@@ -1,0 +1,77 @@
+version: 2
+
+sources:
+  - name: source_recharge
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: products
+        columns:
+          - name: id
+            description: ''
+            data_type: integer
+          - name: product_id
+            description: ''
+            data_type: integer
+          - name: charge_interval_frequency
+            description: ''
+            data_type: integer
+          - name: collection_id
+            description: ''
+            data_type: integer
+          - name: created_at
+            description: ''
+            data_type: string
+          - name: cutoff_day_of_month
+            description: ''
+            data_type: integer
+          - name: cutoff_day_of_week
+            description: ''
+            data_type: integer
+          - name: discount_amount
+            description: ''
+            data_type: number
+          - name: discount_type
+            description: ''
+            data_type: string
+          - name: expire_after_specific_number_of_charges
+            description: ''
+            data_type: integer
+          - name: handle
+            description: ''
+            data_type: string
+          - name: images
+            description: ''
+            data_type: object
+          - name: modifiable_properties
+            description: ''
+            data_type: array
+          - name: order_day_of_month
+            description: ''
+            data_type: integer
+          - name: order_day_of_week
+            description: ''
+            data_type: integer
+          - name: order_interval_frequency_options
+            description: ''
+            data_type: array
+          - name: order_interval_unit
+            description: ''
+            data_type: string
+          - name: shopify_product_id
+            description: ''
+            data_type: integer
+          - name: storefront_purchase_options
+            description: ''
+            data_type: string
+          - name: subscription_defaults
+            description: ''
+            data_type: object
+          - name: title
+            description: ''
+            data_type: string
+          - name: updated_at
+            description: ''
+            data_type: string

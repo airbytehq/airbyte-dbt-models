@@ -1,0 +1,56 @@
+version: 2
+
+sources:
+  - name: source_shopify
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: custom_collections
+        columns:
+          - name: handle
+            description: The unique URL-friendly string that identifies the custom collection.
+            data_type: string
+          - name: sort_order
+            description: The order in which the custom collection should be displayed.
+            data_type: string
+          - name: body_html
+            description: The full description of the custom collection for display purposes.
+            data_type: string
+          - name: title
+            description: The title of the custom collection.
+            data_type: string
+          - name: id
+            description: The unique identifier of the custom collection.
+            data_type: integer
+          - name: published_scope
+            description: The scope where the custom collection is published (global or web).
+            data_type: string
+          - name: admin_graphql_api_id
+            description: The unique identifier of the custom collection accessible via GraphQL Admin API.
+            data_type: string
+          - name: updated_at
+            description: The date and time when the custom collection was last updated.
+            data_type: string
+          - name: image
+            description: Represents the image associated with the custom collection if available.
+            data_type: object
+          - name: published_at
+            description: The date and time when the custom collection was published.
+            data_type: string
+          - name: template_suffix
+            description: The template suffix for the custom collection's URL.
+            data_type: string
+          - name: shop_url
+            description: The URL of the shop where the custom collection belongs.
+            data_type: string
+          - name: deleted_at
+            description: The date and time when the custom collection was deleted.
+            data_type: string
+          - name: deleted_message
+            description: Any additional message related to the deletion of the custom collection.
+            data_type: string
+          - name: deleted_description
+            description: The description of why the custom collection was deleted.
+            data_type: string

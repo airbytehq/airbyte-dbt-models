@@ -1,0 +1,101 @@
+version: 2
+
+sources:
+  - name: source_shopify
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: draft_orders
+        columns:
+          - name: id
+            description: Unique identifier of the draft order
+            data_type: integer
+          - name: note
+            description: Additional notes or comments related to the draft order
+            data_type: string
+          - name: email
+            description: Email address associated with the draft order
+            data_type: string
+          - name: taxes_included
+            description: Indicates if taxes are included in the prices
+            data_type: boolean
+          - name: currency
+            description: Currency used for the draft order
+            data_type: string
+          - name: invoice_sent_at
+            description: Timestamp when the invoice was sent
+            data_type: string
+          - name: created_at
+            description: Timestamp when the draft order was created
+            data_type: string
+          - name: updated_at
+            description: Timestamp when the draft order was last updated
+            data_type: string
+          - name: tax_exempt
+            description: Indicates if the draft order is tax exempt
+            data_type: boolean
+          - name: completed_at
+            description: Timestamp when the draft order was completed
+            data_type: string
+          - name: name
+            description: Name of the draft order
+            data_type: string
+          - name: status
+            description: Status of the draft order
+            data_type: string
+          - name: line_items
+            description: Items included in the draft order
+            data_type: array
+          - name: shipping_address
+            description: The shipping address associated with the draft order
+            data_type: object
+          - name: billing_address
+            description: The billing address associated with the draft order
+            data_type: object
+          - name: invoice_url
+            description: URL for the invoice related to the draft order
+            data_type: string
+          - name: applied_discount
+            description: Details of any discount applied to the draft order
+            data_type: object
+          - name: order_id
+            description: Unique identifier of the order associated with the draft order
+            data_type: integer
+          - name: payment_terms
+            description: Terms of payment for the draft order
+            data_type: string
+          - name: po_number
+            description: Purchase order number associated with the draft order
+            data_type: string
+          - name: shipping_line
+            description: Details of the shipping service and cost associated with the draft order
+            data_type: object
+          - name: tax_lines
+            description: Tax information related to the draft order
+            data_type: array
+          - name: tags
+            description: Tags associated with the draft order
+            data_type: string
+          - name: note_attributes
+            description: Additional attributes or notes associated with the draft order
+            data_type: array
+          - name: total_price
+            description: Total price of the draft order
+            data_type: string
+          - name: subtotal_price
+            description: Subtotal price of the draft order
+            data_type: string
+          - name: total_tax
+            description: Total tax amount for the draft order
+            data_type: string
+          - name: admin_graphql_api_id
+            description: The unique identifier of the draft order in the Shopify Admin GraphQL API
+            data_type: string
+          - name: customer
+            description: Details of the customer associated with the draft order
+            data_type: object
+          - name: shop_url
+            description: URL of the shop related to the draft order
+            data_type: string
