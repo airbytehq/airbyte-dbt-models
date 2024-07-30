@@ -6,7 +6,6 @@ models:
     database: "{{ var('airbyte_database', target.database) }}"
     identifier: "{{ var('zendesk_ticket_field_history_identifier', 'ticket_field_history') }}"
     description: All fields and field values associated with tickets.
-    freshness: null
     config:
       +enabled: "{{ var('using_fivetran_model', False) }}"
     columns:

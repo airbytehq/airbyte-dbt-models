@@ -35,24 +35,11 @@ models:
 vars:
   # Required by Airbyte dbt model
   using_fivetran_model: True
-
-  # pg
-  # airbyte_database: postgres
-  # airbyte_schema: airbyte_dbt_zendesk_support
-
-  # bq
-  # airbyte_database: dataline-integration-testing
-  # airbyte_schema: airbyte_dbt_zendesk_support
-
-  # snowflake
-  # airbyte_database: INTEGRATION_TEST_DESTINATION
-  # airbyte_schema: airbyte_dbt_zendesk_support
-
-  airbyte_database: "beep"
+  airbyte_database: "airbyte_db_default"
   airbyte_schema: "airbyte_dbt_zendesk_support"
 
   # Required by Fivetran dbt model
-  zendesk_database: "beep"
+  zendesk_database: "airbyte_db_default"
   zendesk_schema: "airbyte_dbt_zendesk_support"
 
   using_schedules: False

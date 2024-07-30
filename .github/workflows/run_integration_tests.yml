@@ -34,11 +34,6 @@ jobs:
         id: get_connector
         run: echo "::set-output name=connector::source_zendesk_support"
 
-      # - name: Run Integration Tests for Postgres
-      #   working-directory: connectors/${{ steps.get_connector.outputs.connector }}/integration_tests
-      #   run: |
-      #     echo DBT_VARS=$(cat vars | sed "s/\$AB_DB/${{ secrets.BIGQUERY_DBT_PROJECT }}/g") >> $GITHUB_ENV
-
       - name: Run Integration Tests for Postgres
         working-directory: connectors/${{ steps.get_connector.outputs.connector }}/integration_tests
         if: always()
@@ -51,7 +46,7 @@ jobs:
         run: |
           export DBT_VARS="$(cat vars | sed "s/\$AB_DB/${{ secrets.POSTGRES_DBT_DBNAME }}/g")"
           poetry run dbt deps
-          poetry run dbt run --target postgres --full-refresh --vars "$DBT_VARS"
+          poetry run dbt run --target postgres --vars "$DBT_VARS"
 
       - name: Run Integration Tests for Snowflake
         if: always()
@@ -67,7 +62,7 @@ jobs:
         run: |
           export DBT_VARS="$(cat vars | sed "s/\$AB_DB/${{ secrets.SNOWFLAKE_DBT_DATABASE }}/g")"
           poetry run dbt deps
-          poetry run dbt run --target snowflake --full-refresh --vars "$DBT_VARS"
+          poetry run dbt run --target snowflake --vars "$DBT_VARS"
 
       - name: Run Integration Tests for BigQuery
         if: always()
@@ -79,4 +74,4 @@ jobs:
         run: |
           export DBT_VARS="$(cat vars | sed "s/\$AB_DB/${{ secrets.BIGQUERY_DBT_PROJECT }}/g")"
           poetry run dbt deps
-          poetry run dbt run --target bigquery --full-refresh --vars "$DBT_VARS"
+          poetry run dbt run --target bigquery --vars "$DBT_VARS"
