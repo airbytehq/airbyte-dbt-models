@@ -32,7 +32,11 @@ jobs:
 
       - name: Get what connector we are testing
         id: get_connector
-        run: echo "::set-output name=connector::source_zendesk_support"
+        run: |
+          git fetch origin ${{ github.event.pull_request.base.ref }} --depth=1
+          git diff --name-only origin/${{ github.event.pull_request.base.ref }} ${{ github.sha }} > changed_files.txt
+          cat changed_files.txt
+          python .github/ci/get_connector.py
 
       - name: Run Integration Tests for Postgres
         working-directory: connectors/${{ steps.get_connector.outputs.connector }}/integration_tests
