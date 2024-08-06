@@ -10,7 +10,7 @@ sources:
       - name: workflows
         columns:
           - name: id
-            description: Unique identifier for the workflow
+            description: Unique identifier for the workflow.
             data_type: integer
           - name: node_id
             description: Node ID of the workflow

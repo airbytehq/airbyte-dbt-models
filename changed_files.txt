@@ -1,3 +1,0 @@
-.github/ci/get_connector.py
-.github/workflows/run_integration_tests.yml
-connectors/source_zendesk_support/models/fivetran_converter/ticket_field_history.sql
