@@ -1,0 +1,64 @@
+name: integration_test_recurly
+
+config-version: 2
+
+version: 0.1.0
+
+profile: integration_tests
+
+model-paths:
+  - models
+
+macro-paths:
+  - macros
+
+target-path: target
+
+clean-targets:
+  - target
+  - dbt_modules
+  - logs
+
+require-dbt-version:
+  - ">=1.0.0"
+  - <2.0.0
+
+models:
+  airbyte_dbt_source_recurly:
+    materialized: view
+    +schema: dbt_recurly
+    staging:
+      materialized: view
+    tmp:
+      materialized: view
+
+vars:
+  # Required by Airbyte dbt model
+  using_fivetran_model: True
+  airbyte_database: "airbyte_db_default"
+  airbyte_schema: "airbyte_dbt_recurly"
+
+  # Required by Fivetran dbt model
+  recurly_database: "airbyte_db_default"
+  recurly_schema: "airbyte_dbt_recurly"
+
+  recurly__using_credit_payment_history: false
+  recurly__using_subscription_add_on_history: false
+  recurly__using_subscription_change_history: false 
+
+  recurly_account_note_identifier: "account_notes"
+  recurly_account_balance_identifier: "accounts"
+  recurly_add_on_identifier: "add_ons"
+  recurly_billing_info_identifier: "billing_info"
+  recurly_coupon_identifier: "coupons"
+  recurly_credit_payment_identifier: "credit_payments"
+  recurly_export_date_identifier: "export_dates"
+  recurly_invoice_identifier: "invoices"
+  recurly_line_item_identifier: "line_items"
+  recurly_measured_unit_identifier: "measured_units"
+  recurly_plan_identifier: "plans"
+  recurly_shipping_address_identifier: "shipping_addresses"
+  recurly_shipping_method_identifier: "shipping_methods"
+  recurly_subscription_identifier: "subscriptions"
+  recurly_transaction_identifier: "transactions"
+  recurly_unique_coupon_identifier: "unique_coupons"
