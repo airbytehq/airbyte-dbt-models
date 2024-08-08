@@ -1,0 +1,11 @@
+packages:
+  - local: ../
+  - package: fivetran/recurly_source
+    version: 0.2.0
+  - package: fivetran/fivetran_utils
+    version: 0.4.10
+  - package: dbt-labs/spark_utils
+    version: 0.3.0
+  - package: dbt-labs/dbt_utils
+    version: 1.2.0
+sha1_hash: 4cc660e5db796f6002eddd95646ce709d5e5a98e
