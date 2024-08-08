@@ -4,7 +4,7 @@ models:
   - name: event
     schema: "{{ var('airbyte_schema', target.schema) }}"
     database: "{{ var('airbyte_database', target.database) }}"
-    identifier: "{{ var('amplitude_event_identifier', 'events') }}"
+    identifier: "{{ var('amplitude_event_identifier', 'event') }}"
     description: All fields and field values associated with events.
     config:
       +enabled: "{{ var('using_fivetran_model', False) }}"

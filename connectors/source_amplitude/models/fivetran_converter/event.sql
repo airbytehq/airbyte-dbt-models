@@ -1,7 +1,7 @@
 WITH tmp AS (
     SELECT
-        $insert_id AS _insert_id,
-        $schema AS schema,
+        "$insert_id" AS _insert_id,
+        "$schema" AS "schema",
         adid AS ad_id,
         amplitude_id,
         app,
@@ -9,7 +9,7 @@ WITH tmp AS (
         client_event_time,
         client_upload_time,
         country,
-        data,
+        "data",
         device_brand,
         device_carrier,
         device_family,
@@ -27,7 +27,7 @@ WITH tmp AS (
         idfa,
         ip_address,
         is_attribution_event,
-        language,
+        "language",
         library,
         location_lat,
         location_lng,
