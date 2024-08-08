@@ -44,4 +44,4 @@ vars:
 
   using_event_type: False
 
-  amplitude_event_identifier: "event"
+  amplitude_event_identifier: "events"
