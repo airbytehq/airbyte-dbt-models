@@ -1,0 +1,33 @@
+version: 2
+
+sources:
+  - name: source_jira
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: issue_priorities
+        description: "Details of Jira issue priorities"
+        columns:
+          - name: self
+            description: "The URL of the issue priority"
+            data_type: string
+          - name: statusColor
+            description: "The color used to indicate the issue priority"
+            data_type: string
+          - name: description
+            description: "The description of the issue priority"
+            data_type: string
+          - name: iconUrl
+            description: "The URL of the icon for the issue priority"
+            data_type: string
+          - name: name
+            description: "The name of the issue priority"
+            data_type: string
+          - name: id
+            description: "The ID of the issue priority"
+            data_type: string
+          - name: isDefault
+            description: "Indicates if this issue priority is the default"
+            data_type: boolean

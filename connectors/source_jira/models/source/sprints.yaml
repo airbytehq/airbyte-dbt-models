@@ -1,0 +1,45 @@
+version: 2
+
+sources:
+  - name: source_jira
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: sprints
+        description: "Details of Jira sprints"
+        columns:
+          - name: id
+            description: "The unique identifier for the sprint"
+            data_type: integer
+          - name: self
+            description: "The URL link to fetch more details about the sprint"
+            data_type: string
+          - name: state
+            description: "The current state/status of the sprint"
+            data_type: string
+          - name: name
+            description: "The name or title of the sprint"
+            data_type: string
+          - name: startDate
+            description: "The date and time when the sprint is scheduled to start"
+            data_type: timestamp
+          - name: endDate
+            description: "The date and time when the sprint is expected to end"
+            data_type: timestamp
+          - name: completeDate
+            description: "The date and time when the sprint was completed"
+            data_type: timestamp
+          - name: originBoardId
+            description: "The original board ID the sprint belongs to"
+            data_type: integer
+          - name: boardId
+            description: "Used to determine which board the sprint is a part of (Not always the same as originBoardId)"
+            data_type: integer
+          - name: goal
+            description: "The goal or objective of the sprint"
+            data_type: string
+          - name: createdDate
+            description: "The date and time when the sprint was created"
+            data_type: timestamp
