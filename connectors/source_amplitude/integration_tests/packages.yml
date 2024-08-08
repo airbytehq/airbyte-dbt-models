@@ -1,5 +1,5 @@
 packages:
   - local: ../
 
-  - package: fivetran/zendesk
-    version: [">=0.16.0", "<0.17.0"]
+  - package: fivetran/amplitude
+    version: [">=0.4.0", "<0.5.0"]
