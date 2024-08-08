@@ -1,0 +1,68 @@
+version: 2
+
+sources:
+  - name: source_github
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: assignees
+        columns:
+          - name: repository
+            description: Repository where the assignee is assigned
+            data_type: string
+          - name: login
+            description: Username of the assignee
+            data_type: string
+          - name: id
+            description: Unique identifier of the assignee
+            data_type: integer
+          - name: node_id
+            description: Node ID of the assignee
+            data_type: string
+          - name: avatar_url
+            description: URL of the assignee's avatar image
+            data_type: string
+          - name: gravatar_id
+            description: Gravatar ID of the assignee
+            data_type: string
+          - name: url
+            description: URL of the assignee's account
+            data_type: string
+          - name: html_url
+            description: URL of the assignee's GitHub profile
+            data_type: string
+          - name: followers_url
+            description: URL of the assignee's followers
+            data_type: string
+          - name: following_url
+            description: URL of the assignee's following
+            data_type: string
+          - name: gists_url
+            description: URL of the assignee's gists
+            data_type: string
+          - name: starred_url
+            description: URL of the assignee's starred items
+            data_type: string
+          - name: subscriptions_url
+            description: URL of the assignee's subscriptions
+            data_type: string
+          - name: organizations_url
+            description: URL of the assignee's organizations
+            data_type: string
+          - name: repos_url
+            description: URL of the assignee's repositories
+            data_type: string
+          - name: events_url
+            description: URL of the assignee's events
+            data_type: string
+          - name: received_events_url
+            description: URL of the assignee's received events
+            data_type: string
+          - name: type
+            description: Type of the assignee's account
+            data_type: string
+          - name: site_admin
+            description: Boolean indicating if the assignee is a site administrator
+            data_type: boolean

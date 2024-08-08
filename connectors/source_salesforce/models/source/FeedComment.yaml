@@ -1,0 +1,77 @@
+version: 2
+
+sources:
+  - name: source_salesforce
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: FeedComment
+        columns:
+          - name: Id
+            description: ""
+            data_type: string
+          - name: FeedItemId
+            description: ""
+            data_type: string
+          - name: ParentId
+            description: ""
+            data_type: string
+          - name: CreatedById
+            description: ""
+            data_type: string
+          - name: CreatedDate
+            description: ""
+            data_type: string
+          - name: SystemModstamp
+            description: ""
+            data_type: string
+          - name: Revision
+            description: ""
+            data_type: integer
+          - name: LastEditById
+            description: ""
+            data_type: string
+          - name: LastEditDate
+            description: ""
+            data_type: string
+          - name: CommentBody
+            description: ""
+            data_type: string
+          - name: IsDeleted
+            description: ""
+            data_type: boolean
+          - name: InsertedById
+            description: ""
+            data_type: string
+          - name: CommentType
+            description: ""
+            data_type: string
+          - name: RelatedRecordId
+            description: ""
+            data_type: string
+          - name: IsRichText
+            description: ""
+            data_type: boolean
+          - name: IsVerified
+            description: ""
+            data_type: boolean
+          - name: HasEntityLinks
+            description: ""
+            data_type: boolean
+          - name: Status
+            description: ""
+            data_type: string
+          - name: ThreadParentId
+            description: ""
+            data_type: string
+          - name: ThreadLevel
+            description: ""
+            data_type: integer
+          - name: ThreadChildrenCount
+            description: ""
+            data_type: integer
+          - name: ThreadLastUpdatedDate
+            description: ""
+            data_type: string

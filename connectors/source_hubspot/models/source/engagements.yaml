@@ -1,0 +1,332 @@
+version: 2
+
+sources:
+  - name: source_hubspot
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: engagements
+        columns:
+          - name: id
+            description: Unique ID of the engagement.
+            data_type: integer
+          - name: uid
+            description: Unique identifier of the engagement.
+            data_type: string
+          - name: teamId
+            description: ID of the team associated with the engagement.
+            data_type: integer
+          - name: portalId
+            description: ID of the portal associated with the engagement.
+            data_type: integer
+          - name: queueMembershipIds
+            description: IDs of queue memberships related to the engagement.
+            data_type: array
+          - name: scheduledTasks
+            description: Scheduled tasks related to the engagement.
+            data_type: array
+          - name: active
+            description: Indicates if the engagement is currently active or not.
+            data_type: boolean
+          - name: createdAt
+            description: Timestamp indicating when the engagement was created.
+            data_type: integer
+          - name: createdBy
+            description: ID of the user who created the engagement.
+            data_type: integer
+          - name: modifiedBy
+            description: ID of the user who last modified the engagement.
+            data_type: integer
+          - name: lastUpdated
+            description: Timestamp indicating when the engagement was last updated.
+            data_type: integer
+          - name: ownerId
+            description: ID of the owner of the engagement.
+            data_type: integer
+          - name: type
+            description: Type of the engagement.
+            data_type: string
+          - name: timestamp
+            description: Timestamp related to the engagement.
+            data_type: integer
+          - name: bodyPreview
+            description: Preview of the body content.
+            data_type: string
+          - name: bodyPreviewHtml
+            description: HTML preview of the body content.
+            data_type: string
+          - name: bodyPreviewIsTruncated
+            description: Indicates if the body preview is truncated.
+            data_type: boolean
+          - name: allAccessibleTeamIds
+            description: IDs of all teams with access to this engagement.
+            data_type: array
+          - name: activityType
+            description: Type of activity associated with the engagement.
+            data_type: string
+          - name: gdprDeleted
+            description: Indicates if the engagement is deleted due to GDPR compliance.
+            data_type: boolean
+          - name: source
+            description: Source of the engagement data.
+            data_type: string
+          - name: sourceId
+            description: ID of the source associated with the engagement.
+            data_type: string
+          - name: associations
+            description: Associations related to the engagement.
+            data_type: object
+          - name: associations_contactIds
+            description: List of contact IDs associated with the engagement
+            data_type: array
+          - name: associations_contentIds
+            description: List of content IDs associated with the engagement
+            data_type: array
+          - name: associations_companyIds
+            description: List of company IDs associated with the engagement
+            data_type: array
+          - name: associations_dealIds
+            description: List of deal IDs associated with the engagement
+            data_type: array
+          - name: associations_marketingEventIds
+            description: List of marketing event IDs associated with the engagement
+            data_type: array
+          - name: associations_ownerIds
+            description: List of owner IDs associated with the engagement
+            data_type: array
+          - name: associations_quoteIds
+            description: List of quote IDs associated with the engagement
+            data_type: array
+          - name: associations_workflowIds
+            description: List of workflow IDs associated with the engagement
+            data_type: array
+          - name: associations_ticketIds
+            description: List of ticket IDs associated with the engagement
+            data_type: array
+          - name: attachments
+            description: Attachments included in the engagement.
+            data_type: array
+          - name: metadata
+            description: Metadata related to the engagement.
+            data_type: object
+          - name: metadata_attendeeOwnerIds
+            description: IDs of attendees' owners in metadata.
+            data_type: array
+          - name: metadata_calendarEventHash
+            description: Hash value for calendar event
+            data_type: string
+          - name: metadata_createdFromLinkId
+            description: ID from which engagement was created
+            data_type: integer
+          - name: metadata_meetingChangeId
+            description: ID of the meeting change
+            data_type: string
+          - name: ownerIdsBcc
+            description: IDs of BCC owners.
+            data_type: array
+          - name: ownerIdsFrom
+            description: IDs of 'from' owners.
+            data_type: array
+          - name: ownerIdsTo
+            description: IDs of 'to' owners.
+            data_type: array
+          - name: pendingInlineImageIds
+            description: IDs of pending inline image attachments.
+            data_type: array
+          - name: validationSkipped
+            description: Validation details skipped.
+            data_type: array
+          - name: ownerIdsCc
+            description: IDs of CC owners.
+            data_type: array
+          - name: metadata_guestEmails
+            description: Guest attendee emails in metadata.
+            data_type: array
+          - name: metadata_iCalUid
+            description: Unique ID for iCal
+            data_type: string
+          - name: metadata_includeDescriptionInReminder
+            description: Flag indicating if description should be included in reminder
+            data_type: boolean
+          - name: metadata_internalMeetingNotes
+            description: Internal meeting notes
+            data_type: string
+          - name: metadata_location
+            description: Location of the engagement
+            data_type: string
+          - name: metadata_locationType
+            description: Type of location for the engagement
+            data_type: string
+          - name: metadata_meetingOutcome
+            description: Outcome of the meeting
+            data_type: string
+          - name: metadata_timezone
+            description: Timezone of the engagement
+            data_type: string
+          - name: metadata_preMeetingProspectReminders
+            description: Pre-meeting prospect reminders in metadata.
+            data_type: array
+          - name: metadata_body
+            description: Engagement body content
+            data_type: string
+          - name: metadata_from
+            description: Sender information in metadata.
+            data_type: object
+          - name: metadata_sender
+            description: Sender's email information in metadata.
+            data_type: object
+          - name: metadata_to
+            description: Recipient information in metadata.
+            data_type: array
+          - name: metadata_cc
+            description: CC recipients in metadata.
+            data_type: array
+          - name: metadata_bounceErrorDetail
+            description: Details of bounce errors, if any
+            data_type: object
+          - name: metadata_emailSendEventId
+            description: ID of the email send event
+            data_type: object
+          - name: metadata_ownerIdsBcc
+            description: IDs of BCC owners in metadata.
+            data_type: array
+          - name: metadata_ownerIdsCc
+            description: IDs of CC owners in metadata.
+            data_type: array
+          - name: metadata_ownerIdsFrom
+            description: IDs of 'from' owners in metadata.
+            data_type: array
+          - name: metadata_ownerIdsTo
+            description: IDs of 'to' owners in metadata.
+            data_type: array
+          - name: metadata_pendingInlineImageIds
+            description: IDs of pending inline image attachments in metadata.
+            data_type: array
+          - name: metadata_validationSkipped
+            description: Validation details skipped in metadata.
+            data_type: array
+          - name: metadata_bcc
+            description: BCC recipients in metadata.
+            data_type: array
+          - name: metadata_subject
+            description: Subject of the engagement
+            data_type: string
+          - name: metadata_html
+            description: HTML content of the engagement
+            data_type: string
+          - name: metadata_text
+            description: Text content of the engagement
+            data_type: string
+          - name: metadata_status
+            description: Status of the engagement
+            data_type: string
+          - name: metadata_forObjectType
+            description: Type of object for which engagement is associated
+            data_type: string
+          - name: metadata_startTime
+            description: Start time of the engagement
+            data_type: integer
+          - name: metadata_endTime
+            description: End time of the engagement
+            data_type: integer
+          - name: metadata_title
+            description: Title of the engagement
+            data_type: string
+          - name: metadata_toNumber
+            description: Number to which engagement was sent
+            data_type: string
+          - name: metadata_fromNumber
+            description: Number from which engagement was sent
+            data_type: string
+          - name: metadata_externalId
+            description: External ID of the engagement
+            data_type: string
+          - name: metadata_durationMilliseconds
+            description: Duration of the engagement in milliseconds
+            data_type: integer
+          - name: metadata_externalAccountId
+            description: External account ID associated with the engagement
+            data_type: string
+          - name: metadata_recordingUrl
+            description: URL of the recording related to the engagement
+            data_type: string
+          - name: metadata_disposition
+            description: Engagement disposition
+            data_type: string
+          - name: metadata_completionDate
+            description: Date when engagement was completed
+            data_type: integer
+          - name: metadata_taskType
+            description: Type of engagement task
+            data_type: string
+          - name: metadata_reminders
+            description: Reminders in metadata.
+            data_type: array
+          - name: metadata_threadId
+            description: ID of the thread
+            data_type: string
+          - name: metadata_messageId
+            description: ID of the message
+            data_type: string
+          - name: metadata_loggedFrom
+            description: Source from which the engagement was logged
+            data_type: string
+          - name: metadata_attachedVideoOpened
+            description: Flag indicating if attached videos were opened
+            data_type: boolean
+          - name: metadata_attachedVideoWatched
+            description: Flag indicating if attached videos were watched
+            data_type: boolean
+          - name: metadata_trackerKey
+            description: Key for tracking engagement
+            data_type: string
+          - name: metadata_sendDefaultReminder
+            description: Default reminder settings for the engagement
+            data_type: boolean
+          - name: metadata_source
+            description: Source of the engagement
+            data_type: string
+          - name: metadata_unknownVisitorConversation
+            description: Conversation with unknown visitor
+            data_type: boolean
+          - name: metadata_facsimileSendId
+            description: ID of the facsimile send
+            data_type: string
+          - name: metadata_sentVia
+            description: Medium through which engagement was sent
+            data_type: string
+          - name: metadata_sequenceStepOrder
+            description: Order of sequence step
+            data_type: integer
+          - name: metadata_externalUrl
+            description: External URL related to the engagement
+            data_type: string
+          - name: metadata_postSendStatus
+            description: Status of post send operation
+            data_type: string
+          - name: metadata_errorMessage
+            description: Error message associated with the engagement
+            data_type: string
+          - name: metadata_recipientDropReasons
+            description: Reasons for recipient drop
+            data_type: string
+          - name: metadata_calleeObjectId
+            description: ID of the callee object
+            data_type: integer
+          - name: metadata_calleeObjectType
+            description: Type of the callee object
+            data_type: string
+          - name: metadata_mediaProcessingStatus
+            description: Status of media processing for the engagement
+            data_type: string
+          - name: metadata_sourceId
+            description: Source ID of the engagement
+            data_type: string
+          - name: metadata_priority
+            description: Priority of the engagement
+            data_type: string
+          - name: metadata_isAllDay
+            description: Flag indicating if engagement is for the whole day
+            data_type: boolean

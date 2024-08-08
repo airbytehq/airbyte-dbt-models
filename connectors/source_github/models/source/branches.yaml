@@ -1,0 +1,29 @@
+version: 2
+
+sources:
+  - name: source_github
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: branches
+        columns:
+          - name: repository
+            description: Details about the repository associated with the branch.
+            data_type: string
+          - name: name
+            description: The name of the branch.
+            data_type: string
+          - name: commit
+            description: Details about the commit associated with the branch.
+            data_type: object
+          - name: protected
+            description: Indicates if the branch is protected.
+            data_type: boolean
+          - name: protection
+            description: Details about the protection settings of the branch.
+            data_type: object
+          - name: protection_url
+            description: URL to manage protection settings for the branch.
+            data_type: string

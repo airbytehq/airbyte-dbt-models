@@ -1,0 +1,275 @@
+version: 2
+
+sources:
+  - name: source_hubspot
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: engagements_calls
+        columns:
+          - name: id
+            description: Unique identifier for the call engagement.
+            data_type: string
+          - name: properties
+            description: ''
+            data_type: object
+          - name: properties_hs_activity_type
+            description: ''
+            data_type: string
+          - name: properties_hs_all_assigned_business_unit_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_at_mentioned_owner_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_attachment_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_body_preview
+            description: ''
+            data_type: string
+          - name: properties_hs_body_preview_html
+            description: ''
+            data_type: string
+          - name: properties_hs_body_preview_is_truncated
+            description: ''
+            data_type: boolean
+          - name: properties_hs_call_app_id
+            description: ''
+            data_type: number
+          - name: properties_hs_call_authed_url_provider
+            description: ''
+            data_type: string
+          - name: properties_hs_call_body
+            description: ''
+            data_type: string
+          - name: properties_hs_call_callee_object_id
+            description: ''
+            data_type: number
+          - name: properties_hs_call_callee_object_type
+            description: ''
+            data_type: string
+          - name: properties_hs_call_disposition
+            description: ''
+            data_type: string
+          - name: properties_hs_call_duration
+            description: ''
+            data_type: number
+          - name: properties_hs_call_external_account_id
+            description: ''
+            data_type: string
+          - name: properties_hs_call_external_id
+            description: ''
+            data_type: string
+          - name: properties_hs_call_from_number
+            description: ''
+            data_type: string
+          - name: properties_hs_call_has_transcript
+            description: ''
+            data_type: boolean
+          - name: properties_hs_call_recording_url
+            description: ''
+            data_type: string
+          - name: properties_hs_call_source
+            description: ''
+            data_type: string
+          - name: properties_hs_call_status
+            description: ''
+            data_type: string
+          - name: properties_hs_call_title
+            description: ''
+            data_type: string
+          - name: properties_hs_call_to_number
+            description: ''
+            data_type: string
+          - name: properties_hs_call_transcription_id
+            description: ''
+            data_type: number
+          - name: properties_hs_call_video_recording_url
+            description: ''
+            data_type: string
+          - name: properties_hs_call_zoom_meeting_uuid
+            description: ''
+            data_type: string
+          - name: properties_hs_calls_service_call_id
+            description: ''
+            data_type: number
+          - name: properties_hs_created_by
+            description: ''
+            data_type: number
+          - name: properties_hs_created_by_user_id
+            description: ''
+            data_type: number
+          - name: properties_hs_createdate
+            description: ''
+            data_type: string
+          - name: properties_hs_engagement_source
+            description: ''
+            data_type: string
+          - name: properties_hs_engagement_source_id
+            description: ''
+            data_type: string
+          - name: properties_hs_follow_up_action
+            description: ''
+            data_type: string
+          - name: properties_hs_gdpr_deleted
+            description: ''
+            data_type: boolean
+          - name: properties_hs_lastmodifieddate
+            description: ''
+            data_type: string
+          - name: properties_hs_merged_object_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_modified_by
+            description: ''
+            data_type: number
+          - name: properties_hs_object_id
+            description: ''
+            data_type: number
+          - name: properties_hs_product_name
+            description: ''
+            data_type: string
+          - name: properties_hs_queue_membership_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_timestamp
+            description: ''
+            data_type: string
+          - name: properties_hs_unique_creation_key
+            description: ''
+            data_type: string
+          - name: properties_hs_unique_id
+            description: ''
+            data_type: string
+          - name: properties_hs_unknown_visitor_conversation
+            description: ''
+            data_type: boolean
+          - name: properties_hs_updated_by_user_id
+            description: ''
+            data_type: number
+          - name: properties_hs_user_ids_of_all_notification_followers
+            description: ''
+            data_type: string
+          - name: properties_hs_user_ids_of_all_notification_unfollowers
+            description: ''
+            data_type: string
+          - name: properties_hs_user_ids_of_all_owners
+            description: ''
+            data_type: string
+          - name: properties_hubspot_owner_assigneddate
+            description: ''
+            data_type: string
+          - name: properties_hubspot_owner_id
+            description: ''
+            data_type: string
+          - name: properties_hubspot_team_id
+            description: ''
+            data_type: string
+          - name: properties_hs_all_owner_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_all_team_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_all_accessible_team_ids
+            description: ''
+            data_type: string
+          - name: createdAt
+            description: Date and time when the call engagement was created.
+            data_type: string
+          - name: updatedAt
+            description: Date and time when the call engagement was last updated.
+            data_type: string
+          - name: archived
+            description: Indicates if the call engagement is archived or not.
+            data_type: boolean
+          - name: contacts
+            description: Contacts associated with the call engagement.
+            data_type: array
+          - name: deals
+            description: Deals associated with the call engagement.
+            data_type: array
+          - name: companies
+            description: Companies associated with the call engagement.
+            data_type: array
+          - name: tickets
+            description: Tickets associated with the call engagement.
+            data_type: array
+          - name: properties_hs_call_deal_stage_during_call
+            description: ''
+            data_type: string
+          - name: properties_hs_call_direction
+            description: ''
+            data_type: string
+          - name: properties_hs_call_from_number_nickname
+            description: ''
+            data_type: string
+          - name: properties_hs_call_has_voicemail
+            description: ''
+            data_type: string
+          - name: properties_hs_call_ms_teams_payload
+            description: ''
+            data_type: string
+          - name: properties_hs_call_primary_deal
+            description: ''
+            data_type: string
+          - name: properties_hs_call_summary
+            description: ''
+            data_type: string
+          - name: properties_hs_call_summary_execution_id
+            description: ''
+            data_type: string
+          - name: properties_hs_call_to_number_nickname
+            description: ''
+            data_type: string
+          - name: properties_hs_call_transcript_audio_num_channels
+            description: ''
+            data_type: number
+          - name: properties_hs_call_transcript_tracked_terms
+            description: ''
+            data_type: string
+          - name: properties_hs_call_video_meeting_type
+            description: ''
+            data_type: string
+          - name: properties_hs_connected_count
+            description: ''
+            data_type: number
+          - name: properties_hs_object_source
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_detail_1
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_detail_2
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_detail_3
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_id
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_label
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_user_id
+            description: ''
+            data_type: number
+          - name: properties_hs_read_only
+            description: ''
+            data_type: boolean
+          - name: properties_hs_shared_team_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_shared_user_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_voicemail_count
+            description: ''
+            data_type: number
+          - name: properties_hs_was_imported
+            description: ''
+            data_type: boolean

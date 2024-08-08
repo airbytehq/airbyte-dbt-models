@@ -1,0 +1,53 @@
+version: 2
+
+sources:
+  - name: source_github
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: reviews
+        columns:
+          - name: repository
+            description: Information about the repository where the review is posted.
+            data_type: string
+          - name: id
+            description: The unique identifier of the review.
+            data_type: integer
+          - name: node_id
+            description: The node identifier of the review.
+            data_type: string
+          - name: user
+            description: ""
+            data_type: object
+          - name: body
+            description: The content of the review comment.
+            data_type: string
+          - name: state
+            description: The state of the review (e.g., open, closed).
+            data_type: string
+          - name: html_url
+            description: The URL of the review comment.
+            data_type: string
+          - name: pull_request_url
+            description: The URL of the pull request associated with the review.
+            data_type: string
+          - name: _links
+            description: Contains relevant hyperlinks related to the review data.
+            data_type: object
+          - name: submitted_at
+            description: The date and time when the review was submitted.
+            data_type: string
+          - name: created_at
+            description: The date and time when the review was created.
+            data_type: string
+          - name: updated_at
+            description: The date and time when the review was last updated.
+            data_type: string
+          - name: commit_id
+            description: The unique identifier of the commit associated with the review.
+            data_type: string
+          - name: author_association
+            description: The association of the author of the review with the repository.
+            data_type: string

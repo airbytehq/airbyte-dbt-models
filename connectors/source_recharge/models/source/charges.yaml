@@ -1,0 +1,191 @@
+version: 2
+
+sources:
+  - name: source_recharge
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: charges
+        columns:
+          - name: id
+            description: ''
+            data_type: integer
+          - name: address_id
+            description: ''
+            data_type: integer
+          - name: analytics_data
+            description: ''
+            data_type: object
+          - name: billing_address
+            description: ''
+            data_type: object
+          - name: charge_attempts
+            description: ''
+            data_type: integer
+          - name: currency
+            description: ''
+            data_type: string
+          - name: customer
+            description: ''
+            data_type: object
+          - name: discounts
+            description: ''
+            data_type: array
+          - name: external_order_id
+            description: ''
+            data_type: object
+          - name: external_transaction_id
+            description: ''
+            data_type: object
+          - name: external_variant_id_not_found
+            description: ''
+            data_type: boolean
+          - name: external_variant_not_found
+            description: ''
+            data_type: boolean
+          - name: has_uncommitted_changes
+            description: ''
+            data_type: boolean
+          - name: last_charge_attempt
+            description: ''
+            data_type: string
+          - name: merged_at
+            description: ''
+            data_type: string
+          - name: order_attributes
+            description: ''
+            data_type: array
+          - name: orders_count
+            description: ''
+            data_type: integer
+          - name: payment_processor
+            description: ''
+            data_type: string
+          - name: total_duties
+            description: ''
+            data_type: string
+          - name: total_weight_grams
+            description: ''
+            data_type: integer
+          - name: taxable
+            description: ''
+            data_type: boolean
+          - name: taxes_included
+            description: ''
+            data_type: boolean
+          - name: client_details
+            description: ''
+            data_type: object
+          - name: created_at
+            description: ''
+            data_type: string
+          - name: customer_hash
+            description: ''
+            data_type: string
+          - name: customer_id
+            description: ''
+            data_type: integer
+          - name: discount_codes
+            description: ''
+            data_type: array
+          - name: email
+            description: ''
+            data_type: string
+          - name: error
+            description: ''
+            data_type: string
+          - name: error_type
+            description: ''
+            data_type: string
+          - name: first_name
+            description: ''
+            data_type: string
+          - name: last_name
+            description: ''
+            data_type: string
+          - name: last_charge_attempt_date
+            description: ''
+            data_type: string
+          - name: line_items
+            description: ''
+            data_type: array
+          - name: has_uncommited_changes
+            description: ''
+            data_type: boolean
+          - name: note
+            description: ''
+            data_type: string
+          - name: note_attributes
+            description: ''
+            data_type: array
+          - name: number_times_tried
+            description: ''
+            data_type: integer
+          - name: processed_at
+            description: ''
+            data_type: string
+          - name: processor_name
+            description: ''
+            data_type: string
+          - name: retry_date
+            description: ''
+            data_type: string
+          - name: scheduled_at
+            description: ''
+            data_type: string
+          - name: shipments_count
+            description: ''
+            data_type: integer
+          - name: shipping_address
+            description: ''
+            data_type: object
+          - name: shipping_lines
+            description: ''
+            data_type: array
+          - name: shopify_order_id
+            description: ''
+            data_type: string
+          - name: shopify_variant_id_not_found
+            description: ''
+            data_type: string
+          - name: status
+            description: ''
+            data_type: string
+          - name: subtotal_price
+            description: ''
+            data_type: string
+          - name: tags
+            description: ''
+            data_type: string
+          - name: tax_lines
+            description: ''
+            data_type: string
+          - name: total_discounts
+            description: ''
+            data_type: string
+          - name: total_line_items_price
+            description: ''
+            data_type: string
+          - name: total_price
+            description: ''
+            data_type: string
+          - name: total_refunds
+            description: ''
+            data_type: string
+          - name: total_tax
+            description: ''
+            data_type: string
+          - name: total_weight
+            description: ''
+            data_type: integer
+          - name: transaction_id
+            description: ''
+            data_type: string
+          - name: type
+            description: ''
+            data_type: string
+          - name: updated_at
+            description: ''
+            data_type: string

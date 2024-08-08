@@ -1,0 +1,83 @@
+version: 2
+
+sources:
+  - name: source_github
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: contributor_activity
+        columns:
+          - name: name
+            description: Name of the contributor
+            data_type: string
+          - name: email
+            description: Email address of the contributor
+            data_type: string
+          - name: login
+            description: GitHub username of the contributor
+            data_type: string
+          - name: id
+            description: Unique identifier for the contributor
+            data_type: integer
+          - name: node_id
+            description: Node ID of the contributor
+            data_type: string
+          - name: avatar_url
+            description: URL of the contributor's avatar image
+            data_type: string
+          - name: gravatar_id
+            description: ID associated with the contributor's Gravatar image
+            data_type: string
+          - name: url
+            description: URL of the contributor's profile
+            data_type: string
+          - name: html_url
+            description: URL of the contributor's profile page on GitHub
+            data_type: string
+          - name: followers_url
+            description: URL of the contributor's followers
+            data_type: string
+          - name: following_url
+            description: URL of the contributor's following
+            data_type: string
+          - name: gists_url
+            description: URL of the contributor's gists
+            data_type: string
+          - name: starred_url
+            description: URL of the starred repository
+            data_type: string
+          - name: subscriptions_url
+            description: URL of the contributor's subscriptions
+            data_type: string
+          - name: organizations_url
+            description: URL of the contributor's organizations
+            data_type: string
+          - name: repos_url
+            description: URL of the contributor's repositories
+            data_type: string
+          - name: events_url
+            description: URL of the contributor's events
+            data_type: string
+          - name: repository
+            description: Repository the contributor is associated with
+            data_type: string
+          - name: received_events_url
+            description: URL of the events received by the contributor
+            data_type: string
+          - name: type
+            description: Type of the contributor (e.g., User, Organization)
+            data_type: string
+          - name: site_admin
+            description: Boolean value indicating if the contributor is a site admin
+            data_type: boolean
+          - name: starred_at
+            description: Date and time when the repository was starred by the contributor
+            data_type: string
+          - name: total
+            description: Total activity count of the contributor
+            data_type: integer
+          - name: weeks
+            description: Activity data of the contributor per week
+            data_type: array

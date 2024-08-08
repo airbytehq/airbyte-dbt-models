@@ -1,0 +1,56 @@
+version: 2
+
+sources:
+  - name: source_shopify
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: balance_transactions
+        columns:
+          - name: id
+            description: The unique identifier of the balance transaction.
+            data_type: integer
+          - name: type
+            description: The type of transaction.
+            data_type: string
+          - name: test
+            description: Flag indicating if the transaction is a test transaction.
+            data_type: boolean
+          - name: payout_id
+            description: The identifier of the associated payout.
+            data_type: integer
+          - name: payout_status
+            description: The status of the payout associated with this transaction.
+            data_type: string
+          - name: payoucurrencyt_status
+            description: Indicates the status of the payout for the currency in which the transaction occurred.
+            data_type: string
+          - name: amount
+            description: The amount of the transaction in the specified currency.
+            data_type: number
+          - name: fee
+            description: The fee associated with the transaction.
+            data_type: number
+          - name: net
+            description: The final amount received after deducting fees.
+            data_type: number
+          - name: source_id
+            description: The identifier of the source related to the transaction.
+            data_type: integer
+          - name: source_type
+            description: The type of source for the transaction.
+            data_type: string
+          - name: source_order_transaction_id
+            description: The transaction identifier within the order.
+            data_type: integer
+          - name: source_order_id
+            description: The identifier of the order related to the transaction.
+            data_type: integer
+          - name: processed_at
+            description: The date and time when the transaction was processed.
+            data_type: string
+          - name: shop_url
+            description: The URL of the shop related to the transaction.
+            data_type: string

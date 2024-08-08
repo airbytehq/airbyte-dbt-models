@@ -1,0 +1,41 @@
+version: 2
+
+sources:
+  - name: source_mailchimp
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: email_activity
+        columns:
+          - name: campaign_id
+            description: The unique id for the campaign.
+            data_type: string
+          - name: list_id
+            description: The unique id for the list.
+            data_type: string
+          - name: list_is_active
+            description: The status of the list used, namely if it's deleted or disabled.
+            data_type: boolean
+          - name: email_id
+            description: The MD5 hash of the lowercase version of the list member's email address.
+            data_type: string
+          - name: email_address
+            description: Email address for a subscriber.
+            data_type: string
+          - name: action
+            description: 'One of the following actions: ''open'', ''click'', or ''bounce'''
+            data_type: string
+          - name: type
+            description: 'If the action is a ''bounce'', the type of bounce received: ''hard'', ''soft''.'
+            data_type: string
+          - name: timestamp
+            description: The date and time recorded for the action in ISO 8601 format.
+            data_type: string
+          - name: url
+            description: If the action is a 'click', the URL on which the member clicked.
+            data_type: string
+          - name: ip
+            description: The IP address recorded for the action.
+            data_type: string

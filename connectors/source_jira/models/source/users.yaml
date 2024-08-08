@@ -1,0 +1,54 @@
+version: 2
+
+sources:
+  - name: source_jira
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: users
+        description: "Details of Jira users"
+        columns:
+          - name: self
+            description: "The URL of the user"
+            data_type: string
+          - name: key
+            description: "Deprecated property. See the deprecation notice for details"
+            data_type: string
+          - name: accountId
+            description: "The account ID of the user, uniquely identifying the user across all Atlassian products"
+            data_type: string
+          - name: accountType
+            description: "The user account type"
+            data_type: string
+          - name: name
+            description: "Deprecated property. See the deprecation notice for details"
+            data_type: string
+          - name: emailAddress
+            description: "The email address of the user. May be null based on privacy settings"
+            data_type: string
+          - name: avatarUrls
+            description: "The avatars of the user"
+            data_type: json
+          - name: displayName
+            description: "The display name of the user. May return an alternative value based on privacy settings"
+            data_type: string
+          - name: active
+            description: "Indicates whether the user is active"
+            data_type: boolean
+          - name: timeZone
+            description: "The time zone specified in the user's profile. May be null based on privacy settings"
+            data_type: string
+          - name: locale
+            description: "The locale of the user. May be null based on privacy settings"
+            data_type: string
+          - name: groups
+            description: "The groups to which the user belongs"
+            data_type: json
+          - name: applicationRoles
+            description: "The application roles assigned to the user"
+            data_type: json
+          - name: expand
+            description: "Options to include additional user details in the response"
+            data_type: string

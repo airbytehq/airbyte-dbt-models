@@ -1,0 +1,101 @@
+version: 2
+
+sources:
+  - name: source_facebook_marketing
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: videos
+        columns:
+          - name: account_id
+            description: The ID of the Facebook account associated with the video.
+            data_type: string
+          - name: id
+            description: Unique ID of the video.
+            data_type: string
+          - name: ad_breaks
+            description: Information about ad breaks within the video.
+            data_type: array
+          - name: backdated_time
+            description: The time when the video was backdated.
+            data_type: string
+          - name: backdated_time_granularity
+            description: Granularity of the backdated time.
+            data_type: string
+          - name: content_category
+            description: The category of the video content.
+            data_type: string
+          - name: content_tags
+            description: Tags associated with the video content.
+            data_type: array
+          - name: created_time
+            description: The time when the video was created.
+            data_type: string
+          - name: custom_labels
+            description: Custom labels assigned to the video.
+            data_type: array
+          - name: description
+            description: Description or caption of the video.
+            data_type: string
+          - name: embed_html
+            description: HTML code for embedding the video.
+            data_type: string
+          - name: embeddable
+            description: Flag indicating if the video is embeddable.
+            data_type: boolean
+          - name: format
+            description: Specifies the format of the video data being fetched.
+            data_type: array
+          - name: icon
+            description: Icon associated with the video.
+            data_type: string
+          - name: is_crosspost_video
+            description: Flag indicating if the video is a crosspost.
+            data_type: boolean
+          - name: is_crossposting_eligible
+            description: Flag indicating if the video is eligible for crossposting.
+            data_type: boolean
+          - name: is_episode
+            description: Flag indicating if the video is an episode of a series.
+            data_type: boolean
+          - name: is_instagram_eligible
+            description: Flag indicating if the video is eligible for posting on Instagram.
+            data_type: boolean
+          - name: length
+            description: Duration of the video.
+            data_type: number
+          - name: live_status
+            description: Status of the live video.
+            data_type: string
+          - name: permalink_url
+            description: URL for accessing the video directly.
+            data_type: string
+          - name: post_views
+            description: Number of views on the video post.
+            data_type: integer
+          - name: premiere_living_room_status
+            description: Status of the video premiere in living rooms.
+            data_type: boolean
+          - name: published
+            description: Flag indicating if the video is published.
+            data_type: boolean
+          - name: scheduled_publish_time
+            description: Scheduled time for publishing the video.
+            data_type: string
+          - name: source
+            description: Source of the video.
+            data_type: string
+          - name: title
+            description: Title or name of the video.
+            data_type: string
+          - name: universal_video_id
+            description: Universal unique ID for the video.
+            data_type: string
+          - name: updated_time
+            description: The time when the video was last updated.
+            data_type: string
+          - name: views
+            description: Number of views on the video.
+            data_type: integer

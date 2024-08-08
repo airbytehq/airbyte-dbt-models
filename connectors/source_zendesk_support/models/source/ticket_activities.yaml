@@ -1,0 +1,50 @@
+version: 2
+
+sources:
+  - name: source_zendesk_support
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: ticket_activities
+        columns:
+          - name: actor
+            description: The full user record of the user responsible for the ticket activity. See Users
+            data_type: object
+          - name: actor_id
+            description: The id of the user responsible for the ticket activity. An actor_id of -1 is a Zendesk system user, such as an automations action.
+            data_type: integer
+          - name: created_at
+            description: When the record was created
+            data_type: string
+          - name: description
+            description: Description of the activity
+            data_type: string
+          - name: id
+            description: Automatically assigned on creation
+            data_type: integer
+          - name: object
+            description: The content of the activity. Can be a ticket, comment, or change.
+            data_type: object
+          - name: target
+            description: The target of the activity, a ticket.
+            data_type: object
+          - name: title
+            description: Description of the activity
+            data_type: string
+          - name: updated_at
+            description: When the record was last updated
+            data_type: string
+          - name: url
+            description: The API url of the activity
+            data_type: string
+          - name: user
+            description: The full user record of the agent making the request. See Users
+            data_type: object
+          - name: user_id
+            description: The id of the agent making the request
+            data_type: integer
+          - name: verb
+            description: The type of activity. Can be tickets.assignment, tickets.comment, or tickets.priority_increase
+            data_type: string

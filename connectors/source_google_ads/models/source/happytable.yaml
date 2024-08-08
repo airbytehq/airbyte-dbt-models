@@ -1,0 +1,26 @@
+version: 2
+
+sources:
+  - name: source_google_ads
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: happytable
+        columns:
+          - name: campaign.accessible_bidding_strategy
+            description: ''
+            data_type: string
+          - name: segments.ad_destination_type
+            description: ''
+            data_type: string
+          - name: campaign.start_date
+            description: ''
+            data_type: string
+          - name: campaign.end_date
+            description: ''
+            data_type: string
+          - name: segments.date
+            description: ''
+            data_type: string

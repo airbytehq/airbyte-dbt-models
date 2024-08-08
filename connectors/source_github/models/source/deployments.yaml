@@ -1,0 +1,68 @@
+version: 2
+
+sources:
+  - name: source_github
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: deployments
+        columns:
+          - name: url
+            description: URL to access more details about the deployment.
+            data_type: string
+          - name: id
+            description: Unique identifier for the deployment.
+            data_type: integer
+          - name: node_id
+            description: Node identifier for the deployment.
+            data_type: string
+          - name: task
+            description: Indicates the type of task being performed in the deployment.
+            data_type: string
+          - name: original_environment
+            description: Original environment name before promotion or changes.
+            data_type: string
+          - name: environment
+            description: The deployment environment (e.g., staging, production).
+            data_type: string
+          - name: description
+            description: Description provided for the deployment.
+            data_type: string
+          - name: created_at
+            description: The timestamp when the deployment was created.
+            data_type: string
+          - name: updated_at
+            description: The timestamp when the deployment was last updated.
+            data_type: string
+          - name: statuses_url
+            description: URL to retrieve the statuses of the deployment.
+            data_type: string
+          - name: repository_url
+            description: URL of the repository where the deployment originated.
+            data_type: string
+          - name: creator
+            description: ""
+            data_type: object
+          - name: sha
+            description: The SHA hash of the deployment.
+            data_type: string
+          - name: ref
+            description: The Git ref that was deployed.
+            data_type: string
+          - name: payload
+            description: Additional information or data associated with the deployment.
+            data_type: default
+          - name: transient_environment
+            description: Indicates if the environment is temporary or not persistent.
+            data_type: boolean
+          - name: production_environment
+            description: Indicates if the deployment is in a production environment.
+            data_type: boolean
+          - name: performed_via_github_app
+            description: Indicates if the deployment was performed via a GitHub App.
+            data_type: string
+          - name: repository
+            description: Details about the repository where the deployment originated.
+            data_type: string

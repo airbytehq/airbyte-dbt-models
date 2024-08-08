@@ -1,0 +1,41 @@
+version: 2
+
+sources:
+  - name: source_zendesk_support
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: custom_roles
+        columns:
+          - name: id
+            description: Unique identifier of the custom role
+            data_type: integer
+          - name: name
+            description: Name of the custom role
+            data_type: string
+          - name: description
+            description: Brief description of the custom role
+            data_type: string
+          - name: role_type
+            description: Type of the custom role (e.g., admin, agent, etc)
+            data_type: integer
+          - name: team_member_count
+            description: Number of team members with this custom role
+            data_type: integer
+          - name: configuration
+            description: This object contains custom configuration settings.
+            data_type: object
+          - name: created_at
+            description: Date and time of the creation of the custom role
+            data_type: string
+          - name: updated_at
+            description: Date and time of the last update of the custom role
+            data_type: string
+          - name: manage_macro_content_suggestions
+            description: Ability to manage macro content suggestions
+            data_type: boolean
+          - name: read_macro_content_suggestions
+            description: Access for reading macro content suggestions
+            data_type: boolean

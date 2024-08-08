@@ -1,0 +1,35 @@
+version: 2
+
+sources:
+  - name: source_recharge
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: collections
+        columns:
+          - name: id
+            description: ''
+            data_type: integer
+          - name: name
+            description: ''
+            data_type: string
+          - name: description
+            description: ''
+            data_type: string
+          - name: title
+            description: ''
+            data_type: string
+          - name: type
+            description: ''
+            data_type: string
+          - name: created_at
+            description: ''
+            data_type: string
+          - name: updated_at
+            description: ''
+            data_type: string
+          - name: sort_order
+            description: ''
+            data_type: string

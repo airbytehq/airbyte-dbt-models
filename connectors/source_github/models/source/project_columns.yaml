@@ -1,0 +1,41 @@
+version: 2
+
+sources:
+  - name: source_github
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: project_columns
+        columns:
+          - name: url
+            description: The API URL to fetch more details about this project column.
+            data_type: string
+          - name: project_url
+            description: The URL to view the project associated with this column.
+            data_type: string
+          - name: cards_url
+            description: The API URL to fetch the cards in this project column.
+            data_type: string
+          - name: id
+            description: The unique identification number of this project column.
+            data_type: integer
+          - name: node_id
+            description: The node ID of this project column used in the GraphQL API.
+            data_type: string
+          - name: name
+            description: The name given to this project column.
+            data_type: string
+          - name: created_at
+            description: The date and time when this project column was created.
+            data_type: string
+          - name: updated_at
+            description: The date and time when this project column was last updated.
+            data_type: string
+          - name: repository
+            description: The repository to which this project column belongs.
+            data_type: string
+          - name: project_id
+            description: The ID of the project to which this column belongs.
+            data_type: integer

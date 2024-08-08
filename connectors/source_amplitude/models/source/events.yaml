@@ -1,0 +1,176 @@
+version: 2
+
+sources:
+  - name: source_amplitude
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: events
+        columns:
+          - name: server_received_time
+            description: The timestamp when the event data was received by the server
+            data_type: string
+          - name: app
+            description: Information related to the application where the event originated
+            data_type: integer
+          - name: device_carrier
+            description: The mobile carrier used by the device
+            data_type: string
+          - name: $schema
+            description: The schema version used for the event data
+            data_type: integer
+          - name: city
+            description: The city where the event occurred
+            data_type: string
+          - name: user_id
+            description: The unique identifier for the user
+            data_type: string
+          - name: uuid
+            description: The universally unique identifier for the event
+            data_type: string
+          - name: event_time
+            description: The timestamp when the event occurred
+            data_type: string
+          - name: platform
+            description: The platform where the event occurred (e.g., iOS, Android)
+            data_type: string
+          - name: os_version
+            description: The version of the operating system on the user's device
+            data_type: string
+          - name: amplitude_id
+            description: The unique identifier assigned by Amplitude for the event
+            data_type: integer
+          - name: processed_time
+            description: The timestamp when the event data was processed
+            data_type: string
+          - name: user_creation_time
+            description: The timestamp when the user account was created
+            data_type: string
+          - name: version_name
+            description: The name or label of the version associated with the event
+            data_type: string
+          - name: ip_address
+            description: The IP address from which the event was triggered
+            data_type: string
+          - name: paying
+            description: Flag indicating if the user is a paying customer
+            data_type: boolean
+          - name: dma
+            description: The Designated Market Area where the event occurred
+            data_type: string
+          - name: group_properties
+            description: Properties related to grouping events
+            data_type: object
+          - name: user_properties
+            description: Additional properties associated with the user
+            data_type: object
+          - name: client_upload_time
+            description: The timestamp when the event data was uploaded from the client to the server
+            data_type: string
+          - name: $insert_id
+            description: The unique identifier assigned by Amplitude for each event insertion
+            data_type: string
+          - name: event_type
+            description: The type/category of the event
+            data_type: string
+          - name: library
+            description: Information about the library/version used for event tracking
+            data_type: string
+          - name: amplitude_attribution_ids
+            description: IDs that Amplitude uses for attributing conversions to various ad networks
+            data_type: string
+          - name: device_type
+            description: The type of device (e.g., smartphone, tablet)
+            data_type: string
+          - name: device_manufacturer
+            description: The manufacturer of the device
+            data_type: string
+          - name: start_version
+            description: The version at which the user started using the application
+            data_type: string
+          - name: location_lng
+            description: Longitude coordinate of the event location
+            data_type: number
+          - name: server_upload_time
+            description: The timestamp when the event data was uploaded to the server
+            data_type: string
+          - name: event_id
+            description: The unique identifier assigned to the event
+            data_type: integer
+          - name: location_lat
+            description: Latitude coordinate of the event location
+            data_type: number
+          - name: os_name
+            description: The name of the operating system on the user's device
+            data_type: string
+          - name: amplitude_event_type
+            description: The specific type of event tracked by Amplitude
+            data_type: string
+          - name: device_brand
+            description: The brand of the user's device
+            data_type: string
+          - name: groups
+            description: Groups to which the event belongs
+            data_type: object
+          - name: event_properties
+            description: Additional properties associated with the event
+            data_type: object
+          - name: data
+            description: Custom data associated with the event
+            data_type: object
+          - name: device_id
+            description: The unique identifier assigned to the device
+            data_type: string
+          - name: language
+            description: The language set on the user's device
+            data_type: string
+          - name: device_model
+            description: The model of the device
+            data_type: string
+          - name: country
+            description: The country where the event occurred
+            data_type: string
+          - name: region
+            description: The region where the event occurred
+            data_type: string
+          - name: is_attribution_event
+            description: Flag indicating if the event is an attribution event
+            data_type: boolean
+          - name: adid
+            description: The advertising identifier associated with the user's device
+            data_type: string
+          - name: session_id
+            description: The unique identifier for the user session
+            data_type: number
+          - name: device_family
+            description: The family of the device model
+            data_type: string
+          - name: sample_rate
+            description: The sampling rate used for the event data
+            data_type: string
+          - name: idfa
+            description: The Identifier for Advertisers associated with the user's device
+            data_type: string
+          - name: client_event_time
+            description: The timestamp when the event occurred on the client side
+            data_type: string
+          - name: $insert_key
+            description: The key used for identifying the event insertion
+            data_type: string
+          - name: data_type
+            description: The type of data associated with the event
+            data_type: string
+          - name: plan
+            description: Information related to the user's plan
+            data_type: object
+          - name: source_id
+            description: The unique identifier for the event source
+            data_type: string
+          - name: partner_id
+            description: The unique identifier for a partner associated with the event
+            data_type: string
+          - name: global_user_properties
+            description: Global properties associated with the user
+            data_type: object

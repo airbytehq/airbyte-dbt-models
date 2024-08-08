@@ -1,0 +1,65 @@
+version: 2
+
+sources:
+  - name: source_tiktok_marketing
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: creative_assets_videos
+        columns:
+          - name: video_id
+            description: ID of the video.
+            data_type: string
+          - name: video_cover_url
+            description: URL for the cover image of the video.
+            data_type: string
+          - name: format
+            description: Format of the video file.
+            data_type: string
+          - name: preview_url
+            description: URL for previewing the video.
+            data_type: string
+          - name: preview_url_expire_time
+            description: Timestamp when the preview URL expires.
+            data_type: string
+          - name: duration
+            description: Duration of the video in seconds.
+            data_type: number
+          - name: height
+            description: Height of the video in pixels.
+            data_type: integer
+          - name: width
+            description: Width of the video in pixels.
+            data_type: integer
+          - name: bit_rate
+            description: The bitrate of the video.
+            data_type: number
+          - name: signature
+            description: Signature for authenticating the video request.
+            data_type: string
+          - name: size
+            description: Size of the video file in bytes.
+            data_type: integer
+          - name: material_id
+            description: ID of the video material.
+            data_type: string
+          - name: allowed_placements
+            description: List of placements where the video can be used.
+            data_type: array
+          - name: allow_download
+            description: Indicates if the video can be downloaded by users.
+            data_type: boolean
+          - name: file_name
+            description: Name of the video file.
+            data_type: string
+          - name: create_time
+            description: Timestamp when the video was created.
+            data_type: string
+          - name: modify_time
+            description: Timestamp when the video was last modified.
+            data_type: string
+          - name: displayable
+            description: Indicates if the video is displayable.
+            data_type: boolean

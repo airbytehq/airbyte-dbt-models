@@ -1,0 +1,29 @@
+version: 2
+
+sources:
+  - name: source_asana
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: users
+        columns:
+          - name: gid
+            description: ''
+            data_type: string
+          - name: resource_type
+            description: ''
+            data_type: string
+          - name: name
+            description: ''
+            data_type: string
+          - name: email
+            description: ''
+            data_type: string
+          - name: photo
+            description: ''
+            data_type: object
+          - name: workspaces
+            description: ''
+            data_type: array

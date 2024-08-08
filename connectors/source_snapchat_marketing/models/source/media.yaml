@@ -1,0 +1,62 @@
+version: 2
+
+sources:
+  - name: source_snapchat_marketing
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: media
+        columns:
+          - name: id
+            description: The unique identifier of the media.
+            data_type: string
+          - name: updated_at
+            description: The timestamp when the media was last updated.
+            data_type: string
+          - name: created_at
+            description: The timestamp when the media was created.
+            data_type: string
+          - name: ad_account_id
+            description: The unique identifier of the ad account associated with the media.
+            data_type: string
+          - name: type
+            description: The type of media (e.g., image, video).
+            data_type: string
+          - name: media_status
+            description: The status of the media (e.g., active, inactive).
+            data_type: string
+          - name: media_usages
+            description: Items associated with the media usage.
+            data_type: array
+          - name: file_name
+            description: The name of the media file.
+            data_type: string
+          - name: download_link
+            description: The link to download the media file.
+            data_type: string
+          - name: duration_in_seconds
+            description: The duration of the media in seconds.
+            data_type: number
+          - name: image_metadata
+            description: Additional metadata related to the image media.
+            data_type: object
+          - name: video_metadata
+            description: Additional metadata related to the video media.
+            data_type: object
+          - name: file_size_in_bytes
+            description: The file size of the media in bytes.
+            data_type: integer
+          - name: is_demo_media
+            description: Indicates if the media is a demo or not.
+            data_type: boolean
+          - name: hash
+            description: The hash value of the media file for identification purposes.
+            data_type: string
+          - name: visibility
+            description: The visibility settings of the media (e.g., public, private).
+            data_type: string
+          - name: name
+            description: The name or title of the media.
+            data_type: string

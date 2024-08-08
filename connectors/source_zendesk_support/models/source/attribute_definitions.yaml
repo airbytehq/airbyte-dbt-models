@@ -1,0 +1,44 @@
+version: 2
+
+sources:
+  - name: source_zendesk_support
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: attribute_definitions
+        columns:
+          - name: title
+            description: Title of the attribute definition.
+            data_type: string
+          - name: subject
+            description: Subject or topic of this attribute definition.
+            data_type: string
+          - name: type
+            description: Data type of the attribute.
+            data_type: string
+          - name: group
+            description: The group to which this attribute definition belongs.
+            data_type: string
+          - name: nullable
+            description: Indicates if this attribute definition can be null.
+            data_type: boolean
+          - name: repeatable
+            description: Specifies if this attribute definition can be repeated.
+            data_type: boolean
+          - name: operators
+            description: List of operators allowed for this attribute definition.
+            data_type: array
+          - name: values
+            description: List of values available for this attribute definition.
+            data_type: array
+          - name: condition
+            description: The condition that needs to be met for this attribute definition.
+            data_type: string
+          - name: confition
+            description: Missing field description, please add.
+            data_type: string
+          - name: metadata
+            description: Additional metadata related to this attribute definition.
+            data_type: object

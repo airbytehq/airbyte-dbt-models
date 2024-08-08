@@ -1,0 +1,122 @@
+version: 2
+
+sources:
+  - name: source_recharge
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: subscriptions
+        columns:
+          - name: id
+            description: ''
+            data_type: integer
+          - name: address_id
+            description: ''
+            data_type: integer
+          - name: analytics_data
+            description: ''
+            data_type: object
+          - name: cancellation_reason
+            description: ''
+            data_type: string
+          - name: cancellation_reason_comments
+            description: ''
+            data_type: string
+          - name: cancelled_at
+            description: ''
+            data_type: string
+          - name: charge_interval_frequency
+            description: ''
+            data_type: string
+          - name: created_at
+            description: ''
+            data_type: string
+          - name: commit_update
+            description: ''
+            data_type: boolean
+          - name: customer_id
+            description: ''
+            data_type: integer
+          - name: email
+            description: ''
+            data_type: string
+          - name: expire_after_specific_number_of_charges
+            description: ''
+            data_type: integer
+          - name: external_product_id
+            description: ''
+            data_type: object
+          - name: external_variant_id
+            description: ''
+            data_type: object
+          - name: presentment_currency
+            description: ''
+            data_type: string
+          - name: has_queued_charges
+            description: ''
+            data_type: integer
+          - name: is_prepaid
+            description: ''
+            data_type: boolean
+          - name: is_skippable
+            description: ''
+            data_type: boolean
+          - name: is_swappable
+            description: ''
+            data_type: boolean
+          - name: max_retries_reached
+            description: ''
+            data_type: integer
+          - name: next_charge_scheduled_at
+            description: ''
+            data_type: string
+          - name: order_day_of_month
+            description: ''
+            data_type: integer
+          - name: order_day_of_week
+            description: ''
+            data_type: integer
+          - name: order_interval_frequency
+            description: ''
+            data_type: string
+          - name: order_interval_unit
+            description: ''
+            data_type: string
+          - name: price
+            description: ''
+            data_type: number
+          - name: product_title
+            description: ''
+            data_type: string
+          - name: properties
+            description: ''
+            data_type: array
+          - name: quantity
+            description: ''
+            data_type: integer
+          - name: recharge_product_id
+            description: ''
+            data_type: integer
+          - name: shopify_product_id
+            description: ''
+            data_type: integer
+          - name: shopify_variant_id
+            description: ''
+            data_type: integer
+          - name: sku
+            description: ''
+            data_type: string
+          - name: sku_override
+            description: ''
+            data_type: boolean
+          - name: status
+            description: ''
+            data_type: string
+          - name: updated_at
+            description: ''
+            data_type: string
+          - name: variant_title
+            description: ''
+            data_type: string

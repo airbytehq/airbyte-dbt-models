@@ -1,0 +1,122 @@
+version: 2
+
+sources:
+  - name: source_recharge
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: customers
+        columns:
+          - name: id
+            description: ''
+            data_type: integer
+          - name: accepts_marketing
+            description: ''
+            data_type: integer
+          - name: analytics_data
+            description: ''
+            data_type: object
+          - name: billing_address1
+            description: ''
+            data_type: string
+          - name: billing_address2
+            description: ''
+            data_type: string
+          - name: billing_city
+            description: ''
+            data_type: string
+          - name: billing_company
+            description: ''
+            data_type: string
+          - name: billing_country
+            description: ''
+            data_type: string
+          - name: billing_first_name
+            description: ''
+            data_type: string
+          - name: billing_last_name
+            description: ''
+            data_type: string
+          - name: billing_phone
+            description: ''
+            data_type: string
+          - name: billing_province
+            description: ''
+            data_type: string
+          - name: billing_zip
+            description: ''
+            data_type: string
+          - name: created_at
+            description: ''
+            data_type: string
+          - name: email
+            description: ''
+            data_type: string
+          - name: first_charge_processed_at
+            description: ''
+            data_type: string
+          - name: first_name
+            description: ''
+            data_type: string
+          - name: has_card_error_in_dunning
+            description: ''
+            data_type: boolean
+          - name: has_valid_payment_method
+            description: ''
+            data_type: boolean
+          - name: hash
+            description: ''
+            data_type: string
+          - name: last_name
+            description: ''
+            data_type: string
+          - name: number_active_subscriptions
+            description: ''
+            data_type: integer
+          - name: number_subscriptions
+            description: ''
+            data_type: integer
+          - name: processor_type
+            description: ''
+            data_type: string
+          - name: reason_payment_method_not_valid
+            description: ''
+            data_type: string
+          - name: shopify_customer_id
+            description: ''
+            data_type: string
+          - name: status
+            description: ''
+            data_type: string
+          - name: stripe_customer_token
+            description: ''
+            data_type: string
+          - name: updated_at
+            description: ''
+            data_type: string
+          - name: apply_credit_to_next_recurring_charge
+            description: ''
+            data_type: boolean
+          - name: apply_credit_to_next_checkout_charge
+            description: ''
+            data_type: boolean
+          - name: external_customer_id
+            description: ''
+            data_type: object
+          - name: has_payment_method_in_dunning
+            description: ''
+            data_type: boolean
+          - name: phone
+            description: ''
+            data_type: string
+          - name: subscriptions_active_count
+            description: ''
+            data_type: integer
+          - name: subscriptions_total_count
+            description: ''
+            data_type: integer
+          - name: tax_exempt
+            description: ''
+            data_type: boolean

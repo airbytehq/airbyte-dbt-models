@@ -1,0 +1,35 @@
+version: 2
+
+sources:
+  - name: source_tiktok_marketing
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: ad_groups_reports_daily
+        columns:
+          - name: stat_time_day
+            description: The date for which the statistical data is recorded.
+            data_type: string
+          - name: stat_time_hour
+            description: The hour of the day for which the statistical data is recorded.
+            data_type: string
+          - name: campaign_id
+            description: The unique identifier for a marketing campaign.
+            data_type: integer
+          - name: adgroup_id
+            description: The unique identifier for an ad group.
+            data_type: integer
+          - name: ad_id
+            description: The unique identifier for an advertisement.
+            data_type: integer
+          - name: advertiser_id
+            description: The unique identifier for an advertiser.
+            data_type: integer
+          - name: metrics
+            description: A list of metrics for which data should be retrieved such as views, likes, comments, or shares.
+            data_type: object
+          - name: dimensions
+            description: A list of dimensions for which data should be retrieved such as time, user demographics, or content type.
+            data_type: object

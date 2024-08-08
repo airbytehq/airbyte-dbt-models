@@ -1,0 +1,77 @@
+version: 2
+
+sources:
+  - name: source_github
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: issue_events
+        columns:
+          - name: repository
+            description: Details about a repository
+            data_type: string
+          - name: id
+            description: The unique ID of the event
+            data_type: integer
+          - name: node_id
+            description: The unique node ID of the event
+            data_type: string
+          - name: url
+            description: The URL of the event
+            data_type: string
+          - name: actor
+            description: ""
+            data_type: object
+          - name: event
+            description: The type of event that occurred
+            data_type: string
+          - name: commit_id
+            description: The ID of the commit related to the event
+            data_type: string
+          - name: commit_url
+            description: The URL to the commit related to the event
+            data_type: string
+          - name: created_at
+            description: The timestamp when the event was created
+            data_type: string
+          - name: state_reason
+            description: The reason associated with the change in state of the issue event.
+            data_type: string
+          - name: label
+            description: Details about a label
+            data_type: object
+          - name: review_requester
+            description: ""
+            data_type: object
+          - name: issue
+            description: Information about the associated issue
+            data_type: object
+          - name: performed_via_github_app
+            description: Information about the GitHub App that triggered the event
+            data_type: object
+          - name: milestone
+            description: Details about a milestone
+            data_type: object
+          - name: assignee
+            description: ""
+            data_type: object
+          - name: assigner
+            description: ""
+            data_type: object
+          - name: project_card
+            description: Details about a project card
+            data_type: object
+          - name: dismissed_review
+            description: Details about a dismissed review
+            data_type: object
+          - name: requested_team
+            description: Details about a team requested for review
+            data_type: object
+          - name: rename
+            description: Details about a rename action
+            data_type: object
+          - name: requested_reviewer
+            description: ""
+            data_type: object

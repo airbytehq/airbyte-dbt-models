@@ -1,0 +1,125 @@
+version: 2
+
+sources:
+  - name: source_salesforce
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: AppMenuItem
+        columns:
+          - name: Id
+            description: ""
+            data_type: string
+          - name: IsDeleted
+            description: ""
+            data_type: boolean
+          - name: CreatedDate
+            description: ""
+            data_type: string
+          - name: CreatedById
+            description: ""
+            data_type: string
+          - name: LastModifiedDate
+            description: ""
+            data_type: string
+          - name: LastModifiedById
+            description: ""
+            data_type: string
+          - name: SystemModstamp
+            description: ""
+            data_type: string
+          - name: SortOrder
+            description: ""
+            data_type: integer
+          - name: Name
+            description: ""
+            data_type: string
+          - name: NamespacePrefix
+            description: ""
+            data_type: string
+          - name: Label
+            description: ""
+            data_type: string
+          - name: Description
+            description: ""
+            data_type: string
+          - name: StartUrl
+            description: ""
+            data_type: string
+          - name: MobileStartUrl
+            description: ""
+            data_type: string
+          - name: LogoUrl
+            description: ""
+            data_type: string
+          - name: IconUrl
+            description: ""
+            data_type: string
+          - name: InfoUrl
+            description: ""
+            data_type: string
+          - name: IsUsingAdminAuthorization
+            description: ""
+            data_type: boolean
+          - name: MobilePlatform
+            description: ""
+            data_type: string
+          - name: MobileMinOsVer
+            description: ""
+            data_type: string
+          - name: MobileDeviceType
+            description: ""
+            data_type: string
+          - name: IsRegisteredDeviceOnly
+            description: ""
+            data_type: boolean
+          - name: MobileAppVer
+            description: ""
+            data_type: string
+          - name: MobileAppInstalledDate
+            description: ""
+            data_type: string
+          - name: MobileAppInstalledVersion
+            description: ""
+            data_type: string
+          - name: MobileAppBinaryId
+            description: ""
+            data_type: string
+          - name: MobileAppInstallUrl
+            description: ""
+            data_type: string
+          - name: CanvasEnabled
+            description: ""
+            data_type: boolean
+          - name: CanvasReferenceId
+            description: ""
+            data_type: string
+          - name: CanvasUrl
+            description: ""
+            data_type: string
+          - name: CanvasAccessMethod
+            description: ""
+            data_type: string
+          - name: CanvasSelectedLocations
+            description: ""
+            data_type: string
+          - name: CanvasOptions
+            description: ""
+            data_type: string
+          - name: Type
+            description: ""
+            data_type: string
+          - name: ApplicationId
+            description: ""
+            data_type: string
+          - name: UserSortOrder
+            description: ""
+            data_type: integer
+          - name: IsVisible
+            description: ""
+            data_type: boolean
+          - name: IsAccessible
+            description: ""
+            data_type: boolean

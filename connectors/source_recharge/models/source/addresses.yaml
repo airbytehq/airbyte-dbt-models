@@ -1,0 +1,86 @@
+version: 2
+
+sources:
+  - name: source_recharge
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: addresses
+        columns:
+          - name: id
+            description: ''
+            data_type: integer
+          - name: address1
+            description: ''
+            data_type: string
+          - name: address2
+            description: ''
+            data_type: string
+          - name: cart_note
+            description: ''
+            data_type: string
+          - name: city
+            description: ''
+            data_type: string
+          - name: company
+            description: ''
+            data_type: string
+          - name: country
+            description: ''
+            data_type: string
+          - name: customer_id
+            description: ''
+            data_type: integer
+          - name: created_at
+            description: ''
+            data_type: string
+          - name: discount_id
+            description: ''
+            data_type: integer
+          - name: first_name
+            description: ''
+            data_type: string
+          - name: last_name
+            description: ''
+            data_type: string
+          - name: note_attributes
+            description: ''
+            data_type: array
+          - name: phone
+            description: ''
+            data_type: string
+          - name: province
+            description: ''
+            data_type: string
+          - name: shipping_lines_override
+            description: ''
+            data_type: array
+          - name: shipping_lines_conserved
+            description: ''
+            data_type: array
+          - name: updated_at
+            description: ''
+            data_type: string
+          - name: zip
+            description: ''
+            data_type: string
+          - name: country_code
+            description: ''
+            data_type: string
+          - name: discounts
+            description: ''
+            data_type: array
+          - name: order_attributes
+            description: ''
+            data_type: array
+          - name: order_note
+            description: ''
+            data_type: string
+          - name: payment_method_id
+            description: ''
+            data_type: integer
+          - name: presentment_currency
+            description: ''
+            data_type: string

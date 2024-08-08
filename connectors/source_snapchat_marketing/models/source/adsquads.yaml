@@ -1,0 +1,95 @@
+version: 2
+
+sources:
+  - name: source_snapchat_marketing
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: adsquads
+        columns:
+          - name: id
+            description: Unique identifier for the ad squad.
+            data_type: string
+          - name: updated_at
+            description: Timestamp indicating when the ad squad was last updated.
+            data_type: string
+          - name: created_at
+            description: Timestamp indicating when the ad squad was created.
+            data_type: string
+          - name: name
+            description: Name of the ad squad.
+            data_type: string
+          - name: status
+            description: Current status of the ad squad.
+            data_type: string
+          - name: campaign_id
+            description: ID of the campaign associated with the ad squad.
+            data_type: string
+          - name: type
+            description: Type of the ad squad.
+            data_type: string
+          - name: targeting
+            description: Targeting settings for the ad squad.
+            data_type: object
+          - name: targeting_reach_status
+            description: Status of targeting reach for the ad squad.
+            data_type: string
+          - name: placement
+            description: Ad placement settings for the ad squad.
+            data_type: string
+          - name: billing_event
+            description: Defines the billing event for the ad squad.
+            data_type: string
+          - name: auto_bid
+            description: Indicates whether the ad squad is using auto-bidding for its bids.
+            data_type: boolean
+          - name: target_bid
+            description: Target bid value for the ad squad.
+            data_type: boolean
+          - name: bid_strategy
+            description: Specifies the bidding strategy used by the ad squad.
+            data_type: string
+          - name: daily_budget_micro
+            description: Daily budget in micro currency units for the ad squad.
+            data_type: integer
+          - name: start_time
+            description: Start time for the ad squad's run.
+            data_type: string
+          - name: optimization_goal
+            description: Goal used for optimizing ad delivery.
+            data_type: string
+          - name: delivery_constraint
+            description: Constraints applied to the delivery of the ad squad.
+            data_type: string
+          - name: delivery_properties_version
+            description: Version of delivery properties for the ad squad.
+            data_type: integer
+          - name: pacing_type
+            description: Type of pacing applied to the ad squad's delivery.
+            data_type: string
+          - name: child_ad_type
+            description: Type of child ads under the ad squad.
+            data_type: string
+          - name: forced_view_setting
+            description: Setting to force views for the ad squad.
+            data_type: string
+          - name: creation_state
+            description: Current state of the ad squad creation process.
+            data_type: string
+          - name: delivery_status
+            description: Status of ad delivery for the ad squad.
+            data_type: array
+          - name: event_sources
+            description: Sources of events associated with the ad squad.
+            data_type: object
+          - name: skadnetwork_properties
+            description: Properties related to SKAdNetwork integration for the ad squad.
+            data_type: object
+          - name: lifetime_budget_micro
+            description: Total budget in micro currency units for the lifetime of the ad squad.
+            data_type: integer
+          - name: end_time
+            description: End time for the ad squad's run.
+            data_type: string

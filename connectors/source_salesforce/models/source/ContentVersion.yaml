@@ -1,0 +1,137 @@
+version: 2
+
+sources:
+  - name: source_salesforce
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: ContentVersion
+        columns:
+          - name: Id
+            description: ""
+            data_type: string
+          - name: ContentDocumentId
+            description: ""
+            data_type: string
+          - name: IsLatest
+            description: ""
+            data_type: boolean
+          - name: ContentUrl
+            description: ""
+            data_type: string
+          - name: ContentBodyId
+            description: ""
+            data_type: string
+          - name: VersionNumber
+            description: ""
+            data_type: string
+          - name: Title
+            description: ""
+            data_type: string
+          - name: Description
+            description: ""
+            data_type: string
+          - name: ReasonForChange
+            description: ""
+            data_type: string
+          - name: SharingOption
+            description: ""
+            data_type: string
+          - name: SharingPrivacy
+            description: ""
+            data_type: string
+          - name: PathOnClient
+            description: ""
+            data_type: string
+          - name: RatingCount
+            description: ""
+            data_type: integer
+          - name: IsDeleted
+            description: ""
+            data_type: boolean
+          - name: ContentModifiedDate
+            description: ""
+            data_type: string
+          - name: ContentModifiedById
+            description: ""
+            data_type: string
+          - name: PositiveRatingCount
+            description: ""
+            data_type: integer
+          - name: NegativeRatingCount
+            description: ""
+            data_type: integer
+          - name: FeaturedContentBoost
+            description: ""
+            data_type: integer
+          - name: FeaturedContentDate
+            description: ""
+            data_type: string
+          - name: OwnerId
+            description: ""
+            data_type: string
+          - name: CreatedById
+            description: ""
+            data_type: string
+          - name: CreatedDate
+            description: ""
+            data_type: string
+          - name: LastModifiedById
+            description: ""
+            data_type: string
+          - name: LastModifiedDate
+            description: ""
+            data_type: string
+          - name: SystemModstamp
+            description: ""
+            data_type: string
+          - name: TagCsv
+            description: ""
+            data_type: string
+          - name: FileType
+            description: ""
+            data_type: string
+          - name: PublishStatus
+            description: ""
+            data_type: string
+          - name: VersionData
+            description: ""
+            data_type: string
+          - name: ContentSize
+            description: ""
+            data_type: integer
+          - name: FileExtension
+            description: ""
+            data_type: string
+          - name: FirstPublishLocationId
+            description: ""
+            data_type: string
+          - name: Origin
+            description: ""
+            data_type: string
+          - name: ContentLocation
+            description: ""
+            data_type: string
+          - name: TextPreview
+            description: ""
+            data_type: string
+          - name: ExternalDocumentInfo1
+            description: ""
+            data_type: string
+          - name: ExternalDocumentInfo2
+            description: ""
+            data_type: string
+          - name: Checksum
+            description: ""
+            data_type: string
+          - name: IsMajorVersion
+            description: ""
+            data_type: boolean
+          - name: IsAssetEnabled
+            description: ""
+            data_type: boolean
+          - name: VersionDataUrl
+            description: ""
+            data_type: string

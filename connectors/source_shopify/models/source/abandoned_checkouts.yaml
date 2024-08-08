@@ -1,0 +1,137 @@
+version: 2
+
+sources:
+  - name: source_shopify
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: abandoned_checkouts
+        columns:
+          - name: note_attributes
+            description: Additional notes or attributes associated with the checkout
+            data_type: array
+          - name: location_id
+            description: ID of the location
+            data_type: integer
+          - name: buyer_accepts_marketing
+            description: Indicates if the buyer accepts marketing
+            data_type: boolean
+          - name: currency
+            description: Currency used for the checkout
+            data_type: string
+          - name: completed_at
+            description: Date and time when the checkout was completed
+            data_type: string
+          - name: token
+            description: Token associated with the checkout
+            data_type: string
+          - name: billing_address
+            description: Information about the billing address associated with the checkout
+            data_type: object
+          - name: email
+            description: Customer's email
+            data_type: string
+          - name: discount_codes
+            description: List of discount codes applied to the checkout
+            data_type: array
+          - name: customer_locale
+            description: Locale of the customer
+            data_type: string
+          - name: created_at
+            description: Date and time when the checkout was created
+            data_type: string
+          - name: updated_at
+            description: Date and time of last checkout update
+            data_type: string
+          - name: gateway
+            description: Payment gateway used
+            data_type: string
+          - name: referring_site
+            description: Site that referred the customer
+            data_type: string
+          - name: source_identifier
+            description: Identifier of the source
+            data_type: string
+          - name: total_weight
+            description: Total weight of all line items
+            data_type: integer
+          - name: tax_lines
+            description: List of tax lines associated with the checkout
+            data_type: array
+          - name: total_line_items_price
+            description: Total price of all line items
+            data_type: number
+          - name: closed_at
+            description: Date and time when the checkout was closed
+            data_type: string
+          - name: device_id
+            description: ID of the device used for checkout
+            data_type: integer
+          - name: phone
+            description: Customer's phone number
+            data_type: string
+          - name: source_name
+            description: Name of the source
+            data_type: string
+          - name: id
+            description: ID of the checkout
+            data_type: integer
+          - name: name
+            description: Name of the checkout
+            data_type: string
+          - name: total_tax
+            description: Total tax amount
+            data_type: number
+          - name: subtotal_price
+            description: Subtotal price of the checkout
+            data_type: number
+          - name: line_items
+            description: List of purchased items in the checkout
+            data_type: array
+          - name: source_url
+            description: URL of the source
+            data_type: string
+          - name: shop_url
+            description: URL of the shop
+            data_type: string
+          - name: total_discounts
+            description: Total discounts applied
+            data_type: number
+          - name: note
+            description: Checkout note
+            data_type: string
+          - name: presentment_currency
+            description: Currency used for presentation
+            data_type: string
+          - name: shipping_lines
+            description: List of shipping methods selected for the checkout
+            data_type: array
+          - name: user_id
+            description: ID of the user associated with the checkout
+            data_type: integer
+          - name: source
+            description: Source of the checkout
+            data_type: string
+          - name: shipping_address
+            description: Information about the shipping address for the checkout
+            data_type: object
+          - name: abandoned_checkout_url
+            description: The URL to access the abandoned checkout
+            data_type: string
+          - name: landing_site
+            description: URL of the landing site
+            data_type: string
+          - name: customer
+            description: Details of the customer who initiated the checkout
+            data_type: object
+          - name: total_price
+            description: Total price of the checkout
+            data_type: number
+          - name: cart_token
+            description: Token associated with the cart
+            data_type: string
+          - name: taxes_included
+            description: Indicates if taxes are included in prices
+            data_type: boolean

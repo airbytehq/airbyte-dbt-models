@@ -1,0 +1,359 @@
+version: 2
+
+sources:
+  - name: source_hubspot
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: engagements_emails
+        columns:
+          - name: id
+            description: Unique identifier for the engagement email
+            data_type: string
+          - name: properties
+            description: ''
+            data_type: object
+          - name: properties_hs_all_assigned_business_unit_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_at_mentioned_owner_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_attachment_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_body_preview
+            description: ''
+            data_type: string
+          - name: properties_hs_body_preview_html
+            description: ''
+            data_type: string
+          - name: properties_hs_body_preview_is_truncated
+            description: ''
+            data_type: boolean
+          - name: properties_hs_created_by
+            description: ''
+            data_type: string
+          - name: properties_hs_created_by_user_id
+            description: ''
+            data_type: number
+          - name: properties_hs_createdate
+            description: ''
+            data_type: string
+          - name: properties_hs_direction_and_unique_id
+            description: ''
+            data_type: string
+          - name: properties_hs_email_attached_video_id
+            description: ''
+            data_type: string
+          - name: properties_hs_email_attached_video_name
+            description: ''
+            data_type: string
+          - name: properties_hs_email_attached_video_opened
+            description: ''
+            data_type: boolean
+          - name: properties_hs_email_attached_video_watched
+            description: ''
+            data_type: boolean
+          - name: properties_hs_email_bcc_email
+            description: ''
+            data_type: string
+          - name: properties_hs_email_bcc_firstname
+            description: ''
+            data_type: string
+          - name: properties_hs_email_bcc_lastname
+            description: ''
+            data_type: string
+          - name: properties_hs_email_bcc_raw
+            description: ''
+            data_type: string
+          - name: properties_hs_email_cc_email
+            description: ''
+            data_type: string
+          - name: properties_hs_email_cc_firstname
+            description: ''
+            data_type: string
+          - name: properties_hs_email_cc_lastname
+            description: ''
+            data_type: string
+          - name: properties_hs_email_cc_raw
+            description: ''
+            data_type: string
+          - name: properties_hs_email_direction
+            description: ''
+            data_type: string
+          - name: properties_hs_email_encoded_email_associations_request
+            description: ''
+            data_type: string
+          - name: properties_hs_email_error_message
+            description: ''
+            data_type: string
+          - name: properties_hs_email_facsimile_send_id
+            description: ''
+            data_type: string
+          - name: properties_hs_email_from_email
+            description: ''
+            data_type: string
+          - name: properties_hs_email_from_firstname
+            description: ''
+            data_type: string
+          - name: properties_hs_email_from_lastname
+            description: ''
+            data_type: string
+          - name: properties_hs_email_from_raw
+            description: ''
+            data_type: string
+          - name: properties_hs_email_headers
+            description: ''
+            data_type: string
+          - name: properties_hs_email_html
+            description: ''
+            data_type: string
+          - name: properties_hs_email_logged_from
+            description: ''
+            data_type: string
+          - name: properties_hs_email_media_processing_status
+            description: ''
+            data_type: string
+          - name: properties_hs_email_member_of_forwarded_subthread
+            description: ''
+            data_type: boolean
+          - name: properties_hs_email_message_id
+            description: ''
+            data_type: string
+          - name: properties_hs_email_migrated_via_portal_data_migration
+            description: ''
+            data_type: string
+          - name: properties_hs_email_pending_inline_image_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_email_post_send_status
+            description: ''
+            data_type: string
+          - name: properties_hs_email_recipient_drop_reasons
+            description: ''
+            data_type: string
+          - name: properties_hs_email_send_event_id
+            description: ''
+            data_type: string
+          - name: properties_hs_email_send_event_id_created
+            description: ''
+            data_type: string
+          - name: properties_hs_email_sender_email
+            description: ''
+            data_type: string
+          - name: properties_hs_email_sender_firstname
+            description: ''
+            data_type: string
+          - name: properties_hs_email_sender_lastname
+            description: ''
+            data_type: string
+          - name: properties_hs_email_sender_raw
+            description: ''
+            data_type: string
+          - name: properties_hs_email_sent_via
+            description: ''
+            data_type: string
+          - name: properties_hs_email_status
+            description: ''
+            data_type: string
+          - name: properties_hs_email_subject
+            description: ''
+            data_type: string
+          - name: properties_hs_email_text
+            description: ''
+            data_type: string
+          - name: properties_hs_email_thread_id
+            description: ''
+            data_type: string
+          - name: properties_hs_email_to_email
+            description: ''
+            data_type: string
+          - name: properties_hs_email_to_firstname
+            description: ''
+            data_type: string
+          - name: properties_hs_email_to_lastname
+            description: ''
+            data_type: string
+          - name: properties_hs_email_to_raw
+            description: ''
+            data_type: string
+          - name: properties_hs_email_tracker_key
+            description: ''
+            data_type: string
+          - name: properties_hs_email_validation_skipped
+            description: ''
+            data_type: string
+          - name: properties_hs_engagement_source
+            description: ''
+            data_type: string
+          - name: properties_hs_engagement_source_id
+            description: ''
+            data_type: string
+          - name: properties_hs_follow_up_action
+            description: ''
+            data_type: string
+          - name: properties_hs_gdpr_deleted
+            description: ''
+            data_type: boolean
+          - name: properties_hs_lastmodifieddate
+            description: ''
+            data_type: string
+          - name: properties_hs_merged_object_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_modified_by
+            description: ''
+            data_type: string
+          - name: properties_hs_object_id
+            description: ''
+            data_type: number
+          - name: properties_hs_product_name
+            description: ''
+            data_type: string
+          - name: properties_hs_queue_membership_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_timestamp
+            description: ''
+            data_type: string
+          - name: properties_hs_unique_creation_key
+            description: ''
+            data_type: string
+          - name: properties_hs_unique_id
+            description: ''
+            data_type: string
+          - name: properties_hs_updated_by_user_id
+            description: ''
+            data_type: number
+          - name: properties_hs_user_ids_of_all_notification_followers
+            description: ''
+            data_type: string
+          - name: properties_hs_user_ids_of_all_notification_unfollowers
+            description: ''
+            data_type: string
+          - name: properties_hs_user_ids_of_all_owners
+            description: ''
+            data_type: string
+          - name: properties_hubspot_owner_assigneddate
+            description: ''
+            data_type: string
+          - name: properties_hubspot_owner_id
+            description: ''
+            data_type: string
+          - name: properties_hubspot_team_id
+            description: ''
+            data_type: string
+          - name: properties_hs_all_owner_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_all_team_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_all_accessible_team_ids
+            description: ''
+            data_type: string
+          - name: createdAt
+            description: Date and time when the engagement email was created
+            data_type: string
+          - name: updatedAt
+            description: Date and time when the engagement email was last updated
+            data_type: string
+          - name: archived
+            description: Indicates if the engagement email is archived or not
+            data_type: boolean
+          - name: contacts
+            description: List of contacts associated with the engagement email
+            data_type: array
+          - name: deals
+            description: List of deals associated with the engagement email
+            data_type: array
+          - name: companies
+            description: List of companies associated with the engagement email
+            data_type: array
+          - name: tickets
+            description: List of tickets associated with the engagement email
+            data_type: array
+          - name: properties_hs_email_bounce_error_detail_message
+            description: ''
+            data_type: string
+          - name: properties_hs_email_bounce_error_detail_status_code
+            description: ''
+            data_type: number
+          - name: properties_hs_email_click_count
+            description: ''
+            data_type: number
+          - name: properties_hs_email_has_inline_images_stripped
+            description: ''
+            data_type: boolean
+          - name: properties_hs_email_ms_teams_payload
+            description: ''
+            data_type: string
+          - name: properties_hs_email_open_count
+            description: ''
+            data_type: number
+          - name: properties_hs_email_reply_count
+            description: ''
+            data_type: number
+          - name: properties_hs_email_sent_count
+            description: ''
+            data_type: number
+          - name: properties_hs_email_stripped_attachment_count
+            description: ''
+            data_type: number
+          - name: properties_hs_email_thread_summary
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_detail_1
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_detail_2
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_detail_3
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_id
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_label
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_user_id
+            description: ''
+            data_type: number
+          - name: properties_hs_owner_ids_bcc
+            description: ''
+            data_type: string
+          - name: properties_hs_owner_ids_cc
+            description: ''
+            data_type: string
+          - name: properties_hs_owner_ids_from
+            description: ''
+            data_type: string
+          - name: properties_hs_owner_ids_to
+            description: ''
+            data_type: string
+          - name: properties_hs_read_only
+            description: ''
+            data_type: boolean
+          - name: properties_hs_scs_association_status
+            description: ''
+            data_type: string
+          - name: properties_hs_scs_audit_id
+            description: ''
+            data_type: string
+          - name: properties_hs_shared_team_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_shared_user_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_was_imported
+            description: ''
+            data_type: boolean

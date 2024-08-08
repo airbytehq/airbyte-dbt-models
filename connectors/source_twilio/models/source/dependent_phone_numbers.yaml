@@ -1,0 +1,89 @@
+version: 2
+
+sources:
+  - name: source_twilio
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: dependent_phone_numbers
+        columns:
+          - name: sid
+            description: The unique identifier (SID) for the phone number resource.
+            data_type: string
+          - name: account_sid
+            description: The unique identifier for the account this phone number belongs to.
+            data_type: string
+          - name: friendly_name
+            description: A user-friendly name for the phone number.
+            data_type: string
+          - name: phone_number
+            description: The phone number itself.
+            data_type: string
+          - name: voice_url
+            description: The URL to call when a call comes in to the phone number.
+            data_type: string
+          - name: voice_method
+            description: The HTTP method to use for the voice URL.
+            data_type: string
+          - name: voice_fallback_url
+            description: The URL to call if an error occurs while handling incoming voice calls.
+            data_type: string
+          - name: voice_fallback_method
+            description: The HTTP method to use for the voice fallback URL.
+            data_type: string
+          - name: voice_caller_id_lookup
+            description: Indicates whether the phone number performs caller ID lookup on incoming calls.
+            data_type: boolean
+          - name: date_created
+            description: The date and time when the phone number was created.
+            data_type: string
+          - name: date_updated
+            description: The date and time when the phone number was last updated.
+            data_type: string
+          - name: sms_url
+            description: The URL to call when a message comes in to the phone number.
+            data_type: string
+          - name: sms_method
+            description: The HTTP method to use for the SMS URL.
+            data_type: string
+          - name: sms_fallback_url
+            description: The URL to call if an error occurs while handling incoming SMS messages.
+            data_type: string
+          - name: sms_fallback_method
+            description: The HTTP method to use for the SMS fallback URL.
+            data_type: string
+          - name: address_requirements
+            description: Requirements for the address associated with the phone number.
+            data_type: string
+          - name: capabilities
+            description: List of capabilities supported by the phone number.
+            data_type: object
+          - name: status_callback
+            description: The URL to send status callbacks to for events related to the phone number.
+            data_type: string
+          - name: status_callback_method
+            description: The HTTP method to use for status callback requests.
+            data_type: string
+          - name: api_version
+            description: The version of the Twilio API being used.
+            data_type: string
+          - name: voice_application_sid
+            description: The SID of the voice application to handle incoming calls.
+            data_type: string
+          - name: sms_application_sid
+            description: The SID of the SMS application to handle incoming messages.
+            data_type: string
+          - name: trunk_sid
+            description: The SID of the Trunk containing this phone number.
+            data_type: string
+          - name: emergency_status
+            description: The emergency status of the phone number.
+            data_type: string
+          - name: emergency_address_sid
+            description: The SID of the emergency address associated with the phone number.
+            data_type: string
+          - name: uri
+            description: The URI of the phone number resource.
+            data_type: string

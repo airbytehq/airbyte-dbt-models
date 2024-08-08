@@ -1,0 +1,17 @@
+version: 2
+
+sources:
+  - name: source_amplitude
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: active_users
+        columns:
+          - name: date
+            description: The date for which the active user data is reported
+            data_type: string
+          - name: statistics
+            description: The statistics related to the active users for the given date
+            data_type: object

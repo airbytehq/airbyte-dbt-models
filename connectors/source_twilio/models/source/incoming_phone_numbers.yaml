@@ -1,0 +1,116 @@
+version: 2
+
+sources:
+  - name: source_twilio
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: incoming_phone_numbers
+        columns:
+          - name: sid
+            description: The SID of this phone number.
+            data_type: string
+          - name: account_sid
+            description: The SID of the account that owns this phone number.
+            data_type: string
+          - name: friendly_name
+            description: A user-assigned friendly name for this phone number.
+            data_type: string
+          - name: phone_number
+            description: The phone number.
+            data_type: string
+          - name: voice_url
+            description: URL to make requests to when an incoming voice call is received.
+            data_type: string
+          - name: voice_method
+            description: HTTP method to use when making requests to the voice_url.
+            data_type: string
+          - name: voice_fallback_url
+            description: URL to make requests to when an error occurs while processing an incoming voice call.
+            data_type: string
+          - name: voice_fallback_method
+            description: HTTP method to use when making requests to the voice_fallback_url.
+            data_type: string
+          - name: voice_caller_id_lookup
+            description: Caller ID lookup setting for voice calls made from this phone number.
+            data_type: boolean
+          - name: date_created
+            description: The date and time when this phone number was created.
+            data_type: string
+          - name: date_updated
+            description: The date and time when this phone number was last updated.
+            data_type: string
+          - name: sms_url
+            description: URL to make requests to when an incoming SMS message is received.
+            data_type: string
+          - name: sms_method
+            description: HTTP method to use when making requests to the sms_url.
+            data_type: string
+          - name: sms_fallback_url
+            description: URL to make requests to when an error occurs while processing an incoming SMS message.
+            data_type: string
+          - name: sms_fallback_method
+            description: HTTP method to use when making requests to the sms_fallback_url.
+            data_type: string
+          - name: address_requirements
+            description: Indicates the address requirements for this phone number.
+            data_type: string
+          - name: beta
+            description: Flag indicating beta status of this phone number.
+            data_type: boolean
+          - name: capabilities
+            description: Capabilities of this phone number.
+            data_type: object
+          - name: voice_receive_mode
+            description: Receive mode setting for this phone number.
+            data_type: string
+          - name: status_callback
+            description: URL to make requests to when certain events happen related to this phone number.
+            data_type: string
+          - name: status_callback_method
+            description: HTTP method to use when making requests to the status_callback URL.
+            data_type: string
+          - name: api_version
+            description: The version of the Twilio API being used for this phone number.
+            data_type: string
+          - name: voice_application_sid
+            description: The SID of the application to handle incoming voice calls for this phone number.
+            data_type: string
+          - name: sms_application_sid
+            description: The SID of the application to handle incoming SMS messages for this phone number.
+            data_type: string
+          - name: origin
+            description: Indicates the origin of this phone number.
+            data_type: string
+          - name: trunk_sid
+            description: The SID of the trunk associated with this phone number.
+            data_type: string
+          - name: emergency_status
+            description: Emergency status of this phone number.
+            data_type: string
+          - name: emergency_address_sid
+            description: The SID of the emergency address associated with this phone number.
+            data_type: string
+          - name: emergency_address_status
+            description: Status of the emergency address associated with this phone number.
+            data_type: string
+          - name: address_sid
+            description: The SID of the address associated with this phone number.
+            data_type: string
+          - name: identity_sid
+            description: The SID of the identity associated with this phone number.
+            data_type: string
+          - name: bundle_sid
+            description: The SID of the bundle associated with this phone number.
+            data_type: string
+          - name: uri
+            description: The URI of this phone number.
+            data_type: string
+          - name: status
+            description: Status of this phone number.
+            data_type: string
+          - name: subresource_uris
+            description: URIs for related sub-resources.
+            data_type: object

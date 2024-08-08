@@ -1,0 +1,38 @@
+version: 2
+
+sources:
+  - name: source_mailchimp
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: unsubscribes
+        columns:
+          - name: email_id
+            description: The unique ID of the unsubscribed email.
+            data_type: string
+          - name: email_address
+            description: The email address of the subscriber who unsubscribed.
+            data_type: string
+          - name: merge_fields
+            description: Additional information about the subscriber.
+            data_type: object
+          - name: vip
+            description: Indicates whether the subscriber was a VIP.
+            data_type: boolean
+          - name: timestamp
+            description: The date and time when the subscriber unsubscribed.
+            data_type: string
+          - name: reason
+            description: The reason provided by the subscriber for unsubscribing.
+            data_type: string
+          - name: campaign_id
+            description: The ID of the campaign associated with the unsubscribe.
+            data_type: string
+          - name: list_id
+            description: The ID of the list from which the subscriber unsubscribed.
+            data_type: string
+          - name: list_is_active
+            description: Indicates whether the list is active or inactive.
+            data_type: boolean

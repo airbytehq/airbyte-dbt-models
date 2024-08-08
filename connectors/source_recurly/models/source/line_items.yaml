@@ -1,0 +1,77 @@
+version: 2
+sources:
+  - name: source_recurly
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: line_items
+        description: Metadata for line_items
+        columns:
+          - name: id
+            description: Unique identifier of the line item
+            data_type: string
+          - name: object
+            description: Type of object
+            data_type: string
+          - name: invoice_id
+            description: The ID of the invoice associated with the line item
+            data_type: string
+          - name: subscription_id
+            description: The ID of the subscription associated with the line item
+            data_type: string
+          - name: plan_id
+            description: The ID of the plan associated with the line item
+            data_type: string
+          - name: add_on_id
+            description: The ID of the add-on associated with the line item
+            data_type: string
+          - name: code
+            description: The code of the line item
+            data_type: string
+          - name: description
+            description: The description of the line item
+            data_type: string
+          - name: state
+            description: The state of the line item
+            data_type: string
+          - name: unit_amount
+            description: The unit amount of the line item
+            data_type: number
+          - name: quantity
+            description: The quantity of the line item
+            data_type: number
+          - name: subtotal
+            description: The subtotal of the line item
+            data_type: number
+          - name: discount
+            description: The discount applied to the line item
+            data_type: number
+          - name: tax
+            description: The tax applied to the line item
+            data_type: number
+          - name: total
+            description: The total amount of the line item
+            data_type: number
+          - name: unit_of_measure
+            description: The unit of measure of the line item
+            data_type: string
+          - name: created_at
+            description: Date and time when the line item was created
+            data_type: string
+          - name: updated_at
+            description: Date and time when the line item was last updated
+            data_type: string
+          - name: deleted_at
+            description: Date and time when the line item was deleted
+            data_type: string
+          - name: product_code
+            description: The product code associated with the line item
+            data_type: string
+          - name: external_account_code
+            description: The external account code associated with the line item
+            data_type: string
+          - name: external_account_id
+            description: The external account ID associated with the line item
+            data_type: string

@@ -1,0 +1,83 @@
+version: 2
+sources:
+  - name: source_recurly
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: billing_infos
+        description: Metadata for billing_infos
+        columns:
+          - name: id
+            description: Unique identifier of the billing information
+            data_type: string
+          - name: object
+            description: Type of object
+            data_type: string
+          - name: account_id
+            description: The ID of the account
+            data_type: string
+          - name: first_name
+            description: First name of the billing contact
+            data_type: string
+          - name: last_name
+            description: Last name of the billing contact
+            data_type: string
+          - name: company
+            description: Company of the billing contact
+            data_type: string
+          - name: address
+            description: Address of the billing contact
+            data_type: string
+          - name: city
+            description: City of the billing contact
+            data_type: string
+          - name: state
+            description: State of the billing contact
+            data_type: string
+          - name: zip
+            description: ZIP code of the billing contact
+            data_type: string
+          - name: country
+            description: Country of the billing contact
+            data_type: string
+          - name: phone
+            description: Phone number of the billing contact
+            data_type: string
+          - name: vat_number
+            description: VAT number of the billing contact
+            data_type: string
+          - name: account_number
+            description: Account number
+            data_type: string
+          - name: bank_code
+            description: Bank code
+            data_type: string
+          - name: routing_number
+            description: Routing number
+            data_type: string
+          - name: iban
+            description: IBAN
+            data_type: string
+          - name: number
+            description: Credit card number
+            data_type: string
+          - name: month
+            description: Expiry month of the credit card
+            data_type: string
+          - name: year
+            description: Expiry year of the credit card
+            data_type: string
+          - name: address1
+            description: Address line 1
+            data_type: string
+          - name: address2
+            description: Address line 2
+            data_type: string
+          - name: verified
+            description: Whether the billing information is verified
+            data_type: boolean
+          - name: payment_type
+            description: Type of payment method
+            data_type: string

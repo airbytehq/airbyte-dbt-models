@@ -1,0 +1,320 @@
+version: 2
+
+sources:
+  - name: source_facebook_marketing
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: ads_insights_action_product_id
+        columns:
+          - name: account_currency
+            description: Currency used for the account
+            data_type: string
+          - name: account_id
+            description: ID of the account
+            data_type: string
+          - name: account_name
+            description: Name of the account
+            data_type: string
+          - name: action_values
+            description: ''
+            data_type: array
+          - name: actions
+            description: ''
+            data_type: array
+          - name: ad_click_actions
+            description: ''
+            data_type: array
+          - name: ad_id
+            description: ID of the ad
+            data_type: string
+          - name: ad_impression_actions
+            description: ''
+            data_type: array
+          - name: ad_name
+            description: Name of the ad
+            data_type: string
+          - name: adset_id
+            description: ID of the ad set
+            data_type: string
+          - name: adset_name
+            description: Name of the ad set
+            data_type: string
+          - name: attribution_setting
+            description: How conversions are attributed
+            data_type: string
+          - name: auction_bid
+            description: Bid amount in the auction
+            data_type: number
+          - name: auction_competitiveness
+            description: Competitiveness level in the auction
+            data_type: number
+          - name: auction_max_competitor_bid
+            description: Maximum bid among the competitors in the auction
+            data_type: number
+          - name: buying_type
+            description: Type of buying
+            data_type: string
+          - name: campaign_id
+            description: ID of the campaign
+            data_type: string
+          - name: campaign_name
+            description: Name of the campaign
+            data_type: string
+          - name: canvas_avg_view_percent
+            description: Average percentage of the canvas viewed
+            data_type: number
+          - name: canvas_avg_view_time
+            description: Average time spent viewing the canvas
+            data_type: number
+          - name: catalog_segment_actions
+            description: ''
+            data_type: array
+          - name: catalog_segment_value
+            description: ''
+            data_type: array
+          - name: catalog_segment_value_mobile_purchase_roas
+            description: ''
+            data_type: array
+          - name: catalog_segment_value_omni_purchase_roas
+            description: ''
+            data_type: array
+          - name: catalog_segment_value_website_purchase_roas
+            description: ''
+            data_type: array
+          - name: clicks
+            description: Total number of clicks
+            data_type: integer
+          - name: conversion_rate_ranking
+            description: Ranking based on conversion rates
+            data_type: string
+          - name: conversion_values
+            description: ''
+            data_type: array
+          - name: conversions
+            description: ''
+            data_type: array
+          - name: converted_product_quantity
+            description: ''
+            data_type: array
+          - name: converted_product_value
+            description: ''
+            data_type: array
+          - name: cost_per_15_sec_video_view
+            description: ''
+            data_type: array
+          - name: cost_per_2_sec_continuous_video_view
+            description: ''
+            data_type: array
+          - name: cost_per_action_type
+            description: ''
+            data_type: array
+          - name: cost_per_ad_click
+            description: ''
+            data_type: array
+          - name: cost_per_conversion
+            description: ''
+            data_type: array
+          - name: cost_per_estimated_ad_recallers
+            description: Cost per estimated ad recallers
+            data_type: number
+          - name: cost_per_inline_link_click
+            description: Cost per inline link click
+            data_type: number
+          - name: cost_per_inline_post_engagement
+            description: Cost per inline post engagement
+            data_type: number
+          - name: cost_per_outbound_click
+            description: ''
+            data_type: array
+          - name: cost_per_thruplay
+            description: ''
+            data_type: array
+          - name: cost_per_unique_action_type
+            description: ''
+            data_type: array
+          - name: cost_per_unique_click
+            description: Cost per unique click
+            data_type: number
+          - name: cost_per_unique_inline_link_click
+            description: Cost per unique inline link click
+            data_type: number
+          - name: cost_per_unique_outbound_click
+            description: ''
+            data_type: array
+          - name: cpc
+            description: Cost per click
+            data_type: number
+          - name: cpm
+            description: Cost per thousand impressions
+            data_type: number
+          - name: cpp
+            description: Cost per thousand people reached
+            data_type: number
+          - name: created_time
+            description: Time when the data was created
+            data_type: string
+          - name: ctr
+            description: Click-through rate
+            data_type: number
+          - name: date_start
+            description: Start date of the data
+            data_type: string
+          - name: date_stop
+            description: End date of the data
+            data_type: string
+          - name: engagement_rate_ranking
+            description: Ranking based on engagement rate
+            data_type: string
+          - name: estimated_ad_recallers
+            description: Estimated ad recallers
+            data_type: number
+          - name: frequency
+            description: Average number of times each person saw the ad
+            data_type: number
+          - name: full_view_impressions
+            description: Impressions when the ad is fully viewed
+            data_type: number
+          - name: full_view_reach
+            description: Reach when the ad is fully viewed
+            data_type: number
+          - name: impressions
+            description: Total number of impressions
+            data_type: integer
+          - name: inline_link_click_ctr
+            description: Click-through rate for inline link clicks
+            data_type: number
+          - name: inline_link_clicks
+            description: Total number of inline link clicks
+            data_type: integer
+          - name: inline_post_engagement
+            description: Engagement on inline posts
+            data_type: integer
+          - name: instant_experience_clicks_to_open
+            description: Clicks to open instant experience
+            data_type: number
+          - name: instant_experience_clicks_to_start
+            description: Clicks to start instant experience
+            data_type: number
+          - name: instant_experience_outbound_clicks
+            description: ''
+            data_type: array
+          - name: mobile_app_purchase_roas
+            description: ''
+            data_type: array
+          - name: objective
+            description: Marketing objective
+            data_type: string
+          - name: optimization_goal
+            description: Goal for optimization
+            data_type: string
+          - name: outbound_clicks
+            description: ''
+            data_type: array
+          - name: outbound_clicks_ctr
+            description: ''
+            data_type: array
+          - name: purchase_roas
+            description: ''
+            data_type: array
+          - name: qualifying_question_qualify_answer_rate
+            description: Rate of qualifying question answer qualification
+            data_type: number
+          - name: quality_ranking
+            description: Ranking based on quality
+            data_type: string
+          - name: reach
+            description: Number of people who saw the ad
+            data_type: integer
+          - name: social_spend
+            description: Spend in social channels
+            data_type: number
+          - name: spend
+            description: Total amount spent
+            data_type: number
+          - name: unique_actions
+            description: ''
+            data_type: array
+          - name: unique_clicks
+            description: Total number of unique clicks
+            data_type: integer
+          - name: unique_ctr
+            description: Unique click-through rate
+            data_type: number
+          - name: unique_inline_link_click_ctr
+            description: Unique click-through rate for inline link clicks
+            data_type: number
+          - name: unique_inline_link_clicks
+            description: Total number of unique inline link clicks
+            data_type: integer
+          - name: unique_link_clicks_ctr
+            description: Unique click-through rate for link clicks
+            data_type: number
+          - name: unique_outbound_clicks
+            description: ''
+            data_type: array
+          - name: unique_outbound_clicks_ctr
+            description: ''
+            data_type: array
+          - name: updated_time
+            description: Time when the data was updated
+            data_type: string
+          - name: video_15_sec_watched_actions
+            description: ''
+            data_type: array
+          - name: video_30_sec_watched_actions
+            description: ''
+            data_type: array
+          - name: video_avg_time_watched_actions
+            description: ''
+            data_type: array
+          - name: video_continuous_2_sec_watched_actions
+            description: ''
+            data_type: array
+          - name: video_p100_watched_actions
+            description: ''
+            data_type: array
+          - name: video_p25_watched_actions
+            description: ''
+            data_type: array
+          - name: video_p50_watched_actions
+            description: ''
+            data_type: array
+          - name: video_p75_watched_actions
+            description: ''
+            data_type: array
+          - name: video_p95_watched_actions
+            description: ''
+            data_type: array
+          - name: video_play_actions
+            description: ''
+            data_type: array
+          - name: video_play_curve_actions
+            description: ''
+            data_type: array
+          - name: video_play_retention_0_to_15s_actions
+            description: ''
+            data_type: array
+          - name: video_play_retention_20_to_60s_actions
+            description: ''
+            data_type: array
+          - name: video_play_retention_graph_actions
+            description: ''
+            data_type: array
+          - name: video_time_watched_actions
+            description: ''
+            data_type: array
+          - name: website_ctr
+            description: ''
+            data_type: array
+          - name: website_purchase_roas
+            description: ''
+            data_type: array
+          - name: wish_bid
+            description: Bid based on the wish to achieve certain results
+            data_type: number
+          - name: product_id
+            description: The identifier of the product featured in the ad.
+            data_type: string

@@ -1,0 +1,74 @@
+version: 2
+
+sources:
+  - name: source_shopify
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: discount_codes
+        columns:
+          - name: id
+            description: The unique identifier for the discount code
+            data_type: integer
+          - name: price_rule_id
+            description: The identifier of the price rule associated with the discount code
+            data_type: integer
+          - name: code
+            description: The discount code that customers can use during checkout to apply the discount
+            data_type: string
+          - name: usage_count
+            description: The number of times the discount code has been used by customers
+            data_type: integer
+          - name: created_at
+            description: The date and time when the discount code was created
+            data_type: string
+          - name: createdBy
+            description: The application that created the discount reedem code.
+            data_type: object
+          - name: updated_at
+            description: The date and time when the discount code was last updated
+            data_type: string
+          - name: summary
+            description: A brief summary or description of the discount code
+            data_type: string
+          - name: discount_type
+            description: The type of discount applied by the discount code, such as a percentage or fixed amount off
+            data_type: string
+          - name: typename
+            description: The typename of the discount
+            data_type: string
+          - name: starts_at
+            description: The date and time when the discount code is activated.
+            data_type: string
+          - name: ends_at
+            description: The date and time when the discount code is deactivated.
+            data_type: string
+          - name: status
+            description: The status of the Discount
+            data_type: string
+          - name: title
+            description: The title of the discount.
+            data_type: string
+          - name: usage_limit
+            description: The maximum number of times that the discount can be used.
+            data_type: integer
+          - name: applies_once_per_customer
+            description: Whether the discount can be applied only once per customer.
+            data_type: boolean
+          - name: async_usage_count
+            description: The number of times that the discount has been used.
+            data_type: integer
+          - name: codes_count
+            description: The number of redeem codes for the discount.
+            data_type: object
+          - name: total_sales
+            description: The total sales from orders where the discount was used.
+            data_type: object
+          - name: admin_graphql_api_id
+            description: The unique identifier for the discount code in the Shopify Admin GraphQL API
+            data_type: string
+          - name: shop_url
+            description: The URL of the shop where the discount code is applicable
+            data_type: string

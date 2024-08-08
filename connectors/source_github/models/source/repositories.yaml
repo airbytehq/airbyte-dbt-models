@@ -1,0 +1,257 @@
+version: 2
+
+sources:
+  - name: source_github
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: repositories
+        columns:
+          - name: id
+            description: Unique identifier of the repository.
+            data_type: integer
+          - name: node_id
+            description: Node ID of the repository.
+            data_type: string
+          - name: name
+            description: Name of the repository.
+            data_type: string
+          - name: full_name
+            description: Full name of the repository.
+            data_type: string
+          - name: owner
+            description: ""
+            data_type: object
+          - name: private
+            description: Indicates if the repository is private.
+            data_type: boolean
+          - name: html_url
+            description: URL of the repository's GitHub page.
+            data_type: string
+          - name: description
+            description: Brief description of the repository.
+            data_type: string
+          - name: fork
+            description: Indicates if the repository is a fork.
+            data_type: boolean
+          - name: url
+            description: URL of the repository.
+            data_type: string
+          - name: archive_url
+            description: URL to archive the repository.
+            data_type: string
+          - name: assignees_url
+            description: URL to fetch assignees for issues in the repository.
+            data_type: string
+          - name: blobs_url
+            description: URL to fetch blobs within the repository.
+            data_type: string
+          - name: branches_url
+            description: URL to fetch branches within the repository.
+            data_type: string
+          - name: collaborators_url
+            description: URL to fetch collaborators of the repository.
+            data_type: string
+          - name: comments_url
+            description: URL to fetch comments within the repository.
+            data_type: string
+          - name: commits_url
+            description: URL to fetch commits within the repository.
+            data_type: string
+          - name: compare_url
+            description: URL to compare references within the repository.
+            data_type: string
+          - name: contents_url
+            description: URL to fetch contents within the repository.
+            data_type: string
+          - name: contributors_url
+            description: URL to fetch contributors to the repository.
+            data_type: string
+          - name: deployments_url
+            description: URL to fetch deployments related to the repository.
+            data_type: string
+          - name: downloads_url
+            description: URL to fetch downloads linked to the repository.
+            data_type: string
+          - name: events_url
+            description: URL to fetch events related to the repository.
+            data_type: string
+          - name: forks_url
+            description: URL to fetch forks of the repository.
+            data_type: string
+          - name: git_commits_url
+            description: URL to fetch git commits within the repository.
+            data_type: string
+          - name: git_refs_url
+            description: URL to fetch git references within the repository.
+            data_type: string
+          - name: git_tags_url
+            description: URL to fetch git tags within the repository.
+            data_type: string
+          - name: git_url
+            description: URL for Git protocol to interact with the repository.
+            data_type: string
+          - name: issue_comment_url
+            description: URL to fetch issue comments within the repository.
+            data_type: string
+          - name: issue_events_url
+            description: URL to fetch issue events within the repository.
+            data_type: string
+          - name: issues_url
+            description: URL to fetch issues within the repository.
+            data_type: string
+          - name: keys_url
+            description: URL to fetch keys associated with the repository.
+            data_type: string
+          - name: labels_url
+            description: URL to fetch labels associated with the repository.
+            data_type: string
+          - name: languages_url
+            description: URL to fetch languages used in the repository.
+            data_type: string
+          - name: merges_url
+            description: URL to fetch merges related to the repository.
+            data_type: string
+          - name: milestones_url
+            description: URL to fetch milestones within the repository.
+            data_type: string
+          - name: notifications_url
+            description: URL to manage notifications for the repository.
+            data_type: string
+          - name: pulls_url
+            description: URL to fetch pull requests within the repository.
+            data_type: string
+          - name: releases_url
+            description: URL to fetch releases related to the repository.
+            data_type: string
+          - name: ssh_url
+            description: SSH URL of the repository.
+            data_type: string
+          - name: stargazers_url
+            description: URL to fetch users who starred the repository.
+            data_type: string
+          - name: statuses_url
+            description: URL to fetch commit statuses within the repository.
+            data_type: string
+          - name: subscribers_url
+            description: URL to fetch subscribers of the repository.
+            data_type: string
+          - name: subscription_url
+            description: URL to manage subscriptions to notifications for the repository.
+            data_type: string
+          - name: tags_url
+            description: URL to fetch tags within the repository.
+            data_type: string
+          - name: teams_url
+            description: URL to manage repository teams.
+            data_type: string
+          - name: trees_url
+            description: URL to fetch trees within the repository.
+            data_type: string
+          - name: clone_url
+            description: URL to clone the repository.
+            data_type: string
+          - name: mirror_url
+            description: URL of the mirror repository.
+            data_type: string
+          - name: hooks_url
+            description: URL to manage webhooks for the repository.
+            data_type: string
+          - name: svn_url
+            description: SVN URL of the repository.
+            data_type: string
+          - name: homepage
+            description: URL of the repository's homepage.
+            data_type: string
+          - name: language
+            description: Main programming language used in the repository.
+            data_type: string
+          - name: forks_count
+            description: Count of forks for the repository.
+            data_type: integer
+          - name: stargazers_count
+            description: Number of stars the repository has received.
+            data_type: integer
+          - name: watchers_count
+            description: Count of watchers for the repository.
+            data_type: integer
+          - name: size
+            description: Size of the repository in kilobytes.
+            data_type: integer
+          - name: default_branch
+            description: Default branch of the repository.
+            data_type: string
+          - name: open_issues_count
+            description: Count of open issues in the repository.
+            data_type: integer
+          - name: is_template
+            description: Indicates if the repository is a template.
+            data_type: boolean
+          - name: topics
+            description: Topics associated with the repository.
+            data_type: array
+          - name: license
+            description: License information of the repository.
+            data_type: object
+          - name: has_issues
+            description: Indicates if the repository has issues enabled.
+            data_type: boolean
+          - name: has_projects
+            description: Indicates if the repository has projects enabled.
+            data_type: boolean
+          - name: has_wiki
+            description: Indicates if the repository has a wiki enabled.
+            data_type: boolean
+          - name: has_pages
+            description: Indicates if the repository has GitHub Pages enabled.
+            data_type: boolean
+          - name: has_downloads
+            description: Indicates if the repository has downloads available.
+            data_type: boolean
+          - name: archived
+            description: Indicates if the repository is archived.
+            data_type: boolean
+          - name: disabled
+            description: Indicates if the repository is disabled.
+            data_type: boolean
+          - name: visibility
+            description: Visibility status of the repository.
+            data_type: string
+          - name: pushed_at
+            description: Date and time when the repository was last pushed to.
+            data_type: string
+          - name: created_at
+            description: Date and time when the repository was created.
+            data_type: string
+          - name: updated_at
+            description: Date and time when the repository was last updated.
+            data_type: string
+          - name: permissions
+            description: Permissions granted to different roles for the repository.
+            data_type: object
+          - name: allow_forking
+            description: Indicates if forking is allowed for the repository.
+            data_type: boolean
+          - name: forks
+            description: Forks information related to the repository.
+            data_type: integer
+          - name: has_discussions
+            description: Indicates if the repository has discussions.
+            data_type: boolean
+          - name: open_issues
+            description: Number of open issues in the repository.
+            data_type: integer
+          - name: organization
+            description: Organization the repository belongs to.
+            data_type: string
+          - name: watchers
+            description: Watchers of the repository.
+            data_type: integer
+          - name: web_commit_signoff_required
+            description: Indicates if web commit sign-off is required for contributions.
+            data_type: boolean
+          - name: security_and_analysis
+            description: Security and analysis settings of the repository.
+            data_type: object

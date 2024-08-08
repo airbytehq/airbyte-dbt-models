@@ -1,0 +1,68 @@
+version: 2
+
+sources:
+  - name: source_twilio
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: verify_services
+        columns:
+          - name: default_template_sid
+            description: The unique identifier for the default template used for verification messages.
+            data_type: string
+          - name: tts_name
+            description: The name used for text-to-speech (TTS) in verification calls.
+            data_type: string
+          - name: psd2_enabled
+            description: Indicates if PSD2 (Payment Services Directive 2) verification is enabled.
+            data_type: boolean
+          - name: do_not_share_warning_enabled
+            description: Indicates if the 'do not share' warning is enabled for verification codes.
+            data_type: boolean
+          - name: mailer_sid
+            description: Unique identifier for the mailer service associated with the verify service.
+            data_type: string
+          - name: friendly_name
+            description: A user-friendly name for the verify service.
+            data_type: string
+          - name: url
+            description: The URL associated with the verify service.
+            data_type: string
+          - name: account_sid
+            description: Unique identifier for the account associated with the verify service.
+            data_type: string
+          - name: date_updated
+            description: The date and time when the verify service was last updated.
+            data_type: string
+          - name: totp
+            description: Object containing configuration settings for Time-based One-Time Password (TOTP) verification method.
+            data_type: object
+          - name: code_length
+            description: The number of digits in the verification code sent to users.
+            data_type: number
+          - name: custom_code_enabled
+            description: Indicates whether custom verification codes are enabled.
+            data_type: boolean
+          - name: sid
+            description: Unique identifier for the verify service.
+            data_type: string
+          - name: push
+            description: Object containing configuration settings for push verification method.
+            data_type: object
+          - name: date_created
+            description: The date and time when the verify service was created.
+            data_type: string
+          - name: dtmf_input_required
+            description: Indicates whether DTMF input is required during verification.
+            data_type: boolean
+          - name: skip_sms_to_landlines
+            description: Indicates whether SMS messages are skipped for landline numbers during verification.
+            data_type: boolean
+          - name: lookup_enabled
+            description: Indicates if phone number lookup is enabled for the verify service.
+            data_type: boolean
+          - name: links
+            description: Object containing related hyperlinks for verify_services data.
+            data_type: object

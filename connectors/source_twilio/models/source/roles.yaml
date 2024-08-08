@@ -1,0 +1,38 @@
+version: 2
+
+sources:
+  - name: source_twilio
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: roles
+        columns:
+          - name: sid
+            description: The unique identifier for the role.
+            data_type: string
+          - name: account_sid
+            description: The unique identifier for the account associated with the role.
+            data_type: string
+          - name: service_sid
+            description: The unique identifier for the service associated with the role.
+            data_type: string
+          - name: friendly_name
+            description: A user-friendly name assigned to the role.
+            data_type: string
+          - name: type
+            description: The type or category of the role.
+            data_type: string
+          - name: permissions
+            description: The list of permissions assigned to the role.
+            data_type: array
+          - name: date_created
+            description: The date and time when the role was created.
+            data_type: string
+          - name: date_updated
+            description: The date and time when the role was last updated.
+            data_type: string
+          - name: url
+            description: The URL for accessing the role data.
+            data_type: string

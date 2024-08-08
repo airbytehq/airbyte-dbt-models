@@ -1,0 +1,32 @@
+version: 2
+
+sources:
+  - name: source_github
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: commit_comment_reactions
+        columns:
+          - name: id
+            description: ""
+            data_type: integer
+          - name: node_id
+            description: ""
+            data_type: string
+          - name: content
+            description: ""
+            data_type: string
+          - name: created_at
+            description: ""
+            data_type: string
+          - name: user
+            description: ""
+            data_type: object
+          - name: repository
+            description: ""
+            data_type: string
+          - name: comment_id
+            description: ""
+            data_type: integer

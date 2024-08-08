@@ -1,0 +1,89 @@
+version: 2
+
+sources:
+  - name: source_hubspot
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: contact_lists
+        columns:
+          - name: parentId
+            description: The ID of the parent list, if applicable.
+            data_type: integer
+          - name: metaData
+            description: Additional metadata related to the fetched contact lists
+            data_type: object
+          - name: metaData_processing
+            description: Processing status related to list metadata.
+            data_type: string
+          - name: metaData_size
+            description: Size of the list metadata.
+            data_type: integer
+          - name: metaData_error
+            description: Error information related to list metadata.
+            data_type: string
+          - name: metaData_lastProcessingStateChangeAt
+            description: Timestamp of the last processing state change for metadata.
+            data_type: integer
+          - name: metaData_lastSizeChangeAt
+            description: Timestamp of the last size change for metadata.
+            data_type: integer
+          - name: metaData_listReferencesCount
+            description: References count related to list metadata.
+            data_type: integer
+          - name: metaData_parentFolderId
+            description: Parent folder ID associated with list metadata.
+            data_type: integer
+          - name: dynamic
+            description: Identifies if the contact list is dynamic in nature.
+            data_type: boolean
+          - name: name
+            description: The name or title of the contact list.
+            data_type: string
+          - name: filters
+            description: Contains filter criteria to fetch contact lists
+            data_type: array
+          - name: ilsFilterBranch
+            description: Indicates the branch of the filter applied.
+            data_type: string
+          - name: internal
+            description: Specifies if the contact list is internal (not accessible to customers).
+            data_type: boolean
+          - name: authorId
+            description: The ID of the user who authored or created the contact list.
+            data_type: integer
+          - name: limitExempt
+            description: Specifies if any limits are exempted for the contact list.
+            data_type: boolean
+          - name: teamIds
+            description: The IDs of teams that have access to the contact list.
+            data_type: array
+          - name: portalId
+            description: The ID of the portal to which the contact list belongs.
+            data_type: integer
+          - name: createdAt
+            description: The timestamp when the contact list was created.
+            data_type: integer
+          - name: listId
+            description: The unique ID of the contact list.
+            data_type: integer
+          - name: updatedAt
+            description: The timestamp of the last update to the contact list.
+            data_type: integer
+          - name: internalListId
+            description: The internal ID of the contact list.
+            data_type: integer
+          - name: readOnly
+            description: Specifies if the list is read-only or not.
+            data_type: boolean
+          - name: deleteable
+            description: Specifies if the contact list can be deleted.
+            data_type: boolean
+          - name: listType
+            description: Specifies the type of list, e.g., static or dynamic.
+            data_type: string
+          - name: archived
+            description: Indicates if the contact list is archived or not.
+            data_type: boolean

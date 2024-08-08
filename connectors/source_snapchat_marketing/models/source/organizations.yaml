@@ -1,0 +1,77 @@
+version: 2
+
+sources:
+  - name: source_snapchat_marketing
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: organizations
+        columns:
+          - name: id
+            description: Unique identifier for the organization record.
+            data_type: string
+          - name: updated_at
+            description: Timestamp indicating the last update date of the organization record.
+            data_type: string
+          - name: created_at
+            description: Timestamp indicating the creation date of the organization record.
+            data_type: string
+          - name: name
+            description: The name of the organization.
+            data_type: string
+          - name: country
+            description: The country where the organization is located.
+            data_type: string
+          - name: postal_code
+            description: The postal code of the organization's location.
+            data_type: string
+          - name: locality
+            description: The locality or city where the organization is situated.
+            data_type: string
+          - name: contact_name
+            description: The name of the contact person within the organization.
+            data_type: string
+          - name: contact_email
+            description: The email address used for contact purposes.
+            data_type: string
+          - name: contact_phone
+            description: The phone number of the contact person within the organization.
+            data_type: string
+          - name: address_line_1
+            description: The first line of the organization's address.
+            data_type: string
+          - name: administrative_district_level_1
+            description: The first-level administrative district of the organization's location.
+            data_type: string
+          - name: accepted_term_version
+            description: The version of the terms and conditions accepted by the organization.
+            data_type: string
+          - name: contact_phone_optin
+            description: Flag indicating if contact person has opted in for phone contact.
+            data_type: boolean
+          - name: configuration_settings
+            description: Settings related to organization configurations
+            data_type: object
+          - name: type
+            description: The type or category of the organization.
+            data_type: string
+          - name: state
+            description: The state or region where the organization is located.
+            data_type: string
+          - name: roles
+            description: List of roles assigned to the organization.
+            data_type: array
+          - name: my_display_name
+            description: The public display name of the organization.
+            data_type: string
+          - name: my_invited_email
+            description: Email address of the member invited to the organization.
+            data_type: string
+          - name: my_member_id
+            description: Unique identifier of the member within the organization.
+            data_type: string
+          - name: createdByCaller
+            description: Record of the creator of the organization within the system.
+            data_type: boolean

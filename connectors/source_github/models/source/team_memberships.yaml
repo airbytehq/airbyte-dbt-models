@@ -1,0 +1,29 @@
+version: 2
+
+sources:
+  - name: source_github
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: team_memberships
+        columns:
+          - name: state
+            description: The current state of the team membership (active, pending, etc.).
+            data_type: string
+          - name: role
+            description: The role or position of the user within the team.
+            data_type: string
+          - name: url
+            description: The URL link to access more details about the team membership.
+            data_type: string
+          - name: organization
+            description: The name of the organization the team membership belongs to.
+            data_type: string
+          - name: team_slug
+            description: The unique identifier (slug) of the team the user belongs to.
+            data_type: string
+          - name: username
+            description: The username of the user associated with the team membership.
+            data_type: string

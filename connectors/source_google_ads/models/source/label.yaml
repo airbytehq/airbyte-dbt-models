@@ -1,0 +1,32 @@
+version: 2
+
+sources:
+  - name: source_google_ads
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: label
+        columns:
+          - name: customer.id
+            description: The unique identifier of the customer associated with the label.
+            data_type: integer
+          - name: label.id
+            description: The unique identifier of the label.
+            data_type: integer
+          - name: label.name
+            description: The name associated with the label.
+            data_type: string
+          - name: label.resource_name
+            description: The resource name of the label.
+            data_type: string
+          - name: label.status
+            description: The status of the label.
+            data_type: string
+          - name: label.text_label.background_color
+            description: The background color of the text label.
+            data_type: string
+          - name: label.text_label.description
+            description: The description associated with the text label.
+            data_type: string

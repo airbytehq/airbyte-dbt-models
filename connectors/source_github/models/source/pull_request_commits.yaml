@@ -1,0 +1,44 @@
+version: 2
+
+sources:
+  - name: source_github
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: pull_request_commits
+        columns:
+          - name: sha
+            description: SHA of the commit.
+            data_type: string
+          - name: node_id
+            description: Node ID of the commit.
+            data_type: string
+          - name: commit
+            description: Details about the commit related to the pull request.
+            data_type: object
+          - name: url
+            description: URL to access more details about the commit.
+            data_type: string
+          - name: html_url
+            description: URL to view the commit in a web browser.
+            data_type: string
+          - name: comments_url
+            description: URL to retrieve comments related to the commit.
+            data_type: string
+          - name: author
+            description: ""
+            data_type: object
+          - name: committer
+            description: ""
+            data_type: object
+          - name: parents
+            description: List of parent commits associated with the commit.
+            data_type: array
+          - name: repository
+            description: Details about the repository where the commit was made.
+            data_type: string
+          - name: pull_number
+            description: Number associated with the pull request.
+            data_type: integer

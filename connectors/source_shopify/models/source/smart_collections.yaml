@@ -1,0 +1,50 @@
+version: 2
+
+sources:
+  - name: source_shopify
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: smart_collections
+        columns:
+          - name: id
+            description: The unique identifier for the smart collection
+            data_type: integer
+          - name: handle
+            description: The human-friendly URL for the collection
+            data_type: string
+          - name: title
+            description: The title or name of the smart collection
+            data_type: string
+          - name: updated_at
+            description: The date and time when the collection was last updated
+            data_type: string
+          - name: body_html
+            description: The description or details of the smart collection
+            data_type: string
+          - name: published_at
+            description: The date and time when the collection was published
+            data_type: string
+          - name: sort_order
+            description: The order in which the collection is displayed
+            data_type: string
+          - name: template_suffix
+            description: The suffix added to the collection template filename
+            data_type: string
+          - name: disjunctive
+            description: Indicates whether the collection uses disjunctive filtering
+            data_type: boolean
+          - name: rules
+            description: The filtering rules that determine which products are included in the collection
+            data_type: array
+          - name: published_scope
+            description: The visibility of the collection to different sales channels
+            data_type: string
+          - name: admin_graphql_api_id
+            description: The unique identifier for the collection in the GraphQL Admin API
+            data_type: string
+          - name: shop_url
+            description: The URL of the shop where the smart collection belongs
+            data_type: string

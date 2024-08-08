@@ -1,0 +1,29 @@
+version: 2
+
+sources:
+  - name: source_mailchimp
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: interests
+        columns:
+          - name: category_id
+            description: Unique identifier for the category to which this interest belongs.
+            data_type: string
+          - name: list_id
+            description: Unique identifier for the list associated with this interest.
+            data_type: string
+          - name: id
+            description: Unique identifier for this specific interest.
+            data_type: string
+          - name: name
+            description: Name or label of the interest.
+            data_type: string
+          - name: subscriber_count
+            description: Number of subscribers who have selected this interest.
+            data_type: string
+          - name: display_order
+            description: Numeric value representing the display order of this interest within its category.
+            data_type: integer

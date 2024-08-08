@@ -1,0 +1,65 @@
+version: 2
+
+sources:
+  - name: source_zendesk_support
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: organization_fields
+        columns:
+          - name: active
+            description: Indicates whether the organization field is currently active or not
+            data_type: boolean
+          - name: created_at
+            description: The date and time when the organization field was created
+            data_type: string
+          - name: custom_field_options
+            description: The list of custom field options available for this organization field
+            data_type: array
+          - name: description
+            description: The description of the organization field
+            data_type: string
+          - name: id
+            description: The unique identifier of the organization field
+            data_type: integer
+          - name: key
+            description: The key associated with the organization field
+            data_type: string
+          - name: position
+            description: The position of the organization field
+            data_type: integer
+          - name: raw_description
+            description: The raw description of the organization field
+            data_type: string
+          - name: raw_title
+            description: The raw title of the organization field
+            data_type: string
+          - name: regexp_for_validation
+            description: Regular expression for validation of the organization field data
+            data_type: string
+          - name: relationship_filter
+            description: Relationship filter associated with the organization field
+            data_type: object
+          - name: relationship_target_type
+            description: The target type of the relationship for this organization field
+            data_type: string
+          - name: system
+            description: Indicates whether the organization field is a system field or not
+            data_type: boolean
+          - name: tag
+            description: Tags associated with the organization field
+            data_type: string
+          - name: title
+            description: The title of the organization field
+            data_type: string
+          - name: type
+            description: The type of the organization field data
+            data_type: string
+          - name: updated_at
+            description: The date and time when the organization field was last updated
+            data_type: string
+          - name: url
+            description: The URL associated with the organization field
+            data_type: string

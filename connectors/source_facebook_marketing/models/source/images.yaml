@@ -1,0 +1,62 @@
+version: 2
+
+sources:
+  - name: source_facebook_marketing
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: images
+        columns:
+          - name: account_id
+            description: The unique identifier of the Facebook advertising account associated with the image data.
+            data_type: string
+          - name: id
+            description: The unique identifier of the image data.
+            data_type: string
+          - name: name
+            description: The name or label assigned to the image.
+            data_type: string
+          - name: creatives
+            description: Additional information or metadata related to the image.
+            data_type: array
+          - name: original_height
+            description: The original height dimension of the image in pixels.
+            data_type: integer
+          - name: original_width
+            description: The original width dimension of the image in pixels.
+            data_type: integer
+          - name: permalink_url
+            description: The permanent URL where the image can be accessed or viewed.
+            data_type: string
+          - name: status
+            description: The current status or state of the image data.
+            data_type: string
+          - name: url
+            description: The URL pointing to the image file.
+            data_type: string
+          - name: created_time
+            description: The date and time when the image was initially created.
+            data_type: string
+          - name: hash
+            description: A unique hash value generated for the image.
+            data_type: string
+          - name: url_128
+            description: The URL pointing to a lower resolution (128px) version of the image file.
+            data_type: string
+          - name: is_associated_creatives_in_adgroups
+            description: Indicates if the image is associated with creatives in ad groups.
+            data_type: boolean
+          - name: filename
+            description: The name of the file containing the image data.
+            data_type: string
+          - name: updated_time
+            description: The date and time when the image data was last updated.
+            data_type: string
+          - name: height
+            description: The height dimension of the image in pixels.
+            data_type: integer
+          - name: width
+            description: The width dimension of the image in pixels.
+            data_type: integer

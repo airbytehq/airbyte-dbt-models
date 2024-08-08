@@ -1,0 +1,98 @@
+version: 2
+
+sources:
+  - name: source_tiktok_marketing
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: advertisers
+        columns:
+          - name: advertiser_id
+            description: Unique identifier for the advertiser.
+            data_type: integer
+          - name: name
+            description: The name of the advertiser or company.
+            data_type: string
+          - name: address
+            description: The physical address of the advertiser.
+            data_type: string
+          - name: company
+            description: The name of the company associated with the advertiser.
+            data_type: string
+          - name: contacter
+            description: The contact person for the advertiser.
+            data_type: string
+          - name: country
+            description: The country where the advertiser is located.
+            data_type: string
+          - name: currency
+            description: The currency used for transactions in the account.
+            data_type: string
+          - name: description
+            description: A brief description or bio of the advertiser or company.
+            data_type: string
+          - name: email
+            description: The email address associated with the advertiser.
+            data_type: string
+          - name: industry
+            description: The industry or sector the advertiser operates in.
+            data_type: string
+          - name: language
+            description: The preferred language of communication for the advertiser.
+            data_type: string
+          - name: license_no
+            description: The license number of the advertiser.
+            data_type: string
+          - name: license_url
+            description: The URL link to the advertiser's license documentation.
+            data_type: string
+          - name: cellphone_number
+            description: The cellphone number of the advertiser.
+            data_type: string
+          - name: promotion_area
+            description: The specific area or region where the advertiser focuses promotion.
+            data_type: string
+          - name: rejection_reason
+            description: Reason for any advertisement rejection by the platform.
+            data_type: string
+          - name: role
+            description: The role or position of the advertiser within the company.
+            data_type: string
+          - name: status
+            description: The current status of the advertiser's account.
+            data_type: string
+          - name: timezone
+            description: The timezone setting for the advertiser's activities.
+            data_type: string
+          - name: balance
+            description: The current balance in the advertiser's account.
+            data_type: number
+          - name: create_time
+            description: The timestamp when the advertiser account was created.
+            data_type: integer
+          - name: telephone_number
+            description: The telephone number of the advertiser.
+            data_type: string
+          - name: display_timezone
+            description: The timezone for display purposes.
+            data_type: string
+          - name: promotion_center_province
+            description: The province or state at the center of the advertiser's promotion activities.
+            data_type: string
+          - name: advertiser_account_type
+            description: The type of advertiser's account (e.g., individual, business).
+            data_type: string
+          - name: license_city
+            description: The city where the advertiser's license is registered.
+            data_type: string
+          - name: brand
+            description: The brand name associated with the advertiser.
+            data_type: string
+          - name: license_province
+            description: The province or state where the advertiser's license is registered.
+            data_type: string
+          - name: promotion_center_city
+            description: The city at the center of the advertiser's promotion activities.
+            data_type: string

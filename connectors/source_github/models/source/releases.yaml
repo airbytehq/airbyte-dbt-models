@@ -1,0 +1,83 @@
+version: 2
+
+sources:
+  - name: source_github
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: releases
+        columns:
+          - name: repository
+            description: The repository associated with the release.
+            data_type: string
+          - name: url
+            description: The URL for the release.
+            data_type: string
+          - name: html_url
+            description: The HTML URL for the release.
+            data_type: string
+          - name: assets_url
+            description: The URL to fetch information about the assets linked to this release.
+            data_type: string
+          - name: upload_url
+            description: The URL for uploading assets to the release.
+            data_type: string
+          - name: tarball_url
+            description: The URL for the tarball file of the release.
+            data_type: string
+          - name: zipball_url
+            description: The URL for the zipball file of the release.
+            data_type: string
+          - name: id
+            description: The unique identifier for the release
+            data_type: integer
+          - name: node_id
+            description: The node ID of the release.
+            data_type: string
+          - name: tag_name
+            description: The tag name of the release.
+            data_type: string
+          - name: target_commitish
+            description: The commit SHA or branch name for the release.
+            data_type: string
+          - name: name
+            description: The name of the release.
+            data_type: string
+          - name: body
+            description: The body of the release.
+            data_type: string
+          - name: draft
+            description: Indicates if the release is a draft.
+            data_type: boolean
+          - name: prerelease
+            description: Indicates if the release is a prerelease.
+            data_type: boolean
+          - name: created_at
+            description: The timestamp of when the release was created.
+            data_type: string
+          - name: published_at
+            description: The timestamp of when the release was published.
+            data_type: string
+          - name: author
+            description: ""
+            data_type: object
+          - name: assets
+            description: List of assets (e.g., downloadable files) associated with the release
+            data_type: array
+          - name: body_html
+            description: The HTML body of the release.
+            data_type: string
+          - name: body_text
+            description: The text body of the release.
+            data_type: string
+          - name: mentions_count
+            description: The count of mentions in the release.
+            data_type: integer
+          - name: discussion_url
+            description: The URL for the discussion related to the release.
+            data_type: string
+          - name: reactions
+            description: ""
+            data_type: object

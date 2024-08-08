@@ -1,0 +1,53 @@
+version: 2
+
+sources:
+  - name: source_shopify
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: order_risks
+        columns:
+          - name: id
+            description: Unique identifier for the order risk entry.
+            data_type: integer
+          - name: order_id
+            description: The identifier of the order to which the risk is related.
+            data_type: integer
+          - name: checkout_id
+            description: The unique identifier of the checkout associated with the order.
+            data_type: integer
+          - name: source
+            description: Source of the risk notification.
+            data_type: string
+          - name: score
+            description: Numerical score indicating the level of risk.
+            data_type: number
+          - name: recommendation
+            description: Suggested action to mitigate the risk.
+            data_type: string
+          - name: display
+            description: Flag to determine if the risk should be displayed to the merchant.
+            data_type: boolean
+          - name: cause_cancel
+            description: Reason indicating why the order is at risk of cancellation.
+            data_type: boolean
+          - name: message
+            description: Description of the risk associated with the order.
+            data_type: string
+          - name: merchant_message
+            description: Message shown to the merchant regarding the risk.
+            data_type: string
+          - name: admin_graphql_api_id
+            description: The original id reference for the shopify api
+            data_type: string
+          - name: updated_at
+            description: The date and time when the order and the risk was last updated
+            data_type: string
+          - name: assessments
+            description: The risk assessments for an order.
+            data_type: array
+          - name: shop_url
+            description: URL of the shop where the order was placed.
+            data_type: string

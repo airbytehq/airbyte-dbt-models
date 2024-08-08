@@ -1,0 +1,101 @@
+version: 2
+
+sources:
+  - name: source_salesforce
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: Dashboard
+        columns:
+          - name: Id
+            description: ""
+            data_type: string
+          - name: IsDeleted
+            description: ""
+            data_type: boolean
+          - name: FolderId
+            description: ""
+            data_type: string
+          - name: FolderName
+            description: ""
+            data_type: string
+          - name: Title
+            description: ""
+            data_type: string
+          - name: DeveloperName
+            description: ""
+            data_type: string
+          - name: NamespacePrefix
+            description: ""
+            data_type: string
+          - name: Description
+            description: ""
+            data_type: string
+          - name: LeftSize
+            description: ""
+            data_type: string
+          - name: MiddleSize
+            description: ""
+            data_type: string
+          - name: RightSize
+            description: ""
+            data_type: string
+          - name: CreatedDate
+            description: ""
+            data_type: string
+          - name: CreatedById
+            description: ""
+            data_type: string
+          - name: LastModifiedDate
+            description: ""
+            data_type: string
+          - name: LastModifiedById
+            description: ""
+            data_type: string
+          - name: SystemModstamp
+            description: ""
+            data_type: string
+          - name: RunningUserId
+            description: ""
+            data_type: string
+          - name: TitleColor
+            description: ""
+            data_type: integer
+          - name: TitleSize
+            description: ""
+            data_type: integer
+          - name: TextColor
+            description: ""
+            data_type: integer
+          - name: BackgroundStart
+            description: ""
+            data_type: integer
+          - name: BackgroundEnd
+            description: ""
+            data_type: integer
+          - name: BackgroundDirection
+            description: ""
+            data_type: string
+          - name: Type
+            description: ""
+            data_type: string
+          - name: LastViewedDate
+            description: ""
+            data_type: string
+          - name: LastReferencedDate
+            description: ""
+            data_type: string
+          - name: DashboardResultRefreshedDate
+            description: ""
+            data_type: string
+          - name: DashboardResultRunningUser
+            description: ""
+            data_type: string
+          - name: ColorPalette
+            description: ""
+            data_type: string
+          - name: ChartTheme
+            description: ""
+            data_type: string

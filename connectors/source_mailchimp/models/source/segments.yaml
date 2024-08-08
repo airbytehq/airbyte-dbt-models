@@ -1,0 +1,35 @@
+version: 2
+
+sources:
+  - name: source_mailchimp
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: segments
+        columns:
+          - name: id
+            description: Unique identifier for the segment
+            data_type: integer
+          - name: name
+            description: Name of the segment
+            data_type: string
+          - name: member_count
+            description: Total number of members in the segment
+            data_type: integer
+          - name: type
+            description: Type of segment (static, dynamic)
+            data_type: string
+          - name: created_at
+            description: The date and time when the segment was created
+            data_type: string
+          - name: updated_at
+            description: The date and time when the segment was last updated
+            data_type: string
+          - name: options
+            description: The available options for segment data
+            data_type: object
+          - name: list_id
+            description: ID of the list to which the segment belongs
+            data_type: string

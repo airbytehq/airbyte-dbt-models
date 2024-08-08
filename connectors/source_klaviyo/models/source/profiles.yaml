@@ -1,0 +1,32 @@
+version: 2
+
+sources:
+  - name: source_klaviyo
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: profiles
+        columns:
+          - name: type
+            description: ''
+            data_type: string
+          - name: id
+            description: ''
+            data_type: string
+          - name: updated
+            description: ''
+            data_type: string
+          - name: attributes
+            description: ''
+            data_type: object
+          - name: links
+            description: ''
+            data_type: object
+          - name: relationships
+            description: ''
+            data_type: object
+          - name: segments
+            description: ''
+            data_type: object

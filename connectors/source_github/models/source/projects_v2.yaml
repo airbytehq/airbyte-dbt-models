@@ -1,0 +1,68 @@
+version: 2
+
+sources:
+  - name: source_github
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: projects_v2
+        columns:
+          - name: closed
+            description: Indicates whether the project is closed or not.
+            data_type: boolean
+          - name: created_at
+            description: The date and time when the project was created.
+            data_type: string
+          - name: creator
+            description: Information about the user who created the project.
+            data_type: object
+          - name: closed_at
+            description: The date and time when the project was closed.
+            data_type: string
+          - name: updated_at
+            description: The date and time when the project was last updated.
+            data_type: string
+          - name: node_id
+            description: The node ID of the project.
+            data_type: string
+          - name: id
+            description: The unique identifier of the project.
+            data_type: integer
+          - name: number
+            description: The project number.
+            data_type: integer
+          - name: public
+            description: Indicates whether the project is public or private.
+            data_type: boolean
+          - name: readme
+            description: The README content of the project.
+            data_type: string
+          - name: short_description
+            description: A brief description of the project.
+            data_type: string
+          - name: template
+            description: Indicates whether the project is a template or not.
+            data_type: boolean
+          - name: title
+            description: The title of the project.
+            data_type: string
+          - name: url
+            description: The URL to access the project.
+            data_type: string
+          - name: viewerCanClose
+            description: Indicates whether the current viewer can close the project.
+            data_type: boolean
+          - name: viewerCanReopen
+            description: Indicates whether the current viewer can reopen the project.
+            data_type: boolean
+          - name: viewerCanUpdate
+            description: Indicates whether the current viewer can update the project.
+            data_type: boolean
+          - name: owner_id
+            description: The ID of the project owner.
+            data_type: string
+          - name: repository
+            description: Information about the repository associated with the project.
+            data_type: string

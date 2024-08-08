@@ -1,0 +1,34 @@
+name: source_recharge
+
+config-version: 2
+
+version: 0.1.0
+
+profile: airbyte
+
+model-paths:
+  - models
+
+macro-paths:
+  - macros
+
+target-path: target
+
+clean-targets:
+  - target
+  - dbt_modules
+  - logs
+
+require-dbt-version:
+  - '>=1.0.0'
+  - <2.0.0
+
+models:
+  source_recharge:
+    materialized: view
+    staging:
+      materialized: view
+
+vars:
+  airbyte_database: airbyte_default_database
+  airbyte_schema: airbyte_default_schema

@@ -1,0 +1,56 @@
+version: 2
+
+sources:
+  - name: source_shopify
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: blogs
+        columns:
+          - name: commentable
+            description: Indicates whether comments are allowed on the blog.
+            data_type: string
+          - name: created_at
+            description: The date and time when the blog was created.
+            data_type: string
+          - name: feedburner
+            description: The Feedburner date for the blog.
+            data_type: string
+          - name: feedburner_location
+            description: The location information related to Feedburner.
+            data_type: integer
+          - name: handle
+            description: The unique handle used in the blog's URL.
+            data_type: string
+          - name: id
+            description: The unique identifier for the blog.
+            data_type: integer
+          - name: tags
+            description: Tags associated with the blog.
+            data_type: string
+          - name: template_suffix
+            description: The template suffix used in the blog's layout.
+            data_type: string
+          - name: title
+            description: The title of the blog.
+            data_type: string
+          - name: updated_at
+            description: The date and time when the blog was last updated.
+            data_type: string
+          - name: admin_graphql_api_id
+            description: The unique identifier for the blog within the admin GraphQL API.
+            data_type: string
+          - name: shop_url
+            description: The URL of the shop associated with the blog.
+            data_type: string
+          - name: deleted_at
+            description: The date and time when the blog was deleted, if applicable.
+            data_type: string
+          - name: deleted_message
+            description: A message associated with the deletion of the blog.
+            data_type: string
+          - name: deleted_description
+            description: A description of the reason for deleting the blog.
+            data_type: string

@@ -1,0 +1,68 @@
+version: 2
+
+sources:
+  - name: source_salesforce
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: ContentWorkspace
+        columns:
+          - name: Id
+            description: ""
+            data_type: string
+          - name: Name
+            description: ""
+            data_type: string
+          - name: Description
+            description: ""
+            data_type: string
+          - name: TagModel
+            description: ""
+            data_type: string
+          - name: CreatedById
+            description: ""
+            data_type: string
+          - name: CreatedDate
+            description: ""
+            data_type: string
+          - name: LastModifiedById
+            description: ""
+            data_type: string
+          - name: SystemModstamp
+            description: ""
+            data_type: string
+          - name: LastModifiedDate
+            description: ""
+            data_type: string
+          - name: DefaultRecordTypeId
+            description: ""
+            data_type: string
+          - name: IsRestrictContentTypes
+            description: ""
+            data_type: boolean
+          - name: IsRestrictLinkedContentTypes
+            description: ""
+            data_type: boolean
+          - name: WorkspaceType
+            description: ""
+            data_type: string
+          - name: ShouldAddCreatorMembership
+            description: ""
+            data_type: boolean
+          - name: LastWorkspaceActivityDate
+            description: ""
+            data_type: string
+          - name: RootContentFolderId
+            description: ""
+            data_type: string
+          - name: NamespacePrefix
+            description: ""
+            data_type: string
+          - name: DeveloperName
+            description: ""
+            data_type: string
+          - name: WorkspaceImageId
+            description: ""
+            data_type: string

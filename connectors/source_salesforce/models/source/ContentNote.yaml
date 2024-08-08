@@ -1,0 +1,68 @@
+version: 2
+
+sources:
+  - name: source_salesforce
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: ContentNote
+        columns:
+          - name: Id
+            description: ""
+            data_type: string
+          - name: Title
+            description: ""
+            data_type: string
+          - name: CreatedById
+            description: ""
+            data_type: string
+          - name: CreatedDate
+            description: ""
+            data_type: string
+          - name: LastModifiedById
+            description: ""
+            data_type: string
+          - name: LastModifiedDate
+            description: ""
+            data_type: string
+          - name: ContentModifiedDate
+            description: ""
+            data_type: string
+          - name: LastViewedDate
+            description: ""
+            data_type: string
+          - name: FileType
+            description: ""
+            data_type: string
+          - name: TextPreview
+            description: ""
+            data_type: string
+          - name: ContentSize
+            description: ""
+            data_type: integer
+          - name: IsDeleted
+            description: ""
+            data_type: boolean
+          - name: FileExtension
+            description: ""
+            data_type: string
+          - name: LatestPublishedVersionId
+            description: ""
+            data_type: string
+          - name: OwnerId
+            description: ""
+            data_type: string
+          - name: LatestContentId
+            description: ""
+            data_type: string
+          - name: Content
+            description: ""
+            data_type: string
+          - name: IsReadOnly
+            description: ""
+            data_type: boolean
+          - name: SharingPrivacy
+            description: ""
+            data_type: string

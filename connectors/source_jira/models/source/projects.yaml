@@ -1,0 +1,114 @@
+version: 2
+
+sources:
+  - name: source_jira
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: projects
+        description: "Details of Jira projects"
+        columns:
+          - name: expand
+            description: "Expand options that include additional project details in the response"
+            data_type: string
+          - name: self
+            description: "The URL of the project details"
+            data_type: string
+          - name: id
+            description: "The ID of the project"
+            data_type: string
+          - name: key
+            description: "The key of the project"
+            data_type: string
+          - name: description
+            description: "A brief description of the project"
+            data_type: string
+          - name: lead
+            description: "The username of the project lead"
+            data_type: string
+          - name: components
+            description: "List of the components contained in the project"
+            data_type: json
+          - name: issueTypes
+            description: "List of the issue types available in the project"
+            data_type: json
+          - name: url
+            description: "A link to information about this project, such as project documentation"
+            data_type: string
+          - name: email
+            description: "An email address associated with the project"
+            data_type: string
+          - name: assigneeType
+            description: "The default assignee when creating issues for this project"
+            data_type: string
+          - name: versions
+            description: "The versions defined in the project"
+            data_type: json
+          - name: name
+            description: "The name of the project"
+            data_type: string
+          - name: roles
+            description: "The name and self URL for each role defined in the project"
+            data_type: json
+          - name: avatarUrls
+            description: "The URLs of the project's avatars"
+            data_type: json
+          - name: projectCategory
+            description: "The category the project belongs to"
+            data_type: json
+          - name: projectTypeKey
+            description: "The project type of the project"
+            data_type: string
+          - name: simplified
+            description: "Whether the project is simplified"
+            data_type: boolean
+          - name: style
+            description: "The type of the project"
+            data_type: string
+          - name: favourite
+            description: "Whether the project is selected as a favorite"
+            data_type: boolean
+          - name: isPrivate
+            description: "Whether the project is private"
+            data_type: boolean
+          - name: issueTypeHierarchy
+            description: "The issue type hierarchy for the project"
+            data_type: json
+          - name: permissions
+            description: "User permissions on the project"
+            data_type: json
+          - name: properties
+            description: "Map of project properties"
+            data_type: json
+          - name: uuid
+            description: "Unique ID for next-gen projects"
+            data_type: string
+          - name: insight
+            description: "Insights about the project"
+            data_type: json
+          - name: deleted
+            description: "Whether the project is marked as deleted"
+            data_type: boolean
+          - name: retentionTillDate
+            description: "The date when the project is deleted permanently"
+            data_type: timestamp
+          - name: deletedDate
+            description: "The date when the project was marked as deleted"
+            data_type: timestamp
+          - name: deletedBy
+            description: "The user who marked the project as deleted"
+            data_type: json
+          - name: archived
+            description: "Whether the project is archived"
+            data_type: boolean
+          - name: archivedDate
+            description: "The date when the project was archived"
+            data_type: timestamp
+          - name: archivedBy
+            description: "The user who archived the project"
+            data_type: json
+          - name: entityId
+            description: "The unique identifier of the project entity"
+            data_type: string

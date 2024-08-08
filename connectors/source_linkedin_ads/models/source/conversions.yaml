@@ -1,0 +1,65 @@
+version: 2
+
+sources:
+  - name: source_linkedin_ads
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: conversions
+        columns:
+          - name: attributionType
+            description: The type of attribution for the conversion.
+            data_type: string
+          - name: account
+            description: The account associated with the conversion data.
+            data_type: string
+          - name: campaigns
+            description: List of campaigns related to the conversion.
+            data_type: array
+          - name: created
+            description: Timestamp of when the conversion was created.
+            data_type: integer
+          - name: enabled
+            description: Flag indicating if the conversion tracking is enabled.
+            data_type: boolean
+          - name: id
+            description: Unique identifier for the conversion.
+            data_type: integer
+          - name: imagePixelTag
+            description: Pixel tag used for tracking the conversion.
+            data_type: string
+          - name: name
+            description: Name of the conversion.
+            data_type: string
+          - name: type
+            description: Type of conversion.
+            data_type: string
+          - name: latestFirstPartyCallbackAt
+            description: Timestamp of the latest first-party callback for the conversion.
+            data_type: integer
+          - name: postClickAttributionWindowSize
+            description: Window size for post-click attribution.
+            data_type: integer
+          - name: viewThroughAttributionWindowSize
+            description: Window size for view-through attribution.
+            data_type: integer
+          - name: lastCallbackAt
+            description: Timestamp of the last callback for the conversion.
+            data_type: integer
+          - name: lastModified
+            description: Timestamp of the last modification made to the conversion.
+            data_type: integer
+          - name: value
+            description: Value associated with the conversion.
+            data_type: object
+          - name: associatedCampaigns
+            description: Campaigns associated with the conversion.
+            data_type: array
+          - name: urlMatchRuleExpression
+            description: Expression used for matching URLs for attribution.
+            data_type: array
+          - name: urlRules
+            description: Rules for URL matching in the conversion.
+            data_type: array

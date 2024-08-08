@@ -1,0 +1,56 @@
+version: 2
+
+sources:
+  - name: source_salesforce
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: LightningOnboardingConfig
+        columns:
+          - name: Id
+            description: ""
+            data_type: string
+          - name: IsDeleted
+            description: ""
+            data_type: boolean
+          - name: Language
+            description: ""
+            data_type: string
+          - name: MasterLabel
+            description: ""
+            data_type: string
+          - name: CreatedDate
+            description: ""
+            data_type: string
+          - name: CreatedById
+            description: ""
+            data_type: string
+          - name: LastModifiedDate
+            description: ""
+            data_type: string
+          - name: LastModifiedById
+            description: ""
+            data_type: string
+          - name: SystemModstamp
+            description: ""
+            data_type: string
+          - name: CustomQuestion
+            description: ""
+            data_type: string
+          - name: CollaborationGroupId
+            description: ""
+            data_type: string
+          - name: FeedbackFormDaysFrequency
+            description: ""
+            data_type: integer
+          - name: SendFeedbackToSalesforce
+            description: ""
+            data_type: boolean
+          - name: IsCustom
+            description: ""
+            data_type: boolean
+          - name: PromptDelayTime
+            description: ""
+            data_type: integer

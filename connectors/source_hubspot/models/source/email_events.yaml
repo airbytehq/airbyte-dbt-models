@@ -1,0 +1,137 @@
+version: 2
+
+sources:
+  - name: source_hubspot
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: email_events
+        columns:
+          - name: appId
+            description: The unique identifier of the application associated with the email event.
+            data_type: integer
+          - name: appName
+            description: The name of the application associated with the email event.
+            data_type: string
+          - name: bcc
+            description: The blind carbon copy recipients of the email.
+            data_type: array
+          - name: cc
+            description: The carbon copy recipients of the email.
+            data_type: array
+          - name: attempt
+            description: The number of attempts made to send the email.
+            data_type: integer
+          - name: bounced
+            description: Indicates if the email bounced.
+            data_type: boolean
+          - name: browser
+            description: Details about the email event recipient's browser.
+            data_type: object
+          - name: category
+            description: The category of the email event.
+            data_type: string
+          - name: causedBy
+            description: Information about the action that caused the email event.
+            data_type: object
+          - name: created
+            description: The timestamp of when the email event was created.
+            data_type: integer
+          - name: deviceType
+            description: The type of device used by the recipient.
+            data_type: string
+          - name: dropMessage
+            description: The message associated with dropped email.
+            data_type: string
+          - name: dropReason
+            description: The reason for dropping the email.
+            data_type: string
+          - name: duration
+            description: The duration of the email event.
+            data_type: integer
+          - name: emailCampaignId
+            description: The ID of the email campaign associated with the event.
+            data_type: integer
+          - name: emailCampaignGroupId
+            description: The group ID of the email campaign associated with the event.
+            data_type: integer
+          - name: filteredEvent
+            description: Indicates if the event is filtered.
+            data_type: boolean
+          - name: from
+            description: The sender of the email.
+            data_type: string
+          - name: hmid
+            description: The HubSpot Marketing ID.
+            data_type: string
+          - name: id
+            description: The unique identifier of the email event.
+            data_type: string
+          - name: ipAddress
+            description: The IP address of the recipient.
+            data_type: string
+          - name: linkId
+            description: The ID of the link in the email.
+            data_type: integer
+          - name: location
+            description: Details about the geographical location associated with the email event.
+            data_type: object
+          - name: obsoletedBy
+            description: Information about any email event that this event has made obsolete.
+            data_type: object
+          - name: portalId
+            description: The ID of the HubSpot portal.
+            data_type: integer
+          - name: portalSubscriptionStatus
+            description: The subscription status of the portal.
+            data_type: string
+          - name: recipient
+            description: The recipient of the email.
+            data_type: string
+          - name: referer
+            description: The referer URL of the email.
+            data_type: string
+          - name: replyTo
+            description: The email address to which replies should be directed.
+            data_type: array
+          - name: requestedBy
+            description: The entity that requested the email event.
+            data_type: string
+          - name: requestedByUserId
+            description: The ID of the user who requested the email event.
+            data_type: integer
+          - name: response
+            description: The response code related to the email event.
+            data_type: string
+          - name: sentBy
+            description: Details about the entity that sent the email event.
+            data_type: object
+          - name: smtpId
+            description: The SMTP ID associated with email event.
+            data_type: string
+          - name: source
+            description: The source of the email event.
+            data_type: string
+          - name: sourceId
+            description: The unique identifier of the email event source.
+            data_type: string
+          - name: subscriptions
+            description: Information about the subscriptions associated with the email event.
+            data_type: array
+          - name: status
+            description: The status of the email event.
+            data_type: string
+          - name: subject
+            description: The subject of the email.
+            data_type: string
+          - name: type
+            description: The type of email event.
+            data_type: string
+          - name: url
+            description: The URL associated with the email event.
+            data_type: string
+          - name: userAgent
+            description: The user agent of the recipient.
+            data_type: string

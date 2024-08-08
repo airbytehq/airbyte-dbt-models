@@ -1,0 +1,59 @@
+version: 2
+
+sources:
+  - name: source_twilio
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: usage_triggers
+        columns:
+          - name: usage_record_uri
+            description: The URI of the associated usage record.
+            data_type: string
+          - name: date_updated
+            description: The date and time when the trigger was last updated.
+            data_type: string
+          - name: date_fired
+            description: The date and time when the trigger was last fired.
+            data_type: string
+          - name: friendly_name
+            description: A user-friendly name for the trigger.
+            data_type: string
+          - name: uri
+            description: The URI of the usage trigger resource.
+            data_type: string
+          - name: account_sid
+            description: The unique identifier for the account associated with the usage trigger.
+            data_type: string
+          - name: callback_method
+            description: The HTTP method used for callback notifications.
+            data_type: string
+          - name: trigger_by
+            description: The attribute by which the trigger condition is evaluated.
+            data_type: string
+          - name: sid
+            description: The unique identifier for the trigger.
+            data_type: string
+          - name: current_value
+            description: The current value for the trigger condition.
+            data_type: number
+          - name: date_created
+            description: The date and time when the trigger was created.
+            data_type: string
+          - name: callback_url
+            description: The URL where callback notifications are sent.
+            data_type: string
+          - name: recurring
+            description: Indicates if the trigger is set to recur periodically.
+            data_type: string
+          - name: usage_category
+            description: The category under which the usage falls.
+            data_type: string
+          - name: trigger_value
+            description: The value that triggers the condition.
+            data_type: number
+          - name: api_version
+            description: The version of the Twilio API used for the trigger.
+            data_type: string

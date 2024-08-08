@@ -1,0 +1,59 @@
+version: 2
+
+sources:
+  - name: source_zendesk_support
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: brands
+        columns:
+          - name: id
+            description: Unique identifier for the brand.
+            data_type: integer
+          - name: name
+            description: Name of the brand.
+            data_type: string
+          - name: logo
+            description: URL of the brand's logo.
+            data_type: string
+          - name: brand_url
+            description: URL of the brand's website.
+            data_type: string
+          - name: host_mapping
+            description: Mapping for the brand's host.
+            data_type: string
+          - name: subdomain
+            description: Subdomain assigned to the brand.
+            data_type: string
+          - name: url
+            description: URL of the brand's API endpoint.
+            data_type: string
+          - name: ticket_form_ids
+            description: List of IDs for ticket forms associated with the brand.
+            data_type: array
+          - name: signature_template
+            description: Template for the brand's signature.
+            data_type: string
+          - name: has_help_center
+            description: Indicates whether the brand has a help center.
+            data_type: boolean
+          - name: help_center_state
+            description: State of the help center for the brand.
+            data_type: string
+          - name: active
+            description: Indicates whether the brand is currently active or not.
+            data_type: boolean
+          - name: default
+            description: Indicates if the brand is the default brand.
+            data_type: boolean
+          - name: is_deleted
+            description: Indicates if the brand has been deleted.
+            data_type: boolean
+          - name: created_at
+            description: Timestamp of when the brand was created.
+            data_type: string
+          - name: updated_at
+            description: Timestamp of when the brand was last updated.
+            data_type: string

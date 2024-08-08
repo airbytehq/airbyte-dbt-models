@@ -1,0 +1,68 @@
+version: 2
+
+sources:
+  - name: source_facebook_marketing
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: ad_sets
+        columns:
+          - name: name
+            description: The name of the ad set.
+            data_type: string
+          - name: end_time
+            description: The date and time when the ad set will end.
+            data_type: string
+          - name: promoted_object
+            description: Information about the object being promoted in the ad set.
+            data_type: object
+          - name: id
+            description: The unique ID of the ad set.
+            data_type: string
+          - name: account_id
+            description: The ID of the Facebook ad account to which the ad set belongs.
+            data_type: string
+          - name: updated_time
+            description: The date and time when the ad set was last updated.
+            data_type: string
+          - name: daily_budget
+            description: The daily budget set for the ad set.
+            data_type: number
+          - name: budget_remaining
+            description: The remaining budget in the ad set.
+            data_type: number
+          - name: effective_status
+            description: The effective status of the ad set (e.g., active, paused).
+            data_type: string
+          - name: campaign_id
+            description: The ID of the campaign associated with the ad set.
+            data_type: string
+          - name: created_time
+            description: The date and time when the ad set was created.
+            data_type: string
+          - name: start_time
+            description: The date and time when the ad set will start.
+            data_type: string
+          - name: lifetime_budget
+            description: The lifetime budget set for the ad set.
+            data_type: number
+          - name: targeting
+            description: ''
+            data_type: object
+          - name: bid_info
+            description: Information about bidding in the ad set.
+            data_type: object
+          - name: bid_strategy
+            description: The bidding strategy used in the ad set.
+            data_type: string
+          - name: bid_amount
+            description: The amount set for bidding in the ad set.
+            data_type: number
+          - name: bid_constraints
+            description: Bid constraints for the ad set.
+            data_type: object
+          - name: adlabels
+            description: Labels associated with the ad set.
+            data_type: array

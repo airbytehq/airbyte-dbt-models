@@ -1,0 +1,377 @@
+version: 2
+
+sources:
+  - name: source_hubspot
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: marketing_emails
+        columns:
+          - name: id
+            description: ''
+            data_type: integer
+          - name: ab
+            description: ''
+            data_type: boolean
+          - name: abHoursToWait
+            description: ''
+            data_type: integer
+          - name: abSampleSizeDefault
+            description: ''
+            data_type: string
+          - name: abSamplingDefault
+            description: ''
+            data_type: string
+          - name: abStatus
+            description: ''
+            data_type: string
+          - name: abSuccessMetric
+            description: ''
+            data_type: string
+          - name: abTestPercentage
+            description: ''
+            data_type: integer
+          - name: abVariation
+            description: ''
+            data_type: boolean
+          - name: absoluteUrl
+            description: ''
+            data_type: string
+          - name: aifeatures
+            description: ''
+            data_type: object
+          - name: allEmailCampaignIds
+            description: ''
+            data_type: array
+          - name: analyticsPageId
+            description: ''
+            data_type: string
+          - name: analyticsPageType
+            description: ''
+            data_type: string
+          - name: archived
+            description: ''
+            data_type: boolean
+          - name: authorAt
+            description: ''
+            data_type: integer
+          - name: authorName
+            description: ''
+            data_type: string
+          - name: authorUserId
+            description: ''
+            data_type: integer
+          - name: blogEmailType
+            description: ''
+            data_type: string
+          - name: campaign
+            description: ''
+            data_type: string
+          - name: campaignName
+            description: ''
+            data_type: string
+          - name: canSpamSettingsId
+            description: ''
+            data_type: integer
+          - name: categoryId
+            description: ''
+            data_type: integer
+          - name: clonedFrom
+            description: ''
+            data_type: integer
+          - name: contentTypeCategory
+            description: ''
+            data_type: integer
+          - name: createPage
+            description: ''
+            data_type: boolean
+          - name: created
+            description: ''
+            data_type: integer
+          - name: createdById
+            description: ''
+            data_type: integer
+          - name: currentState
+            description: ''
+            data_type: string
+          - name: currentlyPublished
+            description: ''
+            data_type: boolean
+          - name: customReplyTo
+            description: ''
+            data_type: string
+          - name: customReplyToEnabled
+            description: ''
+            data_type: boolean
+          - name: domain
+            description: ''
+            data_type: string
+          - name: emailBody
+            description: ''
+            data_type: string
+          - name: emailNote
+            description: ''
+            data_type: string
+          - name: emailTemplateMode
+            description: ''
+            data_type: string
+          - name: emailType
+            description: ''
+            data_type: string
+          - name: emailbodyPlaintext
+            description: Plain text version of the email body
+            data_type: string
+          - name: feedbackEmailCategory
+            description: Category for feedback related to the email
+            data_type: string
+          - name: feedbackSurveyId
+            description: ID of the feedback survey linked to the email
+            data_type: integer
+          - name: folderId
+            description: ID of the folder where the email is stored
+            data_type: integer
+          - name: freezeDate
+            description: Date when the email content was finalized
+            data_type: integer
+          - name: fromName
+            description: Name of the sender displayed in the email
+            data_type: string
+          - name: htmlTitle
+            description: HTML title of the email
+            data_type: string
+          - name: isGraymailSuppressionEnabled
+            description: Flag indicating if graymail suppression is enabled for the email
+            data_type: boolean
+          - name: isLocalTimezoneSend
+            description: Flag indicating if the email is sent based on the local timezone
+            data_type: boolean
+          - name: isPublished
+            description: Flag indicating if the email is published
+            data_type: boolean
+          - name: isRecipientFatigueSuppressionEnabled
+            description: Flag indicating if recipient fatigue suppression is enabled
+            data_type: boolean
+          - name: leadFlowId
+            description: ID of the lead flow associated with the email
+            data_type: integer
+          - name: liveDomain
+            description: Domain where the live version of the email is hosted
+            data_type: string
+          - name: mailingListsExcluded
+            description: ''
+            data_type: array
+          - name: mailingListsIncluded
+            description: ''
+            data_type: array
+          - name: maxRssEntries
+            description: Maximum number of RSS entries to include in the email
+            data_type: integer
+          - name: metaDescription
+            description: Meta description of the email content
+            data_type: string
+          - name: name
+            description: Name of the email
+            data_type: string
+          - name: pageExpiryEnabled
+            description: Flag indicating if page expiry is enabled for the email
+            data_type: boolean
+          - name: pageRedirected
+            description: Information about page redirection
+            data_type: boolean
+          - name: portalId
+            description: ID of the HubSpot portal associated with the email
+            data_type: integer
+          - name: previewKey
+            description: Key used for email preview
+            data_type: string
+          - name: primaryEmailCampaignId
+            description: ID of the primary email campaign associated with the email
+            data_type: integer
+          - name: processingStatus
+            description: Status of the email processing
+            data_type: string
+          - name: publishDate
+            description: Date when the email is scheduled to be published
+            data_type: integer
+          - name: publishedById
+            description: ID of the user who published the email
+            data_type: integer
+          - name: publishedByName
+            description: Name of the user who published the email
+            data_type: string
+          - name: publishImmediately
+            description: Flag indicating if the email should be published immediately
+            data_type: boolean
+          - name: publishedUrl
+            description: URL where the published email can be accessed
+            data_type: string
+          - name: replyTo
+            description: Email address for replies to the email
+            data_type: string
+          - name: resolvedDomain
+            description: Domain resolved for the email
+            data_type: string
+          - name: rootMicId
+            description: Root MIC ID associated with the email
+            data_type: string
+          - name: selected
+            description: Flag indicating if the email is selected
+            data_type: integer
+          - name: slug
+            description: Slug associated with the email
+            data_type: string
+          - name: smartEmailFields
+            description: Fields related to smart email features
+            data_type: object
+          - name: state
+            description: Current state of the email
+            data_type: string
+          - name: stats
+            description: ''
+            data_type: object
+          - name: subcategory
+            description: Subcategory to which the email belongs
+            data_type: string
+          - name: subject
+            description: Subject line of the email
+            data_type: string
+          - name: subscription
+            description: Information about email subscription
+            data_type: integer
+          - name: subscriptionName
+            description: Name of the email subscription
+            data_type: string
+          - name: templatePath
+            description: Path of the email template
+            data_type: string
+          - name: transactional
+            description: Flag indicating if the email is transactional
+            data_type: boolean
+          - name: unpublishedAt
+            description: Timestamp when the email was unpublished
+            data_type: integer
+          - name: updated
+            description: Timestamp of the last update to the email
+            data_type: integer
+          - name: updatedById
+            description: ID of the user who last updated the email
+            data_type: integer
+          - name: url
+            description: URL associated with the email
+            data_type: string
+          - name: useRssHeadlineAsSubject
+            description: Flag indicating if the RSS headline should be used as the subject
+            data_type: boolean
+          - name: vidsExcluded
+            description: ''
+            data_type: array
+          - name: vidsIncluded
+            description: ''
+            data_type: array
+          - name: publishedByEmail
+            description: Email address of the user who published the email
+            data_type: string
+          - name: sections
+            description: Sections within the email
+            data_type: object
+          - name: author
+            description: Author of the email
+            data_type: string
+          - name: isCreatedFomSandboxSync
+            description: Flag indicating if the email was created from a sandbox sync
+            data_type: boolean
+          - name: rssEmailUrl
+            description: URL for RSS emails
+            data_type: string
+          - name: teamPerms
+            description: ''
+            data_type: array
+          - name: securityState
+            description: Security state of the email
+            data_type: string
+          - name: isInstanceLayoutPage
+            description: Flag indicating if the email is a layout page in an instance
+            data_type: boolean
+          - name: audienceAccess
+            description: Information about who has access to view the email
+            data_type: string
+          - name: campaignUtm
+            description: UTM parameters for campaign tracking
+            data_type: string
+          - name: contentAccessRuleTypes
+            description: ''
+            data_type: array
+          - name: pastMabExperimentIds
+            description: ''
+            data_type: array
+          - name: rssEmailClickThroughText
+            description: Text for click-through actions in RSS emails
+            data_type: string
+          - name: rssEmailImageMaxWidth
+            description: Maximum width of images in RSS emails
+            data_type: integer
+          - name: flexAreas
+            description: ''
+            data_type: object
+          - name: emailCampaignGroupId
+            description: Group ID associated with the email campaign
+            data_type: integer
+          - name: layoutSections
+            description: Sections within the email layout
+            data_type: object
+          - name: blogRssSettings
+            description: Settings related to blog RSS integration
+            data_type: string
+          - name: archivedInDashboard
+            description: Flag indicating if the email was archived in the dashboard
+            data_type: boolean
+          - name: publishedAt
+            description: Timestamp when the email was published
+            data_type: integer
+          - name: lastEditUpdateId
+            description: Update ID of the last edit made to the email
+            data_type: integer
+          - name: lastEditSessionId
+            description: Session ID of the last edit made to the email
+            data_type: integer
+          - name: styleSettings
+            description: ''
+            data_type: object
+          - name: visibleToAll
+            description: Flag indicating if the email is visible to all users
+            data_type: boolean
+          - name: language
+            description: Language in which the email is written
+            data_type: string
+          - name: rssEmailByText
+            description: Text content related to RSS emails
+            data_type: string
+          - name: rssEmailCommentText
+            description: Text for comments in RSS emails
+            data_type: string
+          - name: hasContentAccessRules
+            description: Indicates if the email has content access rules applied
+            data_type: boolean
+          - name: archivedAt
+            description: Timestamp when the email was archived
+            data_type: integer
+          - name: translations
+            description: Translations available for the email
+            data_type: object
+          - name: userPerms
+            description: ''
+            data_type: array
+          - name: contentAccessRuleIds
+            description: ''
+            data_type: array
+          - name: rssEmailEntryTemplateEnabled
+            description: Flag indicating if the RSS email entry template is enabled
+            data_type: boolean
+          - name: mailingIlsListsExcluded
+            description: ''
+            data_type: array
+          - name: mailingIlsListsIncluded
+            description: ''
+            data_type: array

@@ -1,0 +1,83 @@
+version: 2
+
+sources:
+  - name: source_github
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: workflow_jobs
+        columns:
+          - name: id
+            description: Identifier of the job
+            data_type: integer
+          - name: run_id
+            description: Identifier of the run associated with the job
+            data_type: integer
+          - name: workflow_name
+            description: Name of the workflow associated with the job
+            data_type: string
+          - name: head_branch
+            description: Name of the branch where the job was triggered
+            data_type: string
+          - name: run_url
+            description: URL to view the run details associated with the job
+            data_type: string
+          - name: run_attempt
+            description: Number of the run attempt for the job
+            data_type: integer
+          - name: node_id
+            description: Node ID of the job
+            data_type: string
+          - name: head_sha
+            description: Commit SHA associated with the job
+            data_type: string
+          - name: url
+            description: URL to fetch the details of the job
+            data_type: string
+          - name: html_url
+            description: URL to view the job details in a web browser
+            data_type: string
+          - name: status
+            description: Status of the job (e.g., in_progress, completed)
+            data_type: string
+          - name: conclusion
+            description: Conclusion of the job execution (e.g., success, failure)
+            data_type: string
+          - name: created_at
+            description: Timestamp when the job was created
+            data_type: string
+          - name: started_at
+            description: Timestamp when the job was started
+            data_type: string
+          - name: completed_at
+            description: Timestamp when the job was completed
+            data_type: string
+          - name: name
+            description: Name of the job
+            data_type: string
+          - name: steps
+            description: List of steps within the job
+            data_type: array
+          - name: check_run_url
+            description: URL to view the check run associated with the job
+            data_type: string
+          - name: labels
+            description: Labels associated with the job
+            data_type: array
+          - name: runner_id
+            description: Identifier of the runner
+            data_type: integer
+          - name: runner_name
+            description: Name of the runner
+            data_type: string
+          - name: runner_group_id
+            description: Identifier of the runner group
+            data_type: integer
+          - name: runner_group_name
+            description: Name of the runner group
+            data_type: string
+          - name: repository
+            description: Repository information associated with the job
+            data_type: string

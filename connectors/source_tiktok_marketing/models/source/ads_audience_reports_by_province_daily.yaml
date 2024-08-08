@@ -1,0 +1,50 @@
+version: 2
+
+sources:
+  - name: source_tiktok_marketing
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: ads_audience_reports_by_province_daily
+        columns:
+          - name: advertiser_id
+            description: Unique identifier for the advertiser
+            data_type: integer
+          - name: adgroup_id
+            description: Unique identifier for the ad group
+            data_type: integer
+          - name: campaign_id
+            description: Unique identifier for the campaign
+            data_type: integer
+          - name: ad_id
+            description: Unique identifier for the ad
+            data_type: integer
+          - name: stat_time_day
+            description: Day timestamp for the statistics
+            data_type: string
+          - name: stat_time_hour
+            description: Hour timestamp for the statistics
+            data_type: string
+          - name: country_code
+            description: Country code of the target audience
+            data_type: string
+          - name: platform
+            description: Platform where the ad is displayed
+            data_type: string
+          - name: gender
+            description: Gender of the target audience
+            data_type: string
+          - name: age
+            description: Age group of the target audience
+            data_type: string
+          - name: province_id
+            description: Province identifier of the target audience
+            data_type: string
+          - name: metrics
+            description: Defines the metrics or quantitative measurements of the audience data such as number of views, engagement rate, share count, etc.
+            data_type: object
+          - name: dimensions
+            description: Specifies the dimensions or attributes of the audience data being reported such as age, gender, location, etc.
+            data_type: object

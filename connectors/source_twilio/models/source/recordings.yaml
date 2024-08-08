@@ -1,0 +1,68 @@
+version: 2
+
+sources:
+  - name: source_twilio
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: recordings
+        columns:
+          - name: account_sid
+            description: The unique identifier of the account that owns the recording.
+            data_type: string
+          - name: api_version
+            description: The version of the Twilio API used when the recording was created.
+            data_type: string
+          - name: call_sid
+            description: The unique identifier of the call associated with the recording.
+            data_type: string
+          - name: conference_sid
+            description: The unique identifier of the conference, if the recording is part of a conference.
+            data_type: string
+          - name: date_created
+            description: The date and time when the recording was created.
+            data_type: string
+          - name: date_updated
+            description: The date and time when the recording was last updated.
+            data_type: string
+          - name: start_time
+            description: The date and time when the recording started.
+            data_type: string
+          - name: duration
+            description: The duration of the recording in seconds.
+            data_type: integer
+          - name: sid
+            description: The unique identifier of the recording.
+            data_type: string
+          - name: price
+            description: The cost of storing the recording.
+            data_type: number
+          - name: price_unit
+            description: The unit in which the cost is measured (e.g., USD).
+            data_type: string
+          - name: status
+            description: The status of the recording (e.g., completed, in-progress).
+            data_type: string
+          - name: channels
+            description: The number of audio channels in the recording.
+            data_type: integer
+          - name: source
+            description: The source of the recording (e.g., twilio).
+            data_type: string
+          - name: error_code
+            description: The error code, if any, associated with the recording.
+            data_type: integer
+          - name: media_url
+            description: The URL where the recording audio file can be accessed.
+            data_type: string
+          - name: uri
+            description: The URI of the recording resource.
+            data_type: string
+          - name: encryption_details
+            description: Details about the encryption used for the recording.
+            data_type: object
+          - name: subresource_uris
+            description: URIs for subresources related to the recording.
+            data_type: object

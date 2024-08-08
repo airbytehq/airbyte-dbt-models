@@ -1,0 +1,107 @@
+version: 2
+
+sources:
+  - name: source_hubspot
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: campaigns
+        columns:
+          - name: appId
+            description: The unique identifier of the application associated with the campaign data.
+            data_type: integer
+          - name: appName
+            description: The name of the application associated with the campaign data.
+            data_type: string
+          - name: contentId
+            description: The unique identifier of the content associated with the campaign.
+            data_type: integer
+          - name: counters
+            description: Object containing different counters related to the campaign's performance.
+            data_type: object
+          - name: counters_open
+            description: Alias for the open counter value.
+            data_type: integer
+          - name: counters_processed
+            description: Alias for the processed counter value.
+            data_type: integer
+          - name: counters_sent
+            description: Alias for the sent counter value.
+            data_type: integer
+          - name: counters_deferred
+            description: Alias for the deferred counter value.
+            data_type: integer
+          - name: counters_unsubscribed
+            description: Alias for the unsubscribed counter value.
+            data_type: integer
+          - name: counters_statuschange
+            description: Alias for the status change counter value.
+            data_type: integer
+          - name: counters_bounce
+            description: Alias for the bounce counter value.
+            data_type: integer
+          - name: counters_mta_dropped
+            description: Alias for the MTA dropped counter value.
+            data_type: integer
+          - name: counters_dropped
+            description: Alias for the dropped counter value.
+            data_type: integer
+          - name: counters_suppressed
+            description: Alias for the suppressed counter value.
+            data_type: integer
+          - name: counters_click
+            description: Alias for the click counter value.
+            data_type: integer
+          - name: counters_delivered
+            description: Alias for the delivered counter value.
+            data_type: integer
+          - name: counters_forward
+            description: Alias for the forward counter value.
+            data_type: integer
+          - name: counters_print
+            description: Alias for the print counter value.
+            data_type: integer
+          - name: counters_reply
+            description: Alias for the reply counter value.
+            data_type: integer
+          - name: counters_spamreport
+            description: Alias for the spam report counter value.
+            data_type: integer
+          - name: id
+            description: The unique identifier of the campaign.
+            data_type: integer
+          - name: lastProcessingFinishedAt
+            description: Timestamp indicating when the last processing of the campaign was finished.
+            data_type: integer
+          - name: lastProcessingStateChangeAt
+            description: Timestamp indicating the last state change time of the processing state.
+            data_type: integer
+          - name: lastProcessingStartedAt
+            description: Timestamp indicating when the last processing of the campaign started.
+            data_type: integer
+          - name: processingState
+            description: Current processing state of the campaign.
+            data_type: string
+          - name: name
+            description: The name of the campaign.
+            data_type: string
+          - name: numIncluded
+            description: Number of recipients included in the campaign.
+            data_type: integer
+          - name: numQueued
+            description: Number of emails queued for sending.
+            data_type: integer
+          - name: subType
+            description: Subtype of the campaign.
+            data_type: string
+          - name: subject
+            description: The subject line of the campaign.
+            data_type: string
+          - name: type
+            description: Type classification of the campaign.
+            data_type: string
+          - name: lastUpdatedTime
+            description: Timestamp indicating when the campaign data was last updated.
+            data_type: integer

@@ -1,0 +1,35 @@
+version: 2
+
+sources:
+  - name: source_facebook_marketing
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: customcustom_insight_stream
+        columns:
+          - name: account_id
+            description: ID of the account
+            data_type: string
+          - name: account_name
+            description: Name of the account
+            data_type: string
+          - name: ad_id
+            description: ID of the ad
+            data_type: string
+          - name: clicks
+            description: Total number of clicks
+            data_type: integer
+          - name: cpc
+            description: Cost per click
+            data_type: number
+          - name: date_start
+            description: Start date of the data
+            data_type: string
+          - name: date_stop
+            description: End date of the data
+            data_type: string
+          - name: gender
+            description: The gender targeted by the ad campaign.
+            data_type: string

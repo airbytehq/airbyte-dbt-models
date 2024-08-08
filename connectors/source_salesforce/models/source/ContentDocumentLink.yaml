@@ -1,0 +1,32 @@
+version: 2
+
+sources:
+  - name: source_salesforce
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: ContentDocumentLink
+        columns:
+          - name: Id
+            description: ""
+            data_type: string
+          - name: LinkedEntityId
+            description: ""
+            data_type: string
+          - name: ContentDocumentId
+            description: ""
+            data_type: string
+          - name: IsDeleted
+            description: ""
+            data_type: boolean
+          - name: SystemModstamp
+            description: ""
+            data_type: string
+          - name: ShareType
+            description: ""
+            data_type: string
+          - name: Visibility
+            description: ""
+            data_type: string

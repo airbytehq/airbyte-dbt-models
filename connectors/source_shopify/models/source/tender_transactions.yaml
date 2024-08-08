@@ -1,0 +1,44 @@
+version: 2
+
+sources:
+  - name: source_shopify
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: tender_transactions
+        columns:
+          - name: id
+            description: Unique identifier for the tender transaction.
+            data_type: integer
+          - name: order_id
+            description: The identifier of the order associated with the transaction.
+            data_type: integer
+          - name: amount
+            description: The transaction amount in the specified currency.
+            data_type: string
+          - name: currency
+            description: The currency in which the transaction amount is stated.
+            data_type: string
+          - name: user_id
+            description: Unique identifier of the user associated with the transaction.
+            data_type: integer
+          - name: test
+            description: Flag indicating whether the transaction was done in a testing environment.
+            data_type: boolean
+          - name: processed_at
+            description: The date and time when the transaction was processed.
+            data_type: string
+          - name: remote_reference
+            description: Reference to an external system for the transaction.
+            data_type: string
+          - name: payment_details
+            description: Details about the payment made for the transaction.
+            data_type: object
+          - name: payment_method
+            description: The method used for payment, e.g., credit card, PayPal, etc.
+            data_type: string
+          - name: shop_url
+            description: The URL of the shop where the transaction took place.
+            data_type: string

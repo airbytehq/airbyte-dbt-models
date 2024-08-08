@@ -1,0 +1,71 @@
+version: 2
+
+sources:
+  - name: source_twilio
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: messages
+        columns:
+          - name: account_sid
+            description: The unique identifier for the account associated with this message.
+            data_type: string
+          - name: api_version
+            description: The version of the Twilio API being used to send or receive this message.
+            data_type: string
+          - name: body
+            description: The text body of the message.
+            data_type: string
+          - name: date_created
+            description: The date and time when the message was created.
+            data_type: string
+          - name: date_sent
+            description: The date and time when the message was sent.
+            data_type: string
+          - name: date_updated
+            description: The date and time when the message was last updated.
+            data_type: string
+          - name: direction
+            description: The direction of the message, whether it's incoming or outgoing.
+            data_type: string
+          - name: error_code
+            description: The error code associated with the message, if any.
+            data_type: string
+          - name: error_message
+            description: The error message description if the message failed to send.
+            data_type: string
+          - name: from
+            description: The phone number or sender ID that the message originated from.
+            data_type: string
+          - name: messaging_service_sid
+            description: The unique identifier for the messaging service associated with the message.
+            data_type: string
+          - name: price_unit
+            description: The currency unit used for pricing of the message.
+            data_type: string
+          - name: num_media
+            description: The number of media files (e.g., images, videos) included in the message.
+            data_type: integer
+          - name: num_segments
+            description: The number of message segments if the message exceeds 160 characters.
+            data_type: integer
+          - name: price
+            description: The cost of sending the message.
+            data_type: number
+          - name: sid
+            description: The unique identifier for this message.
+            data_type: string
+          - name: status
+            description: The status of the message (e.g., sent, delivered, failed).
+            data_type: string
+          - name: subresource_uris
+            description: Contains links to the subresources related to the message.
+            data_type: object
+          - name: to
+            description: The phone number or recipient ID that the message was sent to.
+            data_type: string
+          - name: uri
+            description: The URI for accessing detailed information about this message.
+            data_type: string

@@ -1,0 +1,32 @@
+version: 2
+
+sources:
+  - name: source_hubspot
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: ticket_pipelines
+        columns:
+          - name: label
+            description: The label or name of the ticket pipeline.
+            data_type: string
+          - name: displayOrder
+            description: The order in which the ticket pipeline is displayed.
+            data_type: integer
+          - name: id
+            description: The unique identifier of the ticket pipeline.
+            data_type: string
+          - name: archived
+            description: Indicates if the ticket pipeline is archived or not.
+            data_type: boolean
+          - name: stages
+            description: List of stages within the ticket pipeline.
+            data_type: array
+          - name: createdAt
+            description: The date and time when the ticket pipeline was created.
+            data_type: string
+          - name: updatedAt
+            description: The date and time when the ticket pipeline was last updated.
+            data_type: string

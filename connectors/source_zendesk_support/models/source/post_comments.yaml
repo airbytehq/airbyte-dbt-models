@@ -1,0 +1,50 @@
+version: 2
+
+sources:
+  - name: source_zendesk_support
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: post_comments
+        columns:
+          - name: author_id
+            description: The unique identifier of the author of the comment.
+            data_type: integer
+          - name: body
+            description: The content of the comment.
+            data_type: string
+          - name: created_at
+            description: The timestamp when the comment was created.
+            data_type: string
+          - name: html_url
+            description: The URL to access the comment in HTML format.
+            data_type: string
+          - name: id
+            description: The unique identifier of the comment.
+            data_type: integer
+          - name: non_author_editor_id
+            description: The unique identifier of the non-author editor of the comment.
+            data_type: integer
+          - name: non_author_updated_at
+            description: The timestamp when the comment was last updated by a non-author editor.
+            data_type: string
+          - name: official
+            description: Indicates if the comment is from an official source.
+            data_type: boolean
+          - name: post_id
+            description: The unique identifier of the post to which the comment belongs.
+            data_type: integer
+          - name: updated_at
+            description: The timestamp when the comment was last updated.
+            data_type: string
+          - name: url
+            description: The URL to access the comment.
+            data_type: string
+          - name: vote_count
+            description: The total count of votes the comment has received.
+            data_type: integer
+          - name: vote_sum
+            description: The sum of all votes (positive and negative) the comment has received.
+            data_type: integer

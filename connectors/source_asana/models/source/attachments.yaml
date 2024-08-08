@@ -1,0 +1,47 @@
+version: 2
+
+sources:
+  - name: source_asana
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: attachments
+        columns:
+          - name: gid
+            description: ''
+            data_type: string
+          - name: resource_type
+            description: ''
+            data_type: string
+          - name: name
+            description: ''
+            data_type: string
+          - name: resource_subtype
+            description: ''
+            data_type: string
+          - name: created_at
+            description: ''
+            data_type: string
+          - name: download_url
+            description: ''
+            data_type: string
+          - name: permanent_url
+            description: ''
+            data_type: string
+          - name: host
+            description: ''
+            data_type: string
+          - name: parent
+            description: ''
+            data_type: object
+          - name: size
+            description: ''
+            data_type: integer
+          - name: view_url
+            description: ''
+            data_type: string
+          - name: connected_to_app
+            description: ''
+            data_type: boolean

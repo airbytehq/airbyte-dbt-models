@@ -1,0 +1,29 @@
+version: 2
+
+sources:
+  - name: source_google_ads
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: ad_group_criterion_label
+        columns:
+          - name: ad_group.id
+            description: The ID of the ad group to which the criterion label belongs.
+            data_type: integer
+          - name: label.id
+            description: The ID of the label assigned to the ad group criterion.
+            data_type: integer
+          - name: ad_group_criterion_label.ad_group_criterion
+            description: The ad group criterion to which the label is applied.
+            data_type: string
+          - name: ad_group_criterion_label.label
+            description: The label assigned to the ad group criterion.
+            data_type: string
+          - name: ad_group_criterion_label.resource_name
+            description: The resource name of the ad group criterion label.
+            data_type: string
+          - name: ad_group_criterion.criterion_id
+            description: The ID of the criterion associated with the ad group.
+            data_type: integer

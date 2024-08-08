@@ -1,0 +1,50 @@
+version: 2
+
+sources:
+  - name: source_twilio
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: available_phone_numbers_local
+        columns:
+          - name: friendly_name
+            description: A user-friendly nickname for the phone number
+            data_type: string
+          - name: phone_number
+            description: The phone number itself
+            data_type: string
+          - name: lata
+            description: Local access and transport area code for the phone number
+            data_type: string
+          - name: rate_center
+            description: Rate center for the phone number
+            data_type: string
+          - name: latitude
+            description: Latitude coordinate of the phone number's location
+            data_type: string
+          - name: longitude
+            description: Longitude coordinate of the phone number's location
+            data_type: string
+          - name: locality
+            description: Locality or city associated with the phone number
+            data_type: string
+          - name: region
+            description: Region or state associated with the phone number
+            data_type: string
+          - name: postal_code
+            description: Postal code of the phone number's location
+            data_type: string
+          - name: iso_country
+            description: ISO country code of the phone number
+            data_type: string
+          - name: address_requirements
+            description: The requirements related to the address associated with the phone number
+            data_type: string
+          - name: beta
+            description: Indicator showing if the phone number is in beta testing
+            data_type: boolean
+          - name: capabilities
+            description: Object containing the capabilities of the available phone number
+            data_type: object

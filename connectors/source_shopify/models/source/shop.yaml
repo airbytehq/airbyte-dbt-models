@@ -1,0 +1,188 @@
+version: 2
+
+sources:
+  - name: source_shopify
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: shop
+        columns:
+          - name: address1
+            description: The first line of the shop's address
+            data_type: string
+          - name: address2
+            description: The second line of the shop's address
+            data_type: string
+          - name: auto_configure_tax_inclusivity
+            description: Flag indicating if taxes are automatically configured to be inclusive
+            data_type: string
+          - name: checkout_api_supported
+            description: Flag indicating if the shop supports the checkout API
+            data_type: boolean
+          - name: city
+            description: The city where the shop is located
+            data_type: string
+          - name: country
+            description: The country where the shop is located
+            data_type: string
+          - name: country_code
+            description: The country code of the shop's location
+            data_type: string
+          - name: country_name
+            description: The name of the country where the shop is located
+            data_type: string
+          - name: county_taxes
+            description: Flag indicating if county taxes are applicable
+            data_type: boolean
+          - name: created_at
+            description: The date and time when the shop was created
+            data_type: string
+          - name: customer_email
+            description: The email address of the shop's customer support
+            data_type: string
+          - name: currency
+            description: The currency used in the shop
+            data_type: string
+          - name: domain
+            description: The domain of the shop
+            data_type: string
+          - name: enabled_presentment_currencies
+            description: The list of currencies enabled for presenting prices
+            data_type: array
+          - name: eligible_for_card_reader_giveaway
+            description: Flag indicating if the shop is eligible for a card reader giveaway
+            data_type: boolean
+          - name: eligible_for_payments
+            description: Flag indicating if the shop is eligible to receive payments
+            data_type: boolean
+          - name: email
+            description: The email address associated with the shop
+            data_type: string
+          - name: finances
+            description: Financial information related to the shop
+            data_type: boolean
+          - name: force_ssl
+            description: Flag indicating if SSL is enforced for the shop
+            data_type: boolean
+          - name: google_apps_domain
+            description: The Google Apps domain associated with the shop
+            data_type: string
+          - name: google_apps_login_enabled
+            description: Flag indicating if Google Apps login is enabled for the shop
+            data_type: boolean
+          - name: has_discounts
+            description: Flag indicating if the shop offers discounts
+            data_type: boolean
+          - name: has_gift_cards
+            description: Flag indicating if the shop offers gift cards
+            data_type: boolean
+          - name: has_storefront
+            description: Flag indicating if the shop has a visible storefront
+            data_type: boolean
+          - name: iana_timezone
+            description: The IANA timezone of the shop
+            data_type: string
+          - name: id
+            description: The unique identifier of the shop
+            data_type: integer
+          - name: latitude
+            description: The latitude coordinate of the shop's location
+            data_type: number
+          - name: longitude
+            description: The longitude coordinate of the shop's location
+            data_type: number
+          - name: marketing_sms_consent_enabled_at_checkout
+            description: Flag indicating if SMS marketing consent is enabled at checkout
+            data_type: boolean
+          - name: money_format
+            description: The format used for displaying money
+            data_type: string
+          - name: money_in_emails_format
+            description: The format used for displaying money in emails
+            data_type: string
+          - name: money_with_currency_format
+            description: The format used for displaying money with currency
+            data_type: string
+          - name: money_with_currency_in_emails_format
+            description: The format used for displaying money with currency in emails
+            data_type: string
+          - name: multi_location_enabled
+            description: Flag indicating if multi-location is enabled for the shop
+            data_type: boolean
+          - name: myshopify_domain
+            description: The MyShopify domain of the shop
+            data_type: string
+          - name: name
+            description: The name of the shop
+            data_type: string
+          - name: password_enabled
+            description: Flag indicating if password login is enabled for the shop
+            data_type: boolean
+          - name: phone
+            description: The phone number associated with the shop
+            data_type: string
+          - name: plan_display_name
+            description: The display name of the plan the shop is on
+            data_type: string
+          - name: pre_launch_enabled
+            description: Flag indicating if pre-launch settings are enabled
+            data_type: boolean
+          - name: cookie_consent_level
+            description: The level of cookie consent set for the shop
+            data_type: string
+          - name: plan_name
+            description: The name of the plan the shop is on
+            data_type: string
+          - name: primary_locale
+            description: The primary locale set for the shop
+            data_type: string
+          - name: primary_location_id
+            description: The ID of the primary location of the shop
+            data_type: integer
+          - name: province
+            description: The province or state where the shop is located
+            data_type: string
+          - name: province_code
+            description: The code representing the province or state of the shop's location
+            data_type: string
+          - name: requires_extra_payments_agreement
+            description: Flag indicating if an extra payments agreement is required
+            data_type: boolean
+          - name: setup_required
+            description: Flag indicating if setup is required for the shop
+            data_type: boolean
+          - name: shop_owner
+            description: The owner of the shop
+            data_type: string
+          - name: source
+            description: The source of the shop data
+            data_type: string
+          - name: taxes_included
+            description: Flag indicating if taxes are included in prices
+            data_type: boolean
+          - name: tax_shipping
+            description: Flag indicating if taxes are applicable to shipping
+            data_type: boolean
+          - name: timezone
+            description: The timezone of the shop
+            data_type: string
+          - name: transactional_sms_disabled
+            description: Flag indicating if transactional SMS is disabled
+            data_type: boolean
+          - name: updated_at
+            description: The date and time when the shop was last updated
+            data_type: string
+          - name: visitor_tracking_consent_preference
+            description: The visitor tracking consent preference set for the shop
+            data_type: string
+          - name: weight_unit
+            description: The unit used for measuring weight
+            data_type: string
+          - name: zip
+            description: The ZIP or postal code of the shop's location
+            data_type: string
+          - name: shop_url
+            description: The URL of the shop
+            data_type: string

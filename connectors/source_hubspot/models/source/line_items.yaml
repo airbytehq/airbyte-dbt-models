@@ -1,0 +1,275 @@
+version: 2
+
+sources:
+  - name: source_hubspot
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: line_items
+        columns:
+          - name: id
+            description: The unique identifier for the line item.
+            data_type: string
+          - name: createdAt
+            description: The date and time when the line item was created.
+            data_type: string
+          - name: updatedAt
+            description: The date and time when the line item was last updated.
+            data_type: string
+          - name: archived
+            description: Indicates whether the line item is archived or not.
+            data_type: boolean
+          - name: properties
+            description: ''
+            data_type: object
+          - name: properties_amount
+            description: ''
+            data_type: number
+          - name: properties_createdate
+            description: ''
+            data_type: string
+          - name: properties_description
+            description: ''
+            data_type: string
+          - name: properties_discount
+            description: ''
+            data_type: number
+          - name: properties_hs_acv
+            description: ''
+            data_type: number
+          - name: properties_hs_all_accessible_team_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_all_assigned_business_unit_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_all_owner_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_all_team_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_allow_buyer_selected_quantity
+            description: ''
+            data_type: string
+          - name: properties_hs_arr
+            description: ''
+            data_type: number
+          - name: properties_hs_billing_period_end_date
+            description: ''
+            data_type: string
+          - name: properties_hs_billing_period_start_date
+            description: ''
+            data_type: string
+          - name: properties_hs_billing_start_delay_days
+            description: ''
+            data_type: number
+          - name: properties_hs_billing_start_delay_months
+            description: ''
+            data_type: number
+          - name: properties_hs_billing_start_delay_type
+            description: ''
+            data_type: string
+          - name: properties_hs_buyer_selected_quantity_max
+            description: ''
+            data_type: number
+          - name: properties_hs_buyer_selected_quantity_min
+            description: ''
+            data_type: number
+          - name: properties_hs_cost_of_goods_sold
+            description: ''
+            data_type: number
+          - name: properties_hs_created_by_user_id
+            description: ''
+            data_type: number
+          - name: properties_hs_createdate
+            description: ''
+            data_type: string
+          - name: properties_hs_discount_percentage
+            description: ''
+            data_type: number
+          - name: properties_hs_external_id
+            description: ''
+            data_type: number
+          - name: properties_hs_images
+            description: ''
+            data_type: string
+          - name: properties_hs_is_editable_price
+            description: ''
+            data_type: boolean
+          - name: properties_hs_is_optional
+            description: ''
+            data_type: boolean
+          - name: properties_hs_lastmodifieddate
+            description: ''
+            data_type: string
+          - name: properties_hs_line_item_currency_code
+            description: ''
+            data_type: string
+          - name: properties_hs_margin
+            description: ''
+            data_type: number
+          - name: properties_hs_margin_acv
+            description: ''
+            data_type: number
+          - name: properties_hs_margin_arr
+            description: ''
+            data_type: number
+          - name: properties_hs_margin_mrr
+            description: ''
+            data_type: number
+          - name: properties_hs_margin_tcv
+            description: ''
+            data_type: number
+          - name: properties_hs_merged_object_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_mrr
+            description: ''
+            data_type: number
+          - name: properties_hs_object_id
+            description: ''
+            data_type: number
+          - name: properties_hs_object_source
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_detail_1
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_detail_2
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_detail_3
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_id
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_label
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_user_id
+            description: ''
+            data_type: number
+          - name: properties_hs_position_on_quote
+            description: ''
+            data_type: number
+          - name: properties_hs_post_tax_amount
+            description: ''
+            data_type: number
+          - name: properties_hs_pre_discount_amount
+            description: ''
+            data_type: number
+          - name: properties_hs_product_id
+            description: ''
+            data_type: number
+          - name: properties_hs_product_type
+            description: ''
+            data_type: string
+          - name: properties_hs_read_only
+            description: ''
+            data_type: boolean
+          - name: properties_hs_recurring_billing_end_date
+            description: ''
+            data_type: string
+          - name: properties_hs_recurring_billing_number_of_payments
+            description: ''
+            data_type: number
+          - name: properties_hs_recurring_billing_period
+            description: ''
+            data_type: string
+          - name: properties_hs_recurring_billing_start_date
+            description: ''
+            data_type: string
+          - name: properties_hs_recurring_billing_terms
+            description: ''
+            data_type: string
+          - name: properties_hs_shared_team_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_shared_user_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_sku
+            description: ''
+            data_type: string
+          - name: properties_hs_sync_amount
+            description: ''
+            data_type: number
+          - name: properties_hs_tax_amount
+            description: ''
+            data_type: number
+          - name: properties_hs_tax_label
+            description: ''
+            data_type: string
+          - name: properties_hs_tax_rate
+            description: ''
+            data_type: number
+          - name: properties_hs_tax_rate_group_id
+            description: ''
+            data_type: string
+          - name: properties_hs_tcv
+            description: ''
+            data_type: number
+          - name: properties_hs_term_in_months
+            description: ''
+            data_type: number
+          - name: properties_hs_total_discount
+            description: ''
+            data_type: number
+          - name: properties_hs_unique_creation_key
+            description: ''
+            data_type: string
+          - name: properties_hs_updated_by_user_id
+            description: ''
+            data_type: number
+          - name: properties_hs_url
+            description: ''
+            data_type: string
+          - name: properties_hs_user_ids_of_all_notification_followers
+            description: ''
+            data_type: string
+          - name: properties_hs_user_ids_of_all_notification_unfollowers
+            description: ''
+            data_type: string
+          - name: properties_hs_user_ids_of_all_owners
+            description: ''
+            data_type: string
+          - name: properties_hs_variant_id
+            description: ''
+            data_type: number
+          - name: properties_hs_was_imported
+            description: ''
+            data_type: boolean
+          - name: properties_hubspot_owner_assigneddate
+            description: ''
+            data_type: string
+          - name: properties_hubspot_owner_id
+            description: ''
+            data_type: string
+          - name: properties_hubspot_team_id
+            description: ''
+            data_type: string
+          - name: properties_name
+            description: ''
+            data_type: string
+          - name: properties_price
+            description: ''
+            data_type: number
+          - name: properties_quantity
+            description: ''
+            data_type: number
+          - name: properties_recurringbillingfrequency
+            description: ''
+            data_type: string
+          - name: properties_tax
+            description: ''
+            data_type: number
+          - name: properties_test
+            description: ''
+            data_type: string
+          - name: properties_test_product_price
+            description: ''
+            data_type: string

@@ -1,0 +1,77 @@
+version: 2
+
+sources:
+  - name: source_salesforce
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: MobileApplicationDetail
+        columns:
+          - name: Id
+            description: ""
+            data_type: string
+          - name: IsDeleted
+            description: ""
+            data_type: boolean
+          - name: Language
+            description: ""
+            data_type: string
+          - name: MasterLabel
+            description: ""
+            data_type: string
+          - name: NamespacePrefix
+            description: ""
+            data_type: string
+          - name: CreatedDate
+            description: ""
+            data_type: string
+          - name: CreatedById
+            description: ""
+            data_type: string
+          - name: LastModifiedDate
+            description: ""
+            data_type: string
+          - name: LastModifiedById
+            description: ""
+            data_type: string
+          - name: SystemModstamp
+            description: ""
+            data_type: string
+          - name: Version
+            description: ""
+            data_type: string
+          - name: DevicePlatform
+            description: ""
+            data_type: string
+          - name: MinimumOsVersion
+            description: ""
+            data_type: string
+          - name: DeviceType
+            description: ""
+            data_type: string
+          - name: ApplicationFileLength
+            description: ""
+            data_type: integer
+          - name: ApplicationIcon
+            description: ""
+            data_type: string
+          - name: IsEnterpriseApp
+            description: ""
+            data_type: boolean
+          - name: AppInstallUrl
+            description: ""
+            data_type: string
+          - name: ApplicationBundleIdentifier
+            description: ""
+            data_type: string
+          - name: ApplicationBinaryFileName
+            description: ""
+            data_type: string
+          - name: ApplicationIconFileName
+            description: ""
+            data_type: string
+          - name: ApplicationBinary
+            description: ""
+            data_type: string

@@ -1,0 +1,74 @@
+version: 2
+
+sources:
+  - name: source_twilio
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: applications
+        columns:
+          - name: account_sid
+            description: The unique identifier of the Twilio account associated with the application.
+            data_type: string
+          - name: api_version
+            description: The version of the Twilio API being used for the application.
+            data_type: string
+          - name: date_created
+            description: The date and time when the application was created.
+            data_type: string
+          - name: date_updated
+            description: The date and time when the application was last updated.
+            data_type: string
+          - name: friendly_name
+            description: A user-friendly name assigned to the application for identification.
+            data_type: string
+          - name: message_status_callback
+            description: The URL where status updates for outgoing messages will be sent.
+            data_type: string
+          - name: sid
+            description: A unique identifier for the application.
+            data_type: string
+          - name: sms_fallback_method
+            description: The HTTP method used to send a fallback URL if an error occurs during SMS delivery.
+            data_type: string
+          - name: sms_fallback_url
+            description: The URL that Twilio will request if an error occurs during SMS delivery.
+            data_type: string
+          - name: sms_method
+            description: The HTTP method used to send SMS messages for the application.
+            data_type: string
+          - name: public_application_connect_enabled
+            description: Indicates whether public application connect is enabled for the application.
+            data_type: boolean
+          - name: sms_status_callback
+            description: The URL where status updates for incoming SMS messages will be sent.
+            data_type: string
+          - name: sms_url
+            description: The URL that Twilio will request when receiving an incoming SMS message.
+            data_type: string
+          - name: status_callback
+            description: The URL where status updates for calls will be sent.
+            data_type: string
+          - name: status_callback_method
+            description: The HTTP method used to send status updates for calls.
+            data_type: string
+          - name: uri
+            description: The URI of the application resource.
+            data_type: string
+          - name: voice_caller_id_lookup
+            description: Indicates whether or not caller ID information will be looked up for incoming calls.
+            data_type: boolean
+          - name: voice_fallback_method
+            description: The HTTP method used to send a fallback URL if an error occurs during voice call handling.
+            data_type: string
+          - name: voice_fallback_url
+            description: The URL that Twilio will request if an error occurs during voice call handling.
+            data_type: string
+          - name: voice_method
+            description: The HTTP method used for voice call handling.
+            data_type: string
+          - name: voice_url
+            description: The URL that Twilio will request for voice call handling.
+            data_type: string

@@ -1,0 +1,29 @@
+version: 2
+
+sources:
+  - name: source_hubspot
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: contacts_list_memberships
+        columns:
+          - name: canonical-vid
+            description: The unique ID associated with the contact in the HubSpot CRM
+            data_type: integer
+          - name: static-list-id
+            description: The static ID assigned to the list of contacts within the HubSpot CRM
+            data_type: integer
+          - name: internal-list-id
+            description: The internal ID assigned to the list of contacts within the HubSpot CRM
+            data_type: integer
+          - name: timestamp
+            description: The timestamp when the contact was added to or removed from the list
+            data_type: integer
+          - name: vid
+            description: The ID associated with the contact in the HubSpot CRM
+            data_type: integer
+          - name: is-member
+            description: Flag indicating whether the contact is a member of the list or not
+            data_type: boolean

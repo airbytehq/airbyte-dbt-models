@@ -1,0 +1,158 @@
+version: 2
+
+sources:
+  - name: source_hubspot
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: engagements_calls_web_analytics
+        columns:
+          - name: properties_hs_asset_description
+            description: ''
+            data_type: string
+          - name: properties_hs_asset_type
+            description: ''
+            data_type: string
+          - name: properties_hs_browser
+            description: ''
+            data_type: string
+          - name: properties_hs_campaign_id
+            description: ''
+            data_type: string
+          - name: properties_hs_city
+            description: ''
+            data_type: string
+          - name: properties_hs_country
+            description: ''
+            data_type: string
+          - name: properties_hs_device_name
+            description: ''
+            data_type: string
+          - name: properties_hs_device_type
+            description: ''
+            data_type: string
+          - name: properties_hs_title
+            description: ''
+            data_type: string
+          - name: properties_hs_form_correlation_id
+            description: ''
+            data_type: string
+          - name: properties_hs_element_class
+            description: ''
+            data_type: string
+          - name: properties_hs_element_id
+            description: ''
+            data_type: string
+          - name: properties_hs_element_text
+            description: ''
+            data_type: string
+          - name: properties_hs_language
+            description: ''
+            data_type: string
+          - name: properties_hs_document_id
+            description: ''
+            data_type: string
+          - name: properties_hs_presentation_id
+            description: ''
+            data_type: string
+          - name: properties_hs_user_id
+            description: ''
+            data_type: string
+          - name: properties_hs_link_href
+            description: ''
+            data_type: string
+          - name: properties_hs_operating_system
+            description: ''
+            data_type: string
+          - name: properties_hs_operating_version
+            description: ''
+            data_type: string
+          - name: properties_hs_page_content_type
+            description: ''
+            data_type: string
+          - name: properties_hs_page_id
+            description: ''
+            data_type: string
+          - name: properties_hs_page_title
+            description: ''
+            data_type: string
+          - name: properties_hs_page_url
+            description: ''
+            data_type: string
+          - name: properties_hs_parent_module_id
+            description: ''
+            data_type: string
+          - name: properties_hs_referrer
+            description: ''
+            data_type: string
+          - name: properties_hs_region
+            description: ''
+            data_type: string
+          - name: properties_hs_url
+            description: ''
+            data_type: string
+          - name: properties_hs_screen_height
+            description: ''
+            data_type: string
+          - name: properties_hs_screen_width
+            description: ''
+            data_type: string
+          - name: properties_hs_touchpoint_source
+            description: ''
+            data_type: string
+          - name: properties_hs_tracking_name
+            description: ''
+            data_type: string
+          - name: properties_hs_user_agent
+            description: ''
+            data_type: string
+          - name: properties_hs_utm_campaign
+            description: ''
+            data_type: string
+          - name: properties_hs_utm_content
+            description: ''
+            data_type: string
+          - name: properties_hs_utm_medium
+            description: ''
+            data_type: string
+          - name: properties_hs_utm_source
+            description: ''
+            data_type: string
+          - name: properties_hs_utm_term
+            description: ''
+            data_type: string
+          - name: id
+            description: ''
+            data_type: string
+          - name: properties_hs_base_url
+            description: ''
+            data_type: string
+          - name: properties_hs_form_id
+            description: ''
+            data_type: string
+          - name: properties_hs_form_type
+            description: ''
+            data_type: string
+          - name: properties_hs_url_domain
+            description: ''
+            data_type: string
+          - name: properties_hs_url_path
+            description: ''
+            data_type: string
+          - name: properties_hs_visitor_type
+            description: ''
+            data_type: string
+          - name: objectId
+            description: ''
+            data_type: string
+          - name: objectType
+            description: ''
+            data_type: string
+          - name: eventType
+            description: ''
+            data_type: string
+          - name: occurredAt
+            description: ''
+            data_type: string

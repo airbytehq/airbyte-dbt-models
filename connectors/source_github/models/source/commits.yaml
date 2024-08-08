@@ -1,0 +1,47 @@
+version: 2
+
+sources:
+  - name: source_github
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: commits
+        columns:
+          - name: repository
+            description: The repository where the commit was made.
+            data_type: string
+          - name: branch
+            description: The branch name where the commit was made.
+            data_type: string
+          - name: created_at
+            description: The creation date and time of the commit.
+            data_type: string
+          - name: url
+            description: URL for accessing the commit data.
+            data_type: string
+          - name: sha
+            description: The SHA of the commit.
+            data_type: string
+          - name: node_id
+            description: The unique identifier of the commit node.
+            data_type: string
+          - name: html_url
+            description: URL for viewing the commit on GitHub.
+            data_type: string
+          - name: comments_url
+            description: URL for accessing comments on the commit.
+            data_type: string
+          - name: commit
+            description: Information about the commit including author, committer, tree, and verification details.
+            data_type: object
+          - name: author
+            description: ""
+            data_type: object
+          - name: committer
+            description: ""
+            data_type: object
+          - name: parents
+            description: List of parent commits of the current commit.
+            data_type: array

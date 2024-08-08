@@ -1,0 +1,47 @@
+version: 2
+
+sources:
+  - name: source_hubspot
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: contacts_form_submissions
+        columns:
+          - name: canonical-vid
+            description: The canonical VID associated with the submission
+            data_type: integer
+          - name: canonical-url
+            description: The canonical URL of the submitted form
+            data_type: string
+          - name: conversion-id
+            description: The conversion ID related to the form submission
+            data_type: string
+          - name: page-title
+            description: The title of the page where the form submission occurred
+            data_type: string
+          - name: timestamp
+            description: The timestamp of when the form submission occurred
+            data_type: integer
+          - name: form-id
+            description: The unique ID of the form submitted
+            data_type: string
+          - name: portal-id
+            description: The ID of the portal where the form submission was made
+            data_type: integer
+          - name: title
+            description: The title of the form submitted
+            data_type: string
+          - name: page-url
+            description: The URL of the page where the form was submitted
+            data_type: string
+          - name: form-type
+            description: The type of form that was submitted
+            data_type: string
+          - name: contact-associated-by
+            description: The specific contacts associated with the submission
+            data_type: array
+          - name: meta-data
+            description: Additional metadata associated with the submission
+            data_type: array

@@ -1,0 +1,56 @@
+version: 2
+
+sources:
+  - name: source_zendesk_support
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: organizations
+        columns:
+          - name: group_id
+            description: The ID of the group to which the organization belongs
+            data_type: integer
+          - name: created_at
+            description: The date and time when the organization was created
+            data_type: string
+          - name: tags
+            description: List of tags associated with the organization
+            data_type: array
+          - name: shared_tickets
+            description: Indicates if tickets are shared with this organization
+            data_type: boolean
+          - name: organization_fields
+            description: Custom fields associated with the organization
+            data_type: object
+          - name: notes
+            description: Any notes or comments related to the organization
+            data_type: string
+          - name: domain_names
+            description: List of domain names associated with the organization
+            data_type: array
+          - name: shared_comments
+            description: Indicates if comments are shared with this organization
+            data_type: boolean
+          - name: details
+            description: Additional details about the organization
+            data_type: string
+          - name: updated_at
+            description: The date and time when the organization was last updated
+            data_type: string
+          - name: name
+            description: The name of the organization
+            data_type: string
+          - name: external_id
+            description: The external ID of the organization
+            data_type: string
+          - name: url
+            description: The URL of the organization
+            data_type: string
+          - name: id
+            description: The unique ID of the organization
+            data_type: integer
+          - name: deleted_at
+            description: The date and time when the organization was deleted
+            data_type: string

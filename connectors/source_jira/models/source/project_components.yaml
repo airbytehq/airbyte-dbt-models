@@ -1,0 +1,60 @@
+version: 2
+
+sources:
+  - name: source_jira
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: project_components
+        description: "Components of Jira projects"
+        columns:
+          - name: self
+            description: "The URL of the component"
+            data_type: string
+          - name: id
+            description: "The unique identifier for the component"
+            data_type: string
+          - name: name
+            description: "The unique name for the component in the project"
+            data_type: string
+          - name: description
+            description: "The description for the component"
+            data_type: string
+          - name: lead
+            description: "The user details for the component's lead user"
+            data_type: json
+          - name: leadUserName
+            description: "Deprecated: The username of the component's lead user"
+            data_type: string
+          - name: leadAccountId
+            description: "The accountId of the component's lead user"
+            data_type: string
+          - name: assigneeType
+            description: "The nominal user type used to determine the assignee for issues created with this component"
+            data_type: string
+          - name: assignee
+            description: "The details of the user associated with assigneeType"
+            data_type: json
+          - name: realAssigneeType
+            description: "The type of the assignee that is assigned to issues created with this component"
+            data_type: string
+          - name: realAssignee
+            description: "The user assigned to issues created with this component"
+            data_type: json
+          - name: isAssigneeTypeValid
+            description: "Whether a user is associated with assigneeType"
+            data_type: boolean
+          - name: project
+            description: "The key of the project the component is assigned to"
+            data_type: string
+          - name: projectId
+            description: "The ID of the project the component is assigned to"
+            data_type: integer
+          - name: componentBean
+            description: "Contains information about the component associated with the project"
+            data_type: json
+          - name: issueCount
+            description: "The total count of issues related to the project component"
+            data_type: integer

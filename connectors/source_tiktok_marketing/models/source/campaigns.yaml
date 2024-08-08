@@ -1,0 +1,80 @@
+version: 2
+
+sources:
+  - name: source_tiktok_marketing
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: campaigns
+        columns:
+          - name: campaign_id
+            description: The unique identifier of the campaign
+            data_type: integer
+          - name: campaign_name
+            description: Name of the campaign for easy identification
+            data_type: string
+          - name: campaign_type
+            description: Type of campaign (e.g., awareness, conversion)
+            data_type: string
+          - name: advertiser_id
+            description: The unique identifier of the advertiser associated with the campaign
+            data_type: integer
+          - name: budget
+            description: Total budget allocated for the campaign
+            data_type: number
+          - name: budget_mode
+            description: Mode in which the budget is being managed (e.g., daily, lifetime)
+            data_type: string
+          - name: secondary_status
+            description: Additional status information of the campaign
+            data_type: string
+          - name: operation_status
+            description: Current operational status of the campaign (e.g., active, paused)
+            data_type: string
+          - name: objective
+            description: The objective or goal of the campaign
+            data_type: string
+          - name: objective_type
+            description: Type of objective selected for the campaign (e.g., brand awareness, app installs)
+            data_type: string
+          - name: budget_optimize_on
+            description: The metric or event that the budget optimization is based on
+            data_type: boolean
+          - name: bid_type
+            description: Type of bid strategy being used in the campaign
+            data_type: string
+          - name: deep_bid_type
+            description: Advanced bid type used for campaign optimization
+            data_type: string
+          - name: optimization_goal
+            description: Specific goal to be optimized for in the campaign
+            data_type: string
+          - name: split_test_variable
+            description: Variable being tested in a split test campaign
+            data_type: string
+          - name: is_new_structure
+            description: Flag indicating if the campaign utilizes a new campaign structure
+            data_type: boolean
+          - name: create_time
+            description: Timestamp when the campaign was created
+            data_type: string
+          - name: modify_time
+            description: Timestamp when the campaign was last modified
+            data_type: string
+          - name: roas_bid
+            description: Return on ad spend goal set for the campaign
+            data_type: number
+          - name: is_smart_performance_campaign
+            description: Flag indicating if the campaign uses smart performance optimization
+            data_type: boolean
+          - name: is_search_campaign
+            description: Flag indicating if the campaign is a search campaign
+            data_type: boolean
+          - name: app_promotion_type
+            description: Type of app promotion being used in the campaign
+            data_type: string
+          - name: rf_campaign_type
+            description: Type of RF (reach and frequency) campaign being run
+            data_type: string

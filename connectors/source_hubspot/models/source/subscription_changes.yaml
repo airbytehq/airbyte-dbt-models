@@ -1,0 +1,26 @@
+version: 2
+
+sources:
+  - name: source_hubspot
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: subscription_changes
+        columns:
+          - name: timestamp
+            description: Timestamp when the subscription change data was fetched
+            data_type: integer
+          - name: portalId
+            description: ID of the portal related to the subscription changes
+            data_type: integer
+          - name: recipient
+            description: Recipient of the subscription change notification
+            data_type: string
+          - name: normalizedEmailId
+            description: Normalized email identifier associated with the subscription
+            data_type: string
+          - name: changes
+            description: List of all subscription changes
+            data_type: array

@@ -1,0 +1,32 @@
+version: 2
+
+sources:
+  - name: source_google_ads
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: ad_group_ad_label
+        columns:
+          - name: ad_group.id
+            description: The ID of the Ad Group to which the ad belongs.
+            data_type: integer
+          - name: ad_group_ad.ad.id
+            description: The ID of the Ad associated with the Ad Group Ad.
+            data_type: integer
+          - name: ad_group_ad.ad.resource_name
+            description: The resource name of the Ad associated with the Ad Group Ad.
+            data_type: string
+          - name: ad_group_ad_label.resource_name
+            description: The resource name of the Ad Group Ad Label.
+            data_type: string
+          - name: label.name
+            description: The name of the label associated with the Ad Group Ad.
+            data_type: string
+          - name: label.resource_name
+            description: The resource name of the label associated with the Ad Group Ad.
+            data_type: string
+          - name: label.id
+            description: The ID of the label associated with the Ad Group Ad.
+            data_type: integer

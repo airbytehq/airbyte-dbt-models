@@ -1,0 +1,44 @@
+version: 2
+
+sources:
+  - name: source_github
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: workflows
+        columns:
+          - name: id
+            description: Unique identifier for the workflow.
+            data_type: integer
+          - name: node_id
+            description: Node ID of the workflow
+            data_type: string
+          - name: name
+            description: Name of the workflow
+            data_type: string
+          - name: path
+            description: Path to the workflow in the repository
+            data_type: string
+          - name: state
+            description: Current state of the workflow
+            data_type: string
+          - name: created_at
+            description: Date and time when the workflow was created
+            data_type: string
+          - name: updated_at
+            description: Date and time when the workflow was last updated
+            data_type: string
+          - name: url
+            description: URL to access detailed information about the workflow
+            data_type: string
+          - name: html_url
+            description: URL to view the workflow on GitHub's web interface
+            data_type: string
+          - name: badge_url
+            description: URL for the badge that represents the workflow status
+            data_type: string
+          - name: repository
+            description: Repository information associated with the workflow
+            data_type: string

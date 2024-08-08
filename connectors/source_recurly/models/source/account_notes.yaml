@@ -1,0 +1,28 @@
+version: 2
+sources:
+  - name: account_notes
+    tables:
+      - name: account_notes
+        description: Metadata for account_notes
+        columns:
+          - name: id
+            description: Unique identifier of the note
+            data_type: string
+          - name: object
+            description: Type of object
+            data_type: string
+          - name: account_id
+            description: The ID of the account
+            data_type: string
+          - name: message
+            description: The content of the note
+            data_type: string
+          - name: created_by
+            description: The user who created the note
+            data_type: string
+          - name: created_at
+            description: Date and time when the note was created
+            data_type: string
+          - name: updated_at
+            description: Date and time when the note was last updated
+            data_type: string

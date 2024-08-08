@@ -1,0 +1,44 @@
+version: 2
+
+sources:
+  - name: source_snapchat_marketing
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: campaigns
+        columns:
+          - name: id
+            description: The unique identifier of the campaign.
+            data_type: string
+          - name: updated_at
+            description: The timestamp indicating when the campaign was last updated.
+            data_type: string
+          - name: created_at
+            description: The timestamp indicating when the campaign was created.
+            data_type: string
+          - name: name
+            description: The name assigned to the campaign for easy identification.
+            data_type: string
+          - name: ad_account_id
+            description: The unique identifier of the advertising account associated with the campaign.
+            data_type: string
+          - name: status
+            description: The current status of the campaign (e.g., paused, active).
+            data_type: string
+          - name: objective
+            description: The primary goal or objective of the campaign.
+            data_type: string
+          - name: start_time
+            description: The starting date and time for the campaign to begin running.
+            data_type: string
+          - name: buy_model
+            description: The purchasing model used for the campaign (e.g., auction, reach and frequency).
+            data_type: string
+          - name: delivery_status
+            description: The status of campaign delivery.
+            data_type: array
+          - name: creation_state
+            description: The current state of the campaign creation process.
+            data_type: string

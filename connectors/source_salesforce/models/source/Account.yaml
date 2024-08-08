@@ -1,0 +1,209 @@
+version: 2
+
+sources:
+  - name: source_salesforce
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: Account
+        columns:
+          - name: Id
+            description: ""
+            data_type: string
+          - name: IsDeleted
+            description: ""
+            data_type: boolean
+          - name: MasterRecordId
+            description: ""
+            data_type: string
+          - name: Name
+            description: ""
+            data_type: string
+          - name: Type
+            description: ""
+            data_type: string
+          - name: ParentId
+            description: ""
+            data_type: string
+          - name: BillingStreet
+            description: ""
+            data_type: string
+          - name: BillingCity
+            description: ""
+            data_type: string
+          - name: BillingState
+            description: ""
+            data_type: string
+          - name: BillingPostalCode
+            description: ""
+            data_type: string
+          - name: BillingCountry
+            description: ""
+            data_type: string
+          - name: BillingLatitude
+            description: ""
+            data_type: number
+          - name: BillingLongitude
+            description: ""
+            data_type: number
+          - name: BillingGeocodeAccuracy
+            description: ""
+            data_type: string
+          - name: BillingAddress
+            description: ""
+            data_type: object
+          - name: ShippingStreet
+            description: ""
+            data_type: string
+          - name: ShippingCity
+            description: ""
+            data_type: string
+          - name: ShippingState
+            description: ""
+            data_type: string
+          - name: ShippingPostalCode
+            description: ""
+            data_type: string
+          - name: ShippingCountry
+            description: ""
+            data_type: string
+          - name: ShippingLatitude
+            description: ""
+            data_type: number
+          - name: ShippingLongitude
+            description: ""
+            data_type: number
+          - name: ShippingGeocodeAccuracy
+            description: ""
+            data_type: string
+          - name: ShippingAddress
+            description: ""
+            data_type: object
+          - name: Phone
+            description: ""
+            data_type: string
+          - name: Fax
+            description: ""
+            data_type: string
+          - name: AccountNumber
+            description: ""
+            data_type: string
+          - name: Website
+            description: ""
+            data_type: string
+          - name: PhotoUrl
+            description: ""
+            data_type: string
+          - name: Sic
+            description: ""
+            data_type: string
+          - name: Industry
+            description: ""
+            data_type: string
+          - name: AnnualRevenue
+            description: ""
+            data_type: number
+          - name: NumberOfEmployees
+            description: ""
+            data_type: integer
+          - name: Ownership
+            description: ""
+            data_type: string
+          - name: TickerSymbol
+            description: ""
+            data_type: string
+          - name: Description
+            description: ""
+            data_type: string
+          - name: Rating
+            description: ""
+            data_type: string
+          - name: Site
+            description: ""
+            data_type: string
+          - name: OwnerId
+            description: ""
+            data_type: string
+          - name: CreatedDate
+            description: ""
+            data_type: string
+          - name: CreatedById
+            description: ""
+            data_type: string
+          - name: LastModifiedDate
+            description: ""
+            data_type: string
+          - name: LastModifiedById
+            description: ""
+            data_type: string
+          - name: SystemModstamp
+            description: ""
+            data_type: string
+          - name: LastActivityDate
+            description: ""
+            data_type: string
+          - name: LastViewedDate
+            description: ""
+            data_type: string
+          - name: LastReferencedDate
+            description: ""
+            data_type: string
+          - name: Jigsaw
+            description: ""
+            data_type: string
+          - name: JigsawCompanyId
+            description: ""
+            data_type: string
+          - name: CleanStatus
+            description: ""
+            data_type: string
+          - name: AccountSource
+            description: ""
+            data_type: string
+          - name: DunsNumber
+            description: ""
+            data_type: string
+          - name: Tradestyle
+            description: ""
+            data_type: string
+          - name: NaicsCode
+            description: ""
+            data_type: string
+          - name: NaicsDesc
+            description: ""
+            data_type: string
+          - name: YearStarted
+            description: ""
+            data_type: string
+          - name: SicDesc
+            description: ""
+            data_type: string
+          - name: DandbCompanyId
+            description: ""
+            data_type: string
+          - name: OperatingHoursId
+            description: ""
+            data_type: string
+          - name: CustomerPriority__c
+            description: ""
+            data_type: string
+          - name: SLA__c
+            description: ""
+            data_type: string
+          - name: Active__c
+            description: ""
+            data_type: string
+          - name: NumberofLocations__c
+            description: ""
+            data_type: number
+          - name: UpsellOpportunity__c
+            description: ""
+            data_type: string
+          - name: SLASerialNumber__c
+            description: ""
+            data_type: string
+          - name: SLAExpirationDate__c
+            description: ""
+            data_type: string

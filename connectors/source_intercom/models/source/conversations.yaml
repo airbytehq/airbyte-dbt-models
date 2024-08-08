@@ -1,0 +1,101 @@
+version: 2
+
+sources:
+  - name: source_intercom
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: conversations
+        columns:
+          - name: assignee
+            description: The assigned user responsible for the conversation.
+            data_type: object
+          - name: source
+            description: Source details of the conversation.
+            data_type: object
+          - name: contacts
+            description: List of contacts involved in the conversation.
+            data_type: object
+          - name: teammates
+            description: List of teammates involved in the conversation.
+            data_type: object
+          - name: first_contact_reply
+            description: Timestamp indicating when the first contact replied.
+            data_type: object
+          - name: custom_attributes
+            description: Custom attributes associated with the conversation
+            data_type: object
+          - name: priority
+            description: The priority level of the conversation
+            data_type: string
+          - name: conversation_message
+            description: The main message content of the conversation.
+            data_type: object
+          - name: conversation_rating
+            description: Ratings given to the conversation by the customer and teammate.
+            data_type: object
+          - name: created_at
+            description: The timestamp when the conversation was created
+            data_type: integer
+          - name: customer_first_reply
+            description: Timestamp indicating when the customer first replied.
+            data_type: object
+          - name: customers
+            description: List of customers involved in the conversation
+            data_type: default
+          - name: id
+            description: The unique ID of the conversation
+            data_type: string
+          - name: open
+            description: Indicates if the conversation is open or closed
+            data_type: boolean
+          - name: read
+            description: Indicates if the conversation has been read
+            data_type: boolean
+          - name: sent_at
+            description: The timestamp when the conversation was sent
+            data_type: integer
+          - name: snoozed_until
+            description: Timestamp until the conversation is snoozed
+            data_type: integer
+          - name: sla_applied
+            description: Service Level Agreement details applied to the conversation.
+            data_type: object
+          - name: state
+            description: The state of the conversation (e.g., new, in progress)
+            data_type: string
+          - name: statistics
+            description: Statistics related to the conversation.
+            data_type: object
+          - name: tags
+            description: Tags applied to the conversation.
+            data_type: object
+          - name: type
+            description: The type of the conversation
+            data_type: string
+          - name: updated_at
+            description: The timestamp when the conversation was last updated
+            data_type: integer
+          - name: user
+            description: The user related to the conversation.
+            data_type: object
+          - name: waiting_since
+            description: Timestamp since waiting for a response
+            data_type: integer
+          - name: admin_assignee_id
+            description: The ID of the administrator assigned to the conversation
+            data_type: integer
+          - name: title
+            description: The title of the conversation
+            data_type: string
+          - name: team_assignee_id
+            description: The ID of the team assigned to the conversation
+            data_type: integer
+          - name: redacted
+            description: Indicates if the conversation is redacted
+            data_type: boolean
+          - name: topics
+            description: Topics associated with the conversation.
+            data_type: object

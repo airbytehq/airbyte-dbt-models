@@ -1,0 +1,23 @@
+version: 2
+
+sources:
+  - name: source_amplitude
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: annotations
+        columns:
+          - name: date
+            description: The date when the annotation was made
+            data_type: string
+          - name: details
+            description: Additional details or information related to the annotation
+            data_type: string
+          - name: id
+            description: The unique identifier for the annotation
+            data_type: integer
+          - name: label
+            description: The label assigned to the annotation
+            data_type: string

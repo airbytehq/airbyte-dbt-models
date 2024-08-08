@@ -1,0 +1,197 @@
+version: 2
+
+sources:
+  - name: source_recharge
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: orders
+        columns:
+          - name: id
+            description: ''
+            data_type: integer
+          - name: accepts_marketing
+            description: ''
+            data_type: boolean
+          - name: send_email_welcome
+            description: ''
+            data_type: boolean
+          - name: verified_email
+            description: ''
+            data_type: boolean
+          - name: phone
+            description: ''
+            data_type: string
+          - name: address_id
+            description: ''
+            data_type: integer
+          - name: address_is_active
+            description: ''
+            data_type: integer
+          - name: billing_address
+            description: ''
+            data_type: object
+          - name: browser_ip
+            description: ''
+            data_type: string
+          - name: charge
+            description: ''
+            data_type: object
+          - name: client_details
+            description: ''
+            data_type: object
+          - name: discounts
+            description: ''
+            data_type: array
+          - name: error
+            description: ''
+            data_type: string
+          - name: external_cart_token
+            description: ''
+            data_type: string
+          - name: external_order_id
+            description: ''
+            data_type: object
+          - name: external_order_name
+            description: ''
+            data_type: object
+          - name: external_order_number
+            description: ''
+            data_type: object
+          - name: order_attributes
+            description: ''
+            data_type: array
+          - name: taxable
+            description: ''
+            data_type: boolean
+          - name: total_duties
+            description: ''
+            data_type: string
+          - name: total_weight_grams
+            description: ''
+            data_type: integer
+          - name: charge_id
+            description: ''
+            data_type: integer
+          - name: charge_status
+            description: ''
+            data_type: string
+          - name: currency
+            description: ''
+            data_type: string
+          - name: created_at
+            description: ''
+            data_type: string
+          - name: customer
+            description: ''
+            data_type: object
+          - name: customer_id
+            description: ''
+            data_type: integer
+          - name: discount_codes
+            description: ''
+            data_type: array
+          - name: email
+            description: ''
+            data_type: string
+          - name: first_name
+            description: ''
+            data_type: string
+          - name: hash
+            description: ''
+            data_type: string
+          - name: is_prepaid
+            description: ''
+            data_type: integer
+          - name: last_name
+            description: ''
+            data_type: string
+          - name: line_items
+            description: ''
+            data_type: array
+          - name: note
+            description: ''
+            data_type: string
+          - name: note_attributes
+            description: ''
+            data_type: array
+          - name: payment_processor
+            description: ''
+            data_type: string
+          - name: processed_at
+            description: ''
+            data_type: string
+          - name: redacted
+            description: ''
+            data_type: boolean
+          - name: scheduled_at
+            description: ''
+            data_type: string
+          - name: shipped_date
+            description: ''
+            data_type: string
+          - name: shipping_address
+            description: ''
+            data_type: object
+          - name: shipping_lines
+            description: ''
+            data_type: array
+          - name: shopify_cart_token
+            description: ''
+            data_type: string
+          - name: shopify_customer_id
+            description: ''
+            data_type: string
+          - name: shopify_order_id
+            description: ''
+            data_type: string
+          - name: shopify_order_number
+            description: ''
+            data_type: integer
+          - name: status
+            description: ''
+            data_type: string
+          - name: subtotal_price
+            description: ''
+            data_type: number
+          - name: tags
+            description: ''
+            data_type: string
+          - name: tax_lines
+            description: ''
+            data_type: array
+          - name: transaction_id
+            description: ''
+            data_type: string
+          - name: total_discounts
+            description: ''
+            data_type: number
+          - name: total_line_items_price
+            description: ''
+            data_type: number
+          - name: total_price
+            description: ''
+            data_type: number
+          - name: total_refunds
+            description: ''
+            data_type: string
+          - name: total_tax
+            description: ''
+            data_type: string
+          - name: total_weight
+            description: ''
+            data_type: integer
+          - name: type
+            description: ''
+            data_type: string
+          - name: updated_at
+            description: ''
+            data_type: string
+          - name: shipping_date
+            description: ''
+            data_type: string
+          - name: shopify_id
+            description: ''
+            data_type: string

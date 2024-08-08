@@ -1,0 +1,563 @@
+version: 2
+
+sources:
+  - name: source_hubspot
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: companies_property_history
+        columns:
+          - name: updatedByUserId
+            description: The user ID of the user who initiated the property update.
+            data_type: number
+          - name: timestamp
+            description: The date and time when the property update occurred.
+            data_type: string
+          - name: property
+            description: The specific property that was updated in the company record.
+            data_type: string
+          - name: companyId
+            description: The unique identifier of the company to which the property history record belongs.
+            data_type: string
+          - name: sourceType
+            description: The type of the source that updated the property in the company record.
+            data_type: string
+          - name: sourceId
+            description: The identifier of the source that updated the property in the company record.
+            data_type: string
+          - name: value
+            description: The new value of the property after the update.
+            data_type: string
+          - name: archived
+            description: Flag indicating if the company property history record is archived or not.
+            data_type: boolean
+          - name: properties
+            description: ''
+            data_type: object
+          - name: properties_about_us
+            description: ''
+            data_type: string
+          - name: properties_address
+            description: ''
+            data_type: string
+          - name: properties_address2
+            description: ''
+            data_type: string
+          - name: properties_annualrevenue
+            description: ''
+            data_type: number
+          - name: properties_city
+            description: ''
+            data_type: string
+          - name: properties_closedate
+            description: ''
+            data_type: string
+          - name: properties_closedate_timestamp_earliest_value_a2a17e6e
+            description: ''
+            data_type: string
+          - name: properties_country
+            description: ''
+            data_type: string
+          - name: properties_createdate
+            description: ''
+            data_type: string
+          - name: properties_custom_company_property
+            description: ''
+            data_type: string
+          - name: properties_days_to_close
+            description: ''
+            data_type: number
+          - name: properties_description
+            description: ''
+            data_type: string
+          - name: properties_domain
+            description: ''
+            data_type: string
+          - name: properties_engagements_last_meeting_booked
+            description: ''
+            data_type: string
+          - name: properties_engagements_last_meeting_booked_campaign
+            description: ''
+            data_type: string
+          - name: properties_engagements_last_meeting_booked_medium
+            description: ''
+            data_type: string
+          - name: properties_engagements_last_meeting_booked_source
+            description: ''
+            data_type: string
+          - name: properties_facebook_company_page
+            description: ''
+            data_type: string
+          - name: properties_facebookfans
+            description: ''
+            data_type: number
+          - name: properties_first_contact_createdate
+            description: ''
+            data_type: string
+          - name: properties_first_contact_createdate_timestamp_earliest_value_78b50eea
+            description: ''
+            data_type: string
+          - name: properties_first_conversion_date
+            description: ''
+            data_type: string
+          - name: properties_first_conversion_date_timestamp_earliest_value_61f58f2c
+            description: ''
+            data_type: string
+          - name: properties_first_conversion_event_name
+            description: ''
+            data_type: string
+          - name: properties_first_conversion_event_name_timestamp_earliest_value_68ddae0a
+            description: ''
+            data_type: string
+          - name: properties_first_deal_created_date
+            description: ''
+            data_type: string
+          - name: properties_founded_year
+            description: ''
+            data_type: string
+          - name: properties_googleplus_page
+            description: ''
+            data_type: string
+          - name: properties_hs_additional_domains
+            description: ''
+            data_type: string
+          - name: properties_hs_all_accessible_team_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_all_owner_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_all_team_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_analytics_first_timestamp
+            description: ''
+            data_type: string
+          - name: properties_hs_analytics_first_timestamp_timestamp_earliest_value_11e3a63a
+            description: ''
+            data_type: string
+          - name: properties_hs_analytics_first_touch_converting_campaign
+            description: ''
+            data_type: string
+          - name: properties_hs_analytics_first_touch_converting_campaign_timestamp_earliest_value_4757fe10
+            description: ''
+            data_type: string
+          - name: properties_hs_analytics_first_visit_timestamp
+            description: ''
+            data_type: string
+          - name: properties_hs_analytics_first_visit_timestamp_timestamp_earliest_value_accc17ae
+            description: ''
+            data_type: string
+          - name: properties_hs_analytics_last_timestamp
+            description: ''
+            data_type: string
+          - name: properties_hs_analytics_last_timestamp_timestamp_latest_value_4e16365a
+            description: ''
+            data_type: string
+          - name: properties_hs_analytics_last_touch_converting_campaign
+            description: ''
+            data_type: string
+          - name: properties_hs_analytics_last_touch_converting_campaign_timestamp_latest_value_81a64e30
+            description: ''
+            data_type: string
+          - name: properties_hs_analytics_last_visit_timestamp
+            description: ''
+            data_type: string
+          - name: properties_hs_analytics_last_visit_timestamp_timestamp_latest_value_999a0fce
+            description: ''
+            data_type: string
+          - name: properties_hs_analytics_latest_source
+            description: ''
+            data_type: string
+          - name: properties_hs_analytics_latest_source_data_1
+            description: ''
+            data_type: string
+          - name: properties_hs_analytics_latest_source_data_2
+            description: ''
+            data_type: string
+          - name: properties_hs_analytics_latest_source_timestamp
+            description: ''
+            data_type: string
+          - name: properties_hs_analytics_num_page_views
+            description: ''
+            data_type: number
+          - name: properties_hs_analytics_num_page_views_cardinality_sum_e46e85b0
+            description: ''
+            data_type: number
+          - name: properties_hs_analytics_num_visits
+            description: ''
+            data_type: number
+          - name: properties_hs_analytics_num_visits_cardinality_sum_53d952a6
+            description: ''
+            data_type: number
+          - name: properties_hs_analytics_source
+            description: ''
+            data_type: string
+          - name: properties_hs_analytics_source_data_1
+            description: ''
+            data_type: string
+          - name: properties_hs_analytics_source_data_1_timestamp_earliest_value_9b2f1fa1
+            description: ''
+            data_type: string
+          - name: properties_hs_analytics_source_data_2
+            description: ''
+            data_type: string
+          - name: properties_hs_analytics_source_data_2_timestamp_earliest_value_9b2f9400
+            description: ''
+            data_type: string
+          - name: properties_hs_analytics_source_timestamp_earliest_value_25a3a52c
+            description: ''
+            data_type: string
+          - name: properties_hs_annual_revenue_currency_code
+            description: ''
+            data_type: string
+          - name: properties_hs_avatar_filemanager_key
+            description: ''
+            data_type: string
+          - name: properties_hs_country_code
+            description: ''
+            data_type: string
+          - name: properties_hs_created_by_user_id
+            description: ''
+            data_type: number
+          - name: properties_hs_createdate
+            description: ''
+            data_type: string
+          - name: properties_hs_csm_sentiment
+            description: ''
+            data_type: string
+          - name: properties_hs_customer_success_ticket_sentiment
+            description: ''
+            data_type: number
+          - name: properties_hs_date_entered_customer
+            description: ''
+            data_type: string
+          - name: properties_hs_date_entered_evangelist
+            description: ''
+            data_type: string
+          - name: properties_hs_date_entered_lead
+            description: ''
+            data_type: string
+          - name: properties_hs_date_entered_marketingqualifiedlead
+            description: ''
+            data_type: string
+          - name: properties_hs_date_entered_opportunity
+            description: ''
+            data_type: string
+          - name: properties_hs_date_entered_other
+            description: ''
+            data_type: string
+          - name: properties_hs_date_entered_salesqualifiedlead
+            description: ''
+            data_type: string
+          - name: properties_hs_date_entered_subscriber
+            description: ''
+            data_type: string
+          - name: properties_hs_date_exited_customer
+            description: ''
+            data_type: string
+          - name: properties_hs_date_exited_evangelist
+            description: ''
+            data_type: string
+          - name: properties_hs_date_exited_lead
+            description: ''
+            data_type: string
+          - name: properties_hs_date_exited_marketingqualifiedlead
+            description: ''
+            data_type: string
+          - name: properties_hs_date_exited_opportunity
+            description: ''
+            data_type: string
+          - name: properties_hs_date_exited_other
+            description: ''
+            data_type: string
+          - name: properties_hs_date_exited_salesqualifiedlead
+            description: ''
+            data_type: string
+          - name: properties_hs_date_exited_subscriber
+            description: ''
+            data_type: string
+          - name: properties_hs_ideal_customer_profile
+            description: ''
+            data_type: string
+          - name: properties_hs_is_target_account
+            description: ''
+            data_type: boolean
+          - name: properties_hs_last_booked_meeting_date
+            description: ''
+            data_type: string
+          - name: properties_hs_last_logged_call_date
+            description: ''
+            data_type: string
+          - name: properties_hs_last_open_task_date
+            description: ''
+            data_type: string
+          - name: properties_hs_last_sales_activity_date
+            description: ''
+            data_type: string
+          - name: properties_hs_last_sales_activity_timestamp
+            description: ''
+            data_type: string
+          - name: properties_hs_last_sales_activity_type
+            description: ''
+            data_type: string
+          - name: properties_hs_lastmodifieddate
+            description: ''
+            data_type: string
+          - name: properties_hs_latest_createdate_of_active_subscriptions
+            description: ''
+            data_type: string
+          - name: properties_hs_latest_meeting_activity
+            description: ''
+            data_type: string
+          - name: properties_hs_lead_status
+            description: ''
+            data_type: string
+          - name: properties_hs_logo_url
+            description: ''
+            data_type: string
+          - name: properties_hs_merged_object_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_notes_next_activity_type
+            description: ''
+            data_type: string
+          - name: properties_hs_num_blockers
+            description: ''
+            data_type: number
+          - name: properties_hs_num_child_companies
+            description: ''
+            data_type: number
+          - name: properties_hs_num_contacts_with_buying_roles
+            description: ''
+            data_type: number
+          - name: properties_hs_num_decision_makers
+            description: ''
+            data_type: number
+          - name: properties_hs_num_open_deals
+            description: ''
+            data_type: number
+          - name: properties_hs_object_id
+            description: ''
+            data_type: number
+          - name: properties_hs_object_source
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_detail_1
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_detail_2
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_detail_3
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_id
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_label
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_user_id
+            description: ''
+            data_type: number
+          - name: properties_hs_parent_company_id
+            description: ''
+            data_type: number
+          - name: properties_hs_pinned_engagement_id
+            description: ''
+            data_type: number
+          - name: properties_hs_pipeline
+            description: ''
+            data_type: string
+          - name: properties_hs_predictivecontactscore_v2
+            description: ''
+            data_type: number
+          - name: properties_hs_predictivecontactscore_v2_next_max_max_d4e58c1e
+            description: ''
+            data_type: number
+          - name: properties_hs_read_only
+            description: ''
+            data_type: boolean
+          - name: properties_hs_sales_email_last_replied
+            description: ''
+            data_type: string
+          - name: properties_hs_shared_team_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_shared_user_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_target_account
+            description: ''
+            data_type: string
+          - name: properties_hs_target_account_probability
+            description: ''
+            data_type: number
+          - name: properties_hs_target_account_recommendation_snooze_time
+            description: ''
+            data_type: string
+          - name: properties_hs_target_account_recommendation_state
+            description: ''
+            data_type: string
+          - name: properties_hs_time_in_customer
+            description: ''
+            data_type: number
+          - name: properties_hs_time_in_evangelist
+            description: ''
+            data_type: number
+          - name: properties_hs_time_in_lead
+            description: ''
+            data_type: number
+          - name: properties_hs_time_in_marketingqualifiedlead
+            description: ''
+            data_type: number
+          - name: properties_hs_time_in_opportunity
+            description: ''
+            data_type: number
+          - name: properties_hs_time_in_other
+            description: ''
+            data_type: number
+          - name: properties_hs_time_in_salesqualifiedlead
+            description: ''
+            data_type: number
+          - name: properties_hs_time_in_subscriber
+            description: ''
+            data_type: number
+          - name: properties_hs_total_deal_value
+            description: ''
+            data_type: number
+          - name: properties_hs_unique_creation_key
+            description: ''
+            data_type: string
+          - name: properties_hs_updated_by_user_id
+            description: ''
+            data_type: number
+          - name: properties_hs_user_ids_of_all_notification_followers
+            description: ''
+            data_type: string
+          - name: properties_hs_user_ids_of_all_notification_unfollowers
+            description: ''
+            data_type: string
+          - name: properties_hs_user_ids_of_all_owners
+            description: ''
+            data_type: string
+          - name: properties_hs_was_imported
+            description: ''
+            data_type: boolean
+          - name: properties_hubspot_owner_assigneddate
+            description: ''
+            data_type: string
+          - name: properties_hubspot_owner_id
+            description: ''
+            data_type: string
+          - name: properties_hubspot_team_id
+            description: ''
+            data_type: string
+          - name: properties_hubspotscore
+            description: ''
+            data_type: number
+          - name: properties_industry
+            description: ''
+            data_type: string
+          - name: properties_is_public
+            description: ''
+            data_type: boolean
+          - name: properties_lifecyclestage
+            description: ''
+            data_type: string
+          - name: properties_linkedin_company_page
+            description: ''
+            data_type: string
+          - name: properties_linkedinbio
+            description: ''
+            data_type: string
+          - name: properties_name
+            description: ''
+            data_type: string
+          - name: properties_notes_last_contacted
+            description: ''
+            data_type: string
+          - name: properties_notes_last_updated
+            description: ''
+            data_type: string
+          - name: properties_notes_next_activity_date
+            description: ''
+            data_type: string
+          - name: properties_num_associated_contacts
+            description: ''
+            data_type: number
+          - name: properties_num_associated_deals
+            description: ''
+            data_type: number
+          - name: properties_num_contacted_notes
+            description: ''
+            data_type: number
+          - name: properties_num_conversion_events
+            description: ''
+            data_type: number
+          - name: properties_num_conversion_events_cardinality_sum_d095f14b
+            description: ''
+            data_type: number
+          - name: properties_num_notes
+            description: ''
+            data_type: number
+          - name: properties_numberofemployees
+            description: ''
+            data_type: number
+          - name: properties_phone
+            description: ''
+            data_type: string
+          - name: properties_recent_conversion_date
+            description: ''
+            data_type: string
+          - name: properties_recent_conversion_date_timestamp_latest_value_72856da1
+            description: ''
+            data_type: string
+          - name: properties_recent_conversion_event_name
+            description: ''
+            data_type: string
+          - name: properties_recent_conversion_event_name_timestamp_latest_value_66c820bf
+            description: ''
+            data_type: string
+          - name: properties_recent_deal_amount
+            description: ''
+            data_type: number
+          - name: properties_recent_deal_close_date
+            description: ''
+            data_type: string
+          - name: properties_state
+            description: ''
+            data_type: string
+          - name: properties_timezone
+            description: ''
+            data_type: string
+          - name: properties_total_money_raised
+            description: ''
+            data_type: string
+          - name: properties_total_revenue
+            description: ''
+            data_type: number
+          - name: properties_twitterbio
+            description: ''
+            data_type: string
+          - name: properties_twitterfollowers
+            description: ''
+            data_type: number
+          - name: properties_twitterhandle
+            description: ''
+            data_type: string
+          - name: properties_type
+            description: ''
+            data_type: string
+          - name: properties_web_technologies
+            description: ''
+            data_type: string
+          - name: properties_website
+            description: ''
+            data_type: string
+          - name: properties_zip
+            description: ''
+            data_type: string

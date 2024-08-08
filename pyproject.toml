@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "airbyte-dbt-models"
+version = "0.1.0"
+description = ""
+authors = ["marcosmarxm <marcosmarxm@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+dbt = "^1.0.0.38.6"
+dbt-snowflake = "^1.8.3"
+dbt-bigquery = "^1.8.2"
+dbt-postgres = "^1.8.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

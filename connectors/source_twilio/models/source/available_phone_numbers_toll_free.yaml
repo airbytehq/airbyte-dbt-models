@@ -1,0 +1,50 @@
+version: 2
+
+sources:
+  - name: source_twilio
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: available_phone_numbers_toll_free
+        columns:
+          - name: friendly_name
+            description: A user-friendly name associated with the phone number for easy identification.
+            data_type: string
+          - name: phone_number
+            description: The toll-free phone number that can be used for communication.
+            data_type: string
+          - name: lata
+            description: The Local Access and Transport Area code of the phone number's location.
+            data_type: string
+          - name: rate_center
+            description: The rate center associated with the phone number.
+            data_type: string
+          - name: latitude
+            description: The latitude coordinate of the phone number's location.
+            data_type: string
+          - name: longitude
+            description: The longitude coordinate of the phone number's location.
+            data_type: string
+          - name: locality
+            description: The locality (city/town) where the phone number is located.
+            data_type: string
+          - name: region
+            description: The region (state/province) where the phone number is located.
+            data_type: string
+          - name: postal_code
+            description: The postal code of the phone number's location.
+            data_type: string
+          - name: iso_country
+            description: The ISO country code of the phone number's location.
+            data_type: string
+          - name: address_requirements
+            description: Specifies the requirements related to the address associated with the phone number.
+            data_type: string
+          - name: beta
+            description: Indicates if the phone number is in beta testing phase.
+            data_type: boolean
+          - name: capabilities
+            description: Represents the capabilities of the toll-free phone numbers available
+            data_type: object

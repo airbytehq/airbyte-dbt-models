@@ -1,0 +1,248 @@
+version: 2
+
+sources:
+  - name: source_tiktok_marketing
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: ads
+        columns:
+          - name: advertiser_id
+            description: The unique identifier of the advertiser
+            data_type: integer
+          - name: campaign_id
+            description: The unique identifier of the campaign
+            data_type: integer
+          - name: campaign_name
+            description: The name of the campaign
+            data_type: string
+          - name: adgroup_id
+            description: The unique identifier of the ad group
+            data_type: integer
+          - name: adgroup_name
+            description: The name of the ad group
+            data_type: string
+          - name: ad_id
+            description: The unique identifier of the ad
+            data_type: integer
+          - name: ad_name
+            description: The name of the ad
+            data_type: string
+          - name: tracking_app_id
+            description: The unique identifier of the tracking app
+            data_type: string
+          - name: tracking_offline_event_set_ids
+            description: The unique identifiers of offline event sets for tracking
+            data_type: array
+          - name: call_to_action
+            description: The call-to-action text for the ad
+            data_type: string
+          - name: call_to_action_id
+            description: The identifier of the call-to-action
+            data_type: string
+          - name: disclaimer_type
+            description: The type of disclaimer displayed
+            data_type: string
+          - name: disclaimer_text
+            description: The disclaimer text
+            data_type: object
+          - name: disclaimer_clickable_texts
+            description: Clickable disclaimer texts with URLs
+            data_type: object
+          - name: card_id
+            description: The identifier of the card
+            data_type: integer
+          - name: secondary_status
+            description: The secondary status of the ad
+            data_type: string
+          - name: operation_status
+            description: The operational status of the ad
+            data_type: string
+          - name: is_aco
+            description: Indicates if the ad is under Automated Creative Optimization
+            data_type: boolean
+          - name: image_ids
+            description: The unique identifiers of images used in the ad
+            data_type: array
+          - name: image_mode
+            description: The mode of displaying images
+            data_type: string
+          - name: ad_format
+            description: The format of the ad (e.g., image, video, carousel)
+            data_type: string
+          - name: ad_text
+            description: The text content of the ad
+            data_type: string
+          - name: ad_texts
+            description: The text content of the ad in various languages
+            data_type: array
+          - name: video_id
+            description: The unique identifier of the video
+            data_type: string
+          - name: tiktok_item_id
+            description: The unique identifier of the TikTok item
+            data_type: string
+          - name: premium_badge_id
+            description: The unique identifier of the premium badge
+            data_type: string
+          - name: app_name
+            description: The name of the mobile app where the ad is displayed
+            data_type: string
+          - name: landing_page_url
+            description: The URL of the landing page for the ad
+            data_type: string
+          - name: landing_page_urls
+            description: The URLs of landing pages for the ad
+            data_type: array
+          - name: display_name
+            description: The display name of the ad
+            data_type: string
+          - name: profile_image_url
+            description: The URL of the profile image associated with the ad
+            data_type: string
+          - name: impression_tracking_url
+            description: The URL for tracking ad impressions
+            data_type: string
+          - name: click_tracking_url
+            description: The URL for tracking ad clicks
+            data_type: string
+          - name: tracking_pixel_id
+            description: The unique identifier of the tracking pixel
+            data_type: integer
+          - name: deeplink
+            description: The deeplink URL for the ad
+            data_type: string
+          - name: deeplink_type
+            description: The type of deeplink used
+            data_type: string
+          - name: fallback_type
+            description: The type of fallback used
+            data_type: string
+          - name: playable_url
+            description: The URL for a playable ad
+            data_type: string
+          - name: vast_moat_enabled
+            description: Indicates if VAST MOAT is enabled
+            data_type: boolean
+          - name: page_id
+            description: The unique identifier of the page
+            data_type: number
+          - name: creative_authorized
+            description: Indicates if the creative is authorized
+            data_type: boolean
+          - name: is_new_structure
+            description: Indicates if the ad is part of a new structure
+            data_type: boolean
+          - name: create_time
+            description: The timestamp when the ad was created
+            data_type: string
+          - name: modify_time
+            description: The timestamp when the ad was last modified
+            data_type: string
+          - name: shopping_ads_fallback_type
+            description: The type of fallback for shopping ads
+            data_type: string
+          - name: shopping_deeplink_type
+            description: The type of deeplink for shopping
+            data_type: string
+          - name: shopping_ads_video_package_id
+            description: The unique identifier of the video package for shopping ads
+            data_type: string
+          - name: promotional_music_disabled
+            description: Indicates if promotional music is disabled
+            data_type: boolean
+          - name: item_duet_status
+            description: The status of item duet
+            data_type: string
+          - name: item_stitch_status
+            description: The status of item stitch
+            data_type: string
+          - name: avatar_icon_web_uri
+            description: The URL of the avatar icon for the ad
+            data_type: string
+          - name: brand_safety_postbid_partner
+            description: Details about post-bidding partner for brand safety
+            data_type: string
+          - name: brand_safety_vast_url
+            description: The VAST URL for brand safety tracking
+            data_type: string
+          - name: creative_type
+            description: The type of creative used in the ad
+            data_type: string
+          - name: identity_id
+            description: The identifier of the identity
+            data_type: string
+          - name: identity_type
+            description: The type of identity
+            data_type: string
+          - name: identity_authorized_bc_id
+            description: The authorized identity for branded content
+            data_type: string
+          - name: phone_region_code
+            description: The region code for the phone number
+            data_type: string
+          - name: phone_region_calling_code
+            description: The calling code region for the phone number
+            data_type: string
+          - name: optimization_event
+            description: The event used for optimization
+            data_type: string
+          - name: phone_number
+            description: The phone number associated with the ad
+            data_type: string
+          - name: carousel_image_index
+            description: The index of the image in a carousel ad
+            data_type: integer
+          - name: viewability_postbid_partner
+            description: Details about post-bidding partner for viewability tracking
+            data_type: string
+          - name: viewability_vast_url
+            description: The VAST URL for viewability tracking
+            data_type: string
+          - name: music_id
+            description: The unique identifier of the music used in the ad
+            data_type: string
+          - name: utm_params
+            description: UTM parameters for tracking
+            data_type: array
+          - name: shopping_ads_deeplink_type
+            description: The type of deeplink for shopping ads
+            data_type: string
+          - name: dark_post_status
+            description: The status of dark post
+            data_type: string
+          - name: branded_content_disabled
+            description: Indicates if branded content is disabled
+            data_type: string
+          - name: product_specific_type
+            description: The specific type of product
+            data_type: string
+          - name: catalog_id
+            description: The unique identifier of the catalog
+            data_type: string
+          - name: item_group_ids
+            description: The unique identifiers of item groups
+            data_type: array
+          - name: product_set_id
+            description: The unique identifier of the product set
+            data_type: string
+          - name: sku_ids
+            description: The unique identifiers of SKUs associated with the ad
+            data_type: array
+          - name: dynamic_format
+            description: The dynamic format of the ad
+            data_type: string
+          - name: vertical_video_strategy
+            description: The strategy for displaying vertical videos
+            data_type: string
+          - name: dynamic_destination
+            description: The dynamic destination of the ad
+            data_type: string
+          - name: showcase_products
+            description: Products displayed in a showcase ad
+            data_type: object
+          - name: tiktok_page_category
+            description: The category of the TikTok page
+            data_type: string

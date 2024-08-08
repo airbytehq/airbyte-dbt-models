@@ -1,0 +1,41 @@
+version: 2
+
+sources:
+  - name: source_google_ads
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: campaign_criterion
+        columns:
+          - name: deleted_at
+            description: Timestamp indicating when the criterion was deleted.
+            data_type: string
+          - name: change_status.last_change_date_time
+            description: The date and time of the last change made to the criterion.
+            data_type: string
+          - name: campaign.id
+            description: The unique identifier for the campaign associated with the criterion.
+            data_type: integer
+          - name: campaign_criterion.resource_name
+            description: The resource name of the criterion.
+            data_type: string
+          - name: campaign_criterion.campaign
+            description: The specific campaign this criterion is targeting.
+            data_type: string
+          - name: campaign_criterion.age_range.type
+            description: The age range targeting type for the criterion.
+            data_type: string
+          - name: campaign_criterion.mobile_application.name
+            description: The name of the mobile application targeted by the criterion.
+            data_type: string
+          - name: campaign_criterion.negative
+            description: Indicates whether the criterion is a negative targeting criterion.
+            data_type: boolean
+          - name: campaign_criterion.youtube_channel.channel_id
+            description: The YouTube channel ID targeted by the criterion.
+            data_type: string
+          - name: campaign_criterion.youtube_video.video_id
+            description: The YouTube video ID targeted by the criterion.
+            data_type: string

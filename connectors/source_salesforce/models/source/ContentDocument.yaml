@@ -1,0 +1,86 @@
+version: 2
+
+sources:
+  - name: source_salesforce
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: ContentDocument
+        columns:
+          - name: Id
+            description: ""
+            data_type: string
+          - name: CreatedById
+            description: ""
+            data_type: string
+          - name: CreatedDate
+            description: ""
+            data_type: string
+          - name: LastModifiedById
+            description: ""
+            data_type: string
+          - name: LastModifiedDate
+            description: ""
+            data_type: string
+          - name: IsArchived
+            description: ""
+            data_type: boolean
+          - name: ArchivedById
+            description: ""
+            data_type: string
+          - name: ArchivedDate
+            description: ""
+            data_type: string
+          - name: IsDeleted
+            description: ""
+            data_type: boolean
+          - name: OwnerId
+            description: ""
+            data_type: string
+          - name: SystemModstamp
+            description: ""
+            data_type: string
+          - name: Title
+            description: ""
+            data_type: string
+          - name: PublishStatus
+            description: ""
+            data_type: string
+          - name: LatestPublishedVersionId
+            description: ""
+            data_type: string
+          - name: ParentId
+            description: ""
+            data_type: string
+          - name: LastViewedDate
+            description: ""
+            data_type: string
+          - name: LastReferencedDate
+            description: ""
+            data_type: string
+          - name: Description
+            description: ""
+            data_type: string
+          - name: ContentSize
+            description: ""
+            data_type: integer
+          - name: FileType
+            description: ""
+            data_type: string
+          - name: FileExtension
+            description: ""
+            data_type: string
+          - name: SharingOption
+            description: ""
+            data_type: string
+          - name: SharingPrivacy
+            description: ""
+            data_type: string
+          - name: ContentModifiedDate
+            description: ""
+            data_type: string
+          - name: ContentAssetId
+            description: ""
+            data_type: string

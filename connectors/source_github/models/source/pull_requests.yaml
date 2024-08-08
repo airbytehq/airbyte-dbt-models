@@ -1,0 +1,122 @@
+version: 2
+
+sources:
+  - name: source_github
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: pull_requests
+        columns:
+          - name: repository
+            description: Repository information
+            data_type: string
+          - name: url
+            description: URL for fetching detailed information about this pull request
+            data_type: string
+          - name: id
+            description: Unique identifier for the pull request
+            data_type: integer
+          - name: node_id
+            description: Node identifier for the pull request
+            data_type: string
+          - name: html_url
+            description: URL for viewing the pull request on GitHub
+            data_type: string
+          - name: diff_url
+            description: URL to view the diff for this pull request
+            data_type: string
+          - name: patch_url
+            description: URL for fetching the patch file for this pull request
+            data_type: string
+          - name: issue_url
+            description: URL for viewing the issue associated with this pull request
+            data_type: string
+          - name: commits_url
+            description: URL for fetching commits on this pull request
+            data_type: string
+          - name: review_comments_url
+            description: URL for fetching review comments on this pull request
+            data_type: string
+          - name: review_comment_url
+            description: URL for fetching review comments on this pull request
+            data_type: string
+          - name: comments_url
+            description: URL for fetching comments on this pull request
+            data_type: string
+          - name: statuses_url
+            description: URL for fetching status information for this pull request
+            data_type: string
+          - name: number
+            description: Number assigned to the pull request
+            data_type: integer
+          - name: state
+            description: State of the pull request
+            data_type: string
+          - name: locked
+            description: Indicates if the pull request is locked
+            data_type: boolean
+          - name: title
+            description: Title of the pull request
+            data_type: string
+          - name: user
+            description: ""
+            data_type: object
+          - name: body
+            description: Body content of the pull request
+            data_type: string
+          - name: labels
+            description: Labels attached to this pull request
+            data_type: array
+          - name: milestone
+            description: Milestone information for this pull request
+            data_type: object
+          - name: active_lock_reason
+            description: Reason this pull request is locked
+            data_type: string
+          - name: created_at
+            description: Date and time when the pull request was created
+            data_type: string
+          - name: updated_at
+            description: Date and time when the pull request was last updated
+            data_type: string
+          - name: closed_at
+            description: Date and time when the pull request was closed
+            data_type: string
+          - name: merged_at
+            description: Date and time when the pull request was merged
+            data_type: string
+          - name: merge_commit_sha
+            description: SHA hash of the merged commit
+            data_type: string
+          - name: assignee
+            description: ""
+            data_type: object
+          - name: assignees
+            description: Users assigned to this pull request
+            data_type: array
+          - name: requested_reviewers
+            description: Requested reviewers for this pull request
+            data_type: array
+          - name: requested_teams
+            description: Requested teams for this pull request
+            data_type: array
+          - name: head
+            description: Head branch information
+            data_type: object
+          - name: base
+            description: Base branch information
+            data_type: object
+          - name: _links
+            description: Object containing links related to the pull request.
+            data_type: object
+          - name: author_association
+            description: Association of the author with this pull request
+            data_type: string
+          - name: auto_merge
+            description: Details about automatic merging of this pull request
+            data_type: object
+          - name: draft
+            description: Indicates if the pull request is a draft
+            data_type: boolean

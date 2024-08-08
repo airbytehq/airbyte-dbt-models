@@ -1,0 +1,44 @@
+version: 2
+
+sources:
+  - name: source_salesforce
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: Period
+        columns:
+          - name: Id
+            description: ""
+            data_type: string
+          - name: FiscalYearSettingsId
+            description: ""
+            data_type: string
+          - name: Type
+            description: ""
+            data_type: string
+          - name: StartDate
+            description: ""
+            data_type: string
+          - name: EndDate
+            description: ""
+            data_type: string
+          - name: SystemModstamp
+            description: ""
+            data_type: string
+          - name: IsForecastPeriod
+            description: ""
+            data_type: boolean
+          - name: QuarterLabel
+            description: ""
+            data_type: string
+          - name: PeriodLabel
+            description: ""
+            data_type: string
+          - name: Number
+            description: ""
+            data_type: integer
+          - name: FullyQualifiedLabel
+            description: ""
+            data_type: string

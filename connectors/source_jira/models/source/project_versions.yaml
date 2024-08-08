@@ -1,0 +1,63 @@
+version: 2
+
+sources:
+  - name: source_jira
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: project_versions
+        description: "Details of Jira project versions"
+        columns:
+          - name: expand
+            description: "Use expand parameter to include additional information about the version in the response"
+            data_type: string
+          - name: self
+            description: "The URL of the version"
+            data_type: string
+          - name: id
+            description: "The unique ID of the version"
+            data_type: string
+          - name: description
+            description: "The description of the version"
+            data_type: string
+          - name: name
+            description: "The unique name assigned to the version"
+            data_type: string
+          - name: archived
+            description: "Indicates whether the version is archived"
+            data_type: boolean
+          - name: released
+            description: "Indicates whether the version has been released"
+            data_type: boolean
+          - name: startDate
+            description: "The start date of the version in ISO 8601 format (yyyy-mm-dd)"
+            data_type: date
+          - name: releaseDate
+            description: "The release date of the version in ISO 8601 format (yyyy-mm-dd)"
+            data_type: date
+          - name: overdue
+            description: "Indicates whether the version is overdue"
+            data_type: boolean
+          - name: userStartDate
+            description: "The date when work on this version is expected to begin, expressed in the instance's Day/Month/Year format"
+            data_type: string
+          - name: userReleaseDate
+            description: "The date when work on this version is expected to finish, expressed in the instance's Day/Month/Year format"
+            data_type: string
+          - name: project
+            description: "Deprecated field. Use projectId instead"
+            data_type: string
+          - name: projectId
+            description: "The ID of the project to which this version is connected"
+            data_type: integer
+          - name: moveUnfixedIssuesTo
+            description: "The URL of the self link to the version where all unfixed issues are moved when the version gets released"
+            data_type: string
+          - name: operations
+            description: "If 'operations' is expanded, provides a list of available operations for this version"
+            data_type: json
+          - name: issuesStatusForFixVersion
+            description: "If 'issuesstatus' is expanded, provides counts of issues in this version for status categories: to do, in progress, done, and unmapped"
+            data_type: json

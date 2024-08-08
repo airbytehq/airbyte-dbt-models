@@ -1,0 +1,272 @@
+version: 2
+
+sources:
+  - name: source_hubspot
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: engagements_meetings
+        columns:
+          - name: id
+            description: Unique identifier for the meeting engagement.
+            data_type: string
+          - name: properties
+            description: ''
+            data_type: object
+          - name: properties_hs_activity_type
+            description: ''
+            data_type: string
+          - name: properties_hs_all_assigned_business_unit_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_at_mentioned_owner_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_attachment_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_attendee_owner_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_body_preview
+            description: ''
+            data_type: string
+          - name: properties_hs_body_preview_html
+            description: ''
+            data_type: string
+          - name: properties_hs_body_preview_is_truncated
+            description: ''
+            data_type: boolean
+          - name: properties_hs_created_by
+            description: ''
+            data_type: number
+          - name: properties_hs_created_by_user_id
+            description: ''
+            data_type: number
+          - name: properties_hs_createdate
+            description: ''
+            data_type: string
+          - name: properties_hs_engagement_source
+            description: ''
+            data_type: string
+          - name: properties_hs_engagement_source_id
+            description: ''
+            data_type: string
+          - name: properties_hs_follow_up_action
+            description: ''
+            data_type: string
+          - name: properties_hs_gdpr_deleted
+            description: ''
+            data_type: boolean
+          - name: properties_hs_i_cal_uid
+            description: ''
+            data_type: string
+          - name: properties_hs_internal_meeting_notes
+            description: ''
+            data_type: string
+          - name: properties_hs_lastmodifieddate
+            description: ''
+            data_type: string
+          - name: properties_hs_meeting_body
+            description: ''
+            data_type: string
+          - name: properties_hs_meeting_calendar_event_hash
+            description: ''
+            data_type: string
+          - name: properties_hs_meeting_change_id
+            description: ''
+            data_type: string
+          - name: properties_hs_meeting_created_from_link_id
+            description: ''
+            data_type: string
+          - name: properties_hs_meeting_end_time
+            description: ''
+            data_type: string
+          - name: properties_hs_meeting_external_url
+            description: ''
+            data_type: string
+          - name: properties_hs_meeting_location
+            description: ''
+            data_type: string
+          - name: properties_hs_meeting_location_type
+            description: ''
+            data_type: string
+          - name: properties_hs_meeting_outcome
+            description: ''
+            data_type: string
+          - name: properties_hs_meeting_pre_meeting_prospect_reminders
+            description: ''
+            data_type: string
+          - name: properties_hs_meeting_source
+            description: ''
+            data_type: string
+          - name: properties_hs_meeting_source_id
+            description: ''
+            data_type: string
+          - name: properties_hs_meeting_start_time
+            description: ''
+            data_type: string
+          - name: properties_hs_meeting_title
+            description: ''
+            data_type: string
+          - name: properties_hs_meeting_web_conference_meeting_id
+            description: ''
+            data_type: string
+          - name: properties_hs_merged_object_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_modified_by
+            description: ''
+            data_type: number
+          - name: properties_hs_object_id
+            description: ''
+            data_type: number
+          - name: properties_hs_product_name
+            description: ''
+            data_type: string
+          - name: properties_hs_queue_membership_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_scheduled_tasks
+            description: ''
+            data_type: string
+          - name: properties_hs_timestamp
+            description: ''
+            data_type: string
+          - name: properties_hs_unique_creation_key
+            description: ''
+            data_type: string
+          - name: properties_hs_unique_id
+            description: ''
+            data_type: string
+          - name: properties_hs_updated_by_user_id
+            description: ''
+            data_type: number
+          - name: properties_hs_user_ids_of_all_notification_followers
+            description: ''
+            data_type: string
+          - name: properties_hs_user_ids_of_all_notification_unfollowers
+            description: ''
+            data_type: string
+          - name: properties_hs_user_ids_of_all_owners
+            description: ''
+            data_type: string
+          - name: properties_hubspot_owner_assigneddate
+            description: ''
+            data_type: string
+          - name: properties_hubspot_owner_id
+            description: ''
+            data_type: string
+          - name: properties_hubspot_team_id
+            description: ''
+            data_type: string
+          - name: properties_hs_all_owner_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_all_team_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_all_accessible_team_ids
+            description: ''
+            data_type: string
+          - name: createdAt
+            description: Timestamp indicating when the meeting engagement was created.
+            data_type: string
+          - name: updatedAt
+            description: Timestamp indicating when the meeting engagement was last updated.
+            data_type: string
+          - name: archived
+            description: Indicates whether the meeting engagement is archived or not.
+            data_type: boolean
+          - name: contacts
+            description: Information about the contacts associated with the meeting engagement.
+            data_type: array
+          - name: deals
+            description: Information about the deals associated with the meeting engagement.
+            data_type: array
+          - name: companies
+            description: Information about the companies associated with the meeting engagement.
+            data_type: array
+          - name: tickets
+            description: Information about the tickets associated with the meeting engagement.
+            data_type: array
+          - name: properties_hs_contact_first_outreach_date
+            description: ''
+            data_type: string
+          - name: properties_hs_follow_up_tasks_remaining
+            description: ''
+            data_type: number
+          - name: properties_hs_guest_emails
+            description: ''
+            data_type: string
+          - name: properties_hs_include_description_in_reminder
+            description: ''
+            data_type: boolean
+          - name: properties_hs_meeting_ms_teams_payload
+            description: ''
+            data_type: string
+          - name: properties_hs_meeting_payments_session_id
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_detail_1
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_detail_2
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_detail_3
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_id
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_label
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_user_id
+            description: ''
+            data_type: number
+          - name: properties_hs_outcome_canceled_count
+            description: ''
+            data_type: number
+          - name: properties_hs_outcome_completed_count
+            description: ''
+            data_type: number
+          - name: properties_hs_outcome_no_show_count
+            description: ''
+            data_type: number
+          - name: properties_hs_outcome_rescheduled_count
+            description: ''
+            data_type: number
+          - name: properties_hs_outcome_scheduled_count
+            description: ''
+            data_type: number
+          - name: properties_hs_read_only
+            description: ''
+            data_type: boolean
+          - name: properties_hs_roster_object_coordinates
+            description: ''
+            data_type: string
+          - name: properties_hs_shared_team_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_shared_user_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_time_to_book_meeting_from_first_contact
+            description: ''
+            data_type: number
+          - name: properties_hs_timezone
+            description: ''
+            data_type: string
+          - name: properties_hs_video_conference_url
+            description: ''
+            data_type: string
+          - name: properties_hs_was_imported
+            description: ''
+            data_type: boolean

@@ -1,0 +1,71 @@
+version: 2
+
+sources:
+  - name: source_salesforce
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: WorkBadgeDefinition
+        columns:
+          - name: Id
+            description: ""
+            data_type: string
+          - name: OwnerId
+            description: ""
+            data_type: string
+          - name: IsDeleted
+            description: ""
+            data_type: boolean
+          - name: Name
+            description: ""
+            data_type: string
+          - name: CreatedDate
+            description: ""
+            data_type: string
+          - name: CreatedById
+            description: ""
+            data_type: string
+          - name: LastModifiedDate
+            description: ""
+            data_type: string
+          - name: LastModifiedById
+            description: ""
+            data_type: string
+          - name: SystemModstamp
+            description: ""
+            data_type: string
+          - name: LastViewedDate
+            description: ""
+            data_type: string
+          - name: LastReferencedDate
+            description: ""
+            data_type: string
+          - name: IsCompanyWide
+            description: ""
+            data_type: boolean
+          - name: Description
+            description: ""
+            data_type: string
+          - name: ImageUrl
+            description: ""
+            data_type: string
+          - name: IsActive
+            description: ""
+            data_type: boolean
+          - name: LimitNumber
+            description: ""
+            data_type: integer
+          - name: IsLimitPerUser
+            description: ""
+            data_type: boolean
+          - name: LimitStartDate
+            description: ""
+            data_type: string
+          - name: GivenBadgeCount
+            description: ""
+            data_type: integer
+          - name: IsRewardBadge
+            description: ""
+            data_type: boolean

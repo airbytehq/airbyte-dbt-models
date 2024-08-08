@@ -1,0 +1,197 @@
+version: 2
+
+sources:
+  - name: source_hubspot
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: forms
+        columns:
+          - name: id
+            description: Unique identifier for the form.
+            data_type: string
+          - name: name
+            description: Name of the form.
+            data_type: string
+          - name: formType
+            description: Type of the form.
+            data_type: string
+          - name: createdAt
+            description: Date and time when the form was created.
+            data_type: string
+          - name: updatedAt
+            description: Date and time when the form was last updated.
+            data_type: string
+          - name: archived
+            description: Indicates whether the form is archived.
+            data_type: boolean
+          - name: deletedAt
+            description: Date and time when the form was deleted.
+            data_type: string
+          - name: fieldGroups
+            description: Groups containing fields of a form.
+            data_type: array
+          - name: configuration
+            description: Configuration settings for the form.
+            data_type: object
+          - name: displayOptions
+            description: Display options for the form.
+            data_type: object
+          - name: legalConsentOptions
+            description: Legal consent options for the form.
+            data_type: object
+          - name: properties
+            description: ''
+            data_type: object
+          - name: properties_hs_all_accessible_team_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_all_assigned_business_unit_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_all_owner_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_all_team_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_cloneable
+            description: ''
+            data_type: string
+          - name: properties_hs_created_at
+            description: ''
+            data_type: string
+          - name: properties_hs_created_by_user_id
+            description: ''
+            data_type: number
+          - name: properties_hs_createdate
+            description: ''
+            data_type: string
+          - name: properties_hs_deletable
+            description: ''
+            data_type: string
+          - name: properties_hs_editable
+            description: ''
+            data_type: string
+          - name: properties_hs_embed_version
+            description: ''
+            data_type: string
+          - name: properties_hs_folder_id
+            description: ''
+            data_type: number
+          - name: properties_hs_form_id
+            description: ''
+            data_type: string
+          - name: properties_hs_form_interactions
+            description: ''
+            data_type: number
+          - name: properties_hs_form_submissions
+            description: ''
+            data_type: number
+          - name: properties_hs_form_submissions_per_form_interaction
+            description: ''
+            data_type: number
+          - name: properties_hs_form_submissions_per_form_view
+            description: ''
+            data_type: number
+          - name: properties_hs_form_submissions_per_page_view
+            description: ''
+            data_type: number
+          - name: properties_hs_form_submissions_per_pop_up_cta_view
+            description: ''
+            data_type: number
+          - name: properties_hs_form_type
+            description: ''
+            data_type: string
+          - name: properties_hs_form_views
+            description: ''
+            data_type: number
+          - name: properties_hs_lastmodifieddate
+            description: ''
+            data_type: string
+          - name: properties_hs_marketing_campaign_guid
+            description: ''
+            data_type: string
+          - name: properties_hs_merged_object_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_name
+            description: ''
+            data_type: string
+          - name: properties_hs_object_id
+            description: ''
+            data_type: number
+          - name: properties_hs_object_source
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_detail_1
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_detail_2
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_detail_3
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_id
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_label
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_user_id
+            description: ''
+            data_type: number
+          - name: properties_hs_page_views
+            description: ''
+            data_type: number
+          - name: properties_hs_pop_up_cta_views
+            description: ''
+            data_type: number
+          - name: properties_hs_read_only
+            description: ''
+            data_type: boolean
+          - name: properties_hs_shared_team_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_shared_user_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_spam_submissions
+            description: ''
+            data_type: number
+          - name: properties_hs_status
+            description: ''
+            data_type: string
+          - name: properties_hs_unique_creation_key
+            description: ''
+            data_type: string
+          - name: properties_hs_updated_at
+            description: ''
+            data_type: string
+          - name: properties_hs_updated_by_user_id
+            description: ''
+            data_type: number
+          - name: properties_hs_user_ids_of_all_notification_followers
+            description: ''
+            data_type: string
+          - name: properties_hs_user_ids_of_all_notification_unfollowers
+            description: ''
+            data_type: string
+          - name: properties_hs_user_ids_of_all_owners
+            description: ''
+            data_type: string
+          - name: properties_hs_was_imported
+            description: ''
+            data_type: boolean
+          - name: properties_hubspot_owner_assigneddate
+            description: ''
+            data_type: string
+          - name: properties_hubspot_owner_id
+            description: ''
+            data_type: string
+          - name: properties_hubspot_team_id
+            description: ''
+            data_type: string

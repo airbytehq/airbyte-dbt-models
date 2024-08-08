@@ -1,0 +1,41 @@
+version: 2
+
+sources:
+  - name: source_twilio
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: queues
+        columns:
+          - name: account_sid
+            description: The unique identifier of the account that owns this queue.
+            data_type: string
+          - name: average_wait_time
+            description: The average time, in seconds, that callers have spent waiting in this queue.
+            data_type: integer
+          - name: current_size
+            description: The current number of callers waiting in this queue.
+            data_type: integer
+          - name: date_created
+            description: The date and time when this queue was created.
+            data_type: string
+          - name: date_updated
+            description: The date and time when this queue was last updated.
+            data_type: string
+          - name: friendly_name
+            description: A user-defined human-readable name for this queue.
+            data_type: string
+          - name: max_size
+            description: The maximum number of callers allowed in this queue.
+            data_type: integer
+          - name: sid
+            description: A unique identifier for this queue.
+            data_type: string
+          - name: uri
+            description: The URI for this queue resource.
+            data_type: string
+          - name: subresource_uris
+            description: Contains URIs for related subresources of this queue.
+            data_type: object

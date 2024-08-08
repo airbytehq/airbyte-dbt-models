@@ -1,0 +1,38 @@
+version: 2
+sources:
+  - name: source_recurly
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: credit_payments
+        description: Metadata for credit_payments
+        columns:
+          - name: id
+            description: Unique identifier of the credit payment
+            data_type: string
+          - name: object
+            description: Type of object
+            data_type: string
+          - name: account_id
+            description: The ID of the account associated with the credit payment
+            data_type: string
+          - name: amount
+            description: The amount of the credit payment
+            data_type: number
+          - name: currency
+            description: The currency of the credit payment
+            data_type: string
+          - name: invoice_id
+            description: The ID of the invoice associated with the credit payment
+            data_type: string
+          - name: created_at
+            description: Date and time when the credit payment was created
+            data_type: string
+          - name: updated_at
+            description: Date and time when the credit payment was last updated
+            data_type: string
+          - name: description
+            description: Description of the credit payment
+            data_type: string

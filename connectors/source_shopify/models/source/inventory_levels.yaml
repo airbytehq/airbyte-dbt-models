@@ -1,0 +1,50 @@
+version: 2
+
+sources:
+  - name: source_shopify
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: inventory_levels
+        columns:
+          - name: id
+            description: The unique identifier for the inventory level.
+            data_type: string
+          - name: admin_graphql_api_id
+            description: The unique identifier for the inventory levels in GraphQL format.
+            data_type: string
+          - name: available
+            description: The quantity of items available for sale in the inventory.
+            data_type: integer
+          - name: can_deactivate
+            description: Whether the inventory items associated with the inventory level can be deactivated.
+            data_type: boolean
+          - name: created_at
+            description: The date and time when the inventory level was created.
+            data_type: string
+          - name: inventory_history_url
+            description: The URL that points to the inventory history for the item.
+            data_type: string
+          - name: locations_count
+            description: The number of locations where this inventory item is stocked.
+            data_type: object
+          - name: deactivation_alert
+            description: Describes either the impact of deactivating the inventory level, or why the inventory level can't be deactivated.
+            data_type: string
+          - name: inventory_item_id
+            description: The unique identifier for the associated inventory item.
+            data_type: integer
+          - name: location_id
+            description: The unique identifier for the location related to the inventory level.
+            data_type: integer
+          - name: updated_at
+            description: The date and time when the inventory level was last updated.
+            data_type: string
+          - name: shop_url
+            description: The URL of the shop where the inventory belongs.
+            data_type: string
+          - name: quantities
+            description: The quantities of items available for sale in the inventory.
+            data_type: array

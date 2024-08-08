@@ -1,0 +1,50 @@
+version: 2
+
+sources:
+  - name: source_twilio
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: available_phone_numbers_mobile
+        columns:
+          - name: friendly_name
+            description: A user-friendly name for the phone number
+            data_type: string
+          - name: phone_number
+            description: The phone number in E.164 format
+            data_type: string
+          - name: lata
+            description: Local access and transport area code
+            data_type: string
+          - name: rate_center
+            description: Rate center associated with the phone number
+            data_type: string
+          - name: latitude
+            description: Latitude coordinate of the phone number's location
+            data_type: string
+          - name: longitude
+            description: Longitude coordinate of the phone number's location
+            data_type: string
+          - name: locality
+            description: Locality or city where the phone number is based
+            data_type: string
+          - name: region
+            description: Region or state where the phone number is located
+            data_type: string
+          - name: postal_code
+            description: Postal code of the phone number's area
+            data_type: string
+          - name: iso_country
+            description: The ISO country code for the phone number
+            data_type: string
+          - name: address_requirements
+            description: Address requirements for purchasing the phone number
+            data_type: string
+          - name: beta
+            description: Indicates if the phone number is in beta testing phase
+            data_type: boolean
+          - name: capabilities
+            description: Represents the capabilities of the available mobile phone numbers such as SMS and voice services
+            data_type: object

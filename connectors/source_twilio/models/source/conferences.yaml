@@ -1,0 +1,47 @@
+version: 2
+
+sources:
+  - name: source_twilio
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: conferences
+        columns:
+          - name: account_sid
+            description: The unique identifier of the account associated with the conference.
+            data_type: string
+          - name: date_created
+            description: The date and time when the conference was created.
+            data_type: string
+          - name: date_updated
+            description: The date and time when the conference was last updated.
+            data_type: string
+          - name: api_version
+            description: The version of the Twilio API used for the conference.
+            data_type: string
+          - name: friendly_name
+            description: A user-defined friendly name for the conference.
+            data_type: string
+          - name: region
+            description: The region where the conference is hosted.
+            data_type: string
+          - name: sid
+            description: The unique identifier (SID) of the conference.
+            data_type: string
+          - name: status
+            description: The current status of the conference.
+            data_type: string
+          - name: uri
+            description: The URI to access the conference resource.
+            data_type: string
+          - name: reason_conference_ended
+            description: The reason for the conference ending, if available.
+            data_type: string
+          - name: call_sid_ending_conference
+            description: The SID of the call that ended the conference, if applicable.
+            data_type: string
+          - name: subresource_uris
+            description: Contains URLs for accessing subresources related to conferences
+            data_type: object

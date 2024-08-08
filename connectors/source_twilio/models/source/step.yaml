@@ -1,0 +1,50 @@
+version: 2
+
+sources:
+  - name: source_twilio
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: step
+        columns:
+          - name: parent_step_sid
+            description: The SID of the parent step if this step is nested within another step.
+            data_type: string
+          - name: name
+            description: The name or identifier of the step.
+            data_type: string
+          - name: date_updated
+            description: The date and time when the step was last updated.
+            data_type: string
+          - name: transitioned_to
+            description: The state to which the step transitioned.
+            data_type: string
+          - name: account_sid
+            description: The SID of the account associated with the step data.
+            data_type: string
+          - name: url
+            description: The URL for accessing detailed information about the step.
+            data_type: string
+          - name: context
+            description: Additional context or metadata related to the step.
+            data_type: string
+          - name: sid
+            description: The unique identifier (SID) of the step.
+            data_type: string
+          - name: transitioned_from
+            description: The previous state from which the step transitioned.
+            data_type: string
+          - name: date_created
+            description: The date and time when the step was created.
+            data_type: string
+          - name: execution_sid
+            description: The SID of the execution this step belongs to.
+            data_type: string
+          - name: flow_sid
+            description: The SID of the flow to which this step belongs.
+            data_type: string
+          - name: links
+            description: Contains related hypermedia links to navigate through the step data.
+            data_type: object

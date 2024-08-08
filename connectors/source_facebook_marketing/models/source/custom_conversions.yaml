@@ -1,0 +1,62 @@
+version: 2
+
+sources:
+  - name: source_facebook_marketing
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: custom_conversions
+        columns:
+          - name: id
+            description: Unique identifier for the custom conversion.
+            data_type: string
+          - name: account_id
+            description: Unique identifier for the Facebook ad account.
+            data_type: string
+          - name: business
+            description: Information about the business associated with the custom conversion.
+            data_type: string
+          - name: creation_time
+            description: Date and time when the custom conversion was created.
+            data_type: string
+          - name: custom_event_type
+            description: Type of custom event triggering the conversion.
+            data_type: string
+          - name: data_sources
+            description: Data sources related to the custom conversion.
+            data_type: array
+          - name: default_conversion_value
+            description: Default value assigned to the conversion event if no specific value is provided.
+            data_type: number
+          - name: description
+            description: Brief description of the custom conversion.
+            data_type: string
+          - name: event_source_type
+            description: Type of event source triggering the custom conversion.
+            data_type: string
+          - name: first_fired_time
+            description: Date and time when the custom conversion was first triggered.
+            data_type: string
+          - name: is_archived
+            description: Flag indicating if the custom conversion is archived.
+            data_type: boolean
+          - name: is_unavailable
+            description: Flag indicating if the custom conversion is unavailable.
+            data_type: boolean
+          - name: last_fired_time
+            description: Date and time when the custom conversion was last triggered.
+            data_type: string
+          - name: name
+            description: Name of the custom conversion.
+            data_type: string
+          - name: offline_conversion_data_set
+            description: If applicable, the data set for offline conversions.
+            data_type: string
+          - name: retention_days
+            description: Number of days for which the conversion data is retained.
+            data_type: number
+          - name: rule
+            description: Rules or conditions triggering the custom conversion.
+            data_type: string

@@ -1,0 +1,32 @@
+version: 2
+
+sources:
+  - name: source_salesforce
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: UserSetupEntityAccess
+        columns:
+          - name: Id
+            description: ""
+            data_type: string
+          - name: DurableId
+            description: ""
+            data_type: string
+          - name: SetupEntityId
+            description: ""
+            data_type: string
+          - name: KeyPrefix
+            description: ""
+            data_type: string
+          - name: DeveloperName
+            description: ""
+            data_type: string
+          - name: NamespacePrefix
+            description: ""
+            data_type: string
+          - name: LastCacheUpdate
+            description: ""
+            data_type: string

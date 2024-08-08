@@ -1,0 +1,77 @@
+version: 2
+
+sources:
+  - name: source_shopify
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: fulfillment_orders
+        columns:
+          - name: assigned_location_id
+            description: The unique identifier of the assigned location
+            data_type: integer
+          - name: channel_id
+            description: The ID of the channel that created an order
+            data_type: string
+          - name: destination
+            description: Details of the destination where the order is to be fulfilled
+            data_type: object
+          - name: delivery_method
+            description: Details of the delivery method for the fulfillment order
+            data_type: object
+          - name: fulfilled_at
+            description: The date and time when the fulfillment was completed
+            data_type: string
+          - name: fulfill_at
+            description: The date and time when the fulfillment is scheduled to occur
+            data_type: string
+          - name: fulfill_by
+            description: The deadline by which the fulfillment must be completed
+            data_type: string
+          - name: international_duties
+            description: Details of any international duties associated with the fulfillment order
+            data_type: string
+          - name: fulfillment_holds
+            description: Details of any holds on the fulfillment
+            data_type: array
+          - name: id
+            description: The unique identifier of the fulfillment order
+            data_type: integer
+          - name: line_items
+            description: Details of the line items in the fulfillment order
+            data_type: array
+          - name: order_id
+            description: The identifier of the order associated with the fulfillment
+            data_type: integer
+          - name: request_status
+            description: The status of any requests associated with the fulfillment order
+            data_type: string
+          - name: shop_id
+            description: The identifier of the shop that created the fulfillment order
+            data_type: integer
+          - name: status
+            description: The current status of the fulfillment order
+            data_type: string
+          - name: supported_actions
+            description: Actions supported for the fulfillment order
+            data_type: array
+          - name: merchant_requests
+            description: Details of any requests made by the merchant regarding the fulfillment order
+            data_type: array
+          - name: assigned_location
+            description: The location to which the fulfillment order is assigned
+            data_type: object
+          - name: shop_url
+            description: The URL of the shop associated with the fulfillment order
+            data_type: string
+          - name: created_at
+            description: The date and time when the fulfillment order was created
+            data_type: string
+          - name: updated_at
+            description: The date and time when the fulfillment order was last updated
+            data_type: string
+          - name: admin_graphql_api_id
+            description: The unique identifier of the fulfillment order in the Admin GraphQL API
+            data_type: string

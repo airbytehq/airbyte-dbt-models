@@ -1,0 +1,326 @@
+version: 2
+
+sources:
+  - name: source_hubspot
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: goals
+        columns:
+          - name: id
+            description: Unique identifier for the goal.
+            data_type: string
+          - name: properties
+            description: ''
+            data_type: object
+          - name: properties_hs_created_by_user_id
+            description: ''
+            data_type: number
+          - name: properties_hs_createdate
+            description: ''
+            data_type: string
+          - name: properties_hs_start_datetime
+            description: ''
+            data_type: string
+          - name: properties_hs_end_datetime
+            description: ''
+            data_type: string
+          - name: properties_hs_goal_name
+            description: ''
+            data_type: string
+          - name: properties_hs_lastmodifieddate
+            description: ''
+            data_type: string
+          - name: properties_hs_kpi_value_last_calculated_at
+            description: ''
+            data_type: string
+          - name: properties_hs_object_id
+            description: ''
+            data_type: number
+          - name: properties_hs_target_amount
+            description: ''
+            data_type: number
+          - name: createdAt
+            description: Date and time when the goal was created.
+            data_type: string
+          - name: updatedAt
+            description: Date and time when the goal was last updated.
+            data_type: string
+          - name: archived
+            description: Indicates if the goal is archived or not.
+            data_type: boolean
+          - name: properties_hs__migration_soft_delete
+            description: ''
+            data_type: string
+          - name: properties_hs_ad_account_asset_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_ad_campaign_asset_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_all_accessible_team_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_all_assigned_business_unit_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_all_owner_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_all_team_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_assignee_team_id
+            description: ''
+            data_type: number
+          - name: properties_hs_assignee_user_id
+            description: ''
+            data_type: number
+          - name: properties_hs_contact_lifecycle_stage
+            description: ''
+            data_type: string
+          - name: properties_hs_currency
+            description: ''
+            data_type: string
+          - name: properties_hs_deal_pipeline_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_edit_updates_notification_frequency
+            description: ''
+            data_type: string
+          - name: properties_hs_end_date
+            description: ''
+            data_type: string
+          - name: properties_hs_fiscal_year_offset
+            description: ''
+            data_type: number
+          - name: properties_hs_forecast_type_id
+            description: ''
+            data_type: number
+          - name: properties_hs_goal_definition_key
+            description: ''
+            data_type: string
+          - name: properties_hs_goal_definition_key_with_team
+            description: ''
+            data_type: string
+          - name: properties_hs_goal_definition_key_with_user
+            description: ''
+            data_type: string
+          - name: properties_hs_goal_target_group_id
+            description: ''
+            data_type: number
+          - name: properties_hs_goal_type
+            description: ''
+            data_type: string
+          - name: properties_hs_group_correlation_uuid
+            description: ''
+            data_type: string
+          - name: properties_hs_is_forecastable
+            description: ''
+            data_type: string
+          - name: properties_hs_is_legacy
+            description: ''
+            data_type: string
+          - name: properties_hs_kpi_display_unit
+            description: ''
+            data_type: string
+          - name: properties_hs_kpi_filter_groups
+            description: ''
+            data_type: string
+          - name: properties_hs_kpi_filter_groups_for_key_grouping
+            description: ''
+            data_type: string
+          - name: properties_hs_kpi_filter_groups_for_key_team_grouping
+            description: ''
+            data_type: string
+          - name: properties_hs_kpi_is_team_rollup
+            description: ''
+            data_type: boolean
+          - name: properties_hs_kpi_metric_type
+            description: ''
+            data_type: string
+          - name: properties_hs_kpi_object_type
+            description: ''
+            data_type: string
+          - name: properties_hs_kpi_object_type_id
+            description: ''
+            data_type: string
+          - name: properties_hs_kpi_progress_percent
+            description: ''
+            data_type: number
+          - name: properties_hs_kpi_property_name
+            description: ''
+            data_type: string
+          - name: properties_hs_kpi_single_object_custom_goal_type_name
+            description: ''
+            data_type: string
+          - name: properties_hs_kpi_time_period_property
+            description: ''
+            data_type: string
+          - name: properties_hs_kpi_tracking_method
+            description: ''
+            data_type: string
+          - name: properties_hs_kpi_unit_type
+            description: ''
+            data_type: string
+          - name: properties_hs_kpi_value
+            description: ''
+            data_type: number
+          - name: properties_hs_kpi_value_calculated_at
+            description: ''
+            data_type: number
+          - name: properties_hs_legacy_active
+            description: ''
+            data_type: string
+          - name: properties_hs_legacy_created_at
+            description: ''
+            data_type: number
+          - name: properties_hs_legacy_created_by
+            description: ''
+            data_type: number
+          - name: properties_hs_legacy_quarterly_target_composite_id
+            description: ''
+            data_type: string
+          - name: properties_hs_legacy_sql_id
+            description: ''
+            data_type: number
+          - name: properties_hs_legacy_unique_sql_id
+            description: ''
+            data_type: number
+          - name: properties_hs_legacy_updated_at
+            description: ''
+            data_type: number
+          - name: properties_hs_legacy_updated_by
+            description: ''
+            data_type: number
+          - name: properties_hs_marketing_campaign_object_ids
+            description: ''
+            data_type: number
+          - name: properties_hs_merged_object_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_migration_soft_delete
+            description: ''
+            data_type: string
+          - name: properties_hs_milestone
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_detail_1
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_detail_2
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_detail_3
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_id
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_label
+            description: ''
+            data_type: string
+          - name: properties_hs_object_source_user_id
+            description: ''
+            data_type: number
+          - name: properties_hs_outcome
+            description: ''
+            data_type: string
+          - name: properties_hs_owner_ids_of_all_owners
+            description: ''
+            data_type: string
+          - name: properties_hs_pipelines
+            description: ''
+            data_type: string
+          - name: properties_hs_progress_updates_notification_frequency
+            description: ''
+            data_type: string
+          - name: properties_hs_read_only
+            description: ''
+            data_type: boolean
+          - name: properties_hs_shared_team_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_shared_user_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_should_notify_on_achieved
+            description: ''
+            data_type: string
+          - name: properties_hs_should_notify_on_edit_updates
+            description: ''
+            data_type: string
+          - name: properties_hs_should_notify_on_exceeded
+            description: ''
+            data_type: string
+          - name: properties_hs_should_notify_on_kickoff
+            description: ''
+            data_type: string
+          - name: properties_hs_should_notify_on_missed
+            description: ''
+            data_type: string
+          - name: properties_hs_should_notify_on_progress_updates
+            description: ''
+            data_type: string
+          - name: properties_hs_should_recalculate
+            description: ''
+            data_type: string
+          - name: properties_hs_start_date
+            description: ''
+            data_type: string
+          - name: properties_hs_static_kpi_filter_groups
+            description: ''
+            data_type: string
+          - name: properties_hs_status
+            description: ''
+            data_type: string
+          - name: properties_hs_status_display_order
+            description: ''
+            data_type: number
+          - name: properties_hs_target_amount_in_home_currency
+            description: ''
+            data_type: number
+          - name: properties_hs_team_id
+            description: ''
+            data_type: number
+          - name: properties_hs_template_id
+            description: ''
+            data_type: number
+          - name: properties_hs_ticket_pipeline_ids
+            description: ''
+            data_type: string
+          - name: properties_hs_unique_creation_key
+            description: ''
+            data_type: string
+          - name: properties_hs_updated_by_user_id
+            description: ''
+            data_type: number
+          - name: properties_hs_user_id
+            description: ''
+            data_type: number
+          - name: properties_hs_user_ids_of_all_notification_followers
+            description: ''
+            data_type: string
+          - name: properties_hs_user_ids_of_all_notification_unfollowers
+            description: ''
+            data_type: string
+          - name: properties_hs_user_ids_of_all_owners
+            description: ''
+            data_type: string
+          - name: properties_hs_was_imported
+            description: ''
+            data_type: boolean
+          - name: properties_hubspot_owner_assigneddate
+            description: ''
+            data_type: string
+          - name: properties_hubspot_owner_id
+            description: ''
+            data_type: string
+          - name: properties_hubspot_team_id
+            description: ''
+            data_type: string

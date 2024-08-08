@@ -1,0 +1,80 @@
+version: 2
+
+sources:
+  - name: source_recharge
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: discounts
+        columns:
+          - name: id
+            description: ''
+            data_type: integer
+          - name: applies_to
+            description: ''
+            data_type: string
+          - name: applies_to_id
+            description: ''
+            data_type: integer
+          - name: applies_to_product_type
+            description: ''
+            data_type: string
+          - name: applies_to_resource
+            description: ''
+            data_type: string
+          - name: channel_settings
+            description: ''
+            data_type: object
+          - name: code
+            description: ''
+            data_type: string
+          - name: created_at
+            description: ''
+            data_type: string
+          - name: discount_type
+            description: ''
+            data_type: string
+          - name: duration
+            description: ''
+            data_type: string
+          - name: duration_usage_limit
+            description: ''
+            data_type: integer
+          - name: ends_at
+            description: ''
+            data_type: string
+          - name: external_discount_id
+            description: ''
+            data_type: string
+          - name: external_discount_source
+            description: ''
+            data_type: string
+          - name: first_time_customer_restriction
+            description: ''
+            data_type: string
+          - name: once_per_customer
+            description: ''
+            data_type: boolean
+          - name: prerequisite_subtotal_min
+            description: ''
+            data_type: number
+          - name: starts_at
+            description: ''
+            data_type: string
+          - name: status
+            description: ''
+            data_type: string
+          - name: times_used
+            description: ''
+            data_type: number
+          - name: updated_at
+            description: ''
+            data_type: string
+          - name: usage_limit
+            description: ''
+            data_type: number
+          - name: value
+            description: ''
+            data_type: number

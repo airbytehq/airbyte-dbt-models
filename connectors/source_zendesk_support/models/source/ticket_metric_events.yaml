@@ -1,0 +1,29 @@
+version: 2
+
+sources:
+  - name: source_zendesk_support
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: ticket_metric_events
+        columns:
+          - name: metric
+            description: Type of metric being tracked for the ticket
+            data_type: string
+          - name: id
+            description: Unique identifier for the ticket metric event
+            data_type: integer
+          - name: time
+            description: Timestamp when the metric event occurred
+            data_type: string
+          - name: instance_id
+            description: Unique identifier for the specific instance of the metric event
+            data_type: integer
+          - name: ticket_id
+            description: Unique identifier for the ticket associated with the metric event
+            data_type: integer
+          - name: type
+            description: Type of metric event (e.g., update, change, escalation)
+            data_type: string

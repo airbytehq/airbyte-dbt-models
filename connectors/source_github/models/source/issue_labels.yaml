@@ -1,0 +1,35 @@
+version: 2
+
+sources:
+  - name: source_github
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: issue_labels
+        columns:
+          - name: repository
+            description: Information about the repository to which the label belongs.
+            data_type: string
+          - name: id
+            description: Unique identifier for the label.
+            data_type: integer
+          - name: node_id
+            description: A unique identifier for the label at the GitHub API level.
+            data_type: string
+          - name: url
+            description: URL that provides direct access to the label resource.
+            data_type: string
+          - name: name
+            description: The name of the label used for identification.
+            data_type: string
+          - name: description
+            description: Descriptive text providing additional information about the label.
+            data_type: string
+          - name: color
+            description: The color associated with the label, typically used for visual representation.
+            data_type: string
+          - name: default
+            description: Indicates if the label is the default label for the repository.
+            data_type: boolean

@@ -1,0 +1,92 @@
+version: 2
+
+sources:
+  - name: source_salesforce
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: ContentDistribution
+        columns:
+          - name: Id
+            description: ""
+            data_type: string
+          - name: CreatedDate
+            description: ""
+            data_type: string
+          - name: CreatedById
+            description: ""
+            data_type: string
+          - name: OwnerId
+            description: ""
+            data_type: string
+          - name: LastModifiedDate
+            description: ""
+            data_type: string
+          - name: LastModifiedById
+            description: ""
+            data_type: string
+          - name: SystemModstamp
+            description: ""
+            data_type: string
+          - name: Name
+            description: ""
+            data_type: string
+          - name: IsDeleted
+            description: ""
+            data_type: boolean
+          - name: ContentVersionId
+            description: ""
+            data_type: string
+          - name: ContentDocumentId
+            description: ""
+            data_type: string
+          - name: PreferencesAllowPDFDownload
+            description: ""
+            data_type: boolean
+          - name: PreferencesAllowOriginalDownload
+            description: ""
+            data_type: boolean
+          - name: PreferencesPasswordRequired
+            description: ""
+            data_type: boolean
+          - name: PreferencesNotifyOnVisit
+            description: ""
+            data_type: boolean
+          - name: PreferencesLinkLatestVersion
+            description: ""
+            data_type: boolean
+          - name: PreferencesAllowViewInBrowser
+            description: ""
+            data_type: boolean
+          - name: PreferencesExpires
+            description: ""
+            data_type: boolean
+          - name: PreferencesNotifyRndtnComplete
+            description: ""
+            data_type: boolean
+          - name: ExpiryDate
+            description: ""
+            data_type: string
+          - name: Password
+            description: ""
+            data_type: string
+          - name: ViewCount
+            description: ""
+            data_type: integer
+          - name: FirstViewDate
+            description: ""
+            data_type: string
+          - name: LastViewDate
+            description: ""
+            data_type: string
+          - name: DistributionPublicUrl
+            description: ""
+            data_type: string
+          - name: ContentDownloadUrl
+            description: ""
+            data_type: string
+          - name: PdfDownloadUrl
+            description: ""
+            data_type: string

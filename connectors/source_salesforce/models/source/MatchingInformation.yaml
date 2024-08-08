@@ -1,0 +1,50 @@
+version: 2
+
+sources:
+  - name: source_salesforce
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: MatchingInformation
+        columns:
+          - name: Id
+            description: ""
+            data_type: string
+          - name: IsDeleted
+            description: ""
+            data_type: boolean
+          - name: Name
+            description: ""
+            data_type: string
+          - name: CreatedDate
+            description: ""
+            data_type: string
+          - name: CreatedById
+            description: ""
+            data_type: string
+          - name: LastModifiedDate
+            description: ""
+            data_type: string
+          - name: LastModifiedById
+            description: ""
+            data_type: string
+          - name: SystemModstamp
+            description: ""
+            data_type: string
+          - name: EmailAddress
+            description: ""
+            data_type: string
+          - name: ExternalId
+            description: ""
+            data_type: string
+          - name: IsPickedAsPreferred
+            description: ""
+            data_type: boolean
+          - name: UserId
+            description: ""
+            data_type: string
+          - name: PreferenceUsed
+            description: ""
+            data_type: string

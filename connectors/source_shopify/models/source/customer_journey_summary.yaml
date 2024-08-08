@@ -1,0 +1,29 @@
+version: 2
+
+sources:
+  - name: source_shopify
+    schema: '{{ var(''airbyte_schema'', target.schema) }}'
+    database: '{{ var(''airbyte_database'', target.database) }}'
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: customer_journey_summary
+        columns:
+          - name: order_id
+            description: The id of the order.
+            data_type: integer
+          - name: created_at
+            description: The date and time when the order was created.
+            data_type: string
+          - name: updated_at
+            description: The date and time when the order was last updated.
+            data_type: string
+          - name: customer_journey_summary
+            description: ''
+            data_type: default
+          - name: admin_graphql_api_id
+            description: Unique identifier for the customer in the Admin GraphQL API.
+            data_type: string
+          - name: shop_url
+            description: The URL of the shop associated with this customer saved search.
+            data_type: string
