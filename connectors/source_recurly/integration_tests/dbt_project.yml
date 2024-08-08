@@ -47,6 +47,7 @@ vars:
   recurly__using_subscription_change_history: false 
 
   recurly_account_note_identifier: "account_notes"
+  recurly_account_identifier: "accounts"
   recurly_account_balance_identifier: "accounts"
   recurly_add_on_identifier: "add_ons"
   recurly_billing_info_identifier: "billing_info"

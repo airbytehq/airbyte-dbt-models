@@ -4,18 +4,48 @@ models:
   - name: account_history
     schema: "{{ var('airbyte_schema', target.schema) }}"
     database: "{{ var('airbyte_database', target.database) }}"
-    identifier: "{{ var('recurly_account_balance_history_identifier', 'account_balance_history') }}"
+    identifier: "{{ var('recurly_account_balance_identifier', 'account_balance_history') }}"
     description: All fields and field values associated with tickets.
     config:
       +enabled: "{{ var('using_fivetran_model', False) }}"
     columns:
-      - name: ticket_id
-        description: The ID of the ticket associated with the field
-      - name: field_name
-        description: The name of the ticket field
-      - name: updated
-        description: The time the ticket field value was created
-      - name: value
-        description: The value of the field
-      - name: user_id
-        description: The id of the user who made the update
+      - name: id
+        description: Unique identifier of the account
+      - name: updated_at
+        description: Date and time when the account was last updated
+      - name: account_city
+        description: City of the account address or shipping address
+      - name: account_country
+        description: Country of the account address or shipping address
+      - name: account_postal_code
+        description: Postal code of the account address or shipping address
+      - name: account_region
+        description: Region of the account address or shipping address
+      - name: bill_to
+        description: Billing details
+      - name: cc_emails
+        description: Email addresses for carbon copy (CC)
+      - name: code
+        description: Unique code assigned to the account
+      - name: company
+        description: Company associated with the account
+      - name: created_at
+        description: Date and time when the account was created
+      - name: deleted_at
+        description: Date and time when the account was deleted
+      - name: email
+        description: Email address of the account holder
+      - name: first_name
+        description: First name of the account holder
+      - name: is_most_recent_record
+        description: Flag indicating if this is the most recent record
+      - name: is_tax_exempt
+        description: Flag indicating if the account is tax exempt
+      - name: last_name
+        description: Last name of the account holder
+      - name: state
+        description: State or province of the account address
+      - name: username
+        description: Username of the account holder
+      - name: vat_number
+        description: VAT (Value Added Tax) number of the account
