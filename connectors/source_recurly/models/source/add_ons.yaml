@@ -1,0 +1,46 @@
+version: 2
+sources:
+  - name: add_ons
+    tables:
+      - name: add_ons
+        description: Metadata for add_ons
+        columns:
+          - name: id
+            description: Unique identifier of the add-on
+            data_type: string
+          - name: object
+            description: Type of object
+            data_type: string
+          - name: code
+            description: Code assigned to the add-on
+            data_type: string
+          - name: name
+            description: Name of the add-on
+            data_type: string
+          - name: state
+            description: State of the add-on
+            data_type: string
+          - name: description
+            description: Description of the add-on
+            data_type: string
+          - name: account_id
+            description: The ID of the account associated with the add-on
+            data_type: string
+          - name: created_at
+            description: Date and time when the add-on was created
+            data_type: string
+          - name: updated_at
+            description: Date and time when the add-on was last updated
+            data_type: string
+          - name: deleted_at
+            description: Date and time when the add-on was deleted
+            data_type: string
+          - name: item_code
+            description: Item code associated with the add-on
+            data_type: string
+          - name: item_id
+            description: Item ID associated with the add-on
+            data_type: string
+          - name: currencies
+            description: Currencies applicable to the add-on
+            data_type: array

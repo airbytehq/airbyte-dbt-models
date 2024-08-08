@@ -1,0 +1,80 @@
+version: 2
+sources:
+  - name: source_recurly
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: invoices
+        description: Metadata for invoices
+        columns:
+          - name: id
+            description: Unique identifier of the invoice
+            data_type: string
+          - name: object
+            description: Type of object
+            data_type: string
+          - name: account_id
+            description: The ID of the account associated with the invoice
+            data_type: string
+          - name: state
+            description: The state of the invoice
+            data_type: string
+          - name: invoice_number
+            description: The invoice number
+            data_type: string
+          - name: vat_number
+            description: The VAT number associated with the invoice
+            data_type: string
+          - name: subtotal
+            description: The subtotal of the invoice
+            data_type: number
+          - name: discount
+            description: The discount applied to the invoice
+            data_type: number
+          - name: tax
+            description: The tax applied to the invoice
+            data_type: number
+          - name: total
+            description: The total amount of the invoice
+            data_type: number
+          - name: currency
+            description: The currency of the invoice
+            data_type: string
+          - name: created_at
+            description: Date and time when the invoice was created
+            data_type: string
+          - name: updated_at
+            description: Date and time when the invoice was last updated
+            data_type: string
+          - name: due_at
+            description: Date and time when the invoice is due
+            data_type: string
+          - name: collection_method
+            description: The collection method for the invoice
+            data_type: string
+          - name: net_terms
+            description: The net terms of the invoice
+            data_type: number
+          - name: po_number
+            description: The purchase order number associated with the invoice
+            data_type: string
+          - name: line_items
+            description: Line items of the invoice
+            data_type: array
+          - name: address
+            description: The address associated with the invoice
+            data_type: string
+          - name: refund
+            description: Refund information associated with the invoice
+            data_type: string
+          - name: customer_notes
+            description: Customer notes on the invoice
+            data_type: string
+          - name: terms_and_conditions
+            description: Terms and conditions of the invoice
+            data_type: string
+          - name: vat_reverse_charge_notes
+            description: VAT reverse charge notes of the invoice
+            data_type: string

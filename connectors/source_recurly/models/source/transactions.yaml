@@ -1,0 +1,65 @@
+version: 2
+sources:
+  - name: source_recurly
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: transactions
+        description: Metadata for transactions
+        columns:
+          - name: id
+            description: Unique identifier of the transaction
+            data_type: string
+          - name: object
+            description: Type of object
+            data_type: string
+          - name: account_id
+            description: The ID of the account associated with the transaction
+            data_type: string
+          - name: invoice_id
+            description: The ID of the invoice associated with the transaction
+            data_type: string
+          - name: type
+            description: The type of the transaction
+            data_type: string
+          - name: origin
+            description: The origin of the transaction
+            data_type: string
+          - name: currency
+            description: The currency of the transaction
+            data_type: string
+          - name: amount
+            description: The amount of the transaction
+            data_type: number
+          - name: status
+            description: The status of the transaction
+            data_type: string
+          - name: test
+            description: Whether the transaction is a test
+            data_type: boolean
+          - name: voided_at
+            description: Date and time when the transaction was voided
+            data_type: string
+          - name: collected_at
+            description: Date and time when the transaction was collected
+            data_type: string
+          - name: gateway_id
+            description: The gateway ID associated with the transaction
+            data_type: string
+          - name: ip_address
+            description: The IP address of the transaction
+            data_type: string
+          - name: gateway
+            description: The gateway used for the transaction
+            data_type: string
+          - name: error_code
+            description: The error code of the transaction
+            data_type: string
+          - name: message
+            description: The message associated with the transaction
+            data_type: string
+          - name: payment_method
+            description: The payment method used for the transaction
+            data_type: string

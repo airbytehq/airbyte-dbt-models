@@ -1,0 +1,29 @@
+version: 2
+sources:
+  - name: source_recurly
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: export_dates
+        description: Metadata for export_dates
+        columns:
+          - name: id
+            description: Unique identifier of the export date
+            data_type: string
+          - name: object
+            description: Type of object
+            data_type: string
+          - name: account_id
+            description: The ID of the account associated with the export date
+            data_type: string
+          - name: export_date
+            description: The export date
+            data_type: string
+          - name: created_at
+            description: Date and time when the export date was created
+            data_type: string
+          - name: updated_at
+            description: Date and time when the export date was last updated
+            data_type: string

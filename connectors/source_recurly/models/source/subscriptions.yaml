@@ -1,0 +1,86 @@
+version: 2
+sources:
+  - name: source_recurly
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: subscriptions
+        description: Metadata for subscriptions
+        columns:
+          - name: id
+            description: Unique identifier of the subscription
+            data_type: string
+          - name: object
+            description: Type of object
+            data_type: string
+          - name: account_id
+            description: The ID of the account associated with the subscription
+            data_type: string
+          - name: plan_id
+            description: The ID of the plan associated with the subscription
+            data_type: string
+          - name: state
+            description: The state of the subscription
+            data_type: string
+          - name: quantity
+            description: The quantity of the subscription
+            data_type: number
+          - name: unit_amount
+            description: The unit amount of the subscription
+            data_type: number
+          - name: setup_fee
+            description: The setup fee of the subscription
+            data_type: number
+          - name: tax
+            description: The tax applied to the subscription
+            data_type: number
+          - name: total
+            description: The total amount of the subscription
+            data_type: number
+          - name: currency
+            description: The currency of the subscription
+            data_type: string
+          - name: created_at
+            description: Date and time when the subscription was created
+            data_type: string
+          - name: updated_at
+            description: Date and time when the subscription was last updated
+            data_type: string
+          - name: trial_started_at
+            description: Date and time when the trial started
+            data_type: string
+          - name: trial_ends_at
+            description: Date and time when the trial ends
+            data_type: string
+          - name: activated_at
+            description: Date and time when the subscription was activated
+            data_type: string
+          - name: canceled_at
+            description: Date and time when the subscription was canceled
+            data_type: string
+          - name: expires_at
+            description: Date and time when the subscription expires
+            data_type: string
+          - name: renewal_billing_cycle
+            description: The renewal billing cycle of the subscription
+            data_type: number
+          - name: custom_fields
+            description: Custom fields associated with the subscription
+            data_type: array
+          - name: invoice
+            description: Invoice associated with the subscription
+            data_type: string
+          - name: dunning_campaign
+            description: Dunning campaign associated with the subscription
+            data_type: string
+          - name: collection_method
+            description: Collection method of the subscription
+            data_type: string
+          - name: paused_at
+            description: Date and time when the subscription was paused
+            data_type: string
+          - name: remaining_pause_cycles
+            description: Remaining pause cycles of the subscription
+            data_type: number
