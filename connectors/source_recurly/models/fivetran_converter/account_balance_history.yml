@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: account_history
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('recurly_account_balance_history_identifier', 'account_balance_history') }}"
+    description: All fields and field values associated with tickets.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: ticket_id
+        description: The ID of the ticket associated with the field
+      - name: field_name
+        description: The name of the ticket field
+      - name: updated
+        description: The time the ticket field value was created
+      - name: value
+        description: The value of the field
+      - name: user_id
+        description: The id of the user who made the update
