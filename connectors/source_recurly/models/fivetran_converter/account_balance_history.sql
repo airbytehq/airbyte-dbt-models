@@ -23,7 +23,7 @@
             t.username AS username,
             t.shipping_addresses[0]:vat_number::STRING AS vat_number
         FROM
-            {{ source('source_recurly', 'account_balance') }} t
+            {{ source('source_recurly', 'accounts') }} t
     )
     SELECT * FROM tmp
     WHERE field_name IS NOT NULL
@@ -53,7 +53,7 @@
             t.username AS username,
             JSON_EXTRACT_SCALAR(t.shipping_addresses[OFFSET(0)], '$.vat_number') AS vat_number
         FROM
-            {{ source('source_recurly', 'account_balance') }} t
+            {{ source('source_recurly', 'accounts') }} t
     )
     SELECT * FROM tmp
     WHERE FIELD_NAME IS NOT NULL
@@ -83,7 +83,7 @@
             t.username AS username,
             t.shipping_addresses->0->>'vat_number' AS vat_number
         FROM
-            {{ source('source_recurly', 'account_balance') }} t,
+            {{ source('source_recurly', 'accounts') }} t,
             LATERAL jsonb_array_elements(t.events::jsonb) AS f(value)
     )
     SELECT * FROM tmp
