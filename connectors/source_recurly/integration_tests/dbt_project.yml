@@ -46,6 +46,7 @@ vars:
   recurly__using_subscription_add_on_history: false
   recurly__using_subscription_change_history: false 
 
+  recurly_account_coupon_redemption_identifier: "account_coupon_redemptions"
   recurly_account_note_identifier: "account_notes"
   recurly_account_identifier: "accounts"
   recurly_account_balance_identifier: "accounts"
