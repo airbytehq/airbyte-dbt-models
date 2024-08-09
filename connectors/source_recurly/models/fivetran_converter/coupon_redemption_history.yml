@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: coupon_redemption_history
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('recurly_coupon_redemption_identifier', 'coupon_redemption_history') }}"
+    description: All fields and field values associated with coupon redemptions.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: coupon_redemption_id
+        description: Unique identifier of the coupon redemption
+      - name: updated_at
+        description: Date and time when the coupon redemption was last updated
+      - name: account_id
+        description: Unique identifier of the account associated with the coupon redemption
+      - name: coupon_id
+        description: Unique identifier of the coupon being redeemed
+      - name: created_at
+        description: Date and time when the coupon redemption was created
+      - name: currency
+        description: Currency used in the redemption
+      - name: discounted
+        description: Amount discounted by the coupon
+      - name: removed_at
+        description: Date and time when the coupon redemption was removed
+      - name: state
+        description: Current state of the coupon redemption
