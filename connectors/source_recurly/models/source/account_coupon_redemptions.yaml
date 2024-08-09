@@ -1,0 +1,40 @@
+version: 2
+sources:
+  - name: account_coupon_redemptions
+    tables:
+      - name: account_coupon_redemptions
+        description: Metadata for coupon redemptions
+        columns:
+          - name: id
+            description: The unique identifier for the redemption
+            data_type: string
+          - name: object
+            description: The type of object this represents
+            data_type: string
+          - name: account_id
+            description: The account associated with the coupon redemption
+            data_type: string
+          - name: subscription_id
+            description: The subscription associated with the redemption
+            data_type: string
+          - name: coupon
+            description: The coupon being redeemed
+            data_type: string
+          - name: state
+            description: The current state of the redemption
+            data_type: string
+          - name: currency
+            description: The currency in which the redemption was made
+            data_type: string
+          - name: discounted
+            description: The amount discounted by the coupon
+            data_type: number
+          - name: created_at
+            description: The date and time when the redemption was created
+            data_type: string
+          - name: updated_at
+            description: The date and time when the redemption was last updated
+            data_type: string
+          - name: removed_at
+            description: The date and time when the redemption was removed (if applicable)
+            data_type: string

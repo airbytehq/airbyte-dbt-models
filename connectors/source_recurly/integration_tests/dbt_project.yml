@@ -51,6 +51,7 @@ vars:
   recurly_account_balance_identifier: "accounts"
   recurly_add_on_identifier: "add_ons"
   recurly_billing_info_identifier: "billing_info"
+  recurly_coupon_redemption_identifier: "account_coupon_redemptions"
   recurly_coupon_identifier: "coupons"
   recurly_credit_payment_identifier: "credit_payments"
   recurly_export_date_identifier: "export_dates"
