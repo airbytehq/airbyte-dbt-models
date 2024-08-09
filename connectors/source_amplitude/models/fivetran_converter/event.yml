@@ -13,6 +13,8 @@ models:
         description: The timestamp when the event data was received by the server
       - name: app
         description: Information related to the application where the event originated
+      - name: project_name
+        description: Project ID
       - name: device_carrier
         description: The mobile carrier used by the device
       - name: $schema
@@ -53,6 +55,8 @@ models:
         description: The unique identifier assigned by Amplitude for each event insertion
       - name: event_type
         description: The type/category of the event
+      - name: event_type_id
+        description: Internal identifier on Amplitude.
       - name: library
         description: Information about the library/version used for event tracking
       - name: device_type

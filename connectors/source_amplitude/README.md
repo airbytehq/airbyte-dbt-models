@@ -71,9 +71,8 @@ vars:
   amplitude_database: "airbyte_db_default"
   amplitude_schema: "airbyte_dbt_amplitude"
 
-  using_event_type: False
-
   amplitude_event_identifier: "event"
+  amplitude_event_type_identifier: "events_list"
 ```
 
 After run `dbt run`, you can see the models being created.
