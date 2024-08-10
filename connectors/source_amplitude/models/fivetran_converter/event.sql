@@ -6,7 +6,7 @@
             id AS event_type_id, 
             "value"
         FROM 
-            {{ source('source_amplitude', 'event_type') }}
+            {{ source('source_amplitude', 'events_list') }}
     ),
 
     Events AS (
@@ -83,7 +83,7 @@
             id AS event_type_id, 
             `value`
         FROM 
-            {{ source('source_amplitude', 'event_type') }}
+            {{ source('source_amplitude', 'events_list') }}
     ),
 
     Events AS (

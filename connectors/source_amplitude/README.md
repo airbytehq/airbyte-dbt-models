@@ -32,7 +32,7 @@ vars:
 ```yaml
 packages:
   - git: "https://github.com/airbytehq/airbyte-dbt-models.git"
-    subdirectory: "connectors/source_amplitude_support"
+    subdirectory: "connectors/source_amplitude"
 ```
 
 After you can run `dbt tests` or `dbt docs generate` to have a preview of Airbyte output data.
