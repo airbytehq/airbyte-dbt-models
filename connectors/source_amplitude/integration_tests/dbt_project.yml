@@ -36,11 +36,11 @@ vars:
   # Required by Airbyte dbt model
   using_fivetran_model: True
   airbyte_database: "airbyte_db_default"
-  airbyte_schema: "airbyte_dbt_source_amplitude"
+  airbyte_schema: "dbt_source_amplitude"
 
   # Required by Fivetran dbt model
   amplitude_database: "airbyte_db_default"
-  amplitude_schema: "airbyte_dbt_source_amplitude"
+  amplitude_schema: "dbt_source_amplitude"
 
   amplitude_event_identifier: "event"
   amplitude_event_type_identifier: "events_list"
