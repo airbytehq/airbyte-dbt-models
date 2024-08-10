@@ -1,0 +1,61 @@
+name: integration_test_github
+
+config-version: 2
+
+version: 0.1.0
+
+profile: integration_tests
+
+model-paths:
+  - models
+
+macro-paths:
+  - macros
+
+target-path: target
+
+clean-targets:
+  - target
+  - dbt_modules
+  - logs
+
+require-dbt-version:
+  - ">=1.0.0"
+  - <2.0.0
+
+models:
+  airbyte_dbt_source_github:
+    materialized: view
+    +schema: dbt_github
+    staging:
+      materialized: view
+    tmp:
+      materialized: view
+
+vars:
+  # Required by Airbyte dbt model
+  using_fivetran_model: True
+  airbyte_database: "airbyte_db_default"
+  airbyte_schema: "airbyte_dbt_github"
+
+  # Required by Github dbt model
+  github_database: "airbyte_db_default"
+  github_schema: "airbyte_dbt_github"
+
+  using_schedules: False
+  using_domain_names: False
+  using_user_tags: False
+  using_ticket_form_history: False
+  using_organization_tags: False
+
+  zendesk_organization_identifier: "organizations"
+  zendesk_ticket_identifier: "tickets"
+  zendesk_ticket_comment_identifier: "ticket_comments"
+  zendesk_ticket_tag_identifier: "tags"
+  zendesk_ticket_field_history_identifier: "ticket_field_history"
+  zendesk_ticket_form_history_identifier: "ticket_forms"
+  zendesk_brand_identifier: "brands"
+  zendesk_group_identifier: "groups"
+  zendesk_organization_tag_identifier: "organization_fields"
+  zendesk_user_identifier: "users"
+  zendesk_user_tag_identifier: "user_field"
