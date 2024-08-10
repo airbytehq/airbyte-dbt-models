@@ -88,8 +88,8 @@
 
     Events AS (
         SELECT
-            `$insert_id` AS _insert_id,
-            `$schema` AS `schema`,
+            _insert_id,
+            _schema AS `schema`,
             adid AS ad_id,
             amplitude_id,
             app,
@@ -112,7 +112,7 @@
             event_time,
             event_type,
             group_properties,
-            groups AS group_types,
+            `groups` AS group_types,
             idfa,
             ip_address,
             is_attribution_event,
