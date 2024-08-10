@@ -11,8 +11,8 @@
 
     Events AS (
         SELECT
-            "$insert_id" AS _insert_id,
-            "$schema" AS "schema",
+            _insert_id,
+            "_schema" AS "schema",
             adid AS ad_id,
             amplitude_id,
             app,
