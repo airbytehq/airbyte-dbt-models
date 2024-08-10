@@ -1,6 +1,10 @@
 version: 2
 sources:
-  - name: account_coupon_redemptions
+  - name: source_recurly
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
     tables:
       - name: account_coupon_redemptions
         description: Metadata for coupon redemptions
