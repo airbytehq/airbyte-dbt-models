@@ -53,10 +53,9 @@
             t.state AS state,
             ROW_NUMBER() OVER (PARTITION BY t.id ORDER BY t.updated_at DESC) = 1 AS is_most_recent_record
         FROM
-            {{ source('source_recurly', 'account_coupon_redemptions') }} t,
-            LATERAL jsonb_array_elements(t.events::jsonb) AS f(value)
+            {{ source('source_recurly', 'account_coupon_redemptions') }} t
     )
     SELECT * FROM tmp
-    WHERE FIELD_NAME IS NOT NULL
+    WHERE coupon_redemption_id IS NOT NULL
 
 {% endif %}

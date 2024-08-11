@@ -83,10 +83,9 @@
             t.username AS username,
             t.shipping_addresses->0->>'vat_number' AS vat_number
         FROM
-            {{ source('source_recurly', 'accounts') }} t,
-            LATERAL jsonb_array_elements(t.events::jsonb) AS f(value)
+            {{ source('source_recurly', 'accounts') }} t
     )
     SELECT * FROM tmp
-    WHERE FIELD_NAME IS NOT NULL
+    WHERE first_name IS NOT NULL
 
 {%endif%}
