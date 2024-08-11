@@ -4,7 +4,7 @@
         SELECT
             id AS transaction_id,
             cast(collected_at AS {{ dbt.type_timestamp() }}) AS created_at,
-            account_id,
+            NULL AS account_id,
             cast(amount AS {{ dbt.type_float() }}) AS amount,
             NULL AS billing_city,
             NULL AS billing_country,
@@ -55,7 +55,7 @@
         SELECT
             id AS transaction_id,
             cast(collected_at AS {{ dbt.type_timestamp() }}) AS created_at,
-            account_id,
+            NULL AS account_id,
             cast(amount AS {{ dbt.type_float() }}) AS amount,
             NULL AS billing_city,
             NULL AS billing_country,
@@ -106,7 +106,7 @@
         SELECT
             id AS transaction_id,
             cast(collected_at AS {{ dbt.type_timestamp() }}) AS created_at,
-            account_id,
+            NULL AS account_id,
             cast(amount AS {{ dbt.type_float() }}) AS amount,
             NULL AS billing_city,
             NULL AS billing_country,
