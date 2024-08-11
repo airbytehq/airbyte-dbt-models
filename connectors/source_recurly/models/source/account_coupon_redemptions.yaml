@@ -16,7 +16,7 @@ sources:
             description: The type of object this represents
             data_type: string
           - name: account_id
-            description: The account associated with the coupon redemption
+            description: The ID of the account associated with the coupon redemption
             data_type: string
           - name: subscription_id
             description: The subscription associated with the redemption
@@ -36,9 +36,61 @@ sources:
           - name: created_at
             description: The date and time when the redemption was created
             data_type: string
+            format: date-time
           - name: updated_at
             description: The date and time when the redemption was last updated
             data_type: string
+            format: date-time
           - name: removed_at
             description: The date and time when the redemption was removed (if applicable)
             data_type: string
+            format: date-time
+          - name: coupon_id
+            description: The ID of the coupon being redeemed
+            data_type: string
+          - name: coupon_code
+            description: The code of the coupon being redeemed
+            data_type: string
+          - name: coupon_state
+            description: The current state of the coupon being redeemed
+            data_type: string
+          - name: coupon_bulk_coupon_id
+            description: The Bulk Coupon ID of the parent Bulk Coupon
+            data_type: string
+          - name: coupon_bulk_coupon_code
+            description: The Bulk Coupon code of the parent Bulk Coupon
+            data_type: string
+          - name: coupon_discount_type
+            description: The type of discount applied by the coupon
+            data_type: string
+          - name: coupon_discount_percent
+            description: The percent discount applied by the coupon (if applicable)
+            data_type: number
+          - name: coupon_discount_amount_currency
+            description: The currency of the fixed discount amount applied by the coupon (if applicable)
+            data_type: string
+          - name: coupon_discount_amount
+            description: The fixed discount amount applied by the coupon (if applicable)
+            data_type: number
+          - name: coupon_free_trial_unit
+            description: The unit of the free trial period offered by the coupon (if applicable)
+            data_type: string
+          - name: coupon_free_trial_length
+            description: The length of the free trial period offered by the coupon (if applicable)
+            data_type: number
+          - name: coupon_created_at
+            description: The date and time when the coupon was created
+            data_type: string
+            format: date-time
+          - name: coupon_updated_at
+            description: The date and time when the coupon was last updated
+            data_type: string
+            format: date-time
+          - name: coupon_redeemed_at
+            description: The date and time when the coupon was redeemed
+            data_type: string
+            format: date-time
+          - name: coupon_expired_at
+            description: The date and time when the coupon expired
+            data_type: string
+            format: date-time
