@@ -3,7 +3,7 @@
     WITH tmp AS (
         SELECT
             t.id AS user_id,
-            t.external_id AS external_id,
+            NULL AS external_id,
             t._fivetran_synced AS _fivetran_synced,
             cast(t.last_login_at as {{ dbt.type_timestamp() }}) AS last_login_at,
             cast(t.created_at as {{ dbt.type_timestamp() }}) AS created_at,
@@ -36,7 +36,7 @@
     WITH tmp AS (
         SELECT
             t.id AS user_id,
-            t.external_id AS external_id,
+            NULL AS external_id,
             t._fivetran_synced AS _fivetran_synced,
             cast(t.last_login_at as {{ dbt.type_timestamp() }}) AS last_login_at,
             cast(t.created_at as {{ dbt.type_timestamp() }}) AS created_at,
@@ -69,7 +69,7 @@
     WITH tmp AS (
         SELECT
             t.id AS user_id,
-            t.external_id AS external_id,
+            NULL AS external_id,
             t._fivetran_synced AS _fivetran_synced,
             cast(t.last_login_at as {{ dbt.type_timestamp() }}) AS last_login_at,
             cast(t.created_at as {{ dbt.type_timestamp() }}) AS created_at,
