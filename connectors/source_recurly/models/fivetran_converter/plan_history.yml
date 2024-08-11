@@ -1,0 +1,49 @@
+version: 2
+
+models:
+  - name: plan_history
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('plan_identifier', 'plan_history') }}"
+    description: All fields and field values associated with plans.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: plan_id
+        description: Unique identifier of the plan
+      - name: updated_at
+        description: Date and time when the plan was last updated
+      - name: accounting_code
+        description: Accounting code associated with the plan
+      - name: code
+        description: Code of the plan
+      - name: created_at
+        description: Date and time when the plan was created
+      - name: deleted_at
+        description: Date and time when the plan was deleted, if applicable
+      - name: description
+        description: Description of the plan
+      - name: has_auto_renew
+        description: Indicates if the plan auto-renews
+      - name: interval_length
+        description: Length of the plan's interval
+      - name: interval_unit
+        description: Unit of the plan's interval (e.g., days, months)
+      - name: is_most_recent_record
+        description: Boolean indicating if this is the most recent record for the plan
+      - name: is_tax_exempt
+        description: Indicates if the plan is tax exempt
+      - name: name
+        description: Name of the plan
+      - name: setup_fee_accounting_code
+        description: Accounting code for the plan's setup fee
+      - name: state
+        description: Current state of the plan
+      - name: tax_code
+        description: Tax code associated with the plan
+      - name: total_billing_cycles
+        description: Total number of billing cycles for the plan
+      - name: trial_length
+        description: Length of the trial period
+      - name: trial_unit
+        description: Unit of the trial period (e.g., days, months)

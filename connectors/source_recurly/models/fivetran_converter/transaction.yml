@@ -1,0 +1,93 @@
+version: 2
+
+models:
+  - name: transaction_history
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('transaction_identifier', 'transaction_history') }}"
+    description: All fields and field values associated with transactions.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: transaction_id
+        description: Unique identifier of the transaction
+      - name: created_at
+        description: Date and time when the transaction was created
+      - name: account_id
+        description: Unique identifier of the account associated with the transaction
+      - name: amount
+        description: The amount of the transaction
+      - name: billing_city
+        description: The billing city for the transaction
+      - name: billing_country
+        description: The billing country for the transaction
+      - name: billing_first_name
+        description: The billing first name for the transaction
+      - name: billing_last_name
+        description: The billing last name for the transaction
+      - name: billing_phone
+        description: The billing phone number for the transaction
+      - name: billing_postal_code
+        description: The billing postal code for the transaction
+      - name: billing_region
+        description: The billing region for the transaction
+      - name: billing_street_1
+        description: The first line of the billing street address
+      - name: billing_street_2
+        description: The second line of the billing street address
+      - name: collected_at
+        description: Date and time when the transaction was collected
+      - name: collection_method
+        description: The method used to collect the transaction
+      - name: currency
+        description: The currency of the transaction
+      - name: customer_message
+        description: Message to the customer regarding the transaction
+      - name: customer_message_locale
+        description: Locale of the customer message
+      - name: gateway_approval_code
+        description: Approval code from the payment gateway
+      - name: gateway_message
+        description: Message from the payment gateway
+      - name: gateway_reference
+        description: Reference number from the payment gateway
+      - name: gateway_response_code
+        description: Response code from the payment gateway
+      - name: gateway_response_time
+        description: Response time from the payment gateway
+      - name: gateway_response_values
+        description: Additional response values from the payment gateway
+      - name: invoice_id
+        description: ID of the associated invoice
+      - name: is_refunded
+        description: Indicates if the transaction has been refunded
+      - name: is_successful
+        description: Indicates if the transaction was successful
+      - name: is_most_recent_record
+        description: Indicates if this is the most recent record for the transaction
+      - name: origin
+        description: The origin of the transaction
+      - name: original_transaction_id
+        description: ID of the original transaction if this is a related transaction
+      - name: payment_gateway_id
+        description: ID of the payment gateway used
+      - name: payment_gateway_name
+        description: Name of the payment gateway used
+      - name: payment_gateway_type
+        description: Type of the payment gateway used
+      - name: payment_method_object
+        description: Object describing the payment method used
+      - name: status
+        description: Current status of the transaction
+      - name: status_code
+        description: Code representing the status of the transaction
+      - name: status_message
+        description: Message describing the status of the transaction
+      - name: type
+        description: Type of the transaction
+      - name: uuid
+        description: Universally unique identifier for the transaction
+      - name: voided_at
+        description: Date and time when the transaction was voided, if applicable
+      - name: voided_by_invoice_id
+        description: ID of the invoice that voided this transaction, if applicable
