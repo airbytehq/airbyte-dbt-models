@@ -41,22 +41,22 @@
             t.bill_to AS bill_to,
             t.cc_emails AS cc_emails,
             t.code AS code,
-            JSON_EXTRACT_SCALAR(t.shipping_addresses[OFFSET(0)], '$.company') AS company,
+            JSON_EXTRACT_SCALAR(t.shipping_addresses[SAFE_OFFSET(0)], '$.company') AS company,
             t.created_at AS created_at,
             t.deleted_at AS deleted_at,
-            JSON_EXTRACT_SCALAR(t.shipping_addresses[OFFSET(0)], '$.email') AS email,
-            JSON_EXTRACT_SCALAR(t.shipping_addresses[OFFSET(0)], '$.first_name') AS first_name,
+            JSON_EXTRACT_SCALAR(t.shipping_addresses[SAFE_OFFSET(0)], '$.email') AS email,
+            JSON_EXTRACT_SCALAR(t.shipping_addresses[SAFE_OFFSET(0)], '$.first_name') AS first_name,
             ROW_NUMBER() OVER (PARTITION BY t.id ORDER BY t.updated_at DESC) = 1 AS is_most_recent_record,
             t.tax_exempt AS is_tax_exempt,
-            JSON_EXTRACT_SCALAR(t.shipping_addresses[OFFSET(0)], '$.last_name') AS last_name,
+            JSON_EXTRACT_SCALAR(t.shipping_addresses[SAFE_OFFSET(0)], '$.last_name') AS last_name,
             JSON_EXTRACT_SCALAR(t.address, '$.region') AS state,
             t.username AS username,
-            JSON_EXTRACT_SCALAR(t.shipping_addresses[OFFSET(0)], '$.vat_number') AS vat_number
+            JSON_EXTRACT_SCALAR(t.shipping_addresses[SAFE_OFFSET(0)], '$.vat_number') AS vat_number
         FROM
             {{ source('source_recurly', 'accounts') }} t
     )
     SELECT * FROM tmp
-    WHERE FIELD_NAME IS NOT NULL
+    WHERE account_id IS NOT NULL
 
 {% elif target.type == "postgres" %}
 
