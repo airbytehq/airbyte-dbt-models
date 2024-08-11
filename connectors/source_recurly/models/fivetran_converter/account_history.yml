@@ -1,0 +1,43 @@
+version: 2
+
+models:
+  - name: account_history
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('account_identifier', 'account_history') }}"
+    description: All fields and field values associated with accounts.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: user_id
+        description: Unique identifier of the user account
+      - name: external_id
+        description: External identifier associated with the user account
+      - name: _fivetran_synced
+        description: Timestamp indicating when the data was synced by Fivetran
+      - name: last_login_at
+        description: Date and time when the user last logged in
+      - name: created_at
+        description: Date and time when the user account was created
+      - name: updated_at
+        description: Date and time when the user account was last updated
+      - name: email
+        description: Email address of the user
+      - name: name
+        description: Name of the user
+      - name: organization_id
+        description: Identifier of the organization associated with the user
+      - name: phone
+        description: Phone number of the user
+      - name: role
+        description: Role of the user within the system
+      - name: ticket_restriction
+        description: Restrictions applied to user tickets
+      - name: time_zone
+        description: Time zone of the user
+      - name: locale
+        description: Locale setting of the user
+      - name: is_active
+        description: Indicates if the user account is active
+      - name: is_suspended
+        description: Indicates if the user account is suspended
