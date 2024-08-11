@@ -4,7 +4,7 @@
         SELECT
             id AS coupon_redemption_id,
             cast(updated_at AS {{ dbt.type_timestamp() }}) AS updated_at,
-            account_id,
+            NULL AS account_id,
             coupon_id,
             cast(created_at AS {{ dbt.type_timestamp() }}) AS created_at,
             currency,
@@ -24,7 +24,7 @@
         SELECT
             id AS coupon_redemption_id,
             cast(updated_at AS {{ dbt.type_timestamp() }}) AS updated_at,
-            account_id,
+            NULL AS account_id,
             coupon_id,
             cast(created_at AS {{ dbt.type_timestamp() }}) AS created_at,
             currency,
@@ -44,7 +44,7 @@
         SELECT
             id AS coupon_redemption_id,
             cast(updated_at AS {{ dbt.type_timestamp() }}) AS updated_at,
-            account_id,
+            NULL AS account_id,
             coupon_id,
             cast(created_at AS {{ dbt.type_timestamp() }}) AS created_at,
             currency,
