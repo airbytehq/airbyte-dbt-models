@@ -16,7 +16,7 @@
             {{ source('source_recurly', 'account_coupon_redemptions') }} t
     )
     SELECT * FROM tmp
-    WHERE field_name IS NOT NULL
+    WHERE coupon_redemption_id IS NOT NULL
 
 {% elif target.type == "bigquery" %}
 
@@ -36,7 +36,7 @@
             {{ source('source_recurly', 'account_coupon_redemptions') }} t
     )
     SELECT * FROM tmp
-    WHERE FIELD_NAME IS NOT NULL
+    WHERE coupon_redemption_id IS NOT NULL
 
 {% elif target.type == "postgres" %}
 
@@ -55,6 +55,6 @@
             {{ source('source_recurly', 'account_coupon_redemptions') }} t
     )
     SELECT * FROM tmp
-    WHERE coupon_redemption_id IS NOT NULL
+    WHERE coupon_redemption_id IS NOT NULL 
 
 {% endif %}

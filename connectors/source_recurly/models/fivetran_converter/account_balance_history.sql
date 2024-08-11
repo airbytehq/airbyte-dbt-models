@@ -26,7 +26,7 @@
             {{ source('source_recurly', 'accounts') }} t
     )
     SELECT * FROM tmp
-    WHERE field_name IS NOT NULL
+    WHERE account_id IS NOT NULL
 
 {% elif target.type == "bigquery" %}
 
@@ -56,7 +56,7 @@
             {{ source('source_recurly', 'accounts') }} t
     )
     SELECT * FROM tmp
-    WHERE account_id IS NOT NULL
+    WHERE account_id IS NOT NULL 
 
 {% elif target.type == "postgres" %}
 
@@ -86,6 +86,6 @@
             {{ source('source_recurly', 'accounts') }} t
     )
     SELECT * FROM tmp
-    WHERE first_name IS NOT NULL
+    WHERE account_id IS NOT NULL 
 
-{%endif%}
+{% endif %}
