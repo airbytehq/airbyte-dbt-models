@@ -4,7 +4,7 @@ models:
   - name: account_balance_history
     schema: "{{ var('airbyte_schema', target.schema) }}"
     database: "{{ var('airbyte_database', target.database) }}"
-    identifier: "{{ var('recurly_account_balance_identifier', 'account_balance_history') }}"
+    identifier: "{{ var('account_balance_identifier', 'account_balance_history') }}"
     description: Account balance history information derived from Recurly accounts data.
     config:
       +enabled: "{{ var('using_fivetran_model', False) }}"
