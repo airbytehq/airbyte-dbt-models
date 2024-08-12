@@ -1,0 +1,53 @@
+version: 2
+
+models:
+  - name: billing_info_history
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('billing_info_identifier', 'billing_info_history') }}"
+    description: All fields and field values associated with billing information.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: billing_id
+        description: Unique identifier of the billing information
+      - name: updated_at
+        description: Date and time when the billing information was last updated
+      - name: account_id
+        description: The ID of the associated account
+      - name: billing_city
+        description: City of the billing contact
+      - name: billing_country
+        description: Country of the billing contact
+      - name: billing_phone
+        description: Phone number of the billing contact
+      - name: billing_postal_code
+        description: ZIP code of the billing contact
+      - name: billing_region
+        description: State or region of the billing contact
+      - name: billing_street_1
+        description: First line of the billing address
+      - name: billing_street_2
+        description: Second line of the billing address
+      - name: company
+        description: Company of the billing contact
+      - name: created_at
+        description: Date and time when the billing information was created
+      - name: first_name
+        description: First name of the billing contact
+      - name: is_valid
+        description: Whether the billing information is verified
+      - name: last_name
+        description: Last name of the billing contact
+      - name: payment_method_card_type
+        description: Type of credit card used (Note- This field may be NULL as it's not present in the original schema)
+      - name: payment_method_object
+        description: Type of payment method
+      - name: updated_by_country
+        description: Country from which the update was made (Note- This field may be NULL as it's not present in the original schema)
+      - name: updated_by_ip
+        description: IP address from which the update was made (Note- This field may be NULL as it's not present in the original schema)
+      - name: vat_number
+        description: VAT number of the billing contact
+      - name: is_most_recent_record
+        description: Indicates if this is the most recent record for the billing information

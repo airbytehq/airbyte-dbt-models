@@ -1,0 +1,39 @@
+version: 2
+
+models:
+  - name: credit_payment_history
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('credit_payment_identifier', 'credit_payment_history') }}"
+    description: All fields and field values associated with credit payments.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: credit_payment_id
+        description: Unique identifier of the credit payment
+      - name: updated_at
+        description: Date and time when the credit payment was last updated
+      - name: account_id
+        description: The ID of the account associated with the credit payment
+      - name: action
+        description: The action associated with the credit payment (Note- This field may be NULL as it's not present in the original schema)
+      - name: amount
+        description: The amount of the credit payment
+      - name: applied_to_invoice_id
+        description: The ID of the invoice to which the credit payment was applied
+      - name: created_at
+        description: Date and time when the credit payment was created
+      - name: currency
+        description: The currency of the credit payment
+      - name: refund_transaction_id
+        description: The ID of the refund transaction, if applicable (Note- This field may be NULL as it's not present in the original schema)
+      - name: original_credit_payment_id
+        description: The ID of the original credit payment, if this is a follow-up payment (Note- This field may be NULL as it's not present in the original schema)
+      - name: original_invoice_id
+        description: The ID of the original invoice, if this payment is related to a previous invoice (Note- This field may be NULL as it's not present in the original schema)
+      - name: uuid
+        description: Universally unique identifier of the credit payment
+      - name: voided_at
+        description: Date and time when the credit payment was voided, if applicable (Note- This field may be NULL as it's not present in the original schema)
+      - name: is_most_recent_record
+        description: Indicates if this is the most recent record for the credit payment

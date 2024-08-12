@@ -16,7 +16,7 @@ models:
       - name: account_id
         description: Unique identifier of the account associated with the coupon redemption
       - name: coupon_id
-        description: Unique identifier of the coupon being redeemed
+        description: Unique identifier of the coupon being redeemed, NULL if not available
       - name: created_at
         description: Date and time when the coupon redemption was created
       - name: currency

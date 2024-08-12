@@ -1,0 +1,89 @@
+version: 2
+
+models:
+  - name: line_item_history
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('line_item_identifier', 'line_item_history') }}"
+    description: All fields and field values associated with line items.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: line_item_id
+        description: Unique identifier of the line item
+      - name: updated_at
+        description: Date and time when the line item was last updated
+      - name: account_id
+        description: ID of the associated account (Note- This field may be NULL as it's not present in the original schema)
+      - name: add_on_code
+        description: Code of the add-on (Note- This field may be NULL as it's not present in the original schema)
+      - name: add_on_id
+        description: ID of the associated add-on
+      - name: amount
+        description: Total amount of the line item
+      - name: created_at
+        description: Date and time when the line item was created
+      - name: credit_applied
+        description: Amount of credit applied (Note- This field may be NULL as it's not present in the original schema)
+      - name: currency
+        description: Currency of the line item (Note- This field may be NULL as it's not present in the original schema)
+      - name: description
+        description: Description of the line item
+      - name: discount
+        description: Discount amount applied to the line item
+      - name: ended_at
+        description: End date of the line item (Note- This field may be NULL as it's not present in the original schema)
+      - name: has_refund
+        description: Indicates if the line item has been refunded (Note- This field may be NULL as it's not present in the original schema)
+      - name: invoice_id
+        description: ID of the associated invoice
+      - name: invoice_number
+        description: Number of the associated invoice (Note- This field may be NULL as it's not present in the original schema)
+      - name: is_most_recent_record
+        description: Indicates if this is the most recent record for the line item
+      - name: is_taxable
+        description: Indicates if the line item is taxable (Note- This field may be NULL as it's not present in the original schema)
+      - name: original_line_item_invoice_id
+        description: ID of the original invoice if this is a rebill (Note- This field may be NULL as it's not present in the original schema)
+      - name: origin
+        description: Origin of the line item (Note- This field may be NULL as it's not present in the original schema)
+      - name: plan_code
+        description: Code of the associated plan (Note- This field may be NULL as it's not present in the original schema)
+      - name: plan_id
+        description: ID of the associated plan
+      - name: previous_line_item_id
+        description: ID of the previous line item if this is a change (Note- This field may be NULL as it's not present in the original schema)
+      - name: product_code
+        description: Code of the associated product
+      - name: proration_rate
+        description: Proration rate if the line item is prorated (Note- This field may be NULL as it's not present in the original schema)
+      - name: quantity
+        description: Quantity of the line item
+      - name: refunded_quantity
+        description: Quantity that has been refunded (Note- This field may be NULL as it's not present in the original schema)
+      - name: started_at
+        description: Start date of the line item (Note- This field may be NULL as it's not present in the original schema)
+      - name: state
+        description: Current state of the line item
+      - name: subscription_id
+        description: ID of the associated subscription
+      - name: subtotal
+        description: Subtotal of the line item
+      - name: tax
+        description: Tax amount applied to the line item
+      - name: tax_code
+        description: Tax code of the line item (Note- This field may be NULL as it's not present in the original schema)
+      - name: tax_exempt
+        description: Indicates if the line item is tax exempt (Note- This field may be NULL as it's not present in the original schema)
+      - name: tax_region
+        description: Tax region of the line item (Note- This field may be NULL as it's not present in the original schema)
+      - name: tax_rate
+        description: Tax rate applied to the line item (Note- This field may be NULL as it's not present in the original schema)
+      - name: tax_type
+        description: Type of tax applied (Note- This field may be NULL as it's not present in the original schema)
+      - name: type
+        description: Type of the line item (Note- This field may be NULL as it's not present in the original schema)
+      - name: unit_amount
+        description: Amount per unit of the line item
+      - name: uuid
+        description: Universally unique identifier of the line item
