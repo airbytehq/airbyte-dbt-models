@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: subscription_change_history
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('subscription_change_identifier', 'subscription_change_history') }}"
+    description: All fields and field values associated with subscription changes.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: subscription_change_id
+        description: Unique identifier of the subscription change
+      - name: updated_at
+        description: Date and time when the subscription was last updated
+      - name: activate_at
+        description: Date and time when the subscription was or will be activated
+      - name: activated
+        description: Indicates if the subscription is currently active
+      - name: created_at
+        description: Date and time when the subscription was created
+      - name: deleted_at
+        description: Date and time when the subscription was deleted (Note- This field may be NULL as it's not present in the original schema)
+      - name: object
+        description: Type of object
+      - name: plan_id
+        description: The ID of the plan associated with the subscription
+      - name: quantity
+        description: The quantity of the subscription
+      - name: subscription_id
+        description: Unique identifier of the subscription
+      - name: unit_amount
+        description: The unit amount of the subscription
+      - name: is_most_recent_record
+        description: Indicates if this is the most recent record for the subscription
