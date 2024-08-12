@@ -4,7 +4,7 @@
         SELECT
             id AS credit_payment_id,
             cast(updated_at AS {{ dbt.type_timestamp() }}) AS updated_at,
-            account_id,
+            NULL AS account_id,
             NULL AS action,  
             cast(amount AS {{ dbt.type_float() }}) AS amount,
             invoice_id AS applied_to_invoice_id,
@@ -28,7 +28,7 @@
         SELECT
             id AS credit_payment_id,
             cast(updated_at AS {{ dbt.type_timestamp() }}) AS updated_at,
-            account_id,
+            NULL AS account_id,
             NULL AS action,
             cast(amount AS {{ dbt.type_float() }}) AS amount,
             invoice_id AS applied_to_invoice_id,
@@ -52,7 +52,7 @@
         SELECT
             id AS credit_payment_id,
             cast(updated_at AS {{ dbt.type_timestamp() }}) AS updated_at,
-            account_id,
+            NULL AS account_id,
             NULL AS action,
             cast(amount AS {{ dbt.type_float() }}) AS amount,
             invoice_id AS applied_to_invoice_id,
