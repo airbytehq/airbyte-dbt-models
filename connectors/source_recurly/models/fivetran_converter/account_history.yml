@@ -9,35 +9,43 @@ models:
     config:
       +enabled: "{{ var('using_fivetran_model', False) }}"
     columns:
-      - name: user_id
-        description: Unique identifier of the user account
-      - name: external_id
-        description: External identifier associated with the user account
-      - name: _fivetran_synced
-        description: Timestamp indicating when the data was synced by Fivetran
-      - name: last_login_at
-        description: Date and time when the user last logged in
-      - name: created_at
-        description: Date and time when the user account was created
+      - name: account_id
+        description: Unique identifier of the account
       - name: updated_at
-        description: Date and time when the user account was last updated
+        description: Date and time when the account was last updated
+      - name: account_city
+        description: City of the account (Note- This field may be NULL as it's not present in the original schema)
+      - name: account_country
+        description: Country of the account (Note- This field may be NULL as it's not present in the original schema)
+      - name: account_postal_code
+        description: Postal code of the account (Note- This field may be NULL as it's not present in the original schema)
+      - name: account_region
+        description: Region of the account (Note- This field may be NULL as it's not present in the original schema)
+      - name: bill_to
+        description: The billing details
+      - name: cc_emails
+        description: Email addresses for carbon copy (CC)
+      - name: code
+        description: Unique code assigned to the account
+      - name: company
+        description: Company associated with the account
+      - name: created_at
+        description: Date and time when the account was created
+      - name: deleted_at
+        description: Date and time when the account was deleted
       - name: email
-        description: Email address of the user
-      - name: name
-        description: Name of the user
-      - name: organization_id
-        description: Identifier of the organization associated with the user
-      - name: phone
-        description: Phone number of the user
-      - name: role
-        description: Role of the user within the system
-      - name: ticket_restriction
-        description: Restrictions applied to user tickets
-      - name: time_zone
-        description: Time zone of the user
-      - name: locale
-        description: Locale setting of the user
-      - name: is_active
-        description: Indicates if the user account is active
-      - name: is_suspended
-        description: Indicates if the user account is suspended
+        description: Email address of the account holder
+      - name: first_name
+        description: First name of the account holder
+      - name: is_most_recent_record
+        description: Flag indicating if this is the most recent record for the account
+      - name: is_tax_exempt
+        description: Flag indicating if the account is tax exempt
+      - name: last_name
+        description: Last name of the account holder
+      - name: state
+        description: State/province of the account address
+      - name: username
+        description: Username of the account holder
+      - name: vat_number
+        description: VAT (Value Added Tax) number of the account

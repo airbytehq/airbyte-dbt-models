@@ -28,7 +28,7 @@
             message,
             object,
             created_by AS user_email,
-            NULL AS user_id, -- This field is not present in the original schema
+            NULL AS user_id, 
             ROW_NUMBER() OVER (PARTITION BY id ORDER BY updated_at DESC) = 1 AS is_most_recent_record
         FROM
             {{ source('source_recurly', 'account_notes') }}
