@@ -32,3 +32,12 @@ models:
 vars:
   airbyte_database: airbyte_default_database
   airbyte_schema: airbyte_default_schema
+
+  airbyte:
+    facebook_ads:
+      sources:
+        ad_accounts:
+          - name: facebook_ads_us
+            table: ad_account
+        # - name: facebook_ads_ca
+        #   table: ad_accounts
