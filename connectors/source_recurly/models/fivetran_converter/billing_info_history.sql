@@ -3,17 +3,17 @@
     WITH tmp AS (
         SELECT
             id AS billing_id,
-            cast(updated_at AS {{ dbt.type_timestamp() }}) AS updated_at,
+            NULL AS updated_at,
             account_id,
-            NULL AS billing_city,
-            NULL AS billing_country,
-            NULL AS billing_phone,
-            NULL AS billing_postal_code,
-            NULL AS billing_region,
-            NULL AS billing_street_1,
-            NULL AS billing_street_2,
+            city AS billing_city,
+            country AS billing_country,
+            phone AS billing_phone,
+            zip AS billing_postal_code,
+            state AS billing_region,
+            address1 AS billing_street_1,
+            address2 AS billing_street_2,
             company,
-            cast(created_at AS {{ dbt.type_timestamp() }}) AS created_at,
+            NULL AS created_at,
             first_name,
             NULL AS is_valid,
             last_name,
@@ -22,7 +22,8 @@
             NULL AS updated_by_country,
             NULL AS updated_by_ip,
             vat_number,
-            ROW_NUMBER() OVER (PARTITION BY id ORDER BY updated_at DESC) = 1 AS is_most_recent_record
+            ROW_NUMBER() OVER (PARTITION BY id DESC) = 1 AS is_most_recent_record,
+            NULL AS fraud_risk_rules_triggered
         FROM
             {{ source('source_recurly', 'billing_infos') }}
     )
@@ -34,17 +35,17 @@
     WITH tmp AS (
         SELECT
             id AS billing_id,
-            cast(updated_at AS {{ dbt.type_timestamp() }}) AS updated_at,
+            NULL AS updated_at,
             account_id,
-            NULL AS billing_city,
-            NULL AS billing_country,
-            NULL AS billing_phone,
-            NULL AS billing_postal_code,
-            NULL AS billing_region,
-            NULL AS billing_street_1,
-            NULL AS billing_street_2,
+            city AS billing_city,
+            country AS billing_country,
+            phone AS billing_phone,
+            zip AS billing_postal_code,
+            state AS billing_region,
+            address1 AS billing_street_1,
+            address2 AS billing_street_2,
             company,
-            cast(created_at AS {{ dbt.type_timestamp() }}) AS created_at,
+            NULL AS created_at,
             first_name,
             NULL AS is_valid,
             last_name,
@@ -53,7 +54,8 @@
             NULL AS updated_by_country, 
             NULL AS updated_by_ip, 
             vat_number,
-            ROW_NUMBER() OVER (PARTITION BY id ORDER BY updated_at DESC) = 1 AS is_most_recent_record
+            ROW_NUMBER() OVER (PARTITION BY id DESC) = 1 AS is_most_recent_record,
+            NULL AS fraud_risk_rules_triggered
         FROM
             {{ source('source_recurly', 'billing_infos') }}
     )
@@ -65,17 +67,17 @@
     WITH tmp AS (
         SELECT
             id AS billing_id,
-            cast(updated_at AS {{ dbt.type_timestamp() }}) AS updated_at,
+            NULL AS updated_at,
             account_id,
-            NULL AS billing_city,
-            NULL AS billing_country,
-            NULL AS billing_phone,
-            NULL AS billing_postal_code,
-            NULL AS billing_region,
-            NULL AS billing_street_1,
-            NULL AS billing_street_2,
+            city AS billing_city,
+            country AS billing_country,
+            phone AS billing_phone,
+            zip AS billing_postal_code,
+            state AS billing_region,
+            address1 AS billing_street_1,
+            address2 AS billing_street_2,
             company,
-            cast(created_at AS {{ dbt.type_timestamp() }}) AS created_at,
+            NULL AS created_at,
             first_name,
             NULL AS is_valid,
             last_name,
@@ -84,7 +86,8 @@
             NULL AS updated_by_country,
             NULL AS updated_by_ip,
             vat_number,
-            ROW_NUMBER() OVER (PARTITION BY id ORDER BY updated_at DESC) = 1 AS is_most_recent_record
+            ROW_NUMBER() OVER (PARTITION BY id DESC) = 1 AS is_most_recent_record,
+            NULL AS fraud_risk_rules_triggered
         FROM
             {{ source('source_recurly', 'billing_infos') }}
     )
