@@ -22,7 +22,7 @@
             NULL AS updated_by_country,
             NULL AS updated_by_ip,
             vat_number,
-            ROW_NUMBER() OVER (PARTITION BY id DESC) = 1 AS is_most_recent_record,
+            ROW_NUMBER() OVER (PARTITION BY id ORDER BY account_id DESC) = 1 AS is_most_recent_record,
             NULL AS fraud_risk_rules_triggered
         FROM
             {{ source('source_recurly', 'billing_infos') }}
@@ -54,7 +54,7 @@
             NULL AS updated_by_country, 
             NULL AS updated_by_ip, 
             vat_number,
-            ROW_NUMBER() OVER (PARTITION BY id DESC) = 1 AS is_most_recent_record,
+            ROW_NUMBER() OVER (PARTITION BY id ORDER BY updated_at DESC) = 1 AS is_most_recent_record,
             NULL AS fraud_risk_rules_triggered
         FROM
             {{ source('source_recurly', 'billing_infos') }}
@@ -86,7 +86,7 @@
             NULL AS updated_by_country,
             NULL AS updated_by_ip,
             vat_number,
-            ROW_NUMBER() OVER (PARTITION BY id DESC) = 1 AS is_most_recent_record,
+            ROW_NUMBER() OVER (PARTITION BY id ORDER BY account_id DESC) = 1 AS is_most_recent_record,
             NULL AS fraud_risk_rules_triggered
         FROM
             {{ source('source_recurly', 'billing_infos') }}

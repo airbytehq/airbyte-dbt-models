@@ -1,0 +1,32 @@
+
+version: 2
+
+models:
+  - name: subscription_add_on_history
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('recurly_subscription_add_on_history_identifier', 'subscription_add_on_history') }}"
+    description: All fields and field values associated with subscription add-on history.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: subscription_add_on_id
+        description: Unique identifier of the subscription add-on
+      - name: updated_at
+        description: Date and time when the subscription add-on was last updated
+      - name: created_at
+        description: Date and time when the subscription add-on was created
+      - name: expired_at
+        description: Date and time when the subscription add-on expired
+      - name: object
+        description: Type of object
+      - name: plan_add_on_id
+        description: ID of the associated plan add-on
+      - name: quantity
+        description: Quantity of the subscription add-on
+      - name: subscription_id
+        description: ID of the associated subscription
+      - name: unit_amount
+        description: Unit amount for the subscription add-on
+      - name: is_most_recent_record
+        description: Indicates if this is the most recent record for the subscription add-on history

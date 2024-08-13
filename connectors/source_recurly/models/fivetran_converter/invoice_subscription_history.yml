@@ -1,0 +1,20 @@
+
+version: 2
+
+models:
+  - name: invoice_subscription_history
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('recurly_invoice_subscription_history_identifier', 'invoice_subscription_history') }}"
+    description: All fields and field values associated with invoice subscription history.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: invoice_id
+        description: Unique identifier of the invoice
+      - name: invoice_updated_at
+        description: Date and time when the invoice was last updated
+      - name: subscription_id
+        description: ID of the subscription associated with the invoice
+      - name: is_most_recent_record
+        description: Indicates if this is the most recent record for the invoice subscription

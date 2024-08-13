@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: plan_currency
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('recurly_plan_currency_history_identifier', 'plan_currency_history') }}"
+    description: All fields and field values associated with plan currencies.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: plan_id
+        description: Unique identifier of the plan
+      - name: plan_updated_at
+        description: Date and time when the plan was last updated
+      - name: currency
+        description: Currency used in the plan
+      - name: setup_fees
+        description: Setup fees associated with the plan
+      - name: unit_amount
+        description: Unit amount for the plan
+      - name: is_most_recent_record
+        description: Indicates if this is the most recent record for the plan currency
