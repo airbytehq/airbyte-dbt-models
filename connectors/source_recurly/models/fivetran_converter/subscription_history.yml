@@ -1,0 +1,78 @@
+
+version: 2
+
+models:
+  - name: subscription_history
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('recurly_subscription_history_identifier', 'subscription_history') }}"
+    description: All fields and field values associated with subscription history.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: subscription_id
+        description: Unique identifier of the subscription
+      - name: updated_at
+        description: Date and time when the subscription was last updated
+      - name: account_id
+        description: ID of the associated account
+      - name: activated_at
+        description: Date and time when the subscription was activated
+      - name: add_ons_total
+        description: Total amount of add-ons for the subscription
+      - name: canceled_at
+        description: Date and time when the subscription was canceled
+      - name: collection_method
+        description: Method of collecting payment
+      - name: converted_at
+        description: Date and time when the subscription was converted
+      - name: created_at
+        description: Date and time when the subscription was created
+      - name: currency
+        description: Currency used for the subscription
+      - name: current_period_ended_at
+        description: Date and time when the current period ended
+      - name: current_period_started_at
+        description: Date and time when the current period started
+      - name: current_term_ended_at
+        description: Date and time when the current term ended
+      - name: current_term_started_at
+        description: Date and time when the current term started
+      - name: expiration_reason
+        description: Reason for subscription expiration
+      - name: expires_at
+        description: Date and time when the subscription expires
+      - name: has_auto_renew
+        description: Indicates if the subscription has auto-renew enabled
+      - name: has_started_with_gift
+        description: Indicates if the subscription started with a gift
+      - name: is_most_recent_record
+        description: Indicates if this is the most recent record for the subscription history
+      - name: object
+        description: Type of object
+      - name: paused_at
+        description: Date and time when the subscription was paused
+      - name: plan_id
+        description: ID of the associated plan
+      - name: quantity
+        description: Quantity of the subscription
+      - name: remaining_billing_cycles
+        description: Number of remaining billing cycles
+      - name: remaining_pause_cycles
+        description: Number of remaining pause cycles
+      - name: renewal_billing_cycles
+        description: Number of renewal billing cycles
+      - name: state
+        description: Current state of the subscription
+      - name: subtotal
+        description: Subtotal amount of the subscription
+      - name: total_billing_cycles
+        description: Total number of billing cycles
+      - name: trial_ends_at
+        description: Date and time when the trial ends
+      - name: trial_started_at
+        description: Date and time when the trial started
+      - name: unit_amount
+        description: Unit amount for the subscription
+      - name: uuid
+        description: Unique identifier for the record

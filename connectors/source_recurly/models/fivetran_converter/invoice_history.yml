@@ -1,0 +1,64 @@
+
+version: 2
+
+models:
+  - name: invoice_history
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('recurly_invoice_history_identifier', 'invoice_history') }}"
+    description: All fields and field values associated with invoice history.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: invoice_id
+        description: Unique identifier of the invoice
+      - name: updated_at
+        description: Date and time when the invoice was last updated
+      - name: account_id
+        description: ID of the account associated with the invoice
+      - name: balance
+        description: Balance amount of the invoice
+      - name: closed_at
+        description: Date and time when the invoice was closed
+      - name: collection_method
+        description: Method of invoice collection
+      - name: created_at
+        description: Date and time when the invoice was created
+      - name: currency
+        description: Currency used in the invoice
+      - name: discount
+        description: Discount applied to the invoice
+      - name: due_at
+        description: Date and time when the invoice is due
+      - name: is_most_recent_record
+        description: Indicates if this is the most recent record for the invoice
+      - name: net_terms
+        description: Net terms of the invoice
+      - name: number
+        description: Invoice number
+      - name: origin
+        description: Origin of the invoice
+      - name: paid
+        description: Paid status of the invoice
+      - name: po_number
+        description: Purchase order number associated with the invoice
+      - name: previous_invoice_id
+        description: ID of the previous invoice, if applicable
+      - name: refundable_amount
+        description: Amount that is refundable from the invoice
+      - name: state
+        description: State or status of the invoice
+      - name: subtotal
+        description: Subtotal amount of the invoice
+      - name: tax
+        description: Tax amount on the invoice
+      - name: tax_rate
+        description: Tax rate applied to the invoice
+      - name: tax_region
+        description: Tax region associated with the invoice
+      - name: tax_type
+        description: Type of tax applied to the invoice
+      - name: total
+        description: Total amount of the invoice
+      - name: type
+        description: Type of the invoice

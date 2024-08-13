@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: coupon_discount
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('recurly_coupon_discount_identifier', 'coupon_discount') }}"
+    description: All fields and field values associated with coupon discounts.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: coupon_id
+        description: Unique identifier of the coupon
+      - name: discount_type
+        description: The type of discount provided by the coupon
+      - name: currency
+        description: Currency in which the discount is applied
+      - name: amount
+        description: Amount of the discount
+      - name: percentage
+        description: Percentage discount offered by the coupon
+      - name: trial_length
+        description: Length of the trial period if applicable
+      - name: trial_unit
+        description: Unit of time for the trial period
+      - name: fivetran_id
+        description: Unique identifier used by Fivetran for tracking purposes

@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: invoice_coupon_redemption_history
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('recurly_invoice_coupon_redemption_identifier', 'invoice_coupon_redemption_history') }}"
+    description: All fields and field values associated with invoice coupon redemptions.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: coupon_redemption_id
+        description: Unique identifier of the coupon redemption
+      - name: invoice_id
+        description: Unique identifier of the invoice
+      - name: invoice_updated_at
+        description: Date and time when the invoice was last updated
+      - name: is_most_recent_record
+        description: Indicates if this is the most recent record for the invoice coupon redemption
