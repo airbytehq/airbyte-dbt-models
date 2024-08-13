@@ -4,13 +4,13 @@
         SELECT
             id AS account_note_id,
             account_id,
-            cast(updated_at AS {{ dbt.type_timestamp() }}) AS account_updated_at,
+            NULL AS account_updated_at,
             cast(created_at AS {{ dbt.type_timestamp() }}) AS created_at,
             message,
             object,
-            created_by AS user_email,
+            NULL AS user_email,
             NULL AS user_id,
-            ROW_NUMBER() OVER (PARTITION BY id ORDER BY updated_at DESC) = 1 AS is_most_recent_record
+            ROW_NUMBER() OVER (PARTITION BY id ORDER BY created_at DESC) = 1 AS is_most_recent_record
         FROM
             {{ source('source_recurly', 'account_notes') }}
     )
@@ -23,13 +23,13 @@
         SELECT
             id AS account_note_id,
             account_id,
-            cast(updated_at AS {{ dbt.type_timestamp() }}) AS account_updated_at,
+            NULL AS account_updated_at,
             cast(created_at AS {{ dbt.type_timestamp() }}) AS created_at,
             message,
             object,
-            created_by AS user_email,
+            NULL AS user_email,
             NULL AS user_id, 
-            ROW_NUMBER() OVER (PARTITION BY id ORDER BY updated_at DESC) = 1 AS is_most_recent_record
+            ROW_NUMBER() OVER (PARTITION BY id ORDER BY created_at DESC) = 1 AS is_most_recent_record
         FROM
             {{ source('source_recurly', 'account_notes') }}
     )
@@ -42,13 +42,13 @@
         SELECT
             id AS account_note_id,
             account_id,
-            cast(updated_at AS {{ dbt.type_timestamp() }}) AS account_updated_at,
+            NULL AS account_updated_at,
             cast(created_at AS {{ dbt.type_timestamp() }}) AS created_at,
             message,
             object,
-            created_by AS user_email,
+            NULL AS user_email,
             NULL AS user_id,
-            ROW_NUMBER() OVER (PARTITION BY id ORDER BY updated_at DESC) = 1 AS is_most_recent_record
+            ROW_NUMBER() OVER (PARTITION BY id ORDER BY created_at DESC) = 1 AS is_most_recent_record
         FROM
             {{ source('source_recurly', 'account_notes') }}
     )
