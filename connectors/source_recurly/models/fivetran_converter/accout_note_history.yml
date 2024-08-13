@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: account_note_history
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('account_note_identifier', 'account_note_history') }}"
+    description: All fields and field values associated with account notes.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: account_note_id
+        description: Unique identifier of the account note
+      - name: account_id
+        description: The ID of the account associated with the note
+      - name: account_updated_at
+        description: Date and time when the account note was last updated
+      - name: created_at
+        description: Date and time when the account note was created
+      - name: message
+        description: The content of the note
+      - name: object
+        description: Type of object
+      - name: user_email
+        description: The email of the user who created the note (derived from created_by field)
+      - name: user_id
+        description: The ID of the user who created the note (Note- This field may be NULL as it's not present in the original schema)
+      - name: is_most_recent_record
+        description: Indicates if this is the most recent record for the account note
