@@ -26,7 +26,7 @@ require-dbt-version:
 models:
   airbyte_dbt_source_amplitude:
     materialized: view
-    +schema: dbt_amplitude
+    +schema: dbt_source_amplitude
     staging:
       materialized: view
     tmp:
