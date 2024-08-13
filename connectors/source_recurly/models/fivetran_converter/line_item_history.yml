@@ -68,7 +68,7 @@ models:
       - name: subscription_id
         description: ID of the associated subscription
       - name: subtotal
-        description: Subtotal of the line item
+        description: Subtotal of the line item (Note- This field may be NULL as it's not present in the original schema)
       - name: tax
         description: Tax amount applied to the line item
       - name: tax_code
