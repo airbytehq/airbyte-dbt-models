@@ -4,7 +4,7 @@ config-version: 2
 
 version: 0.1.0
 
-profile: airbyte
+profile: integration_tests
 
 model-paths:
   - models
@@ -31,6 +31,10 @@ models:
       materialized: view
     tmp:
       materialized: view
+
+flags:
+  send_anonymous_usage_stats: False
+  use_colors: True
 
 vars:
   # Required by Airbyte dbt model
