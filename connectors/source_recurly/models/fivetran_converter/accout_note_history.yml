@@ -4,7 +4,7 @@ models:
   - name: account_note_history
     schema: "{{ var('airbyte_schema', target.schema) }}"
     database: "{{ var('airbyte_database', target.database) }}"
-    identifier: "{{ var('account_note_identifier', 'account_note_history') }}"
+    identifier: "{{ var('recurly_account_note_identifier', 'account_note_history') }}"
     description: All fields and field values associated with account notes.
     config:
       +enabled: "{{ var('using_fivetran_model', False) }}"
