@@ -25,7 +25,7 @@
             ROW_NUMBER() OVER (PARTITION BY id ORDER BY account_id DESC) = 1 AS is_most_recent_record,
             NULL AS fraud_risk_rules_triggered
         FROM
-            {{ source('source_recurly', 'billing_info') }}
+            {{ source('source_recurly', 'billing_infos') }}
     )
     SELECT * FROM tmp
     WHERE billing_id IS NOT NULL
@@ -57,7 +57,7 @@
             ROW_NUMBER() OVER (PARTITION BY id ORDER BY updated_at DESC) = 1 AS is_most_recent_record,
             NULL AS fraud_risk_rules_triggered
         FROM
-            {{ source('source_recurly', 'billing_info') }}
+            {{ source('source_recurly', 'billing_infos') }}
     )
     SELECT * FROM tmp
     WHERE billing_id IS NOT NULL
@@ -89,7 +89,7 @@
             ROW_NUMBER() OVER (PARTITION BY id ORDER BY account_id DESC) = 1 AS is_most_recent_record,
             NULL AS fraud_risk_rules_triggered
         FROM
-            {{ source('source_recurly', 'billing_info') }}
+            {{ source('source_recurly', 'billing_infos') }}
     )
     SELECT * FROM tmp
     WHERE billing_id IS NOT NULL
