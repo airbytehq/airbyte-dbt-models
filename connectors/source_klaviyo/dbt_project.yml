@@ -29,6 +29,6 @@ models:
     staging:
       materialized: view
 
-vars:
-  airbyte_database: airbyte_default_database
-  airbyte_schema: airbyte_default_schema
+# vars:
+#   airbyte_database: airbyte_default_database
+#   airbyte_schema: airbyte_default_schema

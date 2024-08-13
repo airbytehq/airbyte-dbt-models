@@ -1,0 +1,51 @@
+version: 2
+
+models:
+  - name: person
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('klaviyo_person_identifier', 'person') }}"
+    description: Table storing the profiles of all people/users interacted with. 
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: person_id
+        description: >
+          Unique ID of the user if you use your own unique identifier. Otherwise, Klaviyo 
+          recommends using the email as the primary key. 
+        tests:
+          - not_null
+      - name: address_1
+        description: First line of the person's address.
+      - name: address_2
+        description: Second line of the person's address.
+      - name: city
+        description: City they live in.
+      - name: country
+        description: Country they live in.
+      - name: zip
+        description: Postal code where they live.
+      - name: created_at
+        description: Timestamp of when the person's profile was created. 
+      - name: email
+        description: The email address for a profile.
+      - name: full_name
+        description: Person's full name.
+      - name: latitude
+        description: Latitude of the person's location. 
+      - name: longitude
+        description: Longitude of the person's location. 
+      - name: organization
+        description: Business organization they belong to. 
+      - name: phone_number
+        description: Associated phone number.
+      - name: region
+        description: Region or state they live in.
+      - name: timezone
+        description: Timezone they are situated in.
+      - name: title
+        description: Title at their business or organization.
+      - name: updated_at
+        description: Timestamp of when the person profile was last updated.
+      - name: last_event_date
+        description: Date and time of the most recent event the triggered an update to the profile, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)

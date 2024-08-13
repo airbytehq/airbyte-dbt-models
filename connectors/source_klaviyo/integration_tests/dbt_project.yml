@@ -1,0 +1,50 @@
+name: integration_test_klaviyo
+
+config-version: 2
+
+version: 0.1.0
+
+profile: integration_tests
+
+model-paths:
+  - models
+
+macro-paths:
+  - macros
+
+target-path: target
+
+clean-targets:
+  - target
+  - dbt_modules
+  - logs
+
+require-dbt-version:
+  - ">=1.0.0"
+  - <2.0.0
+
+models:
+  airbyte_dbt_source_klaviyo:
+    materialized: view
+    +schema: dbt_klaviyo
+    staging:
+      materialized: view
+    tmp:
+      materialized: view
+
+vars:
+  # Required by Airbyte dbt model
+  using_fivetran_model: True
+  airbyte_database: "airbyte_db_default"
+  airbyte_schema: "airbyte_dbt_source_klaviyo"
+
+  # Required by Fivetran dbt model
+  klaviyo_database: "airbyte_db_default"
+  klaviyo_schema: "airbyte_dbt_klaviyo_support"
+
+  klaviyo_campaign_identifier: "campaigns"
+  klaviyo_event_identifier: "events"
+  klaviyo_flow_comment_identifier: "flows"
+  klaviyo_metric_identifier: "metrics"
+  klaviyo_person_identifier: "profiles"
+

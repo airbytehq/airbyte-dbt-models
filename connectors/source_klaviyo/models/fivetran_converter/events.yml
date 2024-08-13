@@ -1,0 +1,43 @@
+version: 2
+
+models:
+  - name: events
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('klaviyo_event_identifier', 'event') }}"
+    description: Table of events (and metrics) triggered in Klaviyo or via its integrations.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: variation_id
+        description: >
+          Unique ID of the attributed flow or campaign variation group. 
+          This does not map onto another table. 
+      - name: campaign_id
+        description: Foreign key referencing the CAMPAIGN that the event is attributed to. 
+      - name: occurred_at
+        description: Timestamp of when the event was triggered. 
+      - name: flow_id
+        description: Foreign key referencing the FLOW that the event is attributed to. 
+      - name: flow_message_id
+        description: >
+          Unique ID of the FLOW_MESSAGE that the event is attributed to. 
+          This does not map onto another table.
+      - name: event_id
+        description: Unique ID of the event. 
+        tests:
+          - not_null
+      - name: metric_id
+        description: Foreign key referencing the metric being captured. 
+      - name: person_id
+        description: Foreign key referencing the PERSON who triggered the event. 
+      - name: type
+        description: Type of event that was triggered. This is the same as the METRIC name.
+      - name: uuid
+        description: Universally Unique Identifier of the event. 
+      - name: numeric_value
+        description: Numeric value associated with the event (ie the dollars associated with a purchase).
+      - name: occurred_on
+        description: Calendar date (UTC) on which the event occurred.
+      - name: unique_event_id
+        description: The unique identifier for the combination of event_id and source_relation columns.
