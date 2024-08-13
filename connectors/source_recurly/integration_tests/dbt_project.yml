@@ -50,7 +50,6 @@ vars:
   recurly_account_identifier: "accounts"
   recurly_account_note_identifier: "account_notes"
   recurly_account_coupon_redemption_identifier: "account_coupon_redemptions"
-  recurly_billing_info_identifier: "billing_infos"
   recurly_coupon_redemption_identifier: "account_coupon_redemptions"
   recurly_coupon_identifier: "coupons"
   recurly_credit_payment_identifier: "credit_payments"
