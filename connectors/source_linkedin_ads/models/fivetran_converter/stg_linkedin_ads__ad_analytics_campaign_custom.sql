@@ -1,5 +1,9 @@
 {% if target.type == "snowflake" %}
 
+    {% set schema = var('airbyte_schema', target.schema) %}
+    {% set table_ad_campaign_analytics = schema ~ '.ad_campaign_analytics' %}
+    {% set table_campaigns = schema ~ '.campaigns' %}
+
     with tmp as (
         select
             ac.id as campaign_id,
@@ -10,9 +14,9 @@
             aca.conversionValueInLocalCurrency as conversion_value_in_local_currency,
             {{ dbt.date_trunc('day', 'aca.start_date') }} as date_day
         from
-            {{ source('source_linkedin_ads', 'ad_campaign_analytics') }} aca
+            {{ table_ad_campaign_analytics }} aca
         join
-            {{ source('source_linkedin_ads', 'campaigns') }} ac
+            {{ table_campaigns }} ac
         on
             aca.campaign_id = ac.id
     )
@@ -20,6 +24,10 @@
 
 {% elif target.type == "bigquery" %}
 
+    {% set schema = var('airbyte_schema', target.schema) %}
+    {% set table_ad_campaign_analytics = schema ~ '.ad_campaign_analytics' %}
+    {% set table_campaigns = schema ~ '.campaigns' %}
+
     with tmp as (
         select
             ac.id as campaign_id,
@@ -30,9 +38,9 @@
             aca.conversionValueInLocalCurrency as conversion_value_in_local_currency,
             {{ dbt.date_trunc('day', 'aca.start_date') }} as date_day
         from
-            {{ source('source_linkedin_ads', 'ad_campaign_analytics') }} aca
+            {{ table_ad_campaign_analytics }} aca
         join
-            {{ source('source_linkedin_ads', 'campaigns') }} ac
+            {{ table_campaigns }} ac
         on
             aca.campaign_id = ac.id
     )
@@ -40,6 +48,10 @@
 
 {% elif target.type == "postgres" %}
 
+    {% set schema = var('airbyte_schema', target.schema) %}
+    {% set table_ad_campaign_analytics = schema ~ '.ad_campaign_analytics' %}
+    {% set table_campaigns = schema ~ '.campaigns' %}
+
     with tmp as (
         select
             ac.id as campaign_id,
@@ -50,9 +62,9 @@
             aca.conversionValueInLocalCurrency as conversion_value_in_local_currency,
             {{ dbt.date_trunc('day', 'aca.start_date') }} as date_day
         from
-            {{ source('source_linkedin_ads', 'ad_campaign_analytics') }} aca
+            {{ table_ad_campaign_analytics }} aca
         join
-            {{ source('source_linkedin_ads', 'campaigns') }} ac
+            {{ table_campaigns }} ac
         on
             aca.campaign_id = ac.id
     )
