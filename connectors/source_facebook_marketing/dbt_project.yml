@@ -39,5 +39,18 @@ vars:
         ad_accounts:
           - name: facebook_ads_us
             table: ad_account
-        # - name: facebook_ads_ca
-        #   table: ad_accounts
+        ads:
+          - name: facebook_ads_us
+            table: ads
+        ad_sets:
+          - name: facebook_ads_us
+            table: ad_sets
+        ads_insights:
+          - name: facebook_ads_us
+            table: ads_insights
+        campaigns:
+          - name: facebook_ads_us
+            table: campaigns
+        ad_creatives:
+          - name: facebook_ads_us
+            table: ad_creatives
