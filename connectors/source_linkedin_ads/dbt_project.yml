@@ -24,29 +24,14 @@ require-dbt-version:
   - <2.0.0
 
 models:
-  airbyte_dbt_source_linkedin_ads:
+  source_linkedin_ads:
     materialized: view
-    +schema: dbt_linkedin_ads
     fivetran_converter:
       materialized: view
-    tmp:
-      materialized: view
-
-flags:
-  send_anonymous_usage_stats: False
-  use_colors: True
 
 vars:
-  # Required by Airbyte dbt model
-  airbyte_database: "airbyte_default_database"
-  airbyte_schema: "airbyte_default_schema"
-
-  # Required by Fivetran dbt model
-  linkedin_ads_database: "airbyte_default_database"
-  linkedin_ads_schema: "airbyte_dbt_source_linkedin_ads"
-
-  # Example variable, adjust as needed
-  linkedin_ads__conversion_fields: []
-  linkedin_ads_union_schemas: []
-  linkedin_ads_union_databases: []
-  linkedin_ads__use_local_currency: False
+  airbyte_database: airbyte_default_database
+  airbyte_schema: airbyte_default_schema
+  using_fivetran_model: True
+  linkedin_ads_database: airbyte_default_database
+  linkedin_ads_schema: airbyte_dbt_source_linkedin_ads
