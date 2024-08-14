@@ -1,6 +1,5 @@
 {% if target.type == "snowflake" %}
 
-    {% set schema = var('airbyte_schema', target.schema) %}
     {% set table_ad_campaign_analytics = schema ~ '.ad_campaign_analytics' %}
     {% set table_campaigns = schema ~ '.campaigns' %}
 
@@ -48,10 +47,6 @@
 
 {% elif target.type == "postgres" %}
 
-    {% set schema = var('airbyte_schema', target.schema) %}
-    {% set table_ad_campaign_analytics = schema ~ '.ad_campaign_analytics' %}
-    {% set table_campaigns = schema ~ '.campaigns' %}
-
     with tmp as (
         select
             ac.id as campaign_id,
@@ -62,9 +57,9 @@
             aca.conversionValueInLocalCurrency as conversion_value_in_local_currency,
             {{ dbt.date_trunc('day', 'aca.start_date') }} as date_day
         from
-            {{ table_ad_campaign_analytics }} aca
+            {{ source('source_linkedin_ads', 'ad_campaign_analytics') }} as aca
         join
-            {{ table_campaigns }} ac
+            {{ source('source_linkedin_ads', 'campaigns') }} as ac
         on
             aca.campaign_id = ac.id
     )
