@@ -4,7 +4,7 @@ models:
   - name: coupon_discount
     schema: "{{ var('airbyte_schema', target.schema) }}"
     database: "{{ var('airbyte_database', target.database) }}"
-    identifier: "{{ var('recurly_coupon_discount_identifier', 'coupon_discount') }}"
+    identifier: "{{ var('coupon_discount_identifier', 'coupon_discount') }}"
     description: All fields and field values associated with coupon discounts.
     config:
       +enabled: "{{ var('using_fivetran_model', False) }}"

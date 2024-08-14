@@ -4,7 +4,7 @@ models:
   - name: invoice_coupon_redemption_history
     schema: "{{ var('airbyte_schema', target.schema) }}"
     database: "{{ var('airbyte_database', target.database) }}"
-    identifier: "{{ var('recurly_invoice_coupon_redemption_identifier', 'invoice_coupon_redemption_history') }}"
+    identifier: "{{ var('invoice_coupon_redemption_identifier', 'invoice_coupon_redemption_history') }}"
     description: All fields and field values associated with invoice coupon redemptions.
     config:
       +enabled: "{{ var('using_fivetran_model', False) }}"

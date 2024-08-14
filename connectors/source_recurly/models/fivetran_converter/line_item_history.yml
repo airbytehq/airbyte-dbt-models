@@ -4,7 +4,7 @@ models:
   - name: line_item_history
     schema: "{{ var('airbyte_schema', target.schema) }}"
     database: "{{ var('airbyte_database', target.database) }}"
-    identifier: "{{ var('recurly_line_item_identifier', 'line_item_history') }}"
+    identifier: "{{ var('line_item_identifier', 'line_item_history') }}"
     description: All fields and field values associated with line items.
     config:
       +enabled: "{{ var('using_fivetran_model', False) }}"
