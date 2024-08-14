@@ -5,7 +5,7 @@ models:
   - name: invoice_subscription_history
     schema: "{{ var('airbyte_schema', target.schema) }}"
     database: "{{ var('airbyte_database', target.database) }}"
-    identifier: "{{ var('recurly_invoice_subscription_history_identifier', 'invoice_subscription_history') }}"
+    identifier: "{{ var('invoice_subscription_history_identifier', 'invoice_subscription_history') }}"
     description: All fields and field values associated with invoice subscription history.
     config:
       +enabled: "{{ var('using_fivetran_model', False) }}"

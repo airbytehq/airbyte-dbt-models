@@ -4,7 +4,7 @@ models:
   - name: transaction_subscription
     schema: "{{ var('airbyte_schema', target.schema) }}"
     database: "{{ var('airbyte_database', target.database) }}"
-    identifier: "{{ var('recurly_transaction_subscription_identifier', 'transaction_subscription') }}"
+    identifier: "{{ var('transaction_subscription_identifier', 'transaction_subscription') }}"
     description: All fields and field values associated with transaction subscriptions.
     config:
       +enabled: "{{ var('using_fivetran_model', False) }}"

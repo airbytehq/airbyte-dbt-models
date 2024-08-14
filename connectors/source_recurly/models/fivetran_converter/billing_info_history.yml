@@ -4,7 +4,7 @@ models:
   - name: billing_info_history
     schema: "{{ var('airbyte_schema', target.schema) }}"
     database: "{{ var('airbyte_database', target.database) }}"
-    identifier: "{{ var('recurly_billing_info_identifier', 'billing_info_history') }}"
+    identifier: "{{ var('billing_info_identifier', 'billing_info_history') }}"
     description: All fields and field values associated with billing information.
     config:
       +enabled: "{{ var('using_fivetran_model', False) }}"

@@ -4,7 +4,7 @@ models:
   - name: credit_payment_history
     schema: "{{ var('airbyte_schema', target.schema) }}"
     database: "{{ var('airbyte_database', target.database) }}"
-    identifier: "{{ var('recurly_credit_payment_identifier', 'credit_payment_history') }}"
+    identifier: "{{ var('credit_payment_identifier', 'credit_payment_history') }}"
     description: All fields and field values associated with credit payments.
     config:
       +enabled: "{{ var('using_fivetran_model', False) }}"

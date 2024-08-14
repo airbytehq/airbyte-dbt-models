@@ -5,7 +5,7 @@ models:
   - name: subscription_history
     schema: "{{ var('airbyte_schema', target.schema) }}"
     database: "{{ var('airbyte_database', target.database) }}"
-    identifier: "{{ var('recurly_subscription_history_identifier', 'subscription_history') }}"
+    identifier: "{{ var('subscription_history_identifier', 'subscription_history') }}"
     description: All fields and field values associated with subscription history.
     config:
       +enabled: "{{ var('using_fivetran_model', False) }}"
