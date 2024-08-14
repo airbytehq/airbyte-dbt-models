@@ -1,0 +1,44 @@
+name: integration_test_asana
+
+config-version: 2
+
+version: 0.1.0
+
+profile: integration_tests
+
+model-paths:
+  - models
+
+macro-paths:
+  - macros
+
+target-path: target
+
+clean-targets:
+  - target
+  - dbt_modules
+  - logs
+
+require-dbt-version:
+  - ">=1.0.0"
+  - <2.0.0
+
+models:
+  airbyte_dbt_source_asana:
+    materialized: view
+    +schema: dbt_asana
+    staging:
+      materialized: view
+    tmp:
+      materialized: view
+
+vars:
+  # Required by Airbyte dbt model
+  using_fivetran_model: True
+  airbyte_database: "airbyte_db_default"
+  airbyte_schema: "airbyte_dbt_asana"
+
+  # Required by Fivetran dbt model
+  asana_source:
+    asana_database: "airbyte_db_default"
+    asana_schema: "airbyte_dbt_asana" 
