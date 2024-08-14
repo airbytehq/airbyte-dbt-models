@@ -1,0 +1,1 @@
+{airbyte_database: $AB_DB, linkedin_ads_database: $AB_DB}
