@@ -1,0 +1,80 @@
+version: 2
+
+models:
+  - name: stg_linkedin_ads__campaign_history
+    description: "Campaign history data from LinkedIn Ads, aligned with the Fivetran dbt model."
+    columns:
+      - name: campaign_id
+        description: "The unique identifier of the campaign."
+        tests:
+          - not_null
+          - unique
+
+      - name: campaign_name
+        description: "The name of the campaign."
+        tests:
+          - not_null
+
+      - name: type
+        description: "The type of the campaign."
+
+      - name: campaign_group_id
+        description: "The group to which the campaign belongs."
+        tests:
+          - not_null
+
+      - name: account_id
+        description: "The account associated with the campaign."
+        tests:
+          - not_null
+
+      - name: status
+        description: "The status of the campaign."
+
+      - name: daily_budget_amount
+        description: "The daily budget amount for the campaign."
+
+      - name: unit_cost_amount
+        description: "The unit cost associated with the campaign."
+
+      - name: creative_selection
+        description: "Information about the creative selection for the campaign."
+
+      - name: cost_type
+        description: "The type of cost associated with the campaign."
+
+      - name: format
+        description: "The format of the campaign."
+
+      - name: objective_type
+        description: "The type of objective for the campaign."
+
+      - name: optimization_target_type
+        description: "The type of optimization target for the campaign."
+
+      - name: audience_expansion_enabled
+        description: "Indicates if audience expansion is enabled for the campaign."
+
+      - name: offsite_delivery_enabled
+        description: "Indicates if offsite delivery is enabled for the campaign."
+
+      - name: run_schedule_start
+        description: "The start time of the campaign's run schedule."
+
+      - name: run_schedule_end_at
+        description: "The end time of the campaign's run schedule."
+
+      - name: last_modified_time
+        description: "The last modified time of the campaign."
+
+      - name: created_time
+        description: "The creation time of the campaign."
+
+      - name: version_tag
+        description: "The version tag of the campaign."
+
+      - name: locale_country
+        description: "The country specified in the locale settings."
+
+      - name: locale_language
+        description: "The language specified in the locale settings."
