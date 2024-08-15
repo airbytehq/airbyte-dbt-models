@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: stg_linkedin_ads__creative_history
+    description: "Creative history for LinkedIn Ads, aligned with the Fivetran dbt model."
+    columns:
+      - name: creative_id
+        description: "The unique identifier for the creative from the LinkedIn Ads API."
+      - name: campaign_id
+        description: "The unique identifier for the campaign associated with the creative."
+      - name: status
+        description: "The status of the creative, determined by coalescing 'status' and 'intendedStatus' fields."
+      - name: last_modified_at
+        description: "Timestamp indicating when the creative was last modified."
+      - name: created_at
+        description: "Timestamp indicating when the creative was created."
