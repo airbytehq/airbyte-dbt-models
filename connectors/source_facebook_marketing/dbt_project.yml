@@ -54,3 +54,6 @@ vars:
         ad_creatives:
           - name: facebook_ads_us
             table: ad_creatives
+      basic_ad_passthrough_metrics:
+        - name: video_play_actions
+        - name: video_p95_watched_actions
