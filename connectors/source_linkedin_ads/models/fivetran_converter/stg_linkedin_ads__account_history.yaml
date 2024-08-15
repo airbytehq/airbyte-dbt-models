@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: stg_linkedin_ads__account_history
+    description: This model transforms the accounts data to align with the Fivetran dbt model structure.
+    columns:
+      - name: account_id
+        description: The unique identifier for the account.
+      - name: account_name
+        description: The name of the account.
+      - name: currency
+        description: The currency associated with the account.
+      - name: version_tag
+        description: The version information of the account.
+      - name: status
+        description: The current status of the account.
+      - name: type
+        description: The type of account.
+      - name: last_modified_at
+        description: The timestamp when the account was last modified.
+      - name: created_at
+        description: The timestamp when the account was created.
