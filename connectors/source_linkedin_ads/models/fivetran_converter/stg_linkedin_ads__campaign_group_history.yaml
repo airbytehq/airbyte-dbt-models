@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: stg_linkedin_ads__campaign_group_history
+    description: "Campaign group history for LinkedIn Ads, aligned with the Fivetran dbt model."
+    columns:
+      - name: campaign_group_id
+        description: "The unique identifier for the campaign group."
+      - name: name
+        description: "The name of the campaign group."
+      - name: account_id
+        description: "The account associated with the campaign group."
+      - name: status
+        description: "The status of the campaign group."
+      - name: is_backfilled
+        description: "Indicates if the data is backfilled (not available in Airbyte)."
+      - name: run_schedule_start
+        description: "The start of the run schedule."
+      - name: run_schedule_end
+        description: "The end of the run schedule."
+      - name: last_modified_at
+        description: "The last time the campaign group was modified."
+      - name: created_at
+        description: "The creation date of the campaign group."
+      - name: is_latest_version
+        description: "Indicates if this is the latest version (not available in Airbyte)."
