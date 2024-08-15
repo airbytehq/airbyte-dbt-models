@@ -4,8 +4,8 @@
         SELECT
             id AS coupon_redemption_id,
             cast(updated_at AS {{ dbt.type_timestamp() }}) AS updated_at,
-            NULL AS account_id,
-            NULL AS coupon_id,
+            account_id,
+            (coupon->>'id')::text AS coupon_id,
             cast(created_at AS {{ dbt.type_timestamp() }}) AS created_at,
             currency,
             discounted,
@@ -24,8 +24,8 @@
         SELECT
             id AS coupon_redemption_id,
             cast(updated_at AS {{ dbt.type_timestamp() }}) AS updated_at,
-            NULL AS account_id,
-            NULL AS coupon_id,
+            account_id,
+            coupon:id::text AS coupon_id,
             cast(created_at AS {{ dbt.type_timestamp() }}) AS created_at,
             currency,
             discounted,
@@ -44,8 +44,8 @@
         SELECT
             id AS coupon_redemption_id,
             cast(updated_at AS {{ dbt.type_timestamp() }}) AS updated_at,
-            NULL AS account_id,
-            NULL AS coupon_id,
+            account_id,
+            JSON_EXTRACT_SCALAR(coupon, '$.id') AS coupon_id,
             cast(created_at AS {{ dbt.type_timestamp() }}) AS created_at,
             currency,
             discounted,
