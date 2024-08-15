@@ -3,7 +3,7 @@
 
     WITH tmp AS (
         SELECT
-            NULL AS invoice_id,
+            id AS invoice_id,
             NULL AS updated_at,
             NULL AS account_id,
             NULL AS balance,
