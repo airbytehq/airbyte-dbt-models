@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: stg_intercom__contact_tag_history_custom
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    description: "Contact tag history aligned with the Fivetran dbt model."
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: contact_id
+        description: "The unique identifier for the contact."
+      - name: contact_updated_at
+        description: "The timestamp when the contact was last updated."
+      - name: tag_id
+        description: "Array of tag IDs associated with the contact. (Verify whether this matches with the expected schema)"

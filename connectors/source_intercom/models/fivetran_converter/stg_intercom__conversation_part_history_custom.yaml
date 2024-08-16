@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: stg_intercom__conversation_part_history_custom
+    description: |
+      Custom transformation for `conversation_part_history` to align Fivetran with Airbyte structure.
+    config:
+      enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: conversation_part_id
+        description: The unique identifier for each conversation part.
+      - name: part_type
+        description: The type of the conversation part (e.g., message, note).
+      - name: body
+        description: The main content or message body of the conversation part.
+      - name: conversation_id
+        description: The unique identifier of the conversation associated with the part.
+      - name: author_id
+        description: The unique identifier of the author of the conversation part.
+      - name: author_type
+        description: The type of the author (e.g., user, admin).
+      - name: created_at
+        description: The timestamp when the conversation part was created.
+      - name: assigned_to_id
+        description: The ID of the user or team assigned to the conversation part.
+      - name: assigned_to_type
+        description: The type of the assignment (verify, nested object).
+      - name: conversation_updated_at
+        description: The timestamp when the conversation was last updated.
+      - name: updated_at
+        description: The timestamp when the conversation part was last updated.

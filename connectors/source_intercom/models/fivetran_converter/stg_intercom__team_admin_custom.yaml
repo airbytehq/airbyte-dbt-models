@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: stg_intercom__team_admin_custom
+    description: |
+      This model maps the admin ID and name from the Airbyte source to the Fivetran model.
+    columns:
+      - name: admin_id
+        description: The unique identifier for the admin, extracted from the admin_ids array.
+      - name: name
+        description: The name of the admin.

@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: stg_intercom__company_tag_history_custom
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    description: "Company tag history aligned with the Fivetran dbt model."
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: company_id
+        description: "The unique identifier for the company."
+      - name: company_updated_at
+        description: "The timestamp when the company was last updated."
+      - name: tag_id
+        description: "The ID of the tag associated with the company. This is extracted from the tags array in the Airbyte schema. (Verify if extraction is correct.)"

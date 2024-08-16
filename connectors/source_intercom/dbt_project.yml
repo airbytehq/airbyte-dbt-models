@@ -4,7 +4,7 @@ config-version: 2
 
 version: 0.1.0
 
-profile: airbyte
+profile: integration_tests
 
 model-paths:
   - models
@@ -20,15 +20,18 @@ clean-targets:
   - logs
 
 require-dbt-version:
-  - '>=1.0.0'
+  - ">=1.0.0"
   - <2.0.0
 
 models:
   source_intercom:
     materialized: view
-    staging:
+    fivetran_converter:
       materialized: view
 
 vars:
   airbyte_database: airbyte_default_database
   airbyte_schema: airbyte_default_schema
+  using_fivetran_model: True
+  source_intercom_database: airbyte_default_database
+  source_intercom_schema: airbyte_dbt_source_intercom
