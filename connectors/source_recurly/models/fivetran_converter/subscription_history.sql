@@ -1,5 +1,3 @@
-{% set column_names = adapter.get_columns_in_relation(source('source_recurly', 'subscriptions')) | map(attribute='name') | list %}
-
 {% if target.type == "postgres" %}
 
     WITH tmp AS (
