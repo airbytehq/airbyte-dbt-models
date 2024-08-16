@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: stg_intercom__company_history_custom
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    description: Company history data for Intercom, aligned with the Fivetran dbt model.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: company_id
+        description: The unique identifier for the company, derived from `id` or `company_id` (verify) in Airbyte.
+      - name: name
+        description: The name of the company.
+      - name: website
+        description: The website of the company.
+      - name: industry
+        description: The industry in which the company operates.
+      - name: created_at
+        description: The timestamp when the company was created.
+      - name: updated_at
+        description: The timestamp when the company was last updated.
+      - name: user_count
+        description: The number of users associated with the company.
+      - name: session_count
+        description: The number of sessions related to the company.
+      - name: monthly_spend
+        description: The monthly spend of the company.
+      - name: plan_id
+        description: The unique identifier of the company's subscription plan, derived from `plan.id` in Airbyte.
+      - name: plan_name
+        description: The name of the company's subscription plan, derived from `plan.name` in Airbyte.

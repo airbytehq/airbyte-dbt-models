@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: stg_intercom__contact_history_custom
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    description: "Contact history aligned with the Fivetran dbt model."
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: contact_id
+        description: "The unique identifier for the contact."
+      - name: admin_id
+        description: "The ID of the admin who owns the contact."
+      - name: created_at
+        description: "The timestamp when the contact was created."
+      - name: updated_at
+        description: "The timestamp when the contact was last updated."
+      - name: signed_up_at
+        description: "The timestamp when the contact signed up."
+      - name: contact_name
+        description: "The name of the contact."
+      - name: contact_role
+        description: "The role or position of the contact."
+      - name: contact_email
+        description: "The email address of the contact."
+      - name: last_replied_at
+        description: "The timestamp when the contact last replied."
+      - name: last_email_clicked_at
+        description: "The timestamp when the contact last clicked an email."
+      - name: last_email_opened_at
+        description: "The timestamp when the contact last opened an email."
+      - name: last_contacted_at
+        description: "The timestamp when the contact was last contacted."
+      - name: is_unsubscribed_from_emails
+        description: "Flag indicating if the contact unsubscribed from emails."

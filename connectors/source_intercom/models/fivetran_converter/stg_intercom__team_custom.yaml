@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: stg_intercom__team_custom
+    description: |
+      This model maps the team ID and name from the Airbyte source to the Fivetran model.
+    columns:
+      - name: team_id
+        description: The unique identifier for the team.
+      - name: name
+        description: The name of the team.
