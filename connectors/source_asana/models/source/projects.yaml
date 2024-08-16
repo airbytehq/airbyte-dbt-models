@@ -10,77 +10,77 @@ sources:
       - name: projects
         columns:
           - name: gid
-            description: ''
+            description: 'System generated unique ID of the project.'
             data_type: string
           - name: resource_type
             description: ''
             data_type: string
           - name: name
-            description: ''
+            description: 'The given name of the project.'
             data_type: string
           - name: archived
-            description: ''
+            description: 'Boolean representing whether the project has been archived (removed from asana UI).'
             data_type: boolean
           - name: color
-            description: ''
+            description: 'Color of the project as seen in the UI.'
             data_type: string
           - name: created_at
-            description: ''
+            description: 'Timestamp of when the story was made/the action was logged.'
             data_type: string
           - name: current_status
-            description: ''
+            description: 'The most recent progress status update for the project. This is sent to all project followers.'
             data_type: object
           - name: custom_field_settings
-            description: ''
+            description: 'Array of Custom Field Settings (in compact form).'
             data_type: array
           - name: default_view
-            description: ''
+            description: 'The default view (list, board, calendar, or timeline) of a project.'
             data_type: string
           - name: due_date
-            description: ''
+            description: 'The date the project is due. Deprecated: new integrations should prefer the due_on field.'
             data_type: string
           - name: due_on
-            description: ''
+            description: 'The day on which this project is due. This takes a date with format YYYY-MM-DD.'
             data_type: string
           - name: html_notes
-            description: ''
+            description: 'The notes of the project with formatting as HTML.'
             data_type: string
           - name: is_template
             description: ''
             data_type: boolean
           - name: members
-            description: ''
+            description: 'Array of users who are members of this project.'
             data_type: array
           - name: modified_at
-            description: ''
+            description: 'The last time the project was updated. Does not include comments nor changes in associations (ie new tasks).'
             data_type: string
           - name: notes
-            description: ''
+            description: 'Free-form textual notes associated with the project.'
             data_type: string
           - name: public
-            description: ''
+            description: 'Boolean that is true if the project is public to the whole organization, false if not.'
             data_type: boolean
           - name: start_on
-            description: ''
+            description: 'The day on which work for this project begins, or null if the project has no start date. This takes a date with YYYY-MM-DD format.'
             data_type: string
           - name: workspace
-            description: ''
+            description: 'The workspace or organization this project is associated with.'
             data_type: object
           - name: custom_fields
-            description: ''
+            description: 'Array of Custom Fields.'
             data_type: array
           - name: followers
-            description: ''
+            description: 'Array of users following this project.'
             data_type: array
           - name: icon
-            description: ''
+            description: 'The icon for a project.'
             data_type: string
           - name: owner
-            description: ''
+            description: 'A user object represents an account in Asana that can be given access to various workspaces, projects, and tasks.'
             data_type: object
           - name: permalink_url
-            description: ''
+            description: 'A url that points directly to the object within Asana.'
             data_type: string
           - name: team
-            description: ''
+            description: 'The team that this project is shared with.'
             data_type: object
