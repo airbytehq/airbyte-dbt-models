@@ -6,7 +6,7 @@
             NULL AS invoice_id,
             NULL AS invoice_updated_at,
             NULL AS subscription_id,
-            NULL AS is_most_recent_record
+            ROW_NUMBER() OVER (PARTITION BY id ORDER BY invoice_updated_at DESC) = 1 AS is_most_recent_record
         FROM
             {{ source('source_recurly', 'invoices') }}
     )
@@ -20,7 +20,7 @@
             NULL AS invoice_id,
             NULL AS invoice_updated_at,
             NULL AS subscription_id,
-            NULL AS is_most_recent_record
+            ROW_NUMBER() OVER (PARTITION BY id ORDER BY invoice_updated_at DESC) = 1 AS is_most_recent_record
         FROM
             {{ source('source_recurly', 'invoices') }}
     )
@@ -34,7 +34,7 @@
             NULL AS invoice_id,
             NULL AS invoice_updated_at,
             NULL AS subscription_id,
-            NULL AS is_most_recent_record
+            ROW_NUMBER() OVER (PARTITION BY id ORDER BY invoice_updated_at DESC) = 1 AS is_most_recent_record
         FROM
             {{ source('source_recurly', 'invoices') }}
     )
