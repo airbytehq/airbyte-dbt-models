@@ -12,13 +12,15 @@ with unionned as (
 ,final as (
   select
     _dbt_source_relation as source_relation
-    {# ,_fivetran_id #}
+    {# ,null as _fivetran_id #}
     ,_airbyte_extracted_at as _fivetran_synced
     ,cast(id as {{ dbt.type_bigint() }}) as creative_id
     ,cast(account_id as {{ dbt.type_bigint() }}) as account_id
     ,name as creative_name
-    {# ,page_link #}
-    {# ,template_page_link #}
+
+    ,jsonb_extract_path_text(object_story_spec, 'link_data', 'link') as page_link -- WIP: oddly enough, this field is not present in the source and seem to always match the object_story.link_data.link field
+
+    ,jsonb_extract_path_text(object_story_spec, 'template_data', 'link') as template_page_link -- WIP: closest field in the API
     ,url_tags
     ,jsonb_extract_path_text(asset_feed_spec, 'link_urls') as asset_feed_spec_link_urls
     ,jsonb_extract_path_text(object_story_spec, 'link_data', 'child_attachments') as object_story_link_data_child_attachments
@@ -27,10 +29,10 @@ with unionned as (
     ,jsonb_extract_path_text(object_story_spec, 'link_data', 'link') as object_story_link_data_link
     ,jsonb_extract_path_text(object_story_spec, 'link_data', 'message') as object_story_link_data_message
 
-    {# ,template_app_link_spec_ios
-    ,template_app_link_spec_ipad
-    ,template_app_link_spec_android
-    ,template_app_link_spec_iphone #}
+    -- WIP: closest fields in the API
+    ,jsonb_extract_path_text(template_url_spec, 'ios', 'url') as template_app_link_spec_ios
+    ,jsonb_extract_path_text(template_url_spec, 'ipad', 'url') as template_app_link_spec_ipad
+    ,jsonb_extract_path_text(template_url_spec, 'android', 'url') as template_app_link_spec_android
 
     ,case when id is null and _airbyte_extracted_at is null 
       then row_number() over (partition by _dbt_source_relation order by _dbt_source_relation)
