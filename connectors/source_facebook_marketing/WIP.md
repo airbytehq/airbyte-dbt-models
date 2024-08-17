@@ -17,4 +17,17 @@ See instuctions: [here](https://github.com/airbytehq/airbyte-dbt-models/discussi
 
 ## Step 2: Identify what column each stream is using
 
+- staging/tmp: union multiple accounts for each stream
+- staging: rename, cast and simple conditionnals on unions
+- macros: cast and rename raw columns
+
+Next steps are:
+
+- [x] find the missing fields at the creative level
+- [x] replace specific database functions to cross-database macros, especially json functions (@marcosmarxm I found it in fivetran_utils as it does not exists in core)
+- [ ] use the sources created by Airbyte while keeping the ability to union same-level tables accros databases or schemas
+- [ ] test the Fivetran analytical model and solve bugs
+
 ## Step 3: Write instructions
+
+- [ ] update the documentation (model yaml files + README)
