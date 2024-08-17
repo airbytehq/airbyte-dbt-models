@@ -13,10 +13,10 @@ with unionned as (
   select
     _dbt_source_relation as source_relation
     ,updated_time as updated_at
-    ,cast(id as {{ dbt.type_bigint() }}) as ad_set_id 
+    ,{{ dbt.cast("id", api.Column.translate_type("bigint")) }} as ad_set_id
     ,name as ad_set_name
-    ,cast(account_id as {{ dbt.type_bigint() }}) as account_id
-    ,cast(campaign_id as {{ dbt.type_bigint() }}) as campaign_id
+    ,{{ dbt.cast("account_id", api.Column.translate_type("bigint")) }} as account_id
+    ,{{ dbt.cast("campaign_id", api.Column.translate_type("bigint")) }} as campaign_id
     ,start_time as start_at
     ,end_time as end_at
     ,bid_strategy
