@@ -14,8 +14,8 @@ with unionned as (
     _dbt_source_relation as source_relation
     ,updated_time as updated_at
     ,created_time as created_at
-    ,cast(account_id as {{ dbt.type_bigint() }}) as account_id
-    ,cast(id as {{ dbt.type_bigint() }}) as campaign_id
+    ,{{ dbt.cast("account_id", api.Column.translate_type("bigint")) }} as account_id
+    ,{{ dbt.cast("id", api.Column.translate_type("bigint")) }} as campaign_id
     ,name as campaign_name
     ,start_time as start_at
     ,stop_time as end_at

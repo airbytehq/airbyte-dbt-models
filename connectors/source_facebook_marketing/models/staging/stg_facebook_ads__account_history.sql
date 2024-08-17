@@ -12,7 +12,7 @@ with unionned as (
 ,final as (
   select
     _dbt_source_relation as source_relation
-    ,cast(account_id as {{ dbt.type_bigint() }}) as account_id
+    ,{{ dbt.cast("account_id", api.Column.translate_type("bigint")) }} as account_id
     ,_airbyte_extracted_at as _fivetran_synced
     ,name as account_name
     ,account_status

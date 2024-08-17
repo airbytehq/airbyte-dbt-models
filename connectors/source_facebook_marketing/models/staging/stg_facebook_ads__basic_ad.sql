@@ -12,11 +12,11 @@ with unionned as (
 ,final as (
   select
     _dbt_source_relation as source_relation
-    ,cast(ad_id as {{ dbt.type_bigint() }}) as ad_id
+    ,{{ dbt.cast("ad_id", api.Column.translate_type("bigint")) }} as ad_id
     ,ad_name
     ,adset_name as ad_set_name
     ,date_start as date_day -- WIP: check data type
-    ,cast(account_id as {{ dbt.type_bigint() }}) as account_id
+    ,{{ dbt.cast("account_id", api.Column.translate_type("bigint")) }} as account_id
     ,impressions
     ,coalesce(inline_link_clicks,0) as clicks
     ,spend
