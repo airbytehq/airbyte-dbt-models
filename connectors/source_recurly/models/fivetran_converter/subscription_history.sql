@@ -39,7 +39,7 @@
             {{ source('source_recurly', 'subscriptions') }}
     )
     SELECT * FROM tmp
-    WHERE subscription_id IS NOT NULL;
+    WHERE subscription_id IS NOT NULL
 
 {% elif target.type == "snowflake" %}
 
@@ -82,7 +82,7 @@
             {{ source('source_recurly', 'subscriptions') }}
     )
     SELECT * FROM tmp
-    WHERE subscription_id IS NOT NULL;
+    WHERE subscription_id IS NOT NULL
 
 {% elif target.type == "bigquery" %}
 
@@ -125,6 +125,6 @@
             {{ source('source_recurly', 'subscriptions') }}
     )
     SELECT * FROM tmp
-    WHERE subscription_id IS NOT NULL;
+    WHERE subscription_id IS NOT NULL
 
 {% endif %}

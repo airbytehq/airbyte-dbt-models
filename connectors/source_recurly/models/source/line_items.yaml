@@ -75,3 +75,14 @@ sources:
           - name: external_account_id
             description: The external account ID associated with the line item
             data_type: string
+          - name: invoice_number
+            description: >-
+              Once the line item has been invoiced this will be the invoice's number. If
+              VAT taxation and the Country Invoice Sequencing feature are enabled,
+              invoices will have country-specific invoice numbers for invoices billed to
+              EU countries (ex: FR1001). Non-EU invoices will continue to use the
+              site-level invoice number sequence.
+            data_type: string
+          - name: invoice_id
+            description: Once the line item has been invoiced this will be the invoice's ID.
+            data_type: string
