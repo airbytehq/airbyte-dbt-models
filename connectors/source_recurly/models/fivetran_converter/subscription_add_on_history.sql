@@ -3,7 +3,7 @@ WITH tmp AS (
         id AS subscription_add_on_id,
         updated_at,
         created_at,
-        expires_at AS expired_at,
+        NULL AS expired_at,
         object,
         plan_id AS plan_add_on_id,
         cast(quantity AS INTEGER) AS quantity,
