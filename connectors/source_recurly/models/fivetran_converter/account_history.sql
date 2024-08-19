@@ -64,10 +64,10 @@
         SELECT
             id AS account_id,
             cast(updated_at AS {{ dbt.type_timestamp() }}) AS updated_at,
-            JSON_EXTRACT_SCALAR(address, '$.city') AS account_city
-            JSON_EXTRACT_SCALAR(address, '$.country') AS account_country
-            JSON_EXTRACT_SCALAR(address, '$.postal_code') AS account_postal_code
-            JSON_EXTRACT_SCALAR(address, '$.region') AS account_region
+            JSON_EXTRACT_SCALAR(address, '$.city') AS account_city,
+            JSON_EXTRACT_SCALAR(address, '$.country') AS account_country,
+            JSON_EXTRACT_SCALAR(address, '$.postal_code') AS account_postal_code,
+            JSON_EXTRACT_SCALAR(address, '$.region') AS account_region,
             bill_to,
             cc_emails,
             code,
