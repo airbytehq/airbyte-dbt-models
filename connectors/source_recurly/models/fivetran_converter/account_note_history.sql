@@ -4,12 +4,12 @@
         SELECT
             id AS account_note_id,
             account_id,
-            user->>'created_at' AS account_updated_at,
+            (user::jsonb->>'created_at') AS account_updated_at,
             created_at,
             message,
             object,
-            user->>'email' AS user_email,
-            user->>'id' AS user_id,
+            (user::jsonb->>'email') AS user_email,
+            (user::jsonb->>'id') AS user_id,
             ROW_NUMBER() OVER (PARTITION BY id ORDER BY created_at DESC) = 1 AS is_most_recent_record
         FROM
             {{ source('source_recurly', 'account_notes') }}
