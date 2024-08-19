@@ -10,6 +10,7 @@
             ROW_NUMBER() OVER (PARTITION BY id ORDER BY updated_at DESC) = 1 AS is_most_recent_record
         FROM
             {{ source('source_recurly', 'transactions') }}
+        GROUP BY account_id, currency
     )
     SELECT * FROM tmp
     WHERE account_id IS NOT NULL
@@ -26,6 +27,7 @@
             ROW_NUMBER() OVER (PARTITION BY id ORDER BY updated_at DESC) = 1 AS is_most_recent_record
         FROM
             {{ source('source_recurly', 'transactions') }}
+        GROUP BY account_id, currency
     )
     SELECT * FROM tmp
     WHERE account_id IS NOT NULL
@@ -42,6 +44,7 @@
             ROW_NUMBER() OVER (PARTITION BY id ORDER BY updated_at DESC) = 1 AS is_most_recent_record
         FROM
             {{ source('source_recurly', 'transactions') }}
+        GROUP BY account_id, currency
     )
     SELECT * FROM tmp
     WHERE account_id IS NOT NULL
