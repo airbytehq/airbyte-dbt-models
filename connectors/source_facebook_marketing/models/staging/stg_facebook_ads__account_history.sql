@@ -9,7 +9,7 @@ with base as ( select * from {{ source('source_facebook_marketing', 'ad_account'
 
 ,final as (
   select
-    source_relation
+    coalesce(source_relation, '') as source_relation
     ,{{ dbt.cast('account_id', api.Column.translate_type('bigint')) }} as account_id
     ,_airbyte_extracted_at as _fivetran_synced
     ,name as account_name

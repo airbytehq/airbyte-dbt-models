@@ -9,7 +9,7 @@ with base as ( select * from {{ source('source_facebook_marketing', 'ads') }} )
 
 ,final as (
   select
-    source_relation
+    coalesce(source_relation, '') as source_relation
     ,updated_time as updated_at
     ,{{ dbt.cast("id", api.Column.translate_type("bigint")) }} as ad_id
     ,name as ad_name
