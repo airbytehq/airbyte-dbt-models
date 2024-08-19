@@ -10,7 +10,7 @@
             plan_id AS plan_add_on_id,
             default_quantity AS quantity,
             id AS subscription_id,
-            currencies->>unit_amount AS unit_amount,
+            currencies->>'unit_amount' AS unit_amount,
             ROW_NUMBER() OVER (PARTITION BY id ORDER BY updated_at DESC) = 1 AS is_most_recent_record
         FROM
             {{ source('source_recurly', 'add_ons') }}
