@@ -2,13 +2,13 @@
 
     WITH tmp AS (
         SELECT
-            NULL AS coupon_id,
-            NULL AS discount_type,
-            NULL AS currency,
-            NULL AS amount,
-            NULL AS percentage,
-            NULL AS trial_length,
-            NULL AS trial_unit,
+            id AS coupon_id,
+            discount->>'type' AS discount_type,
+            discount->'currencies'->>'currency' AS currency,
+            free_trial_amount AS amount,
+            discount->>'percent' AS percentage,
+            duration AS trial_length,
+            free_trial_unit AS trial_unit,
             NULL AS fivetran_id
         FROM
             {{ source('source_recurly', 'coupons') }}
@@ -20,13 +20,13 @@
 
     WITH tmp AS (
         SELECT
-            NULL AS coupon_id,
-            NULL AS discount_type,
-            NULL AS currency,
-            NULL AS amount,
-            NULL AS percentage,
-            NULL AS trial_length,
-            NULL AS trial_unit,
+            id AS coupon_id,
+            discount:"type"::string AS discount_type,
+            discount:"currencies":"currency"::string AS currency,
+            free_trial_amount AS amount,
+            discount:"percent"::string AS percentage,
+            duration AS trial_length,
+            free_trial_unit AS trial_unit,
             NULL AS fivetran_id
         FROM
             {{ source('source_recurly', 'coupons') }}
@@ -38,13 +38,13 @@
 
     WITH tmp AS (
         SELECT
-            NULL AS coupon_id,
-            NULL AS discount_type,
-            NULL AS currency,
-            NULL AS amount,
-            NULL AS percentage,
-            NULL AS trial_length,
-            NULL AS trial_unit,
+            id AS coupon_id,
+            JSON_EXTRACT_SCALAR(discount, '$.type') AS discount_type,
+            JSON_EXTRACT_SCALAR(discount, '$.currencies.currency') AS currency,
+            free_trial_amount AS amount,
+            JSON_EXTRACT_SCALAR(discount, '$.percent') AS percentage,
+            duration AS trial_length,
+            free_trial_unit AS trial_unit,
             NULL AS fivetran_id
         FROM
             {{ source('source_recurly', 'coupons') }}

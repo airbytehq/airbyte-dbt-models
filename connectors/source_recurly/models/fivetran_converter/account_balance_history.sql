@@ -1,13 +1,13 @@
-with ab as (select
-  {{ fivetran_utils.json_extract('account', 'id') }} as account_id,
-  amount as amount,
-  currency as currency
-from {{source('source_recurly', 'transactions')}}
+WITH ab AS (SELECT
+  {{ fivetran_utils.json_extract('account', 'id') }} AS account_id,
+  amount AS amount,
+  currency AS currency
+FROM {{source('source_recurly', 'transactions')}}
 )
-select
+SELECT
     account_id,
     currency,
     sum(amount) as amount,
     false as past_due
-from ab
-group by account_id, currency
+FROM ab
+GROUP BY account_id, currency
