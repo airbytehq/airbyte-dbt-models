@@ -10,7 +10,7 @@
             {{ source('source_recurly', 'invoices') }}
     )
     SELECT * FROM tmp
-    WHERE invoice_id IS NOT NULL;
+    WHERE invoice_id IS NOT NULL
 
 {% elif target.type == "snowflake" %}
 
@@ -24,7 +24,7 @@
             {{ source('source_recurly', 'invoices') }}
     )
     SELECT * FROM tmp
-    WHERE invoice_id IS NOT NULL;
+    WHERE invoice_id IS NOT NULL
 
 {% elif target.type == "bigquery" %}
 
@@ -38,6 +38,6 @@
             {{ source('source_recurly', 'invoices') }}
     )
     SELECT * FROM tmp
-    WHERE invoice_id IS NOT NULL;
+    WHERE invoice_id IS NOT NULL
 
 {% endif %}

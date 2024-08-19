@@ -3,7 +3,7 @@
     WITH tmp AS (
         SELECT
             id AS plan_id,
-            NULL AS plan_updated_at,
+            cast(updated_at AS {{ dbt.type_timestamp() }}) AS plan_updated_at,
             NULL AS currency,
             NULL AS setup_fees,
             NULL AS unit_amount,
@@ -18,8 +18,8 @@
 
     WITH tmp AS (
         SELECT
-            NULL AS plan_id,
-            NULL AS plan_updated_at,
+            id AS plan_id,
+            cast(updated_at AS {{ dbt.type_timestamp() }}) AS plan_updated_at,
             NULL AS currency,
             NULL AS setup_fees,
             NULL AS unit_amount,
