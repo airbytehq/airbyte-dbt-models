@@ -14,7 +14,7 @@ with base as ( select * from {{ source('source_facebook_marketing', 'ads') }} )
     ,{{ dbt.cast("id", api.Column.translate_type("bigint")) }} as ad_id
     ,name as ad_name
     ,{{ dbt.cast("account_id", api.Column.translate_type("bigint")) }} as account_id
-    ,{{ dbt.cast("adset_id", api.Column.translate_type("bigint")) }} as adset_id
+    ,{{ dbt.cast("adset_id", api.Column.translate_type("bigint")) }} as ad_set_id
     ,{{ dbt.cast("campaign_id", api.Column.translate_type("bigint")) }} as campaign_id
     ,{{ dbt.cast(fivetran_utils.json_extract('creative', 'id'), api.Column.translate_type("bigint")) }} as creative_id
     ,case when id is null and updated_time is null 
