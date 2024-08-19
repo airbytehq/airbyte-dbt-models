@@ -11,7 +11,7 @@
             object,
             NULL AS plan_id,
             quantity,
-            id AS subscription_id,
+            id AS subscription_id, -- Using 'id' as both subscription_change_id and subscription_id
             unit_amount,
             ROW_NUMBER() OVER (PARTITION BY id ORDER BY updated_at DESC) = 1 AS is_most_recent_record
         FROM
@@ -33,7 +33,7 @@
             object,
             NULL AS plan_id,
             quantity,
-            id AS subscription_id, -- Using 'id' as both subscription_change_id and subscription_id
+            id AS subscription_id, 
             unit_amount,
             ROW_NUMBER() OVER (PARTITION BY id ORDER BY updated_at DESC) = 1 AS is_most_recent_record
         FROM
