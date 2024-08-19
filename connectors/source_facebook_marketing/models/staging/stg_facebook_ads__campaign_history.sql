@@ -2,14 +2,14 @@ with base as ( select * from {{ source('source_facebook_marketing', 'campaigns')
 
 ,unionned as (
   select 
-    {{ dbt.cast('null', api.Column.translate_type('string')) }} as _dbt_source_relation
+    {{ dbt.cast('null', api.Column.translate_type('string')) }} as source_relation
     ,*
   from base
 )
 
 ,final as (
   select
-    _dbt_source_relation as source_relation
+    source_relation
     ,updated_time as updated_at
     ,created_time as created_at
     ,{{ dbt.cast("account_id", api.Column.translate_type("bigint")) }} as account_id
@@ -22,8 +22,8 @@ with base as ( select * from {{ source('source_facebook_marketing', 'campaigns')
     ,lifetime_budget
     ,budget_remaining
     ,case when id is null and updated_time is null 
-      then row_number() over (partition by _dbt_source_relation order by _dbt_source_relation)
-    else row_number() over (partition by _dbt_source_relation, id order by updated_time desc) end = 1 as is_most_recent_record
+      then row_number() over (partition by source_relation order by source_relation)
+    else row_number() over (partition by source_relation, id order by updated_time desc) end = 1 as is_most_recent_record
   from unionned
 )
 
