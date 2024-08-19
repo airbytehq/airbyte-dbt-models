@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: project
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('asana_project_identifier', 'project') }}"
+    description: All fields and field values associated with project.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: id
+        description: System generated unique ID of the project.
+      - name: archived
+        description: Boolean representing whether the project has been archived (removed from asana UI).
+      - name: color
+        description: Color of the project as seen in the UI.
+      - name: created_at
+        description: Timestamp of when the story was made/the action was logged.
+      - name: current_status
+        description: The most recent progress status update for the project. This is sent to all project followers.
+      - name: due_date
+        description: The date the project is due.
+      - name: modified_at
+        description: The last time the project was updated. Does not include comments nor changes in associations (ie new tasks).
+      - name: name
+        description: The given name of the project.
+      - name: notes
+        description: Free-form textual notes associated with the project.
+      - name: owner_id
+        description: Foreign key referencing the USER who owns the project.
+      - name: public
+        description: Boolean that is true if the project is public to the whole organization, false if not.
+      - name: team_id
+        description: Foreign key referencing the TEAM that the project is shared with.
+      - name: workspace_id
+        description: The id of an organization's workspace in asana. Not necessary unless you have access to multiple asana workspaces.
