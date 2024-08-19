@@ -1,43 +1,11 @@
-{% if target.type == "postgres" %}
-
-    WITH tmp AS (
-        SELECT
-            NULL AS coupon_redemption_id,
-            NULL AS invoice_id,
-            NULL AS invoice_updated_at,
-            NULL AS is_most_recent_record
-        FROM
-            {{ source('source_recurly', 'invoices') }}
-    )
-    SELECT * FROM tmp
-    WHERE coupon_redemption_id IS NOT NULL
-
-{% elif target.type == "snowflake" %}
-
-    WITH tmp AS (
-        SELECT
-            NULL AS coupon_redemption_id,
-            NULL AS invoice_id,
-            NULL AS invoice_updated_at,
-            NULL AS is_most_recent_record
-        FROM
-            {{ source('source_recurly', 'invoices') }}
-    )
-    SELECT * FROM tmp
-    WHERE coupon_redemption_id IS NOT NULL
-
-{% elif target.type == "bigquery" %}
-
-    WITH tmp AS (
-        SELECT
-            NULL AS coupon_redemption_id,
-            NULL AS invoice_id,
-            NULL AS invoice_updated_at,
-            NULL AS is_most_recent_record
-        FROM
-            {{ source('source_recurly', 'invoices') }}
-    )
-    SELECT * FROM tmp
-    WHERE coupon_redemption_id IS NOT NULL
-
-{% endif %}
+WITH tmp AS (
+    SELECT
+        NULL AS coupon_redemption_id,
+        id AS invoice_id,
+        updated_at AS invoice_updated_at,
+        ROW_NUMBER() OVER (PARTITION BY invoice_id ORDER BY updated_at DESC) = 1 AS is_most_recent_record
+    FROM
+        {{ source('source_recurly', 'invoices') }}
+)
+SELECT * FROM tmp
+WHERE coupon_redemption_id IS NOT NULL

@@ -2,7 +2,7 @@
 
     WITH tmp AS (
         SELECT
-            NULL AS plan_id,
+            id AS plan_id,
             NULL AS plan_updated_at,
             NULL AS currency,
             NULL AS setup_fees,
