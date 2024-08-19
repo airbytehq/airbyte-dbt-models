@@ -24,7 +24,7 @@ require-dbt-version:
   - <2.0.0
 
 models:
-  source_recurly:
+  airbyte_dbt_source_recurly:
     materialized: view
     staging:
       materialized: view
