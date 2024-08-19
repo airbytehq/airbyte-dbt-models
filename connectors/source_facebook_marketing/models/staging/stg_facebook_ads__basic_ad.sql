@@ -2,14 +2,14 @@ with base as ( select * from {{ source('source_facebook_marketing', 'ads_insight
 
 ,unionned as (
   select 
-    {{ dbt.cast('null', api.Column.translate_type('string')) }} as _dbt_source_relation
+    {{ dbt.cast('null', api.Column.translate_type('string')) }} as source_relation
     ,*
   from base
 )
 
 ,final as (
   select
-    _dbt_source_relation as source_relation
+    source_relation
     ,{{ dbt.cast("ad_id", api.Column.translate_type("bigint")) }} as ad_id
     ,ad_name
     ,adset_name as ad_set_name
