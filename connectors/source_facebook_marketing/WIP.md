@@ -26,8 +26,9 @@ Next steps are:
 - [x] find the missing fields at the creative level
 - [x] replace specific database functions to cross-database macros, especially json functions (@marcosmarxm I found it in fivetran_utils as it does not exists in core)
 - [x] use the sources created by Airbyte
-- [ ] test the Fivetran analytical model and solve bugs
-- [ ] restore the ability to union same-level tables accros databases or schemas
+- [x] test the Fivetran analytical model and solve bugs
+- [ ] final QA
+- [ ] (restore the ability to union same-level tables accros databases or schemas)
 
 ## Step 3: Write instructions
 
