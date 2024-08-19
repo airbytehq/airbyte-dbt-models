@@ -30,3 +30,5 @@ models:
         description: Unit amount for the subscription add-on
       - name: is_most_recent_record
         description: Indicates if this is the most recent record for the subscription add-on history
+      - name: currencies
+        description: Object containing details of currencies

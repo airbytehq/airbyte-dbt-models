@@ -27,3 +27,5 @@ models:
         description: The ID of the user who created the note (Note- This field may be NULL as it's not present in the original schema)
       - name: is_most_recent_record
         description: Indicates if this is the most recent record for the account note
+      - name: currencies
+        description: Object containing details about currencies
