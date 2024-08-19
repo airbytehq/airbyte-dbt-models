@@ -19,7 +19,18 @@ with base as ( select * from {{ source('source_facebook_marketing', 'ad_creative
     ,jsonb_extract_path_text(object_story_spec, 'link_data', 'link') as page_link -- WIP: oddly enough, this field is not present in the source and seem to always match the object_story.link_data.link field
 
     ,jsonb_extract_path_text(object_story_spec, 'template_data', 'link') as template_page_link -- WIP: closest field in the API
-    ,url_tags
+
+    ,(
+      select 
+        json_agg(
+          json_build_object(
+            'key', split_part(param, '=', 1),
+            'value', split_part(param, '=', 2)
+          )
+        )::text
+      from unnest(string_to_array(url_tags, '&')) as param
+    ) as url_tags
+
     ,{{ fivetran_utils.json_extract('asset_feed_spec', 'link_urls') }} as asset_feed_spec_link_urls
     ,jsonb_extract_path_text(object_story_spec, 'link_data', 'child_attachments') as object_story_link_data_child_attachments
     ,jsonb_extract_path_text(object_story_spec, 'link_data', 'caption') as object_story_link_data_caption
