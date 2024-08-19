@@ -27,7 +27,7 @@
     WITH tmp AS (
         SELECT
             id AS transaction_id,
-            subscription_ids[OFFSET(0)] AS subscription_id,
+            subscription_ids[0] AS subscription_id,
         FROM
             {{ source('source_recurly', 'transactions') }}
     )
