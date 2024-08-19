@@ -60,3 +60,9 @@ sources:
           - name: applies_to_all_items
             description: Whether the coupon applies to all items
             data_type: boolean
+          - name: coupon_type
+            description: Coupon type
+            data_type: string
+          - name: discount
+            description: Object containing information about discount
+            data_type: object
