@@ -24,7 +24,7 @@
         SELECT
             id AS coupon_redemption_id,
             cast(updated_at AS {{ dbt.type_timestamp() }}) AS updated_at,
-            accoun:id AS account_id,
+            account:id AS account_id,
             coupon:id::text AS coupon_id,
             cast(created_at AS {{ dbt.type_timestamp() }}) AS created_at,
             currency,
