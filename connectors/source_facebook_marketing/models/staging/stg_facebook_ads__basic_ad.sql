@@ -1,12 +1,10 @@
-{% set sources_dict = var('airbyte')['facebook_ads']['sources']['ads_insights'] %}
-{% set sources = convert_to_relations(sources_dict) %}
+with base as ( select * from {{ source('source_facebook_marketing', 'ads_insights') }} )
 
-with unionned as (
-{{
-  dbt_utils.union_relations(
-    relations=sources
-  )
-}}
+,unionned as (
+  select 
+    {{ dbt.cast('null', api.Column.translate_type('string')) }} as _dbt_source_relation
+    ,*
+  from base
 )
 
 ,final as (
