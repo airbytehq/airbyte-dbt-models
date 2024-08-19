@@ -29,3 +29,5 @@ models:
         description: Indicates if this is the most recent record for the account note
       - name: currencies
         description: Object containing details about currencies
+      - name: user
+        description: Object containing details about user
