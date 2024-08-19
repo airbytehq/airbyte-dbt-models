@@ -6,7 +6,7 @@
             cast(updated_at AS {{ dbt.type_timestamp() }}) AS plan_updated_at,
             currencies->>'currency' AS currency,
             currencies->>'setup_fee' AS setup_fees,
-            cast(currencies->>'unit_amount' AS {{ dbt.type_float() }}) AS unit_amount,
+            currencies->>'unit_amount' AS unit_amount,
             ROW_NUMBER() OVER (PARTITION BY id ORDER BY updated_at DESC) = 1 AS is_most_recent_record
         FROM
             {{ source('source_recurly', 'plans') }}
@@ -22,7 +22,7 @@
             cast(updated_at AS {{ dbt.type_timestamp() }}) AS plan_updated_at,
             currencies:currency::STRING AS currency,
             currencies:setup_fee::STRING AS setup_fees,
-            cast(currencies:unit_amount AS {{ dbt.type_float() }}) AS unit_amount,
+            currencies:unit_amount AS unit_amount,
             ROW_NUMBER() OVER (PARTITION BY id ORDER BY updated_at DESC) = 1 AS is_most_recent_record
         FROM
             {{ source('source_recurly', 'plans') }}
@@ -38,7 +38,7 @@
             cast(updated_at AS {{ dbt.type_timestamp() }}) AS plan_updated_at,
             currencies.currency AS currency,
             currencies.setup_fee AS setup_fees,
-            cast(currencies.unit_amount AS {{ dbt.type_float() }}) AS unit_amount,
+            currencies.unit_amount AS unit_amount,
             ROW_NUMBER() OVER (PARTITION BY id ORDER BY updated_at DESC) = 1 AS is_most_recent_record
         FROM
             {{ source('source_recurly', 'plans') }}
