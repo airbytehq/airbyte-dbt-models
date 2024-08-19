@@ -39,6 +39,5 @@ vars:
   airbyte_schema: "airbyte_dbt_asana"
 
   # Required by Fivetran dbt model
-  asana_source:
-    asana_database: "airbyte_db_default"
-    asana_schema: "airbyte_dbt_asana" 
+  asana_database: "airbyte_db_default"
+  asana_schema: "airbyte_dbt_asana" 
