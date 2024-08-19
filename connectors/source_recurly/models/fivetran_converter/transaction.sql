@@ -47,7 +47,7 @@
             {{ source('source_recurly', 'transactions') }}
     )
     SELECT * FROM tmp
-    WHERE transaction_id IS NOT NULL;
+    WHERE transaction_id IS NOT NULL
 
 {% elif target.type == "snowflake" %}
 
@@ -98,7 +98,7 @@
             {{ source('source_recurly', 'transactions') }}
     )
     SELECT * FROM tmp
-    WHERE transaction_id IS NOT NULL;
+    WHERE transaction_id IS NOT NULL
 
 {% elif target.type == "bigquery" %}
 
@@ -149,6 +149,6 @@
             {{ source('source_recurly', 'transactions') }}
     )
     SELECT * FROM tmp
-    WHERE transaction_id IS NOT NULL;
+    WHERE transaction_id IS NOT NULL
 
 {% endif %}
