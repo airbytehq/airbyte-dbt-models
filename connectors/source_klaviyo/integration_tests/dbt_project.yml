@@ -26,7 +26,7 @@ require-dbt-version:
 models:
   airbyte_dbt_source_klaviyo:
     materialized: view
-    +schema: dbt_klaviyo
+    +schema: airbyte_dbt_source_klaviyo
     staging:
       materialized: view
     tmp:
@@ -40,11 +40,11 @@ vars:
 
   # Required by Fivetran dbt model
   klaviyo_database: "airbyte_db_default"
-  klaviyo_schema: "airbyte_dbt_klaviyo_support"
+  klaviyo_schema: "airbyte_dbt_source_klaviyo"
 
-  klaviyo_campaign_identifier: "campaigns"
-  klaviyo_event_identifier: "events"
-  klaviyo_flow_comment_identifier: "flows"
-  klaviyo_metric_identifier: "metrics"
-  klaviyo_person_identifier: "profiles"
-
+  klaviyo_source:
+    event_table: "events"
+    campaign: "campaigns"
+    flow: "flow"
+    person: "person"
+    metric: "metric"

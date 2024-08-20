@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: metrics
+  - name: metric
     schema: "{{ var('airbyte_schema', target.schema) }}"
     database: "{{ var('airbyte_database', target.database) }}"
     identifier: "{{ var('klaviyo_metric_identifier', 'metric') }}"
@@ -10,18 +10,18 @@ models:
       +enabled: "{{ var('using_fivetran_model', False) }}"
     columns:
       - name: created_at
-        description: Timestamp of when the metric was created. 
+        description: Timestamp of when the metric was created.
       - name: metric_id
-        description: Unique ID of the metric being tracked. 
+        description: Unique ID of the metric being tracked.
         tests:
           - not_null
       - name: integration_id
-        description: Foreign key referencing the INTEGRATION that the metric is being pulled from. 
-      - name: integration_category 
-        description: Use-case category of the integrated platform. 
+        description: Foreign key referencing the INTEGRATION that the metric is being pulled from.
+      - name: integration_category
+        description: Use-case category of the integrated platform.
       - name: integration_name
-        description: Name of the integrated platform. 
+        description: Name of the integrated platform.
       - name: metric_name
         description: Name of the metric (same as `EVENT.type`)
       - name: updated_at
-        description: Timestamp of when the metric was last updated. 
+        description: Timestamp of when the metric was last updated.
