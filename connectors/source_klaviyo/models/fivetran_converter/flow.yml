@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: flows
+  - name: flow
     schema: "{{ var('airbyte_schema', target.schema) }}"
     database: "{{ var('airbyte_database', target.database) }}"
     identifier: "{{ var('klaviyo_flow_identifier', 'flow') }}"
@@ -10,13 +10,13 @@ models:
       +enabled: "{{ var('using_fivetran_model', False) }}"
     columns:
       - name: created_at
-        description: Timestamp of when the flow was first created. 
+        description: Timestamp of when the flow was first created.
       - name: flow_id
-        description: Unique ID of the flow. 
+        description: Unique ID of the flow.
         tests:
           - not_null
       - name: flow_name
-        description: Name of the flow. 
+        description: Name of the flow.
       - name: status
         description: Current status of the flow. Either 'manual', 'live', or 'draft'. Read more [here](https://help.klaviyo.com/hc/en-us/articles/115002774932-Getting-Started-with-Flows#the-flow-action-status9).
       - name: updated_at

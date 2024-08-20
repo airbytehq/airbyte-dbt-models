@@ -1,6 +1,5 @@
 packages:
-  # - local: ../
+  - local: ../
 
   - package: fivetran/klaviyo
     version: [">=0.7.0", "<0.8.0"]
-
