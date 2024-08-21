@@ -25,7 +25,7 @@ with base as ( select * from {{ source('source_facebook_marketing', 'ads_insight
         while avoiding duplicate column errors.
     #}
     {%- set check = [] %}
-    {%- for field in var('airbyte')['facebook_ads']['basic_ad_passthrough_metrics'] -%}
+    {%- for field in var('facebook_ads__basic_ad_passthrough_metrics', []) -%}
       {%- set field_name = field.alias|default(field.name)|lower %}
       {% if field_name in ['reach', 'frequency'] %}
         {% do check.append(field_name) %}
@@ -38,7 +38,7 @@ with base as ( select * from {{ source('source_facebook_marketing', 'ads_insight
       {% endif %}
     {%- endfor %}
 
-    {{ fill_pass_through_columns(var('airbyte')['facebook_ads']['basic_ad_passthrough_metrics']) }}
+    {{ fill_pass_through_columns(var('facebook_ads__basic_ad_passthrough_metrics', [])) }}
 
     from unionned
 )

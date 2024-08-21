@@ -25,35 +25,44 @@ require-dbt-version:
 
 models:
   source_facebook_marketing:
-    materialized: view
-    staging:
-      materialized: view
+    +materialized: view
+    +schema: staging
+  facebook_ads_source:
+    +enabled: false
+  facebook_ads:
+    +schema: reporting
+    intermediate:
+      +materialized: ephemeral
 
 vars:
-  airbyte_database: airbyte_default_database
-  airbyte_schema: airbyte_default_schema
+  airbyte_database: postgres
+  airbyte_schema: dbt_source_facebook_marketing
 
-  airbyte:
-    facebook_ads:
-      sources:
-        ad_accounts:
-          - name: facebook_ads_us
-            table: ad_account
-        ads:
-          - name: facebook_ads_us
-            table: ads
-        ad_sets:
-          - name: facebook_ads_us
-            table: ad_sets
-        ads_insights:
-          - name: facebook_ads_us
-            table: ads_insights
-        campaigns:
-          - name: facebook_ads_us
-            table: campaigns
-        ad_creatives:
-          - name: facebook_ads_us
-            table: ad_creatives
-      basic_ad_passthrough_metrics:
-        - name: video_play_actions
-        - name: video_p95_watched_actions
+  # airbyte:
+  # facebook_ads:
+  #   sources:
+  #     ad_accounts:
+  #       - name: facebook_ads_us
+  #         table: ad_account
+  #     ads:
+  #       - name: facebook_ads_us
+  #         table: ads
+  #     ad_sets:
+  #       - name: facebook_ads_us
+  #         table: ad_sets
+  #     ads_insights:
+  #       - name: facebook_ads_us
+  #         table: ads_insights
+  #     campaigns:
+  #       - name: facebook_ads_us
+  #         table: campaigns
+  #     ad_creatives:
+  #       - name: facebook_ads_us
+  #         table: ad_creatives
+  # basic_ad_passthrough_metrics:
+  #   - name: video_play_actions
+  #   - name: video_p95_watched_actions
+
+  # facebook_ads__basic_ad_passthrough_metrics:
+  #   - name: video_play_actions
+  #   - name: video_p95_watched_actions
