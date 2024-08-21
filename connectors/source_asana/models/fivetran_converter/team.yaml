@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: team
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('asana_team_identifier', 'team') }}"
+    description: All fields and field values associated with Team.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: id
+        description: System generated unique ID for each team
+      - name: name
+        description: Provided name for each team. There can be duplicates
+      - name: organization_id
+        description: Equivalent to the workspace_id, as organizations are a kind of workspace. Probably not relevant unless working with multiple orgs.

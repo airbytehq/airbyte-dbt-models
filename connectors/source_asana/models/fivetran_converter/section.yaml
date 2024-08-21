@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: section
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('asana_section_identifier', 'section') }}"
+    description: All fields and field values associated with Section.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: id
+        description: System generated unique ID for each section
+      - name: created_at
+        description: Timestamp of when the section was created by a user
+      - name: name
+        description: The given name of the section as it appears in the UI. Is stored as "(no section)" when this is the default bucket for tasks with a section in a project
+      - name: project_id
+        description: Foreign key referencing the PROJECT that the section lives in

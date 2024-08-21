@@ -3,9 +3,9 @@
         SELECT
             t.gid as id,
             t.name,
-            t.email
+            NULL AS created_at --TODO: add created_at on source-asana
         FROM
-            {{ source('source_asana', 'projects') }} t
+            {{ source('source_asana', 'tags') }} t
     )
     SELECT * FROM tmp;
 
@@ -14,9 +14,9 @@
         SELECT
             t.gid as id,
             t.name,
-            t.email
+            NULL AS created_at --TODO: add created_at on source-asana
         FROM
-            {{ source('source_asana', 'projects') }} t
+            {{ source('source_asana', 'tags') }} t
     )
     SELECT * FROM tmp;
 
@@ -25,9 +25,9 @@
         SELECT
             t.gid as id,
             t.name,
-            t.email
+            NULL AS created_at --TODO: add created_at on source-asana
         FROM
-            {{ source('source_asana', 'projects') }} t
+            {{ source('source_asana', 'tags') }} t
     )
     SELECT * FROM tmp;
 

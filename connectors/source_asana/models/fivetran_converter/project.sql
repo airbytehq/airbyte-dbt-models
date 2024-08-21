@@ -18,7 +18,6 @@
     )
     SELECT * FROM tmp;
 
-
 {% elif target.type == "bigquery" %}
     WITH tmp AS (
         SELECT
