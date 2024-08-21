@@ -28,7 +28,10 @@ models:
     +materialized: view
     +schema: staging
   facebook_ads_source:
-    +enabled: false
+    +materialized: view
+    +schema: staging
+    tmp:
+      +enabled: false
   facebook_ads:
     +schema: reporting
     intermediate:
@@ -37,6 +40,9 @@ models:
 vars:
   airbyte_database: postgres
   airbyte_schema: dbt_source_facebook_marketing
+
+  facebook_ads_database: postgres
+  facebook_ads_schema: dbt_source_facebook_marketing
 
   # airbyte:
   # facebook_ads:
