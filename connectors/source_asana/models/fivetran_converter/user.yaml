@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: user
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('asana_project_identifier', 'user') }}"
+    description: All fields and field values associated with User.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: id
+        description: System generated unique ID for a user
+      - name: email
+        description: Email associated with the user
+      - name: name
+        description: Given name for the user as it appears in the UI
