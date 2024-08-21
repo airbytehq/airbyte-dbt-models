@@ -1,0 +1,53 @@
+version: 2
+
+sources:
+  - name: source_amplitude
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: events_list
+        columns:
+          - name: autohidden
+            description: "Whether event type is hidden"
+            data_type: boolean
+          - name: clusters_hidden
+            description: ""
+            data_type: boolean
+          - name: deleted
+            description: "Whether event type is deleted"
+            data_type: boolean
+          - name: display
+            description: "The display name of the event"
+            data_type: string
+          - name: flow_hidden
+            description: "If the event is hidden from Pathfinder/Pathfinder Users or not"
+            data_type: boolean
+          - name: hidden
+            description: "If the event is hidden or not"
+            data_type: boolean
+          - name: id
+            description: "Event type ID"
+            data_type: number
+          - name: in_waitroom
+            description: "Whether event type is in waitroom"
+            data_type: boolean
+          - name: name
+            description: "Event name"
+            data_type: string
+          - name: non_active
+            description: "If the event is marked inactive or not"
+            data_type: boolean
+          - name: timeline_hidden
+            description: "If the event is hidden or not"
+            data_type: boolean
+          - name: totals
+            description: "The total number of times the event has happened this week"
+            data_type: number
+          - name: totals_delta
+            description: "This represents the change in event volume from the previous week"
+            data_type: number
+          - name: value
+            description: "Name of the event in the raw data"
+            data_type: string

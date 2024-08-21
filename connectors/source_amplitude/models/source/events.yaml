@@ -18,7 +18,7 @@ sources:
           - name: device_carrier
             description: The mobile carrier used by the device
             data_type: string
-          - name: $schema
+          - name: _schema
             description: The schema version used for the event data
             data_type: integer
           - name: city
@@ -69,7 +69,7 @@ sources:
           - name: client_upload_time
             description: The timestamp when the event data was uploaded from the client to the server
             data_type: string
-          - name: $insert_id
+          - name: _insert_id
             description: The unique identifier assigned by Amplitude for each event insertion
             data_type: string
           - name: event_type
