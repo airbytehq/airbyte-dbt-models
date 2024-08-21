@@ -1,0 +1,42 @@
+name: integration_test_facebook_marketing
+
+config-version: 2
+
+version: 0.1.0
+
+profile: integration_tests
+
+model-paths:
+  - models
+
+macro-paths:
+  - macros
+
+target-path: target
+
+clean-targets:
+  - target
+  - dbt_modules
+  - logs
+
+require-dbt-version:
+  - '>=1.0.0'
+  - <2.0.0
+
+models:
+  source_facebook_marketing:
+    +materialized: view
+    +schema: staging
+  facebook_ads_source:
+    +materialized: view
+    +schema: staging
+    tmp:
+      +enabled: false
+  facebook_ads:
+    +schema: reporting
+    intermediate:
+      +materialized: ephemeral
+
+vars:
+  airbyte_database: postgres
+  airbyte_schema: dbt_source_facebook_marketing
