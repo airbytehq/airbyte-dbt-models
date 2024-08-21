@@ -47,4 +47,8 @@ select
   ,jsonb_extract_path_text(template_url_spec, 'ipad', 'url') as template_app_link_spec_ipad
   ,jsonb_extract_path_text(template_url_spec, 'iphone', 'url') as template_app_link_spec_iphone
 
+  {% if var('facebook_ads_union_databases', none) or var('facebook_ads_union_schemas', none) %}
+  ,_dbt_source_relation
+  {% endif %}
+
 from unionned

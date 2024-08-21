@@ -22,4 +22,9 @@ select
   ,adset_id as ad_set_id
   ,campaign_id
   ,{{ fivetran_utils.json_extract('creative', 'id') }} as creative_id
+
+  {% if var('facebook_ads_union_databases', none) or var('facebook_ads_union_schemas', none) %}
+  ,_dbt_source_relation
+  {% endif %}
+
 from unionned
