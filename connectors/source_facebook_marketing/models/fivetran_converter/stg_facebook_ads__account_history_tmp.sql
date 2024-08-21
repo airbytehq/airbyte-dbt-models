@@ -23,4 +23,9 @@ select
   ,created_time
   ,currency
   ,timezone_name
+  
+  {% if var('facebook_ads_union_databases', none) or var('facebook_ads_union_schemas', none) %}
+  ,_dbt_source_relation
+  {% endif %}
+  
 from unionned

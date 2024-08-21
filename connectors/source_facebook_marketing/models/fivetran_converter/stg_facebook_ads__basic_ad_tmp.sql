@@ -30,4 +30,8 @@ select
     ,{{ field.alias|default(field.name)|lower }}
   {% endfor %}
 
+  {% if var('facebook_ads_union_databases', none) or var('facebook_ads_union_schemas', none) %}
+  ,_dbt_source_relation
+  {% endif %}
+
 from unionned

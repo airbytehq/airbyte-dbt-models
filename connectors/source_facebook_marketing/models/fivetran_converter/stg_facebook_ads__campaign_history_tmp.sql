@@ -26,4 +26,9 @@ select
   ,daily_budget
   ,lifetime_budget
   ,budget_remaining
+
+  {% if var('facebook_ads_union_databases', none) or var('facebook_ads_union_schemas', none) %}
+  ,_dbt_source_relation
+  {% endif %}
+
 from unionned
