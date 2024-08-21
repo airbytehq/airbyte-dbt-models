@@ -4,7 +4,7 @@ models:
   - name: task
     schema: "{{ var('airbyte_schema', target.schema) }}"
     database: "{{ var('airbyte_database', target.database) }}"
-    identifier: "{{ var('asana_project_identifier', 'task') }}"
+    identifier: "{{ var('asana_task_identifier', 'task') }}"
     description: All fields and field values associated with Task.
     config:
       +enabled: "{{ var('using_fivetran_model', False) }}"

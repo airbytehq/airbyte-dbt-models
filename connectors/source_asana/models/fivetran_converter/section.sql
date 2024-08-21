@@ -2,10 +2,11 @@
     WITH tmp AS (
         SELECT
             t.gid as id,
+            t.created_at,
             t.name,
-            t.email
+            t.project:gid::STRING as project_id
         FROM
-            {{ source('source_asana', 'projects') }} t
+            {{ source('source_asana', 'sections') }} t
     )
     SELECT * FROM tmp;
 
@@ -13,10 +14,11 @@
     WITH tmp AS (
         SELECT
             t.gid as id,
-            t.name,
-            t.email
+            t.created_at,
+            name,
+            JSON_QUERY(t.project, '$.gid') as project_id
         FROM
-            {{ source('source_asana', 'projects') }} t
+            {{ source('source_asana', 'sections') }} t
     )
     SELECT * FROM tmp;
 
@@ -24,10 +26,11 @@
     WITH tmp AS (
         SELECT
             t.gid as id,
+            t.created_at,
             t.name,
-            t.email
+            t.project->>'gid' as project_id
         FROM
-            {{ source('source_asana', 'projects') }} t
+            {{ source('source_asana', 'sections') }} t
     )
     SELECT * FROM tmp;
 

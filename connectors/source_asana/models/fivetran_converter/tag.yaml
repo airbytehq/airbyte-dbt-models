@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: tag
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('asana_tag_identifier', 'tag') }}"
+    description: All fields and field values associated with Tag.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: id
+        description: System generated ID for each tag
+      - name: name
+        description: The name of the tag as it appears in the UI. There can be duplicates.
+      - name: created_at
+        description: Timestamp of when the tag was created
+      - name: color
+        description: Chosen color of the tag as it appears in the UI
