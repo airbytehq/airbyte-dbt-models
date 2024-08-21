@@ -1,0 +1,43 @@
+version: 2
+
+models:
+  - name: task
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('asana_project_identifier', 'task') }}"
+    description: All fields and field values associated with Task.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: id
+        description: System generated unique identifier for the task
+      - name: assignee_id
+        description: Foreign key referencing the USER assigned to this task (note that a task may not have an assignee)
+      - name: completed
+        description: Boolean that's true if the task is *currently* marked completed. Note that a task can be unmarked complete
+      - name: completed_at
+        description: Timestamp of when the task was completed, if still currently completed.
+      - name: completed_by_id
+        description: Foreign key that references the USER who completed the task, if currently completed.
+      - name: created_at
+        description: Timestamp of when the task was first made
+      - name: due_on
+        description: The date on which the task is due. Note that not tasks may not have a due date
+      - name: due_at
+        description: The date and time at which the task is due, only if a specific time is given. 
+      - name: modified_at
+        description: The last time the task was updated. Does not include comments nor changes in associations (ie their projects)
+      - name: name
+        description: The title of the task
+      - name: notes
+        description: Free-form textual description of the task (as seen in the UI).
+      - name: liked
+        description: A boolean that's true if the task has been liked.
+      - name: num_likes
+        description: An integer indicating the number of likes on a task.
+      - name: parent_id
+        description: The ID of the parent of the task, if it is a subtask. Self-refers to TASK
+      - name: start_on
+        description: The start date of the task, if given with the due date 
+      - name: workspace_id
+        description: The id of an organization's workspace in asana. Not necessary unless you have access to multiple organization's asanas.

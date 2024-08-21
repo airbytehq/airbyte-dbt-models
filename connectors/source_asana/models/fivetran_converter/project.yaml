@@ -5,7 +5,7 @@ models:
     schema: "{{ var('airbyte_schema', target.schema) }}"
     database: "{{ var('airbyte_database', target.database) }}"
     identifier: "{{ var('asana_project_identifier', 'project') }}"
-    description: All fields and field values associated with project.
+    description: All fields and field values associated with Project.
     config:
       +enabled: "{{ var('using_fivetran_model', False) }}"
     columns:
