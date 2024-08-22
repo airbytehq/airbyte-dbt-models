@@ -1,3 +1,5 @@
+{% if target.type == "snowflake" %}
+
 with tmp as 
 (
 
@@ -34,3 +36,9 @@ select
     *,
     row_number() over (partition by subscription_id order by subscription_updated_at desc) = 1 as is_most_recent_record
 from tmp
+
+{% elif target.type == "bigquery" %}
+
+{% elif target.type == "postgres" %}
+
+{% endif %}
