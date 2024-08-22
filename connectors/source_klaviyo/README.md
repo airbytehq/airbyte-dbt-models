@@ -1,4 +1,4 @@
-# Klaviyo Support Airbyte dbt Package
+# Klaviyo Airbyte dbt Package
 
 ---
 
