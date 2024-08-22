@@ -43,8 +43,8 @@ vars:
   klaviyo_schema: "airbyte_dbt_source_klaviyo"
 
   klaviyo_source:
-    event_table: "events"
-    campaign: "campaigns"
+    event_table: "event"
+    campaign: "campaign"
     flow: "flow"
     person: "person"
     metric: "metric"
