@@ -1,0 +1,39 @@
+version: 2
+
+models:
+  - name: campaign
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('klaviyo_campaign_identifier', 'campaign') }}"
+    description:  Table capturing email campaigns in Klaviyo.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: campaign_type
+        description: Type of campaign.
+      - name: created
+        description: Timestamp of when the campaign was created, in UTC.
+      - name: from_email
+        description: The email address your email will be sent from and will be used in the reply-to header.
+      - name: from_name
+        description: The name or label associated with the email address you're sending from.
+      - name: id
+        description: Unique ID of the campaign.
+      - name: name
+        description: A name for this campaign. If not specified, this will default to the subject of the campaign.
+      - name: send_time
+        description: >
+          Timestamp of when the campaign is scheduled to be sent in the future, if 
+          ["smart send time"](https://help.klaviyo.com/hc/en-us/articles/360029794371-Smart-Send-Time-in-Klaviyo#how-to-utilize-smart-send-time3) is used. 
+      - name: status
+        description: Current status of the campaign. Either "draft", "scheduled", "sent", or "cancelled".
+      - name: status_label
+        description: The label of the status as it appears in the UI (should be the same as `status`).
+      - name: subject
+        description: The subject line of the campaign's email.
+      - name: updated
+        description: Timestamp of when the campaign was last updated.
+      - name: archived
+        description: Boolean of whether the campaign has been archived or not
+      - name: scheduled
+        description: The datetime when the campaign was scheduled for future sending
