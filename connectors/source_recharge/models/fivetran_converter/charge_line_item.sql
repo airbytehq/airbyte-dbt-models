@@ -1,3 +1,5 @@
+{% if target.type == "snowflake" %}
+
 with tmp as 
 (
     select
@@ -28,3 +30,8 @@ select *
 from tmp
 
 --no info regarding which items are under 'line_items', assume the same as in Fivetran's so unnested them all.
+{% elif target.type == "bigquery" %}
+
+{% elif target.type == "postgres" %}
+
+{% endif %}

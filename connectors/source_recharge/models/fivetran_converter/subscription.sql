@@ -1,3 +1,5 @@
+{% if target.type == "snowflake" %}
+
 with tmp as 
 (
 
@@ -32,3 +34,9 @@ with tmp as
 
 select *
 from tmp
+
+{% elif target.type == "bigquery" %}
+
+{% elif target.type == "postgres" %}
+
+{% endif %}
