@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: one_time_product
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    description: "Table of all one-times which represent non-recurring line items on a queued charges."
+    config: 
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: one_time_product_id
+        description: The unique numeric identifier for the onetime purchase.
+      - name: address_id
+        description: The unique identifier of the address. Cannot be used with `next_charge_scheduled_at`.
+      - name: customer_id
+        description: Unique numeric identifier for the customer the onetime purchase is tied to.
+      - name: is_deleted
+        description: Boolean indicating if the onetime is deleted.
+      - name: one_time_created_at
+        description: The time the onetime item was first created.
+      - name: one_time_updated_at
+        description: The time the onetime item was last updated.
+      - name: one_time_next_charge_scheduled_at
+        description: Date of the onetime purchase execution.
+      - name: product_title
+        description: The name of the product in a shop's catalog.
+      - name: variant_title
+        description: The name of the variant in a shop's catalog.
+      - name: price
+        description: The price of the item before discounts, taxes, or shipping have been applied.
+      - name: quantity
+        description: The number of items in the onetime purchase.
+      - name: external_product_id_ecommerce
+        description: The product ID that links to your external ecommerce platform.
+      - name: external_variant_id_ecommerce
+        description: The variant ID that links to your external ecommerce platform.
+      - name: sku
+        description: The unique identifier of the item in fulfillment.

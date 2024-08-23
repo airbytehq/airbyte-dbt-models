@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: address
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    description: "Address table aligned with the Fivetran dbt model."
+    config: 
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: address_id
+        description: "address unique identifier"
+      - name: customer_id
+        description: "customer unique identifier"
+      - name: first_name
+        description: The customer's first name.
+      - name: last_name
+        description: The customer's last name.
+      - name: address_created_at
+        description: The date and time the customer address was recorded.
+      - name: address_updated_at
+        description: The date and time of when the customer's address record was last updated.
+      - name: address_line_1
+        description: The first line of the customer's address.
+      - name: address_line_2
+        description: Any additional address information associated with the customer.
+      - name: city
+        description: The city associated with the customer.
+      - name: province
+        description: The province or state name associated with the customer.
+      - name: zip
+        description: The zip or post code associated with the customer.
+      - name: country_code
+        description: The country code associated with the address.
+      - name: company
+        description: The company name associated with the customer.
+      - name: phone
+        description: The phone number associated with the customer.

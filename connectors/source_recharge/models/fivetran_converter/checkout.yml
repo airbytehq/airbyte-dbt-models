@@ -1,0 +1,48 @@
+version: 2
+
+models:
+  - name: checkout
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    description: "checkouts"
+    config: 
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: checkout_id
+        description: Unique token for the Checkout
+      - name: charge_id
+        description: ID for the Charge resulting from processing the Checkout.
+      - name: buyer_accepts_marketing
+        description: Boolean if the buyer accept marketing, newsletters etc.
+      - name: checkout_completed_at
+        description: Timestamp for when the Checkout was processed.
+      - name: checkout_created_at
+        description: Timestamp for when the Checkout was created.
+      - name: currency
+        description: Currency of the Checkout.
+      - name: discount_code
+        description: Discount code to be used on the checkout, e.g. “DISCOUNT20”.
+      - name: email
+        description: Email address for the customer.
+      - name: external_checkout_id
+        description: Represents the external cart token.
+      - name: external_checkout_source
+        description: Represents the source for external_checkout_id.
+      - name: external_transaction_id_payment_processor
+        description: Transaction ID of the external payment processor.
+      - name: order_attributes
+        description: Structured custom notes.
+      - name: phone
+        description: Customer phone number.
+      - name: requires_shipping
+        description: Boolean if the Checkout contains items that require shipping.
+      - name: subtotal_price
+        description: Value of the Checkout minus shipping and tax.
+      - name: taxes_included
+        description: Boolean if the tax is included in the price of the items.
+      - name: total_price
+        description: Full price of the Checkout including shipping and tax.
+      - name: total_tax
+        description: Tax charged on the Checkout.
+      - name: checkout_updated_at
+        description: Timestamp for the latest Checkout update.

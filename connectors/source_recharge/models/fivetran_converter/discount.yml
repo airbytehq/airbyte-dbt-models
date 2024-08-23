@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: discount
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    description: "Table of discounts that can be applied to a checkout, or that can be directly applied to an address."
+    config: 
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: discount_id
+        description: Unique numeric identifier for the discount in Recharge.
+      - name: discount_created_at
+        description: The date and time when the discount was created.
+      - name: discount_updated_at
+        description: The date and time when the discount was last updated.
+      - name: discount_starts_at
+        description: The date when the discount becomes active.
+      - name: discount_ends_at
+        description: The expiration time of the discount, past this time the discount can no longer be redeemed, once the time of the discount has passed the status of the discount will go from 'active' to 'disabled'.
+      - name: code
+        description: The code used to apply the discount.
+      - name: value
+        description: The discounted value to be applied.
+      - name: status
+        description: The status of the discount. Possible values are ENABLED, DISABLED, or FULLY_DISABLED.
+      - name: usage_limits
+        description: An integer indicating how many times the discount can been used.
+      - name: applies_to
+        description: Indicates where the discount applies.
+      - name: applies_to_resource
+        description: An indicator of the type of resource which applies_to_id refers.
+      - name: applies_to_id
+        description: A list of ids of the type indicated in applies_to_resource for which the discount can be applied.
+      - name: applies_to_product_type
+        description: Indicates which product types the discount applies to.
+      - name: minimum_order_amount
+        description: The minimum cart subtotal needed for the discount to be applicable. `duration` has to be `single_use` and the discount must apply to the entire order.

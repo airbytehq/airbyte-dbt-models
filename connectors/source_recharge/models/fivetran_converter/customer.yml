@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: customer
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    description: "Table of all customer details holding account and billing information. Email is unique on the customer, no two customers for a store can have the same email."
+    config: 
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: customer_id
+        description: "{{ doc('customer_id') }}"
+      - name: customer_hash
+        description: The unique string identifier used in a customer portal link.
+      - name: external_customer_id_ecommerce
+        description: External platform's identifier for the customer.
+      - name: email
+        description: The email address of the customer.
+      - name: first_name
+        description: The customer's first name.
+      - name: last_name
+        description: The customer's last name.
+      - name: customer_created_at
+        description: The date and time when the customer was created.
+      - name: customer_updated_at
+        description: The date and time when the customer was last updated.
+      - name: first_charge_processed_at
+        description: Date when first charge was processed for the customer.
+      - name: subscriptions_active_count
+        description: The number of active subscriptions associated with the customer.
+      - name: subscriptions_total_count
+        description: The total number of subscriptions associated with the customer.
+      - name: has_valid_payment_method
+        description: Boolean indicating if the payment value is valid.
+      - name: has_payment_method_in_dunning
+        description: Boolean indicating if the customer has a credit card in dunning.
+      - name: tax_exempt
+        description: Boolean indicating if the customer is tax exempt.

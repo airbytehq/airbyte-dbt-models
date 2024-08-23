@@ -1,0 +1,76 @@
+version: 2
+
+models:
+  - name: address
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    description: "Address table aligned with the Fivetran dbt model."
+    config: 
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+     - name: charge_id
+        description: "Charge unique identifier"
+      - name: customer_id
+        description: "Customer unique identifier"
+      - name: customer_hash
+        description: The hash of the customer associated with the charge.
+      - name: email
+        description: The email address of the customer.
+      - name: charge_created_at
+        description: Date and time when the charge was created.
+      - name: charge_type
+        description: "{{ doc('type') }}"
+      - name: charge_status
+        description: "{{ doc('charge_status') }}"
+      - name: charge_updated_at
+        description: Date and time when the charge was last updated.
+      - name: note
+        description: Shows the next order in sequence.
+      - name: subtotal_price
+        description: The combined price of all line_items without taxes and shipping.
+      - name: tags
+        description: A comma-separated list of tags on the charge.
+      - name: error
+        description: Error reason as sentence text (typically returned directly from the payment processor - e.g. "customer needs to update credit card").
+      - name: external_variant_id_not_found
+        description: Indicates if Recharge was able to find the external_variant_id_ecommerce from the charge.
+      - name: tax_lines
+        description: An array of tax lines that apply to the charge.
+      - name: total_discounts
+        description: The sum of the discounts applied to the charge.
+      - name: total_line_items_price
+        description: The sum of all the prices of all the items in the charge.
+      - name: total_tax
+        description: The total tax due associated with the charge.
+      - name: total_price
+        description: The sum of all the prices of all the items in the charge, taxes and discounts included (must be positive).
+      - name: total_refunds
+        description: The sum of all refunds that were applied to the charge.
+      - name: total_weight_grams
+        description: The total weight of all items in the charge in grams.
+      - name: charge_scheduled_at
+        description: The date time of when the associated charge is/was scheduled to process.
+      - name: charge_processed_at
+        description: Date and time when the charge was processed.
+      - name: payment_processor
+        description: The payment processor used on the charge.
+      - name: external_transaction_id_payment_processor
+        description: The unique alphanumeric identifier of the transaction.
+      - name: external_order_id_ecommerce
+        description: The unique numeric identifier within your external ecommerce platform for the charge.
+      - name: orders_count
+        description: The number of orders generated from this charge (Will be >1 for prepaid).
+      - name: has_uncommitted_changes
+        description: Specifies whether the charge is scheduled for regeneration (if the subscription is related to the charge was updated in the last 5 seconds using "commit_update":false).
+      - name: retry_date
+        description: The date when the next attempt will be placed.
+      - name: error_type
+        description: Structured reason why the charge failed such as customer_needs_to_updated_card.
+      - name: times_retried
+        description: Shows how many times an attempt to charge was placed.
+      - name: address_id
+        description: "{{ doc('address_id') }}"
+      - name: client_details_browser_ip
+        description: The IP address of the buyer detected in checkout.
+      - name: client_details_user_agent
+        description: The user agent detected during checkout.
