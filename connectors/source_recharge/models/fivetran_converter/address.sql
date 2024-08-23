@@ -2,13 +2,12 @@
 
 with tmp as 
 (
-
     select
         id as address_id,
         customer_id,
         first_name,
         last_name,
-        cast(created_at as {{ dbt.type_timestamp() }}) as address_created_at,
+        cast(created_at as {{ dbt.type_timestamp() }}) as address_created_at,  -- Snowflake: dbt.type_timestamp() should work as expected
         cast(updated_at as {{ dbt.type_timestamp() }}) as address_updated_at,
         address_1 as address_line_1,
         address_2 as address_line_2,
@@ -31,13 +30,12 @@ from tmp
 
 with tmp as 
 (
-
     select
         id as address_id,
         customer_id,
         first_name,
         last_name,
-        cast(created_at as {{ dbt.type_timestamp() }}) as address_created_at,
+        cast(created_at as {{ dbt.type_timestamp() }}) as address_created_at,  -- BigQuery: dbt.type_timestamp() should work as expected
         cast(updated_at as {{ dbt.type_timestamp() }}) as address_updated_at,
         address_1 as address_line_1,
         address_2 as address_line_2,
@@ -60,13 +58,12 @@ from tmp
 
 with tmp as 
 (
-
     select
         id as address_id,
         customer_id,
         first_name,
         last_name,
-        cast(created_at as {{ dbt.type_timestamp() }}) as address_created_at,
+        cast(created_at as {{ dbt.type_timestamp() }}) as address_created_at,  -- Postgres: dbt.type_timestamp() should work as expected
         cast(updated_at as {{ dbt.type_timestamp() }}) as address_updated_at,
         address_1 as address_line_1,
         address_2 as address_line_2,
