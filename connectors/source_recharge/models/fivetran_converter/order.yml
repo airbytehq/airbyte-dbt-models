@@ -1,0 +1,48 @@
+version: 2
+
+models:
+  - name: order
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    description: "Table of all orders after a charge is successfully processed."
+    config: 
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: order_id
+        description: "{{ doc('charge_id') }}"
+      - name: external_order_id_ecommerce
+        description: Unique numeric identifier within your external ecommerce platform for the order.
+      - name: external_order_number_ecommerce
+        description: The unique order number within your external ecommerce platform.
+      - name: customer_id
+        description: The unique numeric identifier of the customer.
+      - name: email
+        description: The email address of the customer.
+      - name: order_created_at
+        description: The date and time when the order was created.
+      - name: order_status
+        description: The status of the order. Possible values are SUCCESS, ERROR, QUEUED, or CANCELLED
+      - name: order_updated_at
+        description: The date and time when the order was last updated.
+      - name: charge_id
+        description: The unique numeric identifier of the charge.
+      - name: transaction_id
+        description: The unique alphanumeric identifier of the transaction.
+      - name: charge_status
+        description: "{{ doc('charge_status') }}"
+      - name: is_prepaid
+        description: Boolean indicating if the Order is prepaid.
+      - name: order_total_price
+        description: The total amount due of the Order.
+      - name: order_type
+        description: "{{ doc('type') }}"
+      - name: order_processed_at
+        description: The date and time when the order was submitted. 
+      - name: order_scheduled_at
+        description: The date and time when the order will be shipped.
+      - name: order_shipped_date
+        description: The date when the order will be processed.
+      - name: address_id
+        description: "{{ doc('address_id') }}"
+      - name: is_deleted
+        description: Boolean indicating if the order (record) is deleted.

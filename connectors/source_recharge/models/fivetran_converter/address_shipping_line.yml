@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: address_discounts
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    description: "Table of all addresses and corresponding associated shipping information."
+    config: 
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: address_id
+        description: address unique identifier.
+      - name: index
+        description: A unique numeric row produced for every concurrent address_id, currently NULL.
+      - name: price
+        description: The price of the shipping amount.
+      - name: code
+        description: The type of the shipping, can contain geographical shipping information. 
+      - name: title
+        description: The type of shipping consignment.

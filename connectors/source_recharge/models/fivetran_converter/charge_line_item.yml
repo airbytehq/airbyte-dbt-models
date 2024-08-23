@@ -1,0 +1,46 @@
+version: 2
+
+models:
+  - name: charge_line_item
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    description: "Table of all charge line items, each containing information about a distinct purchase item."
+    config: 
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: charge_id
+        description: "{{ doc('charge_id') }}"
+      - name: index
+        description: A unique numeric row produced for every concurrent charge_id.
+      - name: vendor
+        description: The name of the seller.
+      - name: title
+        description: The product title that links to your external ecommerce platform.
+      - name: variant_title
+        description: The name of the product variant.
+      - name: sku
+        description: The SKU (stock keeping unit) of the product associated with the charge's line item.
+      - name: grams
+        description: The weight of the charge's line item in grams.
+      - name: quantity
+        description: The quantity of the line_item.
+      - name: total_price
+        description: The total price of the line_item including tax.
+      - name: unit_price
+        description: The unit price of the line_item.
+      - name: tax_due
+        description: The total tax due associated with the line_item.
+      - name: taxable
+        description: A boolean indicating if the line_item is taxable or non-taxable.
+      - name: taxable_amount
+        description: The taxable revenue associated with the line_item.
+      - name: unit_price_includes_tax
+        description: A boolean indicator if tax is included in the price of an item.
+      - name: external_product_id_ecommerce
+        description: The product ID that links to your external ecommerce platform.
+      - name: external_variant_id_ecommerce
+        description: The variant ID that links to your external ecommerce platform.
+      - name: purchase_item_id
+        description: The subscription or onetime ID associated with the line_item.
+      - name: purchase_item_type
+        description: Possible values are SUBSCRIPTION, ONETIME.

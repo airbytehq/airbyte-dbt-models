@@ -1,0 +1,44 @@
+version: 2
+
+models:
+  - name: order_line_item
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    description: "Table of all order line items. Each line containing information about an item in the order."
+    config: 
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: order_id
+        description: "{{ doc('charge_id') }}"
+      - name: index
+        description: A unique numeric row produced for every concurrent order_id.
+      - name: external_product_id_ecommerce
+        description: The unique numeric identifier for your external ecommerce platform product in the fulfillment.
+      - name: external_variant_id_ecommerce
+        description: Unique numeric identifier of the product variant in your external ecommerce platform.
+      - name: order_line_item_title
+        description: The title of the product.
+      - name: product_variant_title
+        description: The title of the product variant.
+      - name: sku
+        description: A unique identifier of the item in the fulfillment.
+      - name: quantity
+        description: The number of products that were purchased.
+      - name: grams
+        description: Weight in grams of the item.
+      - name: total_price
+        description: The total price of the line_item including tax.
+      - name: unit_price
+        description: The unit price of the line_item.
+      - name: tax_due
+        description: The total tax due associated with the line_item.
+      - name: taxable
+        description: A boolean indicating if the line_item is taxable or non-taxable.
+      - name: taxable_amount
+        description: The taxable revenue associated with the line_item.
+      - name: unit_price_includes_tax
+        description: A boolean indicator if tax is included in the price of an item.
+      - name: purchase_item_id
+        description: The subscription or onetime ID associated with the line_item.
+      - name: purchase_item_type
+        description: Possible values are SUBSCRIPTION, ONETIME.

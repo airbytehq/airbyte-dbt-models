@@ -1,0 +1,56 @@
+version: 2
+
+models:
+  - name: subscription
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    description: "Table of all subscriptions for the merchant. Subscriptions are individual items a customer receives on a recurring basis."
+    config: 
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: subscription_id
+        description: "{{ doc('subscription_id') }}"
+      - name: customer_id
+        description: "{{ doc('customer_id') }}"
+      - name: address_id
+        description: "{{ doc('address_id') }}"
+      - name: subscription_created_at
+        description: The date and time when the subscription was created.
+      - name: product_title
+        description: The name of the product in a shop's catalog.
+      - name: variant_title
+        description: The name of the variant in a shop's catalog.
+      - name: sku
+        description: A unique identifier of the item in fulfillment.
+      - name: price
+        description: The price of the item before discounts, taxes, or shipping have been applied.
+      - name: quantity
+        description: The number of items in the subscription.
+      - name: subscription_status
+        description: The status of the subscription; active = the subscription is active, cancelled = the subscription has been cancelled, expired = the subscription has expired - this occurs when the maximum number of charges for product have been reached.
+      - name: subscription_next_charge_scheduled_at
+        description: Date of the next charge for the subscription.
+      - name: charge_interval_frequency
+        description: The number of units (specified in order_interval_unit) between each charge.
+      - name: expire_after_specific_number_of_charges
+        description: Set the number of charges until subscription expires.
+      - name: order_interval_frequency
+        description: The number of units (specified in order_interval_unit) between each order, e.g. order_interval_unit = 'month' and order_interval frequency = 3 indicates an order every 3 months.
+      - name: order_interval_unit
+        description: The frequency with which a subscription should have the order created with (valid values are “day”, “week”, and “month”).
+      - name: order_day_of_month
+        description: The set day of the month order is created. Default is that there isn’t a strict day of the month when the order is created.
+      - name: order_day_of_week
+        description: The set day of the week order is created. Default is that there isn’t a strict day of the week order is created.
+      - name: subscription_updated_at
+        description: The date and time when the subscription was created.
+      - name: external_product_id_ecommerce
+        description: Unique numeric identifier of the product in your external ecommerce platform.
+      - name: external_variant_id_ecommerce
+        description: Unique numeric identifier of the product variant in your external ecommerce platform.
+      - name: subscription_cancelled_at
+        description: The date and time when the subscription was cancelled.
+      - name: cancellation_reason
+        description: Reason provided for cancellation.
+      - name: cancellation_reason_comments
+        description: Additional comment for cancellation.

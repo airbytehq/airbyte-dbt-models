@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: charge_tax_line
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    description: "Table of tax line information associated to their corresponding charges."
+    config: 
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: charge_id
+        description: "{{ doc('charge_id') }}"
+      - name: index
+        description: A unique numeric row produced for every concurrent charge_id.
+      - name: price
+        description: The total tax associated with the listed jurisdiction.
+      - name: rate
+        description: The tax rate associated with the listed jurisdiction.
+      - name: title
+        description: The title/name of the taxing jurisdiction.
