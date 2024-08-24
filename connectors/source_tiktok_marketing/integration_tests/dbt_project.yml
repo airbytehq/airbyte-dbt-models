@@ -1,0 +1,51 @@
+name: integration_test_tiktok_marketing
+
+config-version: 2
+
+version: 0.1.0
+
+profile: integration_tests
+
+model-paths:
+  - models
+
+macro-paths:
+  - macros
+
+target-path: target
+
+clean-targets:
+  - target
+  - dbt_modules
+  - logs
+
+require-dbt-version:
+  - ">=1.0.0"
+  - <2.0.0
+
+models:
+  airbyte_dbt_source_tiktok_marketing:
+    materialized: view
+    +schema: dbt_source_tiktok_marketing
+    staging:
+      materialized: view
+    tmp:
+      materialized: view
+
+vars:
+  # Required by Airbyte dbt model
+  using_fivetran_model: True
+  airbyte_database: "airbyte_db_default"
+  airbyte_schema: "dbt_source_tiktok_marketing"
+
+  # Required by Fivetran dbt model
+  tiktok_ads_database: "airbyte_db_default"
+  tiktok_ads_schema: "dbt_source_tiktok_marketing"
+
+  tiktok_ads_adgroup_history_identifier: "ad_group_history"
+  tiktok_ads_adgroup_report_hourly_identifier: "ad_group_report_hourly"
+  tiktok_ads_ad_history_identifier: "ad_history"
+  tiktok_ads_ad_report_hourly_identifier: "ad_report_hourly"
+  tiktok_ads_advertiser_identifier: "advertiser"
+  tiktok_ads_campaign_history_identifier: "campaign_history"
+  tiktok_ads_campaign_report_hourly_identifier: "campaign_report_hourly"

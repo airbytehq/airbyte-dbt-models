@@ -1,0 +1,49 @@
+version: 2
+
+models:
+  - name: ad_group_history
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('tiktok_ads_adgroup_history_identifier', 'ad_group_history') }}"
+    description: All fields and field values associated with ad_group_history.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: action_categories
+        description: The IDs of the action categories associated with the ad group
+      - name: action_days
+        description: The number of days the action has been performed
+      - name: adgroup_id
+        description: The unique identifier of the ad group
+      - name: adgroup_name
+        description: The name of the ad group
+      - name: advertiser_id
+        description: The unique identifier of the advertiser
+      - name: age
+        description: The targeted age groups for the ad group
+      - name: age_groups
+        description: The targeted age groups for the ad group
+      - name: audience_type
+        description: The type of audience being targeted
+      - name: budget
+        description: The allocated budget for the ad group
+      - name: campaign_id
+        description: The unique identifier of the campaign
+      - name: category
+        description: The ID of the category for the ad group
+      - name: display_name
+        description: The name of the campaign
+      - name: frequency
+        description: The frequency of ad display
+      - name: frequency_schedule
+        description: The schedule for frequency capping
+      - name: gender
+        description: The targeted gender for the ad group
+      - name: interest_category_v_2
+        description: The IDs of interest categories for targeting
+      - name: landing_page_url
+        description: The URL for downloading the associated app
+      - name: languages
+        description: The targeted languages for the ad group
+      - name: updated_at
+        description: The timestamp for when the ad group was last modified

@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: campaign_history
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('tiktok_ads_campaign_history_identifier', 'campaign_history') }}"
+    description: All fields and field values associated with campaign_history.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: advertiser_id
+        description: The unique identifier of the advertiser associated with the campaign
+      - name: campaign_id
+        description: The unique identifier of the campaign
+      - name: campaign_name
+        description: Name of the campaign for easy identification
+      - name: campaign_type
+        description: Type of campaign (e.g., awareness, conversion)
+      - name: split_test_variable
+        description: Variable being tested in a split test campaign
+      - name: updated_at
+        description: Timestamp when the campaign was last modified

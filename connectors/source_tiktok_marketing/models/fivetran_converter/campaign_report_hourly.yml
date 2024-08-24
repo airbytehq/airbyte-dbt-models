@@ -1,0 +1,62 @@
+version: 2
+
+models:
+  - name: campaign_report_hourly
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('tiktok_ads_campaign_report_hourly_identifier', 'campaign_report_hourly') }}"
+    description: All fields and field values associated with campaign_report_hourly.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: campaign_id
+        description: The unique identifier for a campaign.
+      - name: average_video_play
+        description: The average time your video was played per single video view, including any time spent replaying the video.
+      - name: average_video_play_per_user
+        description: The average time per user your video was played per single video view, including any time spent replaying the video.
+      - name: clicks
+        description: The number of clicks on your ad.
+      - name: comments
+        description: The number of comments your video creative received within 1 day of a user seeing a paid ad.
+      - name: conversion
+        description: The number of times your ad achieved an outcome, based on the secondary goal you selected. As one campaign may have a number of different secondary goals, this statistic is not supported for campaigns. Please go to ad groups or ads to view. (The total count is calculated based on the time each ad impression occurred.)
+      - name: conversion_rate
+        description: The percentage of results you received out of all the clicks of your ads. (The total count is calculated based on the time each ad impression occurred.)
+      - name: cost_per_conversion
+        description: The average amount of money you've spent on a conversion. (The total count is calculated based on the time each ad impression occurred.)
+      - name: cpc
+        description: The average amount of money you've spent on a click.
+      - name: cpm
+        description: The average amount of money you've spent per 1,000 impressions.
+      - name: ctr
+        description: The percentage of times people saw your ad and performed a click.
+      - name: follows
+        description: The number of new followers that were gained within 1 day of a user seeing a paid ad. This metric is only for Boosted TikToks.
+      - name: impressions
+        description: The number of times your ads were on screen.
+      - name: likes
+        description: The number of likes your video creative received within 1 day of a user seeing a paid ad.
+      - name: profile_visits
+        description: The number of profile visits the ad drove during the campaign. This metric is only for Boosted TikToks.
+      - name: reach
+        description: The number of unique users who saw your ads at least once. This metric is estimated.
+      - name: shares
+        description: The number of shares your video creative received within 1 day of a user seeing a paid ad.
+      - name: spend
+        description: The estimated total amount of money you've spent on your campaign, ad group or ad during its schedule.
+      - name: stat_time_hour
+        description: The hour of the day for which the statistical data is recorded.
+      - name: video_play_actions
+        description: The number of times your video starts to play. Replays will not be counted.
+      - name: video_views_p_25
+        description: The number of times your video was played at 25% of its length. Replays will not be counted.
+      - name: video_views_p_50
+        description: The number of times your video was played at 50% of its length. Replays will not be counted.
+      - name: video_views_p_75
+        description: The number of times your video was played at 75% of its length. Replays will not be counted.
+      - name: video_watched_2_s
+        description: The number of times your video played for at least 2 seconds. Replays will not be counted.
+      - name: video_watched_6_s
+        description: The number of times your video played for at least 6 seconds, or completely played. Replays will not be counted.
+        

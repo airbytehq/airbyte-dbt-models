@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: ad_history
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('tiktok_ads_ad_history_identifier', 'ad_history') }}"
+    description: All fields and field values associated with ad_history.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: ad_id
+        description: The unique identifier of the ad
+      - name: ad_name
+        description: The name of the ad
+      - name: adgroup_id
+        description: The unique identifier of the ad group
+      - name: advertiser_id
+        description: The unique identifier of the advertiser
+      - name: call_to_action
+        description: The call-to-action text for the ad
+      - name: campaign_id
+        description: The unique identifier of the campaign
+      - name: click_tracking_url
+        description: The URL for tracking ad clicks
+      - name: impression_tracking_url
+        description: The URL for tracking ad impressions
+      - name: landing_page_url
+        description: The URL of the landing page for the ad
+      - name: updated_at
+        description: The timestamp when the ad was last modified
