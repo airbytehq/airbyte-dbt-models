@@ -1,0 +1,45 @@
+version: 2
+
+models:
+  - name: advertiser
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('tiktok_ads_advertiser_identifier', 'advertiser') }}"
+    description: All fields and field values associated with advertiser.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: address
+        description: The physical address of the advertiser.
+      - name: id
+        description: Unique identifier for the advertiser.
+      - name: balance
+        description: The current balance in the advertiser's account.
+      - name: cellphone_number
+        description: The cellphone number of the advertiser.
+      - name: phone_number
+        description: The cellphone number of the advertiser.
+      - name: company
+        description: The name of the company associated with the advertiser.
+      - name: contacter
+        description: The contact person for the advertiser.
+      - name: country
+        description: The country where the advertiser is located.
+      - name: currency
+        description: The currency used for transactions in the account.
+      - name: description
+        description: A brief description or bio of the advertiser or company.
+      - name: email
+        description: The email address associated with the advertiser.
+      - name: industry
+        description: The industry or sector the advertiser operates in.
+      - name: language
+        description: The preferred language of communication for the advertiser.
+      - name: name
+        description: The name of the advertiser or company.
+      - name: telephone
+        description: The telephone number of the advertiser.
+      - name: telephone_number
+        description: The telephone number of the advertiser.
+      - name: timezone
+        description: The timezone setting for the advertiser's activities.
