@@ -1,10 +1,10 @@
 version: 2
 
 models:
-  - name: event
+  - name: outgoing_caller_id
     schema: "{{ var('airbyte_schema', target.schema) }}"
     database: "{{ var('airbyte_database', target.database) }}"
-    identifier: "{{ var('amplitude_event_identifier', 'event') }}"
+    identifier: "{{ var('outgoing_caller_id_identifier', 'outgoing_caller_id') }}"
     description: All fields and field values associated with events.
     config:
       +enabled: "{{ var('using_fivetran_model', False) }}"
