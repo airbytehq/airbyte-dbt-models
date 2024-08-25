@@ -7,7 +7,7 @@ WITH tmp AS (
         caller_name,
         cast(date_created AS {{ dbt.type_timestamp() }}) AS created_at,
         direction,
-        duration AS {{ dbt.type_float() }} AS duration,
+        duration,
         cast(end_time AS {{ dbt.type_timestamp() }}) AS end_time,
         forwarded_from,
         "from" AS call_from,
