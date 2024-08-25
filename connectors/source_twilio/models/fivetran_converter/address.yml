@@ -1,0 +1,41 @@
+version: 2
+
+models:
+  - name: address
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('addresses_identifier', 'address') }}"
+    description: All fields and field values associated with Twilio addresses.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: _fivetran_synced
+        description: Timestamp of when this record was last synced by Fivetran
+      - name: account_id
+        description: The Twilio Account SID associated with this address
+      - name: city
+        description: The city of the address
+      - name: created_at
+        description: The timestamp when the address was created
+      - name: customer_name
+        description: The customer name associated with this address
+      - name: emergency_enabled
+        description: Indicates if emergency services are enabled for this address
+      - name: friendly_name
+        description: A user-defined friendly name for the address
+      - name: address_id
+        description: The unique identifier for the Twilio address (formerly 'sid')
+      - name: iso_country
+        description: The ISO country code of the address
+      - name: postal_code
+        description: The postal code of the address
+      - name: region
+        description: The region (state/province) of the address
+      - name: street
+        description: The street name and number of the address
+      - name: updated_at
+        description: The timestamp when the address was last updated
+      - name: validated
+        description: Indicates if the address has been validated
+      - name: verified
+        description: Indicates if the address has been verified
