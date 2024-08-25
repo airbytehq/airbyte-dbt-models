@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: account_history
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('account_history_identifier', 'account_history') }}"
+    description: All fields and field values associated with Twilio accounts.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: _fivetran_synced
+        description: Timestamp of when this record was last synced by Fivetran
+      - name: created_at
+        description: The timestamp when the account was created
+      - name: friendly_name
+        description: A user-defined friendly name for the account
+      - name: account_id
+        description: The unique identifier for the Twilio account (formerly 'sid')
+      - name: owner_account_id
+        description: The identifier of the owner account (formerly 'owner_account_sid')
+      - name: status
+        description: The current status of the account
+      - name: type
+        description: The type of the Twilio account
+      - name: updated_at
+        description: The timestamp when the account was last updated
+      - name: is_most_recent_record
+        description: Boolean indicating if this is the most recent record for the account
