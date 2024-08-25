@@ -36,11 +36,11 @@ vars:
   # Required by Airbyte dbt model
   using_fivetran_model: True
   airbyte_database: "airbyte_db_default"
-  airbyte_schema: "dbt_source_twilio"
+  airbyte_schema: "airbyte_dbt_source_twilio"
 
   # Required by Fivetran dbt model
   amplitude_database: "airbyte_db_default"
-  amplitude_schema: "dbt_source_twilio"
+  amplitude_schema: "airbyte_dbt_source_twilio"
 
   account_history_identifier: "accounts"
   addresses_identifier: "addresses"
