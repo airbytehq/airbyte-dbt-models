@@ -1,0 +1,61 @@
+version: 2
+
+models:
+  - name: call
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('call_identifier', 'call') }}"
+    description: All fields and field values associated with Twilio calls.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: _fivetran_synced
+        description: Timestamp of when this record was last synced by Fivetran
+      - name: account_id
+        description: The unique identifier for the account associated with the call
+      - name: annotation
+        description: Any additional notes or context added to the call
+      - name: answered_by
+        description: The name of the entity or system that answered the call
+      - name: caller_name
+        description: The name of the caller as supplied by the caller ID service
+      - name: created_at
+        description: The date and time when the call record was created
+      - name: direction
+        description: The direction of the call, either 'inbound' or 'outbound'
+      - name: duration
+        description: The duration of the call in seconds
+      - name: end_time
+        description: The date and time when the call ended
+      - name: forwarded_from
+        description: The phone number that initiated the call forwarding
+      - name: call_from
+        description: The phone number that made the call
+      - name: from_formatted
+        description: The formatted version of the 'from' phone number
+      - name: group_id
+        description: The unique identifier of the call group to which this call belongs
+      - name: call_id
+        description: The unique identifier for the call
+      - name: outgoing_caller_id
+        description: The SID of the phone number used for the call
+      - name: parent_call_id
+        description: The SID of the parent call if this call is part of a conference
+      - name: price
+        description: The cost of the call
+      - name: price_unit
+        description: The currency unit of the call cost
+      - name: queue_time
+        description: The time the call spent in a queue before being answered
+      - name: start_time
+        description: The date and time when the call started
+      - name: status
+        description: The current status of the call, such as 'completed' or 'in-progress'
+      - name: call_to
+        description: The phone number that received the call
+      - name: to_formatted
+        description: The formatted version of the 'to' phone number
+      - name: trunk_id
+        description: The unique identifier of the trunk used for the call
+      - name: updated_at
+        description: The date and time when the call record was last updated
