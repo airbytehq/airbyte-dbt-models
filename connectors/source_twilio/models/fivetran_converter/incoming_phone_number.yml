@@ -1,0 +1,45 @@
+version: 2
+
+models:
+  - name: incoming_phone_number
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('incoming_phone_number_identifier', 'incoming_phone_number') }}"
+    description: All fields and field values associated with Twilio incoming phone numbers.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: _fivetran_synced
+        description: Timestamp of when this record was last synced by Fivetran
+      - name: account_id
+        description: The SID of the account that owns this phone number
+      - name: address_id
+        description: The SID of the address associated with this phone number
+      - name: capabilities_mms
+        description: Indicates if the phone number has MMS capabilities
+      - name: capabilities_sms
+        description: Indicates if the phone number has SMS capabilities
+      - name: capabilities_voice
+        description: Indicates if the phone number has voice capabilities
+      - name: created_at
+        description: The date and time when this phone number was created
+      - name: emergency_address_id
+        description: The SID of the emergency address associated with this phone number
+      - name: emergency_status
+        description: Emergency status of this phone number
+      - name: friendly_name
+        description: A user-assigned friendly name for this phone number
+      - name: incoming_phone_number_id
+        description: The unique identifier for this incoming phone number (formerly 'sid')
+      - name: origin
+        description: Indicates the origin of this phone number
+      - name: phone_number
+        description: The phone number
+      - name: trunk_id
+        description: The SID of the trunk associated with this phone number
+      - name: updated_at
+        description: The date and time when this phone number was last updated
+      - name: voice_caller_id_lookup
+        description: Caller ID lookup setting for voice calls made from this phone number
+      - name: voice_url
+        description: URL to make requests to when an incoming voice call is received
