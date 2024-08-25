@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: issue_closed_history
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('github_issue_closed_history_identifier', 'issue_closed_history') }}"
+    description: All fields and field values associated with issues with closed history.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: issue_id
+        description: The ID of the issue associated with the field.
+      - name: updated_at
+        description: The timestamp for when the issue was last modified.
+      - name: is_closed
+        description: The boolean for whether the issue is closed or not.

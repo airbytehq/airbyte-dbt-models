@@ -37,9 +37,9 @@ packages:
 
 After you can run `dbt tests` or `dbt docs generate` to have a preview of Airbyte output data.
 
-### Fivetran github Modeling dbt package
+### Fivetran Github Modeling dbt package
 
-This package transforms Airbyte connector output data, making it compatible with Fivetran's github dbt package. You can check the analytical models Fivetran creates [here](https://github.com/fivetran/dbt_github/tree/main?tab=readme-ov-file#-what-does-this-dbt-package-do). The link also provides information about how the package works and what is configurable.
+This package transforms Airbyte connector output data, making it compatible with Fivetran's Github dbt package. You can check the analytical models Fivetran creates [here](https://github.com/fivetran/dbt_github/tree/main?tab=readme-ov-file#-what-does-this-dbt-package-do). The link also provides information about how the package works and what is configurable.
 
 Create the require files to use Airbyte and Fivetran dbt packages:
 
@@ -71,23 +71,15 @@ vars:
   github_database: "airbyte_db_default"
   github_schema: "airbyte_dbt_github_support"
 
-  using_schedules: False
-  using_domain_names: False
-  using_user_tags: False
-  using_ticket_form_history: False
-  using_organization_tags: False
+  using_repo_team: False
 
-  github_organization_identifier: "organizations"
-  github_ticket_identifier: "tickets"
-  github_ticket_comment_identifier: "ticket_comments"
-  github_ticket_tag_identifier: "tags"
-  github_ticket_field_history_identifier: "ticket_field_history"
-  github_ticket_form_history_identifier: "ticket_forms"
-  github_brand_identifier: "brands"
-  github_group_identifier: "groups"
-  github_organization_tag_identifier: "organization_fields"
-  github_user_identifier: "users"
-  github_user_tag_identifier: "user_field"
+  github_issue_assignee_identifier: "issue_assignee"
+  github_issue_closed_history_identifier: "issue_closed_history"
+  github_issue_merged_identifier: "issue_merged"
+  github_pull_request_review_identifier: "pull_request_review"
+  github_repo_team_identifier: "repo_team"
+  github_requested_reviewer_history_identifier: "requested_reviewer_history"
+  
 ```
 
 After run `dbt run`, you can see the models being created.

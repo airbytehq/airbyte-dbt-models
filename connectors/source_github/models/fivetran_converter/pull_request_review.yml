@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: pull_request_review
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('github_pull_request_review_identifier', 'pull_request_review') }}"
+    description: All fields and field values associated with pull request reviews.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: pull_request_review_id
+        description: The ID of the issue associated with the field.
+      - name: pull_request_id
+        description: The ID of the issue associated with the field.
+      - name: submitted_at
+        description: The timestamp for when the issue was last submitted.
+      - name: state
+        description: The boolean for whether the pull request is reviewed or not.
+      - name: user_id
+        description: The ID of the issue associated with the field.

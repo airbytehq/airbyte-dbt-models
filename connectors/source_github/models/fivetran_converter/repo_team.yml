@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: repo_team
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('github_repo_team_identifier', 'repo_team') }}"
+    description: All fields and field values associated with repo teams.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: repository_id
+        description: The ID of the repo associated with the field.
+      - name: team_id
+        description: The ID of the team associated with the field.
