@@ -1,0 +1,47 @@
+version: 2
+
+models:
+  - name: message
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('message_identifier', 'message') }}"
+    description: All fields and field values associated with Twilio messages.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: _fivetran_synced
+        description: Timestamp of when this record was last synced by Fivetran
+      - name: account_id
+        description: The unique identifier for the account associated with this message
+      - name: body
+        description: The text body of the message
+      - name: created_at
+        description: The date and time when the message was created
+      - name: timestamp_sent
+        description: The date and time when the message was sent
+      - name: direction
+        description: The direction of the message, whether it's incoming or outgoing
+      - name: error_code
+        description: The error code associated with the message, if any
+      - name: error_message
+        description: The error message description if the message failed to send
+      - name: message_from
+        description: The phone number or sender ID that the message originated from
+      - name: message_id
+        description: The unique identifier for this message
+      - name: messaging_service_id
+        description: The unique identifier for the messaging service associated with the message
+      - name: num_media
+        description: The number of media files included in the message
+      - name: num_segments
+        description: The number of message segments if the message exceeds 160 characters
+      - name: price
+        description: The cost of sending the message
+      - name: price_unit
+        description: The currency unit used for pricing of the message
+      - name: status
+        description: The status of the message (e.g., sent, delivered, failed)
+      - name: message_to
+        description: The phone number or recipient ID that the message was sent to
+      - name: updated_at
+        description: The date and time when the message was last updated
