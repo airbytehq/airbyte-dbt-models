@@ -4,7 +4,7 @@ config-version: 2
 
 version: 0.1.0
 
-profile: airbyte
+profile: integration_tests
 
 model-paths:
   - models
@@ -24,7 +24,7 @@ require-dbt-version:
   - <2.0.0
 
 models:
-  source_twilio:
+  airbyte_dbt_source_twilio:
     materialized: view
     staging:
       materialized: view
