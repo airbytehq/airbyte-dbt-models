@@ -4,7 +4,7 @@ config-version: 2
 
 version: 0.1.0
 
-profile: airbyte
+profile: integration_tests
 
 model-paths:
   - models
@@ -20,13 +20,13 @@ clean-targets:
   - logs
 
 require-dbt-version:
-  - '>=1.0.0'
+  - ">=1.0.0"
   - <2.0.0
 
 models:
   source_snapchat_marketing:
     materialized: view
-    staging:
+    fivetran_converter:
       materialized: view
 
 vars:
