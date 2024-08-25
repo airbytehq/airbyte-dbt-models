@@ -1,0 +1,49 @@
+version: 2
+
+models:
+  - name: ad_hourly_report
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('snapchat_ads_ad_hourly_report_identifier', 'ad_hourly_report') }}"
+    description: All fields and field values associated with the ad hourly report.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: ad_id
+        description: Unique identifier for the ad.
+      - name: date_hour
+        description: The hour in which the data was recorded.
+      - name: attachment_quartile_1
+        description: First quartile of attachment viewing time.
+      - name: attachment_quartile_2
+        description: Second quartile of attachment viewing time.
+      - name: attachment_quartile_3
+        description: Third quartile of attachment viewing time.
+      - name: attachment_total_view_time
+        description: Total time viewers spend on attachment views.
+      - name: attachment_view_completion
+        description: Percentage of attachment views that are completed.
+      - name: quartile_1
+        description: First quartile of viewing time.
+      - name: quartile_2
+        description: Second quartile of viewing time.
+      - name: quartile_3
+        description: Third quartile of viewing time.
+      - name: saves
+        description: Number of times the content was saved.
+      - name: shares
+        description: Number of times the content was shared.
+      - name: screen_time
+        description: Total time users spend on the screen.
+      - name: video_views
+        description: Total number of video views.
+      - name: view_completion
+        description: Percentage of views that are completed.
+      - name: view_time
+        description: Total time viewers spend on viewing content.
+      - name: impressions
+        description: Total number of impressions.
+      - name: spend
+        description: Total spend for marketing activities.
+      - name: swipes
+        description: Total number of swipe gestures.

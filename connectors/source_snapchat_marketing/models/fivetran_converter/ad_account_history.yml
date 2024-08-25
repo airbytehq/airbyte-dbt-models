@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: ad_account_history
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('snapchat_ads_ad_account_history_identifier', 'ad_account_history') }}"
+    description: All fields and field values associated with ad account history.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: ad_account_id
+        description: Unique identifier for the ad account.
+      - name: ad_account_name
+        description: The name of the ad account.
+      - name: created_at
+        description: The timestamp indicating when the ad account was created.
+      - name: advertiser
+        description: The ID of the organization that is advertising on the platform.
+      - name: currency
+        description: The currency used for financial transactions within the ad account.
+      - name: timezone
+        description: The timezone setting for the ad account operations.
+      - name: updated_at
+        description: The timestamp indicating when the ad account details were last updated.
