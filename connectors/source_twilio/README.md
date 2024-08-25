@@ -71,8 +71,15 @@ vars:
   twilio_database: "airbyte_db_default"
   twilio_schema: "airbyte_dbt_twilio"
 
-  twilio_event_identifier: "event"
-  twilio_event_type_identifier: "events_list"
+  account_history_identifier: "accounts"
+  addresses_identifier: "addresses"
+  call_identifier: "alerts"
+  incoming_phone_number_identifier: "incoming_phone_numbers"
+  message_identifier: "messages"
+  messaging_service_identifier: "message_media"
+  outgoing_caller_id_identifier: "outgoing_caller_ids"
+  usage_record_identifier: "usage_records"
+
 ```
 
 After run `dbt run`, you can see the models being created.
