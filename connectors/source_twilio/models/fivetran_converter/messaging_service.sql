@@ -25,7 +25,7 @@
             NULL AS use_case,
             NULL AS validity_period
         FROM
-            {{ source('source_recurly', 'services') }}
+            {{ source('source_twilio', 'services') }}
     )
     SELECT * FROM tmp
     WHERE messaging_service_id IS NOT NULL
@@ -57,7 +57,7 @@
             NULL AS use_case,
             NULL AS validity_period
         FROM
-            {{ source('source_recurly', 'services') }}
+            {{ source('source_twilio', 'services') }}
     )
     SELECT * FROM tmp
     WHERE messaging_service_id IS NOT NULL
@@ -89,7 +89,7 @@
             NULL AS use_case,
             NULL AS validity_period
         FROM
-            {{ source('source_recurly', 'services') }}
+            {{ source('source_twilio', 'services') }}
     )
     SELECT * FROM tmp
     WHERE messaging_service_id IS NOT NULL
