@@ -1,0 +1,107 @@
+version: 2
+
+models:
+  - name: event
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('amplitude_event_identifier', 'event') }}"
+    description: All fields and field values associated with events.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: server_received_time
+        description: The timestamp when the event data was received by the server
+      - name: app
+        description: Information related to the application where the event originated
+      - name: project_name
+        description: Project ID
+      - name: device_carrier
+        description: The mobile carrier used by the device
+      - name: $schema
+        description: The schema version used for the event data
+      - name: city
+        description: The city where the event occurred
+      - name: user_id
+        description: The unique identifier for the user
+      - name: uuid
+        description: The universally unique identifier for the event
+      - name: event_time
+        description: The timestamp when the event occurred
+      - name: platform
+        description: The platform where the event occurred (e.g., iOS, Android)
+      - name: os_version
+        description: The version of the operating system on the user's device
+      - name: amplitude_id
+        description: The unique identifier assigned by Amplitude for the event
+      - name: processed_time
+        description: The timestamp when the event data was processed
+      - name: user_creation_time
+        description: The timestamp when the user account was created
+      - name: version_name
+        description: The name or label of the version associated with the event
+      - name: ip_address
+        description: The IP address from which the event was triggered
+      - name: paying
+        description: Flag indicating if the user is a paying customer
+      - name: dma
+        description: The Designated Market Area where the event occurred
+      - name: group_properties
+        description: Properties related to grouping events
+      - name: user_properties
+        description: Additional properties associated with the user
+      - name: client_upload_time
+        description: The timestamp when the event data was uploaded from the client to the server
+      - name: $insert_id
+        description: The unique identifier assigned by Amplitude for each event insertion
+      - name: event_type
+        description: The type/category of the event
+      - name: event_type_id
+        description: Internal identifier on Amplitude.
+      - name: library
+        description: Information about the library/version used for event tracking
+      - name: device_type
+        description: The type of device (e.g., smartphone, tablet)
+      - name: device_manufacturer
+        description: The manufacturer of the device
+      - name: start_version
+        description: The version at which the user started using the application
+      - name: location_lng
+        description: Longitude coordinate of the event location
+      - name: server_upload_time
+        description: The timestamp when the event data was uploaded to the server
+      - name: event_id
+        description: The unique identifier assigned to the event
+      - name: location_lat
+        description: Latitude coordinate of the event location
+      - name: os_name
+        description: The name of the operating system on the user's device
+      - name: device_brand
+        description: The brand of the user's device
+      - name: groups
+        description: Groups to which the event belongs
+      - name: event_properties
+        description: Additional properties associated with the event
+      - name: data
+        description: Custom data associated with the event
+      - name: device_id
+        description: The unique identifier assigned to the device
+      - name: language
+        description: The language set on the user's device
+      - name: device_model
+        description: The model of the device
+      - name: country
+        description: The country where the event occurred
+      - name: region
+        description: The region where the event occurred
+      - name: is_attribution_event
+        description: Flag indicating if the event is an attribution event
+      - name: adid
+        description: The advertising identifier associated with the user's device
+      - name: session_id
+        description: The unique identifier for the user session
+      - name: device_family
+        description: The family of the device model
+      - name: idfa
+        description: The Identifier for Advertisers associated with the user's device
+      - name: client_event_time
+        description: The timestamp when the event occurred on the client side

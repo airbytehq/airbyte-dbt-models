@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: usage_record
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('usage_record_identifier', 'usage_record') }}"
+    description: All fields and field values associated with Twilio usage records.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: _fivetran_synced
+        description: Timestamp of when this record was last synced by Fivetran
+      - name: account_id
+        description: The unique identifier for the account associated with this usage record
+      - name: as_of
+        description: The date and time of the usage record as of this point in time
+      - name: category
+        description: The category of the usage record
+      - name: count
+        description: The count of usage events, typically a numeric value
+      - name: count_unit
+        description: The unit of measurement for the count of usage events
+      - name: description
+        description: A description of the usage record
+      - name: end_date
+        description: The date and time when the usage period ended
+      - name: price
+        description: The cost associated with the usage record
+      - name: price_unit
+        description: The currency unit used for pricing the usage
+      - name: start_date
+        description: The date and time when the usage period started
+      - name: usage
+        description: The amount of usage, typically a numeric value
+      - name: usage_unit
+        description: The unit of measurement for the usage amount
