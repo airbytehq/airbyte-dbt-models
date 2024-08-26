@@ -20,12 +20,12 @@
         FROM
             {{ source('source_asana', 'tasks') }} t
     )
-    SELECT * FROM tmp;
+    SELECT * FROM tmp
 
 {% elif target.type == "bigquery" %}
     WITH tmp AS (
         SELECT
-            t.gid as as id,
+            t.gid as id,
             JSON_QUERY(t.assignee, '$.gid') as assignee_id,
             t.completed,
             t.completed_at,
@@ -39,12 +39,12 @@
             t.start_on,
             t.notes,
             t.liked,
-            t.num_likes,                    
+            t.num_likes,
             JSON_QUERY(t.workspace, '$.gid') as workspace_id
         FROM
             {{ source('source_asana', 'tasks') }} t
     )
-    SELECT * FROM tmp;
+    SELECT * FROM tmp
 
 {% elif target.type == "postgres" %}
     WITH tmp AS (
@@ -68,6 +68,6 @@
         FROM
             {{ source('source_asana', 'tasks') }} t
     )
-    SELECT * FROM tmp;
+    SELECT * FROM tmp
 
 {%endif%}

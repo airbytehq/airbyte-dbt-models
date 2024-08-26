@@ -8,4 +8,4 @@ packages:
     version: 0.4.10
   - package: dbt-labs/dbt_utils
     version: 1.2.0
-sha1_hash: fc497513774e493a6374e162f78845f94d8ed0c9
+sha1_hash: 0781618095a2416ec871e4c9ef1833b1f54d0c80

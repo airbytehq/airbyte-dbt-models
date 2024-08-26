@@ -7,7 +7,7 @@
         FROM
             {{ source('source_asana', 'tags') }} t
     )
-    SELECT * FROM tmp;
+    SELECT * FROM tmp
 
 {% elif target.type == "bigquery" %}
     WITH tmp AS (
@@ -18,7 +18,7 @@
         FROM
             {{ source('source_asana', 'tags') }} t
     )
-    SELECT * FROM tmp;
+    SELECT * FROM tmp
 
 {% elif target.type == "postgres" %}
     WITH tmp AS (
@@ -29,6 +29,6 @@
         FROM
             {{ source('source_asana', 'tags') }} t
     )
-    SELECT * FROM tmp;
+    SELECT * FROM tmp
 
 {%endif%}

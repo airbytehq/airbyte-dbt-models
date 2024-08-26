@@ -5,9 +5,9 @@
             t.name,
             t.email
         FROM
-            {{ source('source_asana', 'projects') }} t
+            {{ source('source_asana', 'users') }} t
     )
-    SELECT * FROM tmp;
+    SELECT * FROM tmp
 
 {% elif target.type == "bigquery" %}
     WITH tmp AS (
@@ -16,9 +16,9 @@
             t.name,
             t.email
         FROM
-            {{ source('source_asana', 'projects') }} t
+            {{ source('source_asana', 'users') }} t
     )
-    SELECT * FROM tmp;
+    SELECT * FROM tmp
 
 {% elif target.type == "postgres" %}
     WITH tmp AS (
@@ -27,8 +27,8 @@
             t.name,
             t.email
         FROM
-            {{ source('source_asana', 'projects') }} t
+            {{ source('source_asana', 'users') }} t
     )
-    SELECT * FROM tmp;
+    SELECT * FROM tmp
 
 {%endif%}
