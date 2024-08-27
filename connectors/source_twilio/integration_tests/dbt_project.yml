@@ -39,8 +39,11 @@ vars:
   airbyte_schema: "airbyte_dbt_source_twilio"
 
   # Required by Fivetran dbt model
-  amplitude_database: "airbyte_db_default"
-  amplitude_schema: "airbyte_dbt_source_twilio"
+  twilio_database: "airbyte_db_default"
+  twilio_schema: "airbyte_dbt_source_twilio"
+
+  using_twilio_call: False # Disable this if not using call
+  using_twilio_messaging_service: False # Disable this if not using messaging_service
 
   account_history_identifier: "accounts"
   addresses_identifier: "addresses"
