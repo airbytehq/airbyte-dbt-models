@@ -1,0 +1,69 @@
+version: 2
+
+models:
+  - name: campaigns
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('mailchimp_campaigns_identifier', 'campaigns') }}"
+    description: All fields and field values associated with campaigns.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: campaign_id
+        description: Identifier for the campaign.
+      - name: segment_id
+        description: Identifier for the segment associated with the campaign.
+      - name: create_timestamp
+        description: Timestamp when the campaign was created.
+      - name: send_timestamp
+        description: Timestamp when the campaign was sent.
+      - name: list_id
+        description: Identifier for the list associated with the campaign.
+      - name: reply_to_email
+        description: Email address used for replies to the campaign.
+      - name: campaign_type
+        description: Type of the campaign.
+      - name: title
+        description: Title of the campaign.
+      - name: archive_url
+        description: URL to the archived version of the campaign.
+      - name: authenticate
+        description: Indicates whether the campaign is authenticated.
+      - name: auto_footer
+        description: Indicates whether the campaign has an automatic footer.
+      - name: auto_tweet
+        description: Indicates whether the campaign is auto-tweeted.
+      - name: clicktale
+        description: Indicates whether Clicktale is used for tracking.
+      - name: content_type
+        description: Type of content in the campaign.
+      - name: folder_id
+        description: Identifier for the folder containing the campaign.
+      - name: from_name
+        description: Name shown in the "From" field of the campaign.
+      - name: google_analytics
+        description: Google Analytics tracking information.
+      - name: long_archive_url
+        description: URL to the full archive version of the campaign.
+      - name: status
+        description: Status of the campaign.
+      - name: subject_line
+        description: Subject line of the campaign.
+      - name: template_id
+        description: Identifier for the template used in the campaign.
+      - name: timewarp
+        description: Indicates whether Timewarp is used for scheduling.
+      - name: to_name
+        description: Name shown in the "To" field of the campaign.
+      - name: ecomm360
+        description: Indicates whether eCommerce 360 tracking is enabled.
+      - name: goals
+        description: Goals tracking information.
+      - name: html_clicks
+        description: Indicates whether HTML clicks are tracked.
+      - name: opens
+        description: Indicates whether opens are tracked.
+      - name: text_clicks
+        description: Indicates whether text clicks are tracked.
+      - name: winner_criteria
+        description: Criteria used to determine the winning campaign in an A/B test.

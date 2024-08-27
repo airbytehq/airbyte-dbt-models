@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: segment_members
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('mailchimp_segment_members_identifier', 'segment_members') }}"
+    description: "All fields and field values associated with segment members."
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: segment_id
+        description: "The ID of the segment to which the member belongs."
+      - name: member_id
+        description: "Unique identifier for the segment member."
+      - name: list_id
+        description: "The ID of the list to which the segment member belongs."

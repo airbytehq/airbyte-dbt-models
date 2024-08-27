@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: campaign_activities
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('mailchimp_campaign_activities_identifier', 'campaign_activities') }}"
+    description: "All fields and field values associated with campaign activities."
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: campaign_id
+        description: "Corresponds to the campaign ID in Airbyte."
+      - name: member_id
+        description: "Email ID of the recipient, extracted from the recipients object."
+      - name: list_id
+        description: "The ID of the list to which the campaign was sent, extracted from the recipients object."
+      - name: activity_timestamp
+        description: "The timestamp of the activity, corresponds to send_time in Airbyte."
+      - name: combination_id
+        description: "Combination ID from the variate settings object."
+      - name: action_type
+        description: "Action type (Not present in Airbyte, set as NULL)."
+      - name: ip_address
+        description: "IP address (Not present in Airbyte, set as NULL)."
+      - name: url
+        description: "URL (Not present in Airbyte, set as NULL)."
+      - name: bounce_type
+        description: "Bounce type (Not present in Airbyte, set as NULL)."
+      - name: activity_id
+        description: "Generated surrogate key for the activity."
+      - name: email_id
+        description: "Generated surrogate key for the email."
