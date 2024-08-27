@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: automation_activities
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('mailchimp_automation_activities_identifier', 'automation_activities') }}"
+    description: All fields and field values associated with automation activities.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: member_id
+        description: The ID of the member associated with the automation activity.
+      - name: list_id
+        description: The ID of the list associated with the automation activity.
+      - name: activity_timestamp
+        description: The timestamp when the automation activity occurred.
+
+      # The following fields are not present in the Airbyte schema:
+      # action_type, automation_email_id, ip_address, url, bounce_type, activity_id (Generated)

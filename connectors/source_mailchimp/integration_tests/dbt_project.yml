@@ -1,0 +1,43 @@
+name: integration_test_mailchimp
+
+config-version: 2
+
+version: 0.1.0
+
+profile: integration_tests
+
+model-paths:
+  - models
+
+macro-paths:
+  - macros
+
+target-path: target
+
+clean-targets:
+  - target
+  - dbt_modules
+  - logs
+
+require-dbt-version:
+  - '>=1.0.0'
+  - <2.0.0
+
+models:
+  airbyte_dbt_source_mailchimp:
+    materialized: view
+    +schema: dbt_source_mailchimp
+    fivetran_converter:
+      materialized: view
+    tmp:
+      materialized: view
+
+vars:
+  # Required by Airbyte dbt model
+  using_fivetran_model: True
+  airbyte_database: "airbyte_db_default"
+  airbyte_schema: "airbyte_dbt_source_mailchimp"
+
+  # Required by Fivetran dbt model
+  mailchimp_database: "airbyte_db_default"
+  mailchimp_schema: "dbt_source_mailchimp"
