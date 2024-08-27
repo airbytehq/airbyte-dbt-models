@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: task_section
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('asana_task_section_identifier', 'task_section') }}"
+    description: Table of tasks and the section that they live under. Section-less tasks within projects appear here, but project-less tasks do not
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: section_id
+        description: Foreign key referencing the SECTION that the task lives under.
+      - name: task_id
+        description: Foreign key referencing the TASK that lives in a section.

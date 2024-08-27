@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: task_follower
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('asana_task_follower_identifier', 'task_follower') }}"
+    description: Table of tasks with the users that are following them. Tasks without users do not appear here.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: task_id
+        description: Foreign key referencing the TASK being followed
+      - name: user_id
+        description: Foreign key referencing the USER that is following the task

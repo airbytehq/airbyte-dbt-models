@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: task_tag
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('asana_task_tag_identifier', 'task_tag') }}"
+    description:  Table of tasks with the tags attached to them. Tasks without tags (and vice versa) do not appear here.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: task_id
+        description: Foreign key referencing the TASK that is tagged
+      - name: tag_id
+        description: Foreign key referencing the TAG that is applied to the task
