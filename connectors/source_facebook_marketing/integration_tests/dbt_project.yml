@@ -38,5 +38,5 @@ models:
       +materialized: ephemeral
 
 vars:
-  airbyte_database: postgres
-  airbyte_schema: dbt_source_facebook_marketing
+  airbyte_database: airbyte_db_default
+  airbyte_schema: airbyte_dbt_facebook_ads_support
