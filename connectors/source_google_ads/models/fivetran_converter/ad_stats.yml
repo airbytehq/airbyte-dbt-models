@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: ad_stats
+    description: "This model processes ad statistics from Google Ads data, merging performance metrics from multiple sources."
+    columns:
+      - name: account_id
+        description: "Unique identifier for the account."
+      - name: date_day
+        description: "The date for which the stats are recorded."
+      - name: ad_group_id
+        description: "Unique identifier for the ad group."
+      - name: ad_network_type
+        description: "Type of ad network."
+      - name: device
+        description: "Device preference for the ad."
+      - name: ad_id
+        description: "Unique identifier for the ad."
+      - name: campaign_id
+        description: "Unique identifier for the campaign."
+      - name: clicks
+        description: "Number of clicks recorded."
+      - name: spend
+        description: "Amount spent, in micros."
+      - name: impressions
+        description: "Number of impressions."
+      - name: conversions
+        description: "Number of conversions."
+      - name: conversions_value
+        description: "Value of conversions."
+      - name: view_through_conversions
+        description: "Number of view-through conversions."

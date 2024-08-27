@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: keyword_stats
+    description: "A staging model for Google Ads keyword statistics."
+    columns:
+      - name: account_id
+        description: "The ID of the customer account."
+      - name: date_day
+        description: "The date for the keyword statistics."
+      - name: ad_group_id
+        description: "The ID of the ad group."
+      - name: criterion_id
+        description: "The ID of the ad group criterion."
+      - name: campaign_id
+        description: "The ID of the campaign."
+      - name: clicks
+        description: "The number of clicks received."
+      - name: spend
+        description: "The cost in micros."
+      - name: impressions
+        description: "The number of impressions."
+      - name: conversions
+        description: "The number of conversions."
+      - name: conversions_value
+        description: "The value of conversions."
+      - name: view_through_conversions
+        description: "The number of view-through conversions."

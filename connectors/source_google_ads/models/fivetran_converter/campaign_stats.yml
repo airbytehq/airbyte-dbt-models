@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: campaign_stats
+    description: "Transformation model for Google Ads Campaign Stats."
+    columns:
+      - name: account_id
+        description: "Unique identifier for the customer account."
+      - name: date_day
+        description: "Date of the data for this record."
+      - name: campaign_id
+        description: "Unique identifier for the campaign."
+      - name: ad_network_type
+        description: "Type of ad network used."
+      - name: device
+        description: "Device type on which the ad was displayed."
+      - name: clicks
+        description: "Number of clicks the ad received."
+      - name: spend
+        description: "Total spend in micros."
+      - name: impressions
+        description: "Number of impressions the ad received."
+      - name: conversions
+        description: "Number of conversions the ad generated."
+      - name: conversions_value
+        description: "Total value of conversions."
+      - name: view_through_conversions
+        description: "Number of view-through conversions."

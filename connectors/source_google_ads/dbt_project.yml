@@ -4,7 +4,7 @@ config-version: 2
 
 version: 0.1.0
 
-profile: airbyte
+profile: integration_tests
 
 model-paths:
   - models
@@ -31,4 +31,4 @@ models:
 
 vars:
   airbyte_database: airbyte_default_database
-  airbyte_schema: airbyte_default_schema
+  airbyte_schema: airbyte_dbt_source_google_ads

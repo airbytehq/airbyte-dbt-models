@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: account_stats
+    description: "This model transforms data from the Airbyte `account_performance_report` table to match the Fivetran `account_stats` structure."
+    columns:
+      - name: account_id
+        description: "The ID of the customer account."
+      - name: date_day
+        description: "The date of the statistics."
+      - name: ad_network_type
+        description: "The type of ad network."
+      - name: device
+        description: "The type of device."
+      - name: clicks
+        description: "The number of clicks."
+      - name: spend
+        description: "The cost in micros, converted to the appropriate unit."
+      - name: impressions
+        description: "The number of impressions."
+      - name: conversions
+        description: "The number of conversions."
+      - name: conversions_value
+        description: "The value of conversions."
+      - name: view_through_conversions
+        description: "The number of view-through conversions."
