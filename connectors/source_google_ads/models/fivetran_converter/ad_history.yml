@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: ad_history
+    description: >
+      A staging model that processes ad history data from the source `ad_group_ad` table, mapping relevant fields for further transformations and reporting.
+    config:
+      +enabled: "{{ var('using_fivetran_model', True) }}"
+    columns:
+      - name: ad_group_id
+        description: The ID of the ad group that this ad belongs to.
+      - name: ad_id
+        description: The unique identifier for the ad.
+      - name: ad_name
+        description: The name of the ad.
+      - name: updated_at
+        description: The timestamp when the ad was last updated.
+      - name: ad_type
+        description: The type of ad (e.g., text, display).
+      - name: ad_status
+        description: The status of the ad (e.g., enabled, paused).
+      - name: display_url
+        description: The display URL associated with the ad.
+      - name: final_urls
+        description: The final URLs where the ad leads, cleaned of any brackets.

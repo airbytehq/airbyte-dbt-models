@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: campaign_history
+    description: "A staging model that processes campaign history data."
+    columns:
+      - name: campaign_id
+        description: "Unique identifier for each campaign."
+      - name: updated_at
+        description: "Timestamp when the record was last updated."
+      - name: campaign_name
+        description: "Name of the campaign."
+      - name: account_id
+        description: "Identifier for the account associated with the campaign."
+      - name: advertising_channel_type
+        description: "The type of advertising channel for the campaign."
+      - name: advertising_channel_subtype
+        description: "Subtype of the advertising channel."
+      - name: start_date
+        description: "The start date of the campaign."
+      - name: end_date
+        description: "The end date of the campaign."
+      - name: serving_status
+        description: "The current serving status of the campaign."
+      - name: status
+        description: "The current status of the campaign."
+      - name: tracking_url_template
+        description: "The template used for tracking URLs in the campaign."

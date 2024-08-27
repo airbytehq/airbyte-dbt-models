@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: group_stats
+    description: "This model transforms and aggregates ad group statistics for Google Ads."
+    columns:
+      - name: account_id
+        description: "The account ID associated with the ad group."
+      - name: date_day
+        description: "The date for the ad group statistics."
+      - name: ad_group_id
+        description: "The ID of the ad group."
+      - name: campaign_id
+        description: "The ID of the campaign associated with the ad group."
+      - name: device
+        description: "The device type for the ad group."
+      - name: ad_network_type
+        description: "The ad network type."
+      - name: clicks
+        description: "The number of clicks for the ad group."
+      - name: spend
+        description: "The total spend for the ad group."
+      - name: impressions
+        description: "The number of impressions for the ad group."
+      - name: conversions
+        description: "The number of conversions for the ad group."
+      - name: conversions_value
+        description: "The value of conversions for the ad group."
+      - name: view_through_conversions
+        description: "The number of view-through conversions for the ad group."
+      - name: is_most_recent_record
+        description: "Boolean indicating if this is the most recent record for the ad group."
