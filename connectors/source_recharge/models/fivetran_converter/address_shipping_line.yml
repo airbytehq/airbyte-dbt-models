@@ -1,11 +1,11 @@
 version: 2
 
 models:
-  - name: address_discounts
+  - name: address_shipping_line
     schema: "{{ var('airbyte_schema', target.schema) }}"
     database: "{{ var('airbyte_database', target.database) }}"
     description: "Table of all addresses and corresponding associated shipping information."
-    config: 
+    config:
       +enabled: "{{ var('using_fivetran_model', False) }}"
     columns:
       - name: address_id
@@ -15,6 +15,6 @@ models:
       - name: price
         description: The price of the shipping amount.
       - name: code
-        description: The type of the shipping, can contain geographical shipping information. 
+        description: The type of the shipping, can contain geographical shipping information.
       - name: title
         description: The type of shipping consignment.

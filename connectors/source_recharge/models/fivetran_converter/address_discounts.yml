@@ -5,7 +5,7 @@ models:
     schema: "{{ var('airbyte_schema', target.schema) }}"
     database: "{{ var('airbyte_database', target.database) }}"
     description: "Address discounts aligned with the Fivetran dbt model."
-    config: 
+    config:
       +enabled: "{{ var('using_fivetran_model', False) }}"
     columns:
       - name: address_id
@@ -13,4 +13,4 @@ models:
       - name: index
         description: A unique numeric row produced for every concurrent address_id.
       - name: discount_id
-        description: "Discount unique identifier"s
+        description: "Discount unique identifier"

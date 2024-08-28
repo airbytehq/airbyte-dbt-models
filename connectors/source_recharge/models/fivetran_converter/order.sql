@@ -1,28 +1,26 @@
 {% if target.type == "snowflake" %}
 
-with tmp as 
+with tmp as
 (
     select
-        id as order_id,
-        to_variant(external_order_id):ecommerce as external_order_id_ecommerce,
-        to_variant(external_order_number):ecommerce as external_order_number_ecommerce,
+        id,
         customer_id,
         email,
-        cast(created_at as {{ dbt.type_timestamp() }}) as order_created_at,
+        cast(created_at as {{ dbt.type_timestamp() }}) as created_at,
         status as order_status,
-        cast(updated_at as {{ dbt.type_timestamp() }}) as order_updated_at,
+        cast(updated_at as {{ dbt.type_timestamp() }}) as updated_at,
         charge_id,
         transaction_id,
         charge_status,
         is_prepaid,
-        cast(total_price as {{ dbt.type_float() }}) as order_total_price,
-        type as order_type,
-        cast(processed_at as {{ dbt.type_timestamp() }}) as order_processed_at,
-        cast(scheduled_at as {{ dbt.type_timestamp() }}) as order_scheduled_at,
-        cast(shipped_date as {{ dbt.type_timestamp() }}) as order_shipped_date,
+        cast(total_price as {{ dbt.type_float() }}) as total_price,
+        type,
+        cast(processed_at as {{ dbt.type_timestamp() }}) as processed_at,
+        cast(scheduled_at as {{ dbt.type_timestamp() }}) as scheduled_at,
+        cast(shipped_date as {{ dbt.type_timestamp() }}) as shipped_date,
         address_id,
         null as is_deleted
-    from 
+    from
     {{ source('source_recharge', 'orders') }}
 )
 
@@ -31,7 +29,7 @@ from tmp
 
 {% elif target.type == "bigquery" %}
 
-with tmp as 
+with tmp as
 (
     select
         id as order_id,
@@ -53,7 +51,7 @@ with tmp as
         cast(shipped_date as {{ dbt.type_timestamp() }}) as order_shipped_date,
         address_id,
         null as is_deleted
-    from 
+    from
     {{ source('source_recharge', 'orders') }}
 )
 
@@ -62,29 +60,29 @@ from tmp
 
 {% elif target.type == "postgres" %}
 
-with tmp as 
+with tmp as
 (
     select
-        id as order_id,
+        id,
         external_order_id->>'ecommerce' as external_order_id_ecommerce,
         external_order_number->>'ecommerce' as external_order_number_ecommerce,
         customer_id,
         email,
-        cast(created_at as {{ dbt.type_timestamp() }}) as order_created_at,
-        status as order_status,
-        cast(updated_at as {{ dbt.type_timestamp() }}) as order_updated_at,
+        cast(created_at as {{ dbt.type_timestamp() }}) as created_at,
+        status,
+        cast(updated_at as {{ dbt.type_timestamp() }}) as updated_at,
         charge_id,
         transaction_id,
         charge_status,
-        is_prepaid,
-        cast(total_price as {{ dbt.type_float() }}) as order_total_price,
+        case when is_prepaid = 0 then false else true end as is_prepaid,
+        cast(total_price as {{ dbt.type_float() }}) as total_price,
         type as order_type,
-        cast(processed_at as {{ dbt.type_timestamp() }}) as order_processed_at,
-        cast(scheduled_at as {{ dbt.type_timestamp() }}) as order_scheduled_at,
-        cast(shipped_date as {{ dbt.type_timestamp() }}) as order_shipped_date,
+        cast(processed_at as {{ dbt.type_timestamp() }}) as processed_at,
+        cast(scheduled_at as {{ dbt.type_timestamp() }}) as scheduled_at,
+        cast(shipped_date as {{ dbt.type_timestamp() }}) as shipped_date,
         address_id,
         null as is_deleted
-    from 
+    from
     {{ source('source_recharge', 'orders') }}
 )
 

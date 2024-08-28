@@ -1,6 +1,6 @@
 {% if target.type == "snowflake" %}
 
-with tmp as 
+with tmp as
 (
     select
         id as customer_id,
@@ -22,7 +22,7 @@ with tmp as
         billing_company,
         billing_city,
         billing_country
-    from 
+    from
     {{ source('source_recharge', 'customers') }}
 )
 
@@ -31,12 +31,12 @@ from tmp
 
 {% elif target.type == "bigquery" %}
 
-with tmp as 
+with tmp as
 (
 
     select
         id as customer_id,
-        hash as customer_hash,
+        "hash" as customer_hash,
         JSON_VALUE(external_customer_id, '$.ecommerce') as external_customer_id_ecommerce,
         email,
         first_name,
@@ -54,7 +54,7 @@ with tmp as
         billing_company,
         billing_city,
         billing_country
-    FROM 
+    FROM
     {{ source('source_recharge', 'customers') }}
 
 )
@@ -64,7 +64,7 @@ from tmp
 
 {% elif target.type == "postgres" %}
 
-with tmp as 
+with tmp as
 (
     select
         id as customer_id,
@@ -86,7 +86,7 @@ with tmp as
         billing_company,
         billing_city,
         billing_country
-    from 
+    from
     {{ source('source_recharge', 'customers') }}
 )
 

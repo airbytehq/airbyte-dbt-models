@@ -1,6 +1,6 @@
 {% if target.type == "snowflake" %}
 
-with tmp as 
+with tmp as
 (
     select
         id as charge_id,
@@ -22,9 +22,9 @@ with tmp as
         m.value:purchase_item_id::string as purchase_item_id,
         m.value:purchase_item_type::string as purchase_item_type
 
-    FROM 
+    FROM
     {{ source('source_recharge', 'charges') }},
-    lateral flatten(input => parse_json(line_items)) m  -- Snowflake: Use LATERAL FLATTEN to unnest JSON array
+    lateral flatten(input => ARRAY_CONSTRUCT(line_items)) m  -- Snowflake: Use LATERAL FLATTEN to unnest JSON array
 
 )
 
@@ -33,7 +33,7 @@ from tmp
 
 {% elif target.type == "bigquery" %}
 
-with tmp as 
+with tmp as
 (
     select
         id as charge_id,
@@ -55,7 +55,7 @@ with tmp as
         JSON_VALUE(m, '$.purchase_item_id') as purchase_item_id,
         JSON_VALUE(m, '$.purchase_item_type') as purchase_item_type
 
-    FROM 
+    FROM
     {{ source('source_recharge', 'charges') }},
     UNNEST (JSON_QUERY_ARRAY(line_items)) m  -- BigQuery: Use UNNEST to expand JSON array
 
@@ -66,10 +66,10 @@ from tmp
 
 {% elif target.type == "postgres" %}
 
-with tmp as 
+with tmp as
 (
     select
-        id as charge_id,
+        id,
         NULL::integer as index,  -- Postgres: Explicitly cast NULL to integer
         m.value ->> 'vendor' as vendor,  -- Postgres: Extract JSON key as text using ->>
         m.value ->> 'title' as title,
@@ -85,10 +85,10 @@ with tmp as
         m.value ->> 'unit_price_includes_tax' as unit_price_includes_tax,
         m.value ->> 'external_product_id_ecommerce' as external_product_id_ecommerce,
         m.value ->> 'external_variant_id_ecommerce' as external_variant_id_ecommerce,
-        m.value ->> 'purchase_item_id' as purchase_item_id,
+        cast(m.value ->> 'purchase_item_id' as {{ dbt.type_int() }}) as purchase_item_id,
         m.value ->> 'purchase_item_type' as purchase_item_type
 
-    FROM 
+    FROM
     {{ source('source_recharge', 'charges') }},
     jsonb_array_elements(line_items::jsonb) as m(value)  -- Postgres: Use jsonb_array_elements to unnest JSON array
 
