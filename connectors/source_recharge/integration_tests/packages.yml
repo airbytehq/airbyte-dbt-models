@@ -1,0 +1,5 @@
+packages:
+  - local: ../
+
+  - package: fivetran/recharge
+    version: ["0.3.0"]

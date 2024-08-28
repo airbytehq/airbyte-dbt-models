@@ -1,6 +1,6 @@
 {% if target.type == "snowflake" %}
 
-with tmp as 
+with tmp as
 (
     select
         id as charge_id,
@@ -9,9 +9,9 @@ with tmp as
         m.value:code::string as code,
         cast(m.value:value as {{ dbt.type_float() }}) as discount_value,  -- Snowflake: Cast JSON value to float
         m.value:value_type::string as value_type
-    FROM 
+    FROM
     {{ source('source_recharge', 'charges') }},
-    lateral flatten(input => parse_json(discounts)) m  -- Snowflake: Use LATERAL FLATTEN to unnest JSON array
+    lateral flatten(input => ARRAY_CONSTRUCT(discounts)) m  -- Snowflake: Use LATERAL FLATTEN to unnest JSON array
 
 )
 
@@ -20,7 +20,7 @@ from tmp
 
 {% elif target.type == "bigquery" %}
 
-with tmp as 
+with tmp as
 (
     select
         id as charge_id,
@@ -29,7 +29,7 @@ with tmp as
         JSON_VALUE(m, '$.code') as code,
         cast(JSON_VALUE(m, '$.value') as {{ dbt.type_float() }}) as discount_value,  -- BigQuery: Cast JSON value to float
         JSON_VALUE(m, '$.value_type') as value_type
-    FROM 
+    FROM
     {{ source('source_recharge', 'charges') }},
     UNNEST (JSON_QUERY_ARRAY(discounts)) m  -- BigQuery: Use UNNEST to expand JSON array
 
@@ -40,7 +40,7 @@ from tmp
 
 {% elif target.type == "postgres" %}
 
-with tmp as 
+with tmp as
 (
     select
         id as charge_id,
@@ -49,7 +49,7 @@ with tmp as
         m.value ->> 'code' as code,
         cast(m.value ->> 'value' as {{ dbt.type_float() }}) as discount_value,  -- Postgres: Cast JSON value to float
         m.value ->> 'value_type' as value_type
-    FROM 
+    FROM
     {{ source('source_recharge', 'charges') }},
     jsonb_array_elements(discounts::jsonb) as m(value)  -- Postgres: Use jsonb_array_elements to unnest JSON array
 
