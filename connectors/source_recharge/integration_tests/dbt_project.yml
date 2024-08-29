@@ -42,4 +42,7 @@ vars:
   recharge_database: "airbyte_db_default"
   recharge_schema: "airbyte_dbt_source_recharge"
   recharge_source:
-    orders: "{{ source('recharge','order') }}"
+    order: "{{ ref('order_extended') }}"
+    orders: "{{ ref('order_extended') }}"
+
+  recharge_first_date: "2021-01-01"
