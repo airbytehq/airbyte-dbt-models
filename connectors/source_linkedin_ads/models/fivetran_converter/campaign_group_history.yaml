@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: stg_linkedin_ads__campaign_group_history
+  - name: campaign_group_history
     description: "Campaign group history for LinkedIn Ads, aligned with the Fivetran dbt model."
     columns:
       - name: campaign_group_id

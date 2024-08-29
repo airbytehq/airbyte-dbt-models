@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: stg_linkedin_ads__ad_analytics_campaign
+  - name: analytics_campaign
     schema: "{{ var('airbyte_schema', target.schema) }}"
     database: "{{ var('airbyte_database', target.database) }}"
     description: Campaign-level ad analytics for LinkedIn Ads, aligned with the Fivetran dbt model.

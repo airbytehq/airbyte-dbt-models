@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: stg_linkedin_ads__account_history
+  - name: account_history
     description: This model transforms the accounts data to align with the Fivetran dbt model structure.
     columns:
       - name: account_id

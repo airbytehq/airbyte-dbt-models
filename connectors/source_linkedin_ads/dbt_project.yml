@@ -31,7 +31,7 @@ models:
 
 vars:
   airbyte_database: airbyte_default_database
-  airbyte_schema: airbyte_default_schema
+  airbyte_schema: airbyte_dbt_source_linkedin_ads
   using_fivetran_model: True
   linkedin_ads_database: airbyte_default_database
   linkedin_ads_schema: airbyte_dbt_source_linkedin_ads

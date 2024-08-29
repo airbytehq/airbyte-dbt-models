@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: stg_linkedin_ads__campaign_history
+  - name: campaign_history
     description: "Campaign history data from LinkedIn Ads, aligned with the Fivetran dbt model."
     columns:
       - name: campaign_id

@@ -8,7 +8,7 @@
             accounts."version" as version_tag,
             accounts.status as status,
             accounts.type as type,
-            accounts.lastModified as last_modified_time,
+            accounts."lastModified" as last_modified_time,
             accounts.created as created_at
         from
             {{ source('source_linkedin_ads', 'accounts') }} as accounts
@@ -25,7 +25,7 @@
             accounts."version" as version_tag,
             accounts.status as status,
             accounts.type as type,
-            accounts.lastModified as last_modified_time,
+            accounts."lastModified" as last_modified_time,
             accounts.created as created_at
         from
             {{ source('source_linkedin_ads', 'accounts') }} as accounts
@@ -42,7 +42,7 @@
             accounts."version" as version_tag,
             accounts.status as status,
             accounts.type as type,
-            accounts.lastModified as last_modified_time,
+            accounts."lastModified" as last_modified_time,
             accounts.created as created_at
         from
             {{ source('source_linkedin_ads', 'accounts') }} as accounts
