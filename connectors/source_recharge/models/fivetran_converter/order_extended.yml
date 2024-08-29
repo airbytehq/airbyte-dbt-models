@@ -1,11 +1,11 @@
 version: 2
 
 models:
-  - name: order
+  - name: order_extended
     schema: "{{ var('airbyte_schema', target.schema) }}"
     database: "{{ var('airbyte_database', target.database) }}"
     description: "Table of all orders after a charge is successfully processed."
-    config: 
+    config:
       +enabled: "{{ var('using_fivetran_model', False) }}"
     columns:
       - name: order_id
@@ -37,7 +37,7 @@ models:
       - name: order_type
         description: "{{ doc('type') }}"
       - name: order_processed_at
-        description: The date and time when the order was submitted. 
+        description: The date and time when the order was submitted.
       - name: order_scheduled_at
         description: The date and time when the order will be shipped.
       - name: order_shipped_date
