@@ -36,8 +36,15 @@ vars:
   # Required by Airbyte dbt model
   using_fivetran_model: True
   airbyte_database: "airbyte_db_default"
-  airbyte_schema: "dbt_source_linkedin_ads"
+  airbyte_schema: "airbyte_dbt_source_linkedin_ads"
 
   # Required by Fivetran dbt model
-  linkedin_ads_database: "airbyte_db_default"
-  linkedin_ads_schema: "dbt_source_linkedin_ads"
+  linkedin_database: "airbyte_db_default"
+  linkedin_schema: "dbt_source_linkedin"
+
+  linkedin_ads__account_history_identifier: "account_history"
+  linkedin_ads__ad_analytics_by_campaign_identifier: "analytics_campaign"
+  linkedin_ads__ad_analytics_by_creative_identifier: "analytics_by_creative"
+  linkedin_ads__campaign_group_history_identifier: "campaign_group_history"
+  linkedin_ads__campaign_history_identifier: "campaign_history"
+  linkedin_ads__creative_history_identifier: "creative_history"

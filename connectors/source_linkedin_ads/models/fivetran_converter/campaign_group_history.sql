@@ -9,7 +9,7 @@
             cg.backfilled as is_backfilled,
             cg."runSchedule"->>'start' as run_schedule_start,
             cg."runSchedule"->>'end' as run_schedule_end,
-            cg.lastModified as last_modified_at,
+            cg."lastModified" as last_modified_at,
             cg.created::date as created_at
         from
             {{ source('source_linkedin_ads', 'campaign_groups') }} as cg
@@ -27,7 +27,7 @@
             cg.backfilled as is_backfilled,
             JSON_EXTRACT_SCALAR(cg.runSchedule, "$.start") as run_schedule_start,
             JSON_EXTRACT_SCALAR(cg.runSchedule, "$.end") as run_schedule_end,
-            cg.lastModified as last_modified_at,
+            cg."lastModified" as last_modified_at,
             DATE_TRUNC(cg.created, DAY) as created_at
         from
             {{ source('source_linkedin_ads', 'campaign_groups') }} as cg
@@ -45,7 +45,7 @@
             cg.backfilled as is_backfilled,
             cg.runSchedule:start::variant as run_schedule_start,
             cg.runSchedule:end::variant as run_schedule_end,
-            cg.lastModified as last_modified_at,
+            cg."lastModified" as last_modified_at,
             DATE_TRUNC('DAY', cg.created) as created_at
         from
             {{ source('source_linkedin_ads', 'campaign_groups') }} as cg

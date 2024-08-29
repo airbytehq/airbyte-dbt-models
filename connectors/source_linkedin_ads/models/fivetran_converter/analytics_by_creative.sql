@@ -5,7 +5,7 @@
             cr.id as creative_id,
             aca.clicks as clicks,
             aca.impressions as impressions,
-            aca.costInLocalCurrency as cost_in_local_currency,
+            aca."costInLocalCurrency" as cost_in_local_currency,
             aca.costInUsd as cost_in_usd,
             aca.conversionValueInLocalCurrency as conversion_value_in_local_currency,
             aca.start_date::date as date_day
@@ -22,7 +22,7 @@
             cr.id as creative_id,
             aca.clicks as clicks,
             aca.impressions as impressions,
-            aca.costInLocalCurrency as cost_in_local_currency,
+            aca."costInLocalCurrency" as cost_in_local_currency,
             aca.costInUsd as cost_in_usd,
             aca.conversionValueInLocalCurrency as conversion_value_in_local_currency,
             cast(aca.start_date as date) as date_day
@@ -39,7 +39,7 @@
             cr.id as creative_id,
             aca.clicks as clicks,
             aca.impressions as impressions,
-            aca.costInLocalCurrency as cost_in_local_currency,
+            aca."costInLocalCurrency" as cost_in_local_currency,
             aca.costInUsd as cost_in_usd,
             aca.conversionValueInLocalCurrency as conversion_value_in_local_currency,
             cast(aca.start_date as date) as date_day
