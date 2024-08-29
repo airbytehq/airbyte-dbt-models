@@ -3,7 +3,7 @@
 with tmp as
 (
     select
-        id as charge_id,
+        id,
         customer_id,
         customer_hash,
         email,
@@ -49,7 +49,7 @@ with tmp as
 (
 
     select
-        id as charge_id,
+        id,
         customer_id,
         customer_hash,
         email,

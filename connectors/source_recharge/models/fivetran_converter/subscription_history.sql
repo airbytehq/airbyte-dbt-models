@@ -25,7 +25,8 @@ with tmp as
         cast(next_charge_scheduled_at as {{ dbt.type_timestamp() }}) as next_charge_scheduled_at,
         cast(cancelled_at as {{ dbt.type_timestamp() }}) as cancelled_at,
         cancellation_reason,
-        cancellation_reason_comments
+        cancellation_reason_comments,
+        cast(_airbyte_extracted_at as {{ dbt.type_timestamp() }}) as _fivetran_synced
     from
     {{ source('source_recharge', 'subscriptions') }},
     lateral flatten(input => to_variant(external_product_id)) m
