@@ -96,3 +96,15 @@ After run `dbt run`, you can see the models being created.
 
 - This package is maintained by the Airbyte Community.
 - You can contribute any time please read the Contributing Guidelines or enter the Airbyte Slack Channel `#airbyte-dbt-packages`
+
+## Supported models
+
+- `account_history`
+- `address`
+- `call`
+- `incoming_phone_numbers`
+- `message`
+- `outgoing_caller_id`
+- `usage_record`
+
+`messaging_service` model is not currently supported by airbyte sandbox account
