@@ -25,6 +25,9 @@ vars:
   using_fivetran_model: False
   airbyte_database: "airbyte_db_default"
   airbyte_schema: "airbyte_dbt_twilio_support"
+
+  twilio_database: "airbyte_db_default"
+  twilio_schema: "airbyte_dbt_source_twilio"
 ```
 
 **`packages.yml`**
@@ -70,6 +73,9 @@ vars:
   # Required by Fivetran dbt model
   twilio_database: "airbyte_db_default"
   twilio_schema: "airbyte_dbt_twilio"
+
+  using_twilio_call: False # Disable this if not using call
+  using_twilio_messaging_service: False # Currently messaging_service is not supported by airbyte schemas
 
   account_history_identifier: "accounts"
   addresses_identifier: "addresses"
