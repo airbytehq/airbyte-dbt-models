@@ -7,10 +7,10 @@ WITH tmp AS (
         cast(count AS {{ dbt.type_int() }}) AS count,
         count_unit,
         description,
-        cast(end_date AS {{ dbt.type_timestamp() }}) AS end_date,
+        end_date,
         cast(price AS {{ dbt.type_float() }}) AS price,
         price_unit,
-        cast(start_date AS {{ dbt.type_timestamp() }}) AS start_date,
+        cast(start_date as date) AS start_date,
         cast(usage AS {{ dbt.type_float() }}) AS usage,
         usage_unit
     FROM
