@@ -36,11 +36,11 @@ vars:
   # Required by Airbyte dbt model
   using_fivetran_model: True
   airbyte_database: "airbyte_db_default"
-  airbyte_schema: "airbyte_dbt_source_twilio"
+  airbyte_schema: "airbyte_dbt_source_twillio"
 
   # Required by Fivetran dbt model
   twilio_database: "airbyte_db_default"
-  twilio_schema: "airbyte_dbt_source_twilio"
+  twilio_schema: "airbyte_dbt_source_twillio"
 
   using_twilio_call: False # Disable this if not using call
   using_twilio_messaging_service: False # Disable this if not using messaging_service
