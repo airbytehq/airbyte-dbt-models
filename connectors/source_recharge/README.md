@@ -95,15 +95,19 @@ vars:
   recharge_order_line_item_identifier: "orders" 
   recharge_subscription_identifier: "subscriptions" 
   recharge_subscription_history_identifier: "subscriptions" 
-
-
 ```
 
-After run `dbt run`, you can see the models being created.
+You need to run the models in steps:
+
+```shell
+dbt run --model +source_recharge # create tables needed by Fivetran from Airbyte
+dbt run --model +recharge_source # staging tables
+dbt run --model +recharge # final analytical model.
+```
 
 ---
 
 ## :package: Package Maintenance
 
 - This package is maintained by the Airbyte Community.
-- You can contribute any time please read the Contributing Guidelines or enter the Airbyte Slack Channel `#airbyte-dbt-packages`
+- You can contribute any time please read the Contributing Guidelines or enter the Airbyte Slack Channel `#airbyte-dbt-packages`.
