@@ -3,7 +3,7 @@
 with base as (
     SELECT
         id as conversation_id,
-        {{ dbt.date_trunc('second', 'created_at'::timestamp) }} as created_at,
+        {{ dbt.date_trunc('second', created_at) }} as created_at,
         assignee:id as assignee_id,
         assignee:type as assignee_type,
         conversation_rating.rating as conversation_rating_value,
@@ -17,9 +17,9 @@ with base as (
         source.type as source_type,
         source.subject as source_subject,
         state,
-        {{ dbt.date_trunc('second', 'updated_at'::timestamp) }} as updated_at,
-        {{ dbt.date_trunc('second', 'waiting_since'::timestamp) }} as waiting_since,
-        {{ dbt.date_trunc('second', 'snoozed_until'::timestamp) }} as snoozed_until,
+        {{ dbt.date_trunc('second', updated_at) }} as updated_at,
+        {{ dbt.date_trunc('second', waiting_since) }} as waiting_since,
+        {{ dbt.date_trunc('second', snoozed_until) }} as snoozed_until,
         sla_applied.sla_name as sla_name,
         sla_applied.sla_status as sla_status
     FROM
@@ -32,7 +32,7 @@ select * from base
 with base as (
     SELECT
         id as conversation_id,
-        {{ dbt.date_trunc('second', 'created_at'::timestamp) }} as created_at,
+        {{ dbt.date_trunc('second', created_at) }} as created_at,
         JSON_EXTRACT_SCALAR(assignee, '$.id') as assignee_id,
         JSON_EXTRACT_SCALAR(assignee, '$.type') as assignee_type,
         JSON_EXTRACT_SCALAR(conversation_rating, '$.rating') as conversation_rating_value,
@@ -46,9 +46,9 @@ with base as (
         JSON_EXTRACT_SCALAR(source, '$.type') as source_type,
         JSON_EXTRACT_SCALAR(source, '$.subject') as source_subject,
         state,
-        {{ dbt.date_trunc('second', 'updated_at'::timestamp) }} as updated_at,
-        {{ dbt.date_trunc('second', 'waiting_since'::timestamp) }} as waiting_since,
-        {{ dbt.date_trunc('second', 'snoozed_until'::timestamp) }} as snoozed_until,
+        {{ dbt.date_trunc('second', updated_at) }} as updated_at,
+        {{ dbt.date_trunc('second', waiting_since) }} as waiting_since,
+        {{ dbt.date_trunc('second', snoozed_until) }} as snoozed_until,
         JSON_EXTRACT_SCALAR(sla_applied, '$.sla_name') as sla_name,
         JSON_EXTRACT_SCALAR(sla_applied, '$.sla_status') as sla_status
     FROM
@@ -61,7 +61,8 @@ select * from base
 with base as (
     SELECT
         id as conversation_id,
-        {{ dbt.date_trunc('second', created_at::timestamp) }} as created_at,
+        CAST(created_at AS timestamp) as created_at_ts,
+        {{ dbt.date_trunc('second', 'created_at_ts') }} as created_at,
         (assignee->>'id') as assignee_id,
         (assignee->>'type') as assignee_type,
         (conversation_rating->>'rating') as conversation_rating_value,
@@ -75,9 +76,12 @@ with base as (
         (source->>'type') as source_type,
         (source->>'subject') as source_subject,
         state,
-        {{ dbt.date_trunc('second', updated_at::timestamp) }} as updated_at,
-        {{ dbt.date_trunc('second', waiting_since::timestamp) }} as waiting_since,
-        {{ dbt.date_trunc('second', snoozed_until::timestamp) }} as snoozed_until,
+        CAST(updated_at AS timestamp) as updated_at_ts,
+        {{ dbt.date_trunc('second', 'updated_at_ts') }} as updated_at,
+        CAST(waiting_since AS timestamp) as waiting_since_ts,
+        {{ dbt.date_trunc('second', 'waiting_since_ts') }} as waiting_since,
+        CAST(snoozed_until AS timestamp) as snoozed_until_ts,
+        {{ dbt.date_trunc('second', 'snoozed_until_ts') }} as snoozed_until,
         (sla_applied->>'sla_name') as sla_name,
         (sla_applied->>'sla_status') as sla_status
     FROM
