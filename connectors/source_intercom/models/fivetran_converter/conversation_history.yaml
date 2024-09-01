@@ -1,0 +1,46 @@
+version: 2
+
+models:
+  - name: conversation_history
+    description: This model maps the conversation history data.
+    columns:
+      - name: conversation_id
+        description: Unique identifier for the conversation.
+      - name: created_at
+        description: The timestamp when the conversation was created.
+      - name: assignee_id
+        description: The ID of the user or team assigned to the conversation.
+      - name: assignee_type
+        description: The type of the assignee (e.g., user or team).
+      - name: conversation_rating_value
+        description: The rating value given to the conversation.
+      - name: conversation_rating_remark
+        description: Remarks associated with the conversation rating.
+      - name: first_contact_reply_created_at
+        description: The timestamp when the first contact reply was created.
+      - name: first_contact_reply_type
+        description: The type of the first contact reply.
+      - name: is_read
+        description: Indicates if the conversation has been read.
+      - name: source_author_id
+        description: The ID of the author of the source.
+      - name: source_author_type
+        description: The type of the source author.
+      - name: source_delivered_as
+        description: Indicates how the source was delivered.
+      - name: source_type
+        description: The type of the source.
+      - name: source_subject
+        description: The subject of the source.
+      - name: state
+        description: The state of the conversation (e.g., new, in progress).
+      - name: updated_at
+        description: The timestamp when the conversation was last updated.
+      - name: waiting_since
+        description: The timestamp since waiting for a response.
+      - name: snoozed_until
+        description: The timestamp until the conversation is snoozed.
+      - name: sla_name
+        description: The name of the Service Level Agreement (SLA) applied to the conversation.
+      - name: sla_status
+        description: The status of the SLA applied to the conversation.

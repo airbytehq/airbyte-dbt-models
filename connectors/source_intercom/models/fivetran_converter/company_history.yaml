@@ -1,32 +1,28 @@
 version: 2
 
 models:
-  - name: company_history
-    schema: "{{ var('airbyte_schema', target.schema) }}"
-    database: "{{ var('airbyte_database', target.database) }}"
-    description: Company history data for Intercom, aligned with the Fivetran dbt model.
-    config:
-      +enabled: "{{ var('using_fivetran_model', False) }}"
+  - name: history_custom
+    description: This model extracts and maps company history details.
     columns:
       - name: company_id
-        description: The unique identifier for the company, derived from `id` or `company_id` (verify) in Airbyte.
+        description: Unique identifier for the company
       - name: name
-        description: The name of the company.
+        description: Name of the company
       - name: website
-        description: The website of the company.
+        description: Website of the company
       - name: industry
-        description: The industry in which the company operates.
+        description: Industry of the company
       - name: created_at
-        description: The timestamp when the company was created.
+        description: The timestamp when the company was created
       - name: updated_at
-        description: The timestamp when the company was last updated.
+        description: The timestamp when the company was last updated
       - name: user_count
-        description: The number of users associated with the company.
+        description: The number of users associated with the company
       - name: session_count
-        description: The number of sessions related to the company.
+        description: The number of sessions associated with the company
       - name: monthly_spend
-        description: The monthly spend of the company.
+        description: The monthly spend of the company
       - name: plan_id
-        description: The unique identifier of the company's subscription plan, derived from `plan.id` in Airbyte.
+        description: The ID of the company's subscription plan
       - name: plan_name
-        description: The name of the company's subscription plan, derived from `plan.name` in Airbyte.
+        description: The name of the company's subscription plan

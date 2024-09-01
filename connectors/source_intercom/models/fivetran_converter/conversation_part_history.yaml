@@ -2,30 +2,27 @@ version: 2
 
 models:
   - name: conversation_part_history
-    description: |
-      Custom transformation for `conversation_part_history` to align Fivetran with Airbyte structure.
-    config:
-      enabled: "{{ var('using_fivetran_model', False) }}"
+    description: This model maps the conversation part history from Airbyte to Fivetran's format.
     columns:
       - name: conversation_part_id
-        description: The unique identifier for each conversation part.
+        description: The unique identifier for the conversation part
       - name: part_type
-        description: The type of the conversation part (e.g., message, note).
+        description: The type or category of the conversation part
       - name: body
-        description: The main content or message body of the conversation part.
+        description: The main content or message body of the conversation part
       - name: conversation_id
-        description: The unique identifier of the conversation associated with the part.
+        description: The unique identifier of the conversation
       - name: author_id
-        description: The unique identifier of the author of the conversation part.
+        description: The unique identifier of the author of the conversation part
       - name: author_type
-        description: The type of the author (e.g., user, admin).
+        description: The type of the author (e.g., user, system)
       - name: created_at
-        description: The timestamp when the conversation part was created.
+        description: The timestamp when the conversation part was created
       - name: assigned_to_id
-        description: The ID of the user or team assigned to the conversation part.
+        description: The ID of the user or team the conversation part is assigned to
       - name: assigned_to_type
-        description: The type of the assignment (verify, nested object).
+        description: The type of assignee (e.g., user, team)
       - name: conversation_updated_at
-        description: The timestamp when the conversation was last updated.
+        description: The timestamp when the conversation was last updated
       - name: updated_at
-        description: The timestamp when the conversation part was last updated.
+        description: The timestamp when the conversation part was last updated

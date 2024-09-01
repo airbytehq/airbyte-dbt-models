@@ -2,8 +2,7 @@ version: 2
 
 models:
   - name: team
-    description: |
-      This model maps the team ID and name from the Airbyte source to the Fivetran model.
+    description: This model maps the team data from Airbyte to Fivetran's format.
     columns:
       - name: team_id
         description: The unique identifier for the team.

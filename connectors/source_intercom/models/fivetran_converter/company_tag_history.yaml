@@ -2,15 +2,11 @@ version: 2
 
 models:
   - name: company_tag_history
-    schema: "{{ var('airbyte_schema', target.schema) }}"
-    database: "{{ var('airbyte_database', target.database) }}"
-    description: "Company tag history aligned with the Fivetran dbt model."
-    config:
-      +enabled: "{{ var('using_fivetran_model', False) }}"
+    description: This model extracts and maps company tag history details.
     columns:
       - name: company_id
-        description: "The unique identifier for the company."
+        description: Unique identifier for the company
       - name: company_updated_at
-        description: "The timestamp when the company was last updated."
-      - name: tag_id
-        description: "The ID of the tag associated with the company. This is extracted from the tags array in the Airbyte schema. (Verify if extraction is correct.)"
+        description: The timestamp when the company was last updated
+      - name: tag_ids
+        description: Array of tag IDs associated with the company

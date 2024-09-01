@@ -1,0 +1,46 @@
+version: 2
+
+models:
+  - name: conversation_contact_history
+    description: This model maps the conversation contact history from Airbyte to Fivetran's format.
+    columns:
+      - name: conversation_id
+        description: The unique identifier for the conversation
+      - name: created_at
+        description: The timestamp when the conversation was created
+      - name: assignee_id
+        description: The ID of the assignee for the conversation
+      - name: assignee_type
+        description: The type of assignee (e.g., user, team)
+      - name: conversation_rating_value
+        description: The rating value for the conversation
+      - name: conversation_rating_remark
+        description: Remarks related to the conversation rating
+      - name: first_contact_reply_created_at
+        description: The timestamp when the first contact replied
+      - name: first_contact_reply_type
+        description: The type of the first contact reply
+      - name: is_read
+        description: Indicates if the conversation has been read
+      - name: source_author_id
+        description: The ID of the author who initiated the conversation
+      - name: source_author_type
+        description: The type of author (e.g., user, system)
+      - name: source_delivered_as
+        description: The method through which the conversation was delivered
+      - name: source_type
+        description: The type of the conversation source
+      - name: source_subject
+        description: The subject of the conversation
+      - name: state
+        description: The state of the conversation (e.g., open, closed)
+      - name: updated_at
+        description: The timestamp when the conversation was last updated
+      - name: waiting_since
+        description: The timestamp since when the conversation is waiting for a response
+      - name: snoozed_until
+        description: The timestamp until when the conversation is snoozed
+      - name: sla_name
+        description: The name of the Service Level Agreement (SLA) applied to the conversation
+      - name: sla_status
+        description: The status of the SLA applied to the conversation

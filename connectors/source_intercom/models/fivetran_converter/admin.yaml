@@ -2,15 +2,11 @@ version: 2
 
 models:
   - name: admin
-    schema: "{{ var('airbyte_schema', target.schema) }}"
-    database: "{{ var('airbyte_database', target.database) }}"
-    description: Admin-level data for Intercom, aligned with the Fivetran dbt model.
-    config:
-      +enabled: "{{ var('using_fivetran_model', False) }}"
+    description: This model extracts and maps admin details.
     columns:
       - name: admin_id
-        description: The unique identifier for the admin, derived from the `id` column in Airbyte.
+        description: Unique identifier for the admin
       - name: name
-        description: The name of the admin.
+        description: Name of the admin
       - name: job_title
-        description: The job title of the admin.
+        description: Job title of the admin

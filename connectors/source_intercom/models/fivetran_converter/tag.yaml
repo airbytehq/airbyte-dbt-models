@@ -2,10 +2,9 @@ version: 2
 
 models:
   - name: tag
-    description: |
-      This model maps the tag ID and trimmed tag name from the Airbyte source to the Fivetran model.
+    description: This model maps the tag data from Airbyte to Fivetran's format.
     columns:
       - name: tag_id
         description: The unique identifier for the tag.
       - name: name
-        description: The name of the tag, trimmed of any leading or trailing whitespace.
+        description: The name of the tag.
