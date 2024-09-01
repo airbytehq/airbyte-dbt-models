@@ -1,22 +1,22 @@
 {% if target.type == "snowflake" %}
 
 with base as (
-    select
+    SELECT
         id as tag_id,
         trim(name) as name
-    from
-        {{ source('source_intercom', 'tags') }}
+    FROM
+    {{source('source_intercom', 'tags')}}
 )
 select * from base
 
 {% elif target.type == "bigquery" %}
 
 with base as (
-    select
+    SELECT
         id as tag_id,
         trim(name) as name
-    from
-        {{ source('source_intercom', 'tags') }}
+    FROM
+    {{source('source_intercom', 'tags')}}
 )
 select * from base
 
@@ -25,9 +25,8 @@ select * from base
 with base as (
     select
         id as tag_id,
-        btrim(name) as name
-    from
-        {{ source('source_intercom', 'tags') }}
+        trim(name) as name
+    from {{source('source_intercom', 'tags')}}
 )
 select * from base
 

@@ -2,10 +2,9 @@ version: 2
 
 models:
   - name: conversation_tag_history
-    description: |
-      This model aggregates the tag IDs associated with each conversation into an array, aligned with the Fivetran dbt model.
+    description: This model maps the conversation tag history from Airbyte to Fivetran's format.
     columns:
       - name: conversation_id
-        description: The unique identifier for the conversation.
-      - name: tag_ids
-        description: Array of tag IDs associated with the conversation, extracted from the tags object in Airbyte.
+        description: The unique identifier for the conversation
+      - name: tag_id
+        description: The unique identifier of the tag associated with the conversation

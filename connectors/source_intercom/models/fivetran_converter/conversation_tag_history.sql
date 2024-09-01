@@ -1,28 +1,24 @@
 {% if target.type == "snowflake" %}
 
 with base as (
-    select
+    SELECT
         id as conversation_id,
-        array_agg((tag->>'id')::string) as tag_ids
-    from
-        {{ source('source_intercom', 'conversations') }},
-        lateral flatten(input => tags) tag
-    group by
-        id
+        value::string as tag_id
+    FROM
+    {{source('source_intercom', 'conversations')}},
+    LATERAL FLATTEN(INPUT => tags)
 )
 select * from base
 
 {% elif target.type == "bigquery" %}
 
 with base as (
-    select
+    SELECT
         id as conversation_id,
-        array_agg(JSON_EXTRACT_SCALAR(tag, '$.id')) as tag_ids
-    from
-        {{ source('source_intercom', 'conversations') }},
-        unnest(tags) as tag
-    group by
-        id
+        tag_id
+    FROM
+    {{source('source_intercom', 'conversations')}},
+    UNNEST(tags) AS tag_id
 )
 select * from base
 
@@ -31,12 +27,8 @@ select * from base
 with base as (
     select
         id as conversation_id,
-        array_agg((tag->>'id')::varchar) as tag_ids  -- Extracting tag IDs from the nested object
-    from
-        {{ source('source_intercom', 'conversations') }},
-        jsonb_array_elements(tags) as tag  -- Flatten the tags array into individual records
-    group by
-        id
+        jsonb_array_elements_text(tags) as tag_id
+    from {{source('source_intercom', 'conversations')}}
 )
 select * from base
 
