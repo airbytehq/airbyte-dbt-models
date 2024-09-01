@@ -32,6 +32,6 @@ models:
 vars:
   airbyte_database: airbyte_default_database
   airbyte_schema: airbyte_default_schema
-  using_fivetran_model: True
-  source_intercom_database: airbyte_default_database
-  source_intercom_schema: airbyte_dbt_source_intercom
+#  using_fivetran_model: True
+#  source_intercom_database: airbyte_default_database
+#  source_intercom_schema: airbyte_dbt_source_intercom

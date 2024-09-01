@@ -2,11 +2,11 @@
 
 with base as (
     SELECT
-        contact_id::string,
-        company_id::string,
-        {{ dbt.date_trunc('second', 'updated_at'::timestamp) }} as updated_at
+        company_id,
+        contact_id,
+        {{ dbt.date_trunc('second', contact_updated_at::timestamp) }} as contact_updated_at
     FROM
-    {{source('source_intercom', 'contacts')}}
+    {{source('source_intercom', 'contact_company_history')}}
 )
 select * from base
 
@@ -14,22 +14,23 @@ select * from base
 
 with base as (
     SELECT
-        contact_id,
         company_id,
-        {{ dbt.date_trunc('second', 'updated_at'::timestamp) }} as updated_at
+        contact_id,
+        TIMESTAMP_TRUNC(CAST(contact_updated_at AS timestamp), second) as contact_updated_at
     FROM
-    {{source('source_intercom', 'contacts')}}
+    {{source('source_intercom', 'contact_company_history')}}
 )
 select * from base
 
 {% elif target.type == "postgres" %}
 
 with base as (
-    select
-        contact_id,
+    SELECT
         company_id,
-        {{ dbt.date_trunc('second', 'updated_at'::timestamp) }} as updated_at
-    from {{source('source_intercom', 'contacts')}}
+        contact_id,
+        {{ dbt.date_trunc('second', contact_updated_at::timestamp) }} as contact_updated_at
+    FROM
+    {{source('source_intercom', 'contact_company_history')}}
 )
 select * from base
 
