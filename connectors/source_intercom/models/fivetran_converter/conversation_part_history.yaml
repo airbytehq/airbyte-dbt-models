@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: stg_intercom__conversation_part_history_custom
+  - name: conversation_part_history
     description: |
       Custom transformation for `conversation_part_history` to align Fivetran with Airbyte structure.
     config:

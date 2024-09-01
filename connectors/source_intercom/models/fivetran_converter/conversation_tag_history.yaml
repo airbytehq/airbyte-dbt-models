@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: stg_intercom__conversation_tag_history_custom
+  - name: conversation_tag_history
     description: |
       This model aggregates the tag IDs associated with each conversation into an array, aligned with the Fivetran dbt model.
     columns:

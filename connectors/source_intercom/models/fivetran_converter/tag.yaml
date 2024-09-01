@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: stg_intercom__tag_custom
+  - name: tag
     description: |
       This model maps the tag ID and trimmed tag name from the Airbyte source to the Fivetran model.
     columns:
