@@ -16,7 +16,7 @@
             t.gid as id,
             t.created_at,
             name,
-            JSON_QUERY(t.project, '$.gid') as project_id
+            cast(json_value(t.project, '$.gid') as {{ dbt.type_string() }}) as project_id
         FROM
             {{ source('source_asana', 'sections') }} t
     )

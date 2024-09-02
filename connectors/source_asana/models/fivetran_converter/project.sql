@@ -28,10 +28,10 @@
             t.due_date,
             t.modified_at,
             t.name,
-            JSON_QUERY(t.owner, '$.gid') as owner_id,
+            cast(json_value(t.owner, '$.gid') as {{dbt.type_string()}}) as owner_id,
             t.public,
-            JSON_QUERY(t.team, '$.gid') as team_id,
-            JSON_QUERY(t.workspace, '$.gid') as workspace_id,
+            cast(json_value(t.team, '$.gid') as {{dbt.type_string()}}) as team_id,
+            cast(json_value(t.workspace, '$.gid') as {{dbt.type_string()}}) as workspace_id,
             t.notes
         FROM
             {{ source('source_asana', 'projects') }} t

@@ -17,8 +17,8 @@
         SELECT
             t.gid as id,
             t.created_at,
-            JSON_QUERY(t.created_by, '$.gid') as created_by_id,
-            JSON_QUERY(t.task, '$.gid') as target_id,
+            cast(JSON_VALUE(t.created_by, '$.gid') as {{ dbt.type_string() }}) as created_by_id,
+            cast(JSON_VALUE(t.task, '$.gid') as {{ dbt.type_string() }}) as target_id,
             t.text,
             t.type
         FROM

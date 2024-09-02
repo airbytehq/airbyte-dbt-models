@@ -15,7 +15,7 @@
     WITH tmp AS (
         SELECT
             t.gid as task_id,
-            f.gid as user_id,
+            cast(JSON_VALUE(f, "$.gid") as {{ dbt.type_string() }}) as user_id,
         FROM
             {{ source('source_asana', 'tasks') }} t,
             UNNEST(JSON_EXTRACT_ARRAY(t.followers)) AS f

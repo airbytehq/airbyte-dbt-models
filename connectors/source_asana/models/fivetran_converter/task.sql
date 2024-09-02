@@ -7,8 +7,8 @@
             t.completed_at,
             t.completed_by:gid::STRING as completed_by_id,
             t.created_at,
-            t.due_on,
-            t.due_at,
+            cast(t.due_on as {{ dbt.type_timestamp() }}) as due_on,
+            cast(t.due_at as {{ dbt.type_timestamp() }}) as due_at,
             t.modified_at,
             t.name,
             t.parent:gid::STRING as parent_id,
@@ -26,21 +26,21 @@
     WITH tmp AS (
         SELECT
             t.gid as id,
-            JSON_QUERY(t.assignee, '$.gid') as assignee_id,
+            cast(json_value(t.assignee, '$.gid') as {{ dbt.type_string() }}) as assignee_id,
             t.completed,
             t.completed_at,
-            JSON_QUERY(t.completed_by, '$.gid') as completed_by_id,
+            cast(json_value(t.completed_by, '$.gid') as {{ dbt.type_string() }}) as completed_by_id,
             t.created_at,
-            t.due_on,
-            t.due_at,
+            cast(t.due_on as {{ dbt.type_timestamp() }}) as due_on,
+            cast(t.due_at as {{ dbt.type_timestamp() }}) as due_at,
             t.modified_at,
             t.name,
-            JSON_QUERY(t.parent, '$.gid') as parent_id,
+            cast(json_value(t.parent, '$.gid') as {{ dbt.type_string() }}) as parent_id,
             t.start_on,
             t.notes,
             t.liked,
             t.num_likes,
-            JSON_QUERY(t.workspace, '$.gid') as workspace_id
+            cast(json_value(t.workspace, '$.gid') as {{ dbt.type_string() }}) as workspace_id
         FROM
             {{ source('source_asana', 'tasks') }} t
     )
@@ -55,8 +55,8 @@
             t.completed_at,
             t.completed_by->>'gid' as completed_by_id,
             t.created_at,
-            t.due_on,
-            t.due_at,
+            cast(t.due_on as {{ dbt.type_timestamp() }}) as due_on,
+            cast(t.due_at as {{ dbt.type_timestamp() }}) as due_at,
             t.modified_at,
             t.name,
             t.parent->>'gid' as parent_id,
