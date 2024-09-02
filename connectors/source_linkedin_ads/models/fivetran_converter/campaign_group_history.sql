@@ -2,15 +2,17 @@
 
     with tmp as (
         select
-            cg.id as campaign_group_id,
-            cg.name as name,
-            cg.account as account_id,
+            cast(cg.id as {{ dbt.type_string() }}) as campaign_group_id,
+            cg.name as campaign_group_name,
+            cast(cg.account as {{dbt.type_string()}}) account_id,
             cg.status as status,
             cg.backfilled as is_backfilled,
-            cg."runSchedule"->>'start' as run_schedule_start,
-            cg."runSchedule"->>'end' as run_schedule_end,
+            cg."runSchedule"->>'start' as run_schedule_start_at,
+            cg."runSchedule"->>'end' as run_schedule_end_at,
             cg."lastModified" as last_modified_at,
-            cg.created::date as created_at
+            cg.created::date as created_at,
+            row_number() over (partition by cg.id order by cg."lastModified" desc) = 1 as is_latest_version,
+            null as source_relation
         from
             {{ source('source_linkedin_ads', 'campaign_groups') }} as cg
     )

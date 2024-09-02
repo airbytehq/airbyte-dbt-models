@@ -6,9 +6,10 @@
             aca.clicks as clicks,
             aca.impressions as impressions,
             aca."costInLocalCurrency" as cost_in_local_currency,
-            aca.costInUsd as cost_in_usd,
-            aca.conversionValueInLocalCurrency as conversion_value_in_local_currency,
-            aca.start_date::date as date_day
+            aca."costInUsd" as cost,
+            aca."conversionValueInLocalCurrency" as conversion_value_in_local_currency,
+            aca.start_date::date as date_day,
+            null as source_relation
         from
             {{ source('source_linkedin_ads', 'creatives') }} as cr,
             {{ source('source_linkedin_ads', 'ad_creative_analytics') }} as aca
@@ -23,7 +24,7 @@
             aca.clicks as clicks,
             aca.impressions as impressions,
             aca."costInLocalCurrency" as cost_in_local_currency,
-            aca.costInUsd as cost_in_usd,
+            aca.costInUsd as cost,
             aca.conversionValueInLocalCurrency as conversion_value_in_local_currency,
             cast(aca.start_date as date) as date_day
         from
@@ -36,11 +37,11 @@
 
     with tmp as (
         select
-            cr.id as creative_id,
+            cast(cr.id as {{ dbt.type_string() }}) as creative_id,
             aca.clicks as clicks,
             aca.impressions as impressions,
             aca."costInLocalCurrency" as cost_in_local_currency,
-            aca.costInUsd as cost_in_usd,
+            aca.costInUsd as cost,
             aca.conversionValueInLocalCurrency as conversion_value_in_local_currency,
             cast(aca.start_date as date) as date_day
         from

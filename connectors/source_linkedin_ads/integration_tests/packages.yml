@@ -1,6 +1,5 @@
 packages:
   - local: ../
-
   - package: fivetran/linkedin
     version: [">=0.5.0", "<1.0.0"]
   - package: fivetran/fivetran_utils

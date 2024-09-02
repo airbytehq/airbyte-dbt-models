@@ -30,11 +30,22 @@
 
     with tmp as (
         select
-            creatives.id as creative_id,
+            cast(creatives.id as {{ dbt.type_string() }}) as creative_id,
             creatives.campaign as campaign_id,
             creatives."intendedStatus" as status,
+            null as click_uri,
+            null as base_url,
+            null as url_host,
+            null as url_path,
+            null as utm_source,
+            null as utm_medium,
+            null as utm_campaign,
+            null as utm_content,
+            null as utm_term,
             to_timestamp(creatives."lastModifiedAt" / 1000) as last_modified_at, -- Convert from milliseconds to timestamp
-            to_timestamp(creatives."createdAt" / 1000) as created_at -- Convert from milliseconds to timestamp
+            to_timestamp(creatives."createdAt" / 1000) as created_at, -- Convert from milliseconds to timestamp
+            row_number() over (partition by creatives.id order by creatives."lastModifiedAt" desc) = 1 as is_latest_version,
+            null as source_relation
         from
             {{ source('source_linkedin_ads', 'creatives') }} as creatives
     )
