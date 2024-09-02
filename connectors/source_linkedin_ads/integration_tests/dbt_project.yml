@@ -24,27 +24,42 @@ require-dbt-version:
   - <2.0.0
 
 models:
-  airbyte_dbt_source_linkedin_ads:
-    materialized: view
-    +schema: dbt_source_linkedin_ads
-    fivetran_converter:
-      materialized: view
+  source_linkedin_ads:
+    +materialized: view
+    +schema: staging
+  linkedin_source:
+    +enabled: false
+    +materialized: view
+    +schema: staging
     tmp:
-      materialized: view
+      +enabled: false
+  linkedin:
+    +schema: reporting
+    intermediate:
+      +materialized: ephemeral
 
 vars:
   # Required by Airbyte dbt model
   using_fivetran_model: True
   airbyte_database: "airbyte_db_default"
-  airbyte_schema: "airbyte_dbt_source_linkedin_ads"
+  airbyte_schema: "dbt_source_linkedin_ads"
 
   # Required by Fivetran dbt model
   linkedin_database: "airbyte_db_default"
-  linkedin_schema: "dbt_source_linkedin"
+  linkedin_schema: "dbt_source_linkedin_ads"
 
-  linkedin_ads__account_history_identifier: "account_history"
-  linkedin_ads__ad_analytics_by_campaign_identifier: "analytics_campaign"
-  linkedin_ads__ad_analytics_by_creative_identifier: "analytics_by_creative"
-  linkedin_ads__campaign_group_history_identifier: "campaign_group_history"
-  linkedin_ads__campaign_history_identifier: "campaign_history"
-  linkedin_ads__creative_history_identifier: "creative_history"
+  linkedin:
+    ad_analytics_by_creative: "{{ ref('analytics_by_creative') }}"
+    creative_history: "{{ ref('creative_history') }}"
+    campaign_history: "{{ ref('campaign_history') }}"
+    campaign_group_history: "{{ ref('campaign_group_history') }}"
+    account_history: "{{ ref('account_history') }}"
+    ad_analytics_by_campaign: "{{ ref('analytics_by_campaign') }}"
+  linkedin_ads__conversion_fields: []
+
+  # linkedin_ads__account_history_identifier: "account_history"
+  # linkedin_ads__ad_analytics_by_campaign_identifier: "analytics_campaign"
+  # linkedin_ads__ad_analytics_by_creative_identifier: "analytics_by_creative"
+  # linkedin_ads__campaign_group_history_identifier: "campaign_group_history"
+  # linkedin_ads__campaign_history_identifier: "campaign_history"
+  # linkedin_ads__creative_history_identifier: "creative_history"

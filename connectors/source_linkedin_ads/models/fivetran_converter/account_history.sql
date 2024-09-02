@@ -1,52 +1,16 @@
-{% if target.type == "snowflake" %}
-
     with tmp as (
         select
-            accounts.id as account_id,
-            accounts.name as account_name,
-            accounts.currency as currency,
-            accounts."version" as version_tag,
-            accounts.status as status,
-            accounts.type as type,
-            accounts."lastModified" as last_modified_time,
-            accounts.created as created_at
+            cast(id as {{ dbt.type_string() }}) as account_id,
+            name as account_name,
+            currency as currency,
+            version as version_tag,
+            status,
+            type,
+            "lastModified" as last_modified_at,
+            created as created_at,
+            row_number() over (partition by id order by "lastModified" desc) = 1 as is_latest_version,
+            null as source_relation
         from
-            {{ source('source_linkedin_ads', 'accounts') }} as accounts
+            {{ source('source_linkedin_ads', 'accounts') }}
     )
     select * from tmp
-
-{% elif target.type == "bigquery" %}
-
-    with tmp as (
-        select
-            accounts.id as account_id,
-            accounts.name as account_name,
-            accounts.currency as currency,
-            accounts."version" as version_tag,
-            accounts.status as status,
-            accounts.type as type,
-            accounts."lastModified" as last_modified_time,
-            accounts.created as created_at
-        from
-            {{ source('source_linkedin_ads', 'accounts') }} as accounts
-    )
-    select * from tmp
-
-{% elif target.type == "postgres" %}
-
-    with tmp as (
-        select
-            accounts.id as account_id,
-            accounts.name as account_name,
-            accounts.currency as currency,
-            accounts."version" as version_tag,
-            accounts.status as status,
-            accounts.type as type,
-            accounts."lastModified" as last_modified_time,
-            accounts.created as created_at
-        from
-            {{ source('source_linkedin_ads', 'accounts') }} as accounts
-    )
-    select * from tmp
-
-{% endif %}
