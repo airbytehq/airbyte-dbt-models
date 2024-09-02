@@ -14,7 +14,7 @@
     WITH tmp AS (
         SELECT
             t.gid as task_id,
-            tg.gid as tag_id
+            cast(json_value(tg, "$.gid") as {{ dbt.type_string() }}) as tag_id
         FROM
             {{ source('source_asana', 'tasks') }} t,
             UNNEST(JSON_EXTRACT_ARRAY(t.tags)) AS tg
