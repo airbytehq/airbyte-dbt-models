@@ -66,20 +66,17 @@ vars:
   airbyte_schema: "airbyte_dbt_snapchat_marketing"
 
   # Required by Fivetran dbt model
-  snapchat_marketing_database: "airbyte_db_default"
-  snapchat_marketing_schema: "dbt_source_snapchat_marketing"
-
-  snapchat_ads_ad_account_history_identifier: "ad_account_history"
-  snapchat_ads_ad_history_identifier: "ad_history"
-  snapchat_ads_ad_hourly_report_identifier: "ad_hourly_report"
-  snapchat_ads_ad_squad_history_identifier: "ad_squad_history"
-  snapchat_ads_ad_squad_hourly_report_identifier: "ad_squad_hourly_report"
-  snapchat_ads_campaign_history_identifier: "campaign_history"
-  snapchat_ads_campaign_hourly_report_identifier: "campaign_hourly_report"
-  snapchat_ads_creative_history_identifier: "creative_history"
+  snapchat_ads_database: "airbyte_db_default"
+  snapchat_ads_schema: "dbt_source_snapchat_marketing"
 ```
 
-After run `dbt run`, you can see the models being created.
+Run:
+
+```shell
+dbt run --model +source_snapchat_marketing
+dbt run --model +snapchat_ads
+
+```
 
 ---
 
