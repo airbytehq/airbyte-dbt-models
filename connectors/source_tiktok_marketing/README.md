@@ -83,7 +83,11 @@ vars:
   tiktok_ads_campaign_report_hourly_identifier: "campaign_report_hourly"
 ```
 
-After run `dbt run`, you can see the models being created.
+Run
+```shell
+dbt run --model +source_tiktok_marketing
+dbt run --model +tiktok_ads
+```
 
 ---
 
