@@ -1,39 +1,14 @@
-{% if target.type == "snowflake" %}
-
-with base as (
-    SELECT
-        id as contact_id,
-        {{ dbt.date_trunc('second', 'updated_at'::timestamp) }} as contact_updated_at,
-        array_agg((tag->>'id')::integer) as tag_id  -- Aggregating array of tag IDs
-    FROM
-        {{source('source_intercom', 'contacts')}},
-        LATERAL FLATTEN(input => tags)
+with contact_tag_array as (
+  select
+    id as contact_id,
+    to_timestamp(updated_at) as contact_updated_at,
+    cast(tags ->> 'data' as jsonb) as tag_array
+  from {{source('source_intercom', 'contacts')}} c
 )
-select * from base
 
-{% elif target.type == "bigquery" %}
-
-with base as (
-    SELECT
-        id as contact_id,
-        {{ dbt.date_trunc('second', 'updated_at'::timestamp) }} as contact_updated_at,
-        array_agg((tag->>'id')::integer) as tag_id  -- Aggregating array of tag IDs
-    FROM
-        {{source('source_intercom', 'contacts')}},
-        UNNEST(tags) as tag
-)
-select * from base
-
-{% elif target.type == "postgres" %}
-
-with base as (
-    select
-        id as contact_id,
-        to_timestamp(updated_at) as contact_updated_at,
-        array_agg((tag->>'id')::integer) as tag_id  -- Aggregating array of tag IDs
-    from {{source('source_intercom', 'contacts')}}
-    join lateral jsonb_array_elements(tags) as tag on true
-)
-select * from base
-
-{% endif %}
+select
+  c.contact_id,
+  c.contact_updated_at,
+  f.value ->> 'id' as tag_id
+from contact_tag_array c
+join lateral jsonb_array_elements(c.tag_array) as f(value) on true

@@ -1,36 +1,14 @@
-{% if target.type == "snowflake" %}
-
-with base as (
-    SELECT
-        id AS company_id,
-        {{ dbt.date_trunc('second', 'updated_at'::timestamp) }} as company_updated_at,
-        array_agg((tags->>'id')::string) as tag_ids
-    FROM
-    {{source('source_intercom', 'companies')}}
+with tags_array as (
+  select
+  id,
+  to_timestamp(updated_at) as updated_at,
+  cast(tags ->> 'tags' as jsonb) as tags_array
+  from {{source('source_intercom', 'companies')}} c
 )
-select * from base
 
-{% elif target.type == "bigquery" %}
-
-with base as (
-    SELECT
-        id AS company_id,
-        {{ dbt.date_trunc('second', 'updated_at'::timestamp) }} as company_updated_at,
-        array_agg((tags->>'id')::string) as tag_ids
-    FROM
-    {{source('source_intercom', 'companies')}}
-)
-select * from base
-
-{% elif target.type == "postgres" %}
-
-with base as (
-    select
-        id as company_id,
-        to_timestamp(updated_at) as company_updated_at,
-        array_agg((tags->>'id')::text) as tag_ids
-    from {{source('source_intercom', 'companies')}}
-)
-select * from base
-
-{% endif %}
+select
+  ta.id as contact_id,
+  ta.updated_at as updated_at,
+  f.value ->> 'id' as tag_id
+from tags_array ta
+join lateral jsonb_array_elements(ta.tags_array) as f(value) on true

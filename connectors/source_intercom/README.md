@@ -68,27 +68,18 @@ vars:
   # Required by Fivetran dbt model
   intercom_database: "airbyte_db_default"
   intercom_schema: "dbt_source_intercom"
-
-  admin: "admin"
-  company_history: "company_history"
-  company_tag_history: "company_tag_history"
-  contact_company_history: "contact_company_history"
-  contact_history: "contact_history"
-  contact_tag_history: "contact_tag_history"
-  conversation_contact_history: "conversation_contact_history"
-  conversation_history: "conversation_history"
-  conversation_part_history: "conversation_part_history"
-  conversation_tag_history: "conversation_tag_history"
-  tag: "tag"
-  team_admin: "team_admin"
-  team: "team"
 ```
 
-After run `dbt run`, you can see the models being created.
+Run:
+
+```shell
+dbt run --model +source_intercom
+dbt run --model +intercom
+```
 
 ---
 
 ## :package: Package Maintenance
 
 - This package is maintained by the Airbyte Community.
-- You can contribute any time please read the Contributing Guidelines or enter the Airbyte Slack Channel `#airbyte-dbt-packages`
+- You can contribute any time please read the Contributing Guidelines or enter the Airbyte Slack Channel `#airbyte-dbt-packages`.

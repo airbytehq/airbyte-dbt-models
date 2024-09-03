@@ -2,12 +2,12 @@ version: 2
 
 sources:
   - name: source_intercom
-    schema: '{{ var(''airbyte_schema'', target.schema) }}'
-    database: '{{ var(''airbyte_database'', target.database) }}'
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
     loader: airbyte
     loaded_at_field: _airbyte_extracted_at
     tables:
-      - name: contacts
+      - name: contact_company_history
         columns:
           - name: id
             description: The unique identifier of the contact.
