@@ -9,7 +9,7 @@ WITH TMP AS (
         ad_group_ad_ad_type AS ad_type,
         ad_group_ad_status AS ad_status,
         ad_group_ad_ad_display_url AS display_url,
-        REPLACE(REPLACE(CAST(ad_group_ad_ad_final_urls AS text), '[', ''),']','') AS final_urls,
+        ad_group_ad_ad_final_urls as final_urls,
         ROW_NUMBER() OVER (PARTITION BY ad_group_id, ad_group_ad_ad_id ORDER BY segments_date DESC) = 1 AS is_most_recent_record
     FROM
         {{ source('source_google_ads', 'ad_group_ad') }}
@@ -28,7 +28,7 @@ WITH TMP AS (
         ad_group_ad_ad_type AS ad_type,
         ad_group_ad_status AS ad_status,
         ad_group_ad_ad_display_url AS display_url,
-        REPLACE(REPLACE(CAST(ad_group_ad_ad_final_urls AS STRING), '[', ''),']','') AS final_urls,
+        to_json_string(ad_group_ad_ad_final_urls) as final_urls,
         ROW_NUMBER() OVER (PARTITION BY ad_group_id, ad_group_ad_ad_id ORDER BY segments_date DESC) = 1 AS is_most_recent_record
     FROM
         {{ source('source_google_ads', 'ad_group_ad') }}
@@ -47,7 +47,7 @@ WITH TMP AS (
         ad_group_ad_ad_type AS ad_type,
         ad_group_ad_status AS ad_status,
         ad_group_ad_ad_display_url AS display_url,
-        REPLACE(REPLACE(CAST(ad_group_ad_ad_final_urls AS STRING), '[', ''),']','') AS final_urls,
+        cast(ad_group_ad_ad_final_urls as string) as final_urls,
         ROW_NUMBER() OVER (PARTITION BY ad_group_id, ad_group_ad_ad_id ORDER BY segments_date DESC) = 1 AS is_most_recent_record
     FROM
         {{ source('source_google_ads', 'ad_group_ad') }}
