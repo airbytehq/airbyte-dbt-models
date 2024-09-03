@@ -1,35 +1,14 @@
-{% if target.type == "snowflake" %}
-
-with base as (
-    SELECT
-        id as conversation_id,
-        value::string as tag_id
-    FROM
-    {{source('source_intercom', 'conversations')}},
-    LATERAL FLATTEN(INPUT => tags)
+with conversation_tag_array as (
+  select
+  id,
+  to_timestamp(updated_at) as updated_at,
+  cast(tags ->> 'tags' as jsonb) as tags_array
+  from {{source('source_intercom', 'conversations')}} c
 )
-select * from base
 
-{% elif target.type == "bigquery" %}
-
-with base as (
-    SELECT
-        id as conversation_id,
-        tag_id
-    FROM
-    {{source('source_intercom', 'conversations')}},
-    UNNEST(tags) AS tag_id
-)
-select * from base
-
-{% elif target.type == "postgres" %}
-
-with base as (
-    select
-        id as conversation_id,
-        jsonb_array_elements_text(tags) as tag_id
-    from {{source('source_intercom', 'conversations')}}
-)
-select * from base
-
-{% endif %}
+select
+  cta.id as conversation_id,
+  cta.updated_at as updated_at,
+  f.value ->> 'id' as tag_id
+from conversation_tag_array cta
+join lateral jsonb_array_elements(cta.tags_array) as f(value) on true

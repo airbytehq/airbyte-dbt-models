@@ -36,24 +36,25 @@ vars:
   # Required by Airbyte dbt model
   using_fivetran_model: True
   airbyte_database: "airbyte_db_default"
-  airbyte_schema: "dbt_source_intercom"
+  airbyte_schema: "airbyte_dbt_source_intercom"
 
   # Required by Fivetran dbt model
   intercom_database: "airbyte_db_default"
-  intercom_schema: "dbt_source_intercom"
-  admin: "admin"
-  company_history: "company_history"
-  company_tag_history: "company_tag_history"
-  contact_company_history: "contact_company_history"
-  contact_history: "contact_history"
-  contact_tag_history: "contact_tag_history"
-  conversation_contact_history: "conversation_contact_history"
-  conversation_history: "conversation_history"
-  conversation_part_history: "conversation_part_history"
-  conversation_tag_history: "conversation_tag_history"
-  tag: "tag"
-  team_admin: "team_admin"
-  team: "team"
+  intercom_schema: "airbyte_dbt_source_intercom"
+  # intercom:
+  #   admin: "admin"
+  #   company_history: "company_history"
+  #   company_tag_history: "company_tag_history"
+  #   contact_company_history: "contact_company_history"
+  #   contact_history: "contact_history"
+  #   contact_tag_history: "contact_tag_history"
+  #   conversation_contact_history: "conversation_contact_history"
+  #   conversation_history: "conversation_history"
+  #   conversation_part_history: "conversation_part_history"
+  #   conversation_tag_history: "conversation_tag_history"
+  #   tag: "tag"
+  #   team_admin: "team_admin"
+  #   team: "team"
 #  intercom__using_contact_company: true
 #  intercom__using_company_tags: true
 #  intercom__using_contact_tags: true
