@@ -36,11 +36,11 @@ vars:
   # Required by Airbyte dbt model
   using_fivetran_model: True
   airbyte_database: "airbyte_db_default"
-  airbyte_schema: "dbt_source_tiktok_marketing"
+  airbyte_schema: "airbyte_dbt_source_tiktok_marketing"
 
   # Required by Fivetran dbt model
   tiktok_ads_database: "airbyte_db_default"
-  tiktok_ads_schema: "dbt_source_tiktok_marketing"
+  tiktok_ads_schema: "airbyte_dbt_source_tiktok_marketing"
 
   tiktok_ads_adgroup_history_identifier: "ad_group_history"
   tiktok_ads_adgroup_report_hourly_identifier: "ad_group_report_hourly"
