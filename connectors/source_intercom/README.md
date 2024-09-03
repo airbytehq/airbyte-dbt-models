@@ -2,6 +2,9 @@
 
 ---
 
+> [!WARNING]  
+> This model was tested and only work with Postgres.
+
 - This package contains dbt models to work with Airbyte Intercom connector.
 - The package is compatible with latest version of Airbyte Intercom connector.
 - Currently, it is limited to creating transformations compatible with [Fivetran's modeling dbt package](https://github.com/fivetran/dbt_intercom/tree/main).
