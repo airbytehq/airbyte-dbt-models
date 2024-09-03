@@ -2,6 +2,11 @@
 
 ---
 
+> [!WARNING]  
+> This model was tested and only work with Bigquery.
+
+What it includes:
+
 - This package contains dbt models to work with Airbyte Tiktok Marketing connector.
 - The package is compatible with latest version of Airbyte Tiktok Marketing connector.
 - Currently, it is limited to creating transformations compatible with [Fivetran's modeling dbt package](https://github.com/fivetran/dbt_tiktok_ads/tree/main).
