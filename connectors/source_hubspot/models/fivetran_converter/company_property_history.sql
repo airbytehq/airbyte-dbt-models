@@ -1,5 +1,5 @@
 SELECT
-    CAST(_fivetran_synced AS {{ dbt.type_timestamp() }}) AS _fivetran_synced,
+    {{ dbt.current_timestamp() }}  AS _fivetran_synced,
     companyId AS company_id,
     property AS field_name,
     sourceType AS change_source,

@@ -1,7 +1,7 @@
 SELECT
     id AS company_id,
     archived AS is_company_deleted,
-    CAST(_fivetran_synced AS {{ dbt.type_timestamp() }}) AS _fivetran_synced,
+    {{ dbt.current_timestamp() }}  AS _fivetran_synced,
     properties_name AS company_name,
     properties_description AS description,
     CAST(properties_createdate AS {{ dbt.type_timestamp() }}) AS created_date,

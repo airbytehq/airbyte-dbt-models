@@ -8,5 +8,5 @@ SELECT
     timestamp AS {{ dbt.type_timestamp() }} AS timestamp_at,
     user_id,
     vid_to_merge,
-    CAST(_fivetran_synced AS {{ dbt.type_timestamp() }}) AS _fivetran_synced
+    {{ dbt.current_timestamp() }}  AS _fivetran_synced,
 FROM {{ source('source_hubspot', 'contacts_merged_audit') }}

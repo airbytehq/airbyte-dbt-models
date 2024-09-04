@@ -1,5 +1,5 @@
 SELECT
-    _airbyte_extracted_at,
+    _airbyte_extracted_at AS _fivetran_synced,
     listId AS list_id,
     name,
     portalId AS portal_id,
@@ -12,7 +12,7 @@ SELECT
     metaData_processing AS metadata_processing,
     metaData_size AS metadata_size,
     metaData_error AS metadata_error,
-    CAST(metaData_lastProcessingStateChangeAt AS {{ dbt.type_timestamp() }}) AS metadata_last_processing_state_change_at,
-    CAST(metaData_lastSizeChangeAt AS {{ dbt.type_timestamp() }}) AS metadata_last_size_change_at
+    metaData_lastProcessingStateChangeAt AS metadata_last_processing_state_change_at,
+    metaData_lastSizeChangeAt AS metadata_last_size_change_at
 FROM
     {{ source('source_hubspot', 'contact_lists') }}

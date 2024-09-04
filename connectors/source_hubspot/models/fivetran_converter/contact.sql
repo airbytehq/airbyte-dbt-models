@@ -10,6 +10,6 @@
         CAST(properties_createdate AS {{ dbt.type_timestamp() }}) AS created_date,
         properties_jobtitle AS job_title,
         CAST(properties_annualrevenue AS {{ dbt.type_float() }}) AS company_annual_revenue,
-        CAST(_fivetran_synced AS {{ dbt.type_timestamp() }}) AS _fivetran_synced
+        {{ dbt.current_timestamp() }}  AS _fivetran_synced,
 
     FROM {{ source('source_hubspot', 'contacts') }}

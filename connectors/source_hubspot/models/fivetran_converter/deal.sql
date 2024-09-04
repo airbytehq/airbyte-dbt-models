@@ -3,7 +3,7 @@ SELECT
     properties_dealname AS deal_name,
     CAST(properties_closedate AS {{ dbt.type_timestamp() }}) AS closed_date,
     CAST(properties_createdate AS {{ dbt.type_timestamp() }}) AS created_date,
-    CAST(_fivetran_synced AS {{ dbt.type_timestamp() }}) AS _fivetran_synced,
+    {{ dbt.current_timestamp() }}  AS _fivetran_synced,
     CAST(properties_pipeline AS {{ dbt.type_string() }}) AS deal_pipeline_id,
     CAST(properties_dealstage AS {{ dbt.type_string() }}) AS deal_pipeline_stage_id,
     properties_hubspot_owner_id AS owner_id,
