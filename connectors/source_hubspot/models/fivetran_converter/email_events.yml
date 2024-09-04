@@ -1,0 +1,41 @@
+version: 2
+
+models:
+  - name: email_event
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('email_event_identifier', 'email_event') }}"
+    description: Fields and field values associated with HubSpot email events.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: _fivetran_synced
+        description: Timestamp of when this record was last synced by Fivetran
+      - name: app_id
+        description: The unique identifier of the application associated with the email event
+      - name: caused_timestamp
+        description: The timestamp of when the causing event was created
+      - name: caused_by_event_id
+        description: The ID of the event that caused this email event
+      - name: created_timestamp
+        description: The timestamp of when the email event was created
+      - name: email_campaign_id
+        description: The ID of the email campaign associated with the event
+      - name: is_filtered_event
+        description: Indicates if the event is filtered
+      - name: event_id
+        description: The unique identifier of the email event
+      - name: obsoleted_timestamp
+        description: The timestamp of when this event was obsoleted
+      - name: obsoleted_by_event_id
+        description: The ID of the event that obsoleted this email event
+      - name: portal_id
+        description: The ID of the HubSpot portal
+      - name: recipient_email_address
+        description: The recipient of the email
+      - name: sent_timestamp
+        description: The timestamp of when the email was sent
+      - name: sent_by_event_id
+        description: The ID of the event that sent this email
+      - name: event_type
+        description: The type of email event

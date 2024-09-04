@@ -61,7 +61,7 @@ vars:
   hubspot_email_event_spam_report_enabled: false
   hubspot_email_event_status_change_enabled: false
   
-  hubspot_contact_merge_audit_enabled: false               # Enables the use of the CONTACT_MERGE_AUDIT table (deprecated by Hubspot v3 API) for removing merged contacts in the final models.
+  hubspot_contact_merge_audit_enabled: false              # Enables the use of the CONTACT_MERGE_AUDIT table (deprecated by Hubspot v3 API) for removing merged contacts in the final models.
                                                           # If false, ~~~contacts will still be merged~~~, but using the CONTACT.property_hs_calculated_merged_vids field (introduced in v3 of the Hubspot CRM API)
                                                           # Default = false
   # Sales
@@ -96,3 +96,8 @@ vars:
   companies_identifier: "companies"
   company_property_history_identifier: "companies_property_history"
   contact_merged_audit_identifier: "contacts_merged_audit"
+  contact_list_membership_identifier: "contacts_list_memberships"
+  contact_property_history_identifier: "contacts_property_history"
+  deal_pipeline_identifier: "deal_pipelines"
+  deal_property_history_identifier: "deals_property_history"
+  email_event_identifier: "email_events"
