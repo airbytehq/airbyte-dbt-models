@@ -92,3 +92,4 @@ vars:
 
   contact_lists_identifier: "contact_lists"
   deals_identifier: "deals"
+  companies_identifier: "companies"

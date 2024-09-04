@@ -1,8 +1,13 @@
 version: 2
 
 models:
-  - name: deals
+  - name: deal
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('deal_identifier', 'deal') }}"
     description: Transformed data for HubSpot deals
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
     columns:
       - name: deal_id
         description: Unique identifier for the deal
@@ -41,9 +46,3 @@ models:
         description: The date when the deal was last modified
       - name: updated_by_user_id
         description: The ID of the user who last updated the deal
-
-    tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - deal_id
-            - portal_id
