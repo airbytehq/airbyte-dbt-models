@@ -14,4 +14,4 @@ SELECT
     CAST(properties_annualrevenue AS {{ dbt.type_float() }}) AS company_annual_revenue,
 
 FROM {{ source('source_hubspot', 'companies') }}
-{% endif %}
+
