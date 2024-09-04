@@ -1,34 +1,8 @@
-{% if target.type == "snowflake" %}
-
-    with tmp as (
-        SELECT
-            issue_id,
-            user_id
-        FROM
-            {{ source('source_github', 'issue_assignee') }}
-        )
-    select * from tmp
-
-{% elif target.type == "bigquery" %}
-
-        WITH tmp AS (
-            SELECT
-                issue_id,
-                user_id
-            FROM
-            {{ source('source_github', 'issue_assignee') }}
-        )
-        SELECT * FROM tmp
-
-{% elif target.type == "postgres" %}
-
-    WITH tmp AS (
-        SELECT
-            issue_id,
-            user_id        
-        FROM
-            {{ source('source_github', 'issue_assignee') }}
+with tmp as (
+    SELECT
+        id as issue_id,
+        {{ fivetran_utils.json_extract('assignee', 'id') }} as user_id
+    FROM
+        {{ source('source_github', 'issues') }}
     )
-    SELECT * FROM tmp
-
-{%endif%}
+select * from tmp

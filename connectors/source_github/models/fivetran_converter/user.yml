@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: user
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('github_repo_team_identifier', 'user') }}"
+    description: "This model represents the users in a GitHub repository, containing information such as user ID, login, name, and associated company."
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: id
+        description: "The unique identifier of the user."
+      - name: login
+        description: "The login name of the user on GitHub."
+      - name: name
+        description: "The display name of the user."
+      - name: company
+        description: "The company associated with the user, if provided."

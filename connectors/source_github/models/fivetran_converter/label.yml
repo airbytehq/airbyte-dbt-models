@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: label
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('github_issue_merged_identifier', 'label') }}"
+    description: "All labels associated with GitHub issues."
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: id
+        description: "The unique identifier of the label."
+      - name: color
+        description: "The color code associated with the label."
+      - name: description
+        description: "A textual description of the label."
+      - name: is_default
+        description: "Indicates if the label is the default label."
+      - name: name
+        description: "The name of the label."
+      - name: url
+        description: "The URL linking to the label in GitHub."

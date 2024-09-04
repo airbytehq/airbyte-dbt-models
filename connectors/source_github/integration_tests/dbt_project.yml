@@ -43,10 +43,3 @@ vars:
   github_schema: "airbyte_dbt_github"
 
   using_repo_team: False
-
-  github_issue_assignee_identifier: "issue_assignee"
-  github_issue_closed_history_identifier: "issue_closed_history"
-  github_issue_merged_identifier: "issue_merged"
-  github_pull_request_review_identifier: "pull_request_review"
-  github_repo_team_identifier: "repo_team"
-  github_requested_reviewer_history_identifier: "requested_reviewer_history"

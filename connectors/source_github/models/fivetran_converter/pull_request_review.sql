@@ -1,42 +1,10 @@
-{% if target.type == "snowflake" %}
 
-    with tmp as (
-        SELECT
-            id as pull_request_review_id,
-            pull_request_id,
-            submitted_at,
-            state,
-            user_id
-        FROM
-            {{ source('source_github', 'pull_request_review') }}
-        )
-    select * from tmp
+SELECT
+    r.id,
+    pr.id as pull_request_id,
+    r.submitted_at,
+    r.state,
+    {{ fivetran_utils.json_extract('r."user"', 'id') }} as user_id
+FROM {{ source('source_github', 'reviews') }} as r
+left join {{ source('source_github', 'pull_requests') }} as pr on r.pull_request_url = pr.url
 
-{% elif target.type == "bigquery" %}
-
-        WITH tmp AS (
-            SELECT
-                id as pull_request_review_id,
-                pull_request_id,
-                submitted_at,
-                state,
-                user_id
-            FROM
-            {{ source('source_github', 'pull_request_review') }}
-        )
-        SELECT * FROM tmp
-
-{% elif target.type == "postgres" %}
-
-    WITH tmp AS (
-        SELECT
-            id as pull_request_review_id,
-            pull_request_id,
-            submitted_at,
-            state,
-            user_id
-        FROM
-            {{ source('source_github', 'pull_request_review') }}
-    )
-    SELECT * FROM tmp
-{%endif%}

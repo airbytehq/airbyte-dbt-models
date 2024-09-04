@@ -1,34 +1,8 @@
-{% if target.type == "snowflake" %}
-
-    with tmp as (
-        SELECT
-            issue_id,
-            merged_at
-        FROM
-            {{ source('source_github', 'issue_merged') }}
-        )
-    select * from tmp
-
-{% elif target.type == "bigquery" %}
-
-        WITH tmp AS (
-            SELECT
-                issue_id,
-                merged_at
-            FROM
-            {{ source('source_github', 'issue_merged') }}
-        )
-        SELECT * FROM tmp
-
-{% elif target.type == "postgres" %}
-
     WITH tmp AS (
         SELECT
-            issue_id,
-            merged_at
+            id as issue_id,
+            {{ fivetran_utils.json_extract('pull_request', 'merged_at') }} as merged_at
         FROM
-            {{ source('source_github', 'issue_closed_hsitory') }}
+            {{ source('source_github', 'issues') }}
     )
     SELECT * FROM tmp
-
-{%endif%}

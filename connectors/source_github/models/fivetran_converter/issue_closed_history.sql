@@ -1,37 +1,9 @@
-{% if target.type == "snowflake" %}
-
-    with tmp as (
-        SELECT
-            issue_id,
-            updated_at,
-            is_closed
-        FROM
-            {{ source('source_github', 'issue_closed_history') }}
-        )
-    select * from tmp
-
-{% elif target.type == "bigquery" %}
-
-        WITH tmp AS (
-            SELECT
-                issue_id,
-                updated_at,
-                is_closed
-            FROM
-            {{ source('source_github', 'issue_closed_history') }}
-        )
-        SELECT * FROM tmp
-
-{% elif target.type == "postgres" %}
-
-    WITH tmp AS (
-        SELECT
-            issue_id,
-            updated_at,
-            is_closed   
-        FROM
-            {{ source('source_github', 'issue_closed_hsitory') }}
+with tmp as (
+    SELECT
+        id as issue_id,
+        updated_at,
+        case when closed_at is not null then true else false end as closed
+    FROM
+        {{ source('source_github', 'issues') }}
     )
-    SELECT * FROM tmp
-
-{%endif%}
+select * from tmp

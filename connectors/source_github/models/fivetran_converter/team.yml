@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: team
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('github_repo_team_identifier', 'team') }}"
+    description: "."
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: id
+        description: "The unique identifier of the team."
+      - name: description
+        description: "A brief description of the team."
+      - name: name
+        description: "The name of the team."
+      - name: parent_id
+        description: "The unique identifier of the parent team, if the team is a child of another team."
+      - name: privacy
+        description: "The visibility level of the team, such as 'closed' or 'secret'."
+      - name: slug
+        description: "The URL-friendly name of the team."

@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: issue
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('github_issue_merged_identifier', 'issue') }}"
+    description: "A model that extracts and transforms GitHub issues data from the source table."
+    columns:
+      - name: issue_id
+        description: "Unique identifier for each GitHub issue."
+      - name: body
+        description: "The body text of the GitHub issue."
+      - name: closed_at
+        description: "The timestamp when the GitHub issue was closed."
+      - name: created_at
+        description: "The timestamp when the GitHub issue was created."
+      - name: locked
+        description: "Indicates if the GitHub issue is locked."
+      - name: milestone_id
+        description: "The unique identifier for the milestone associated with the GitHub issue."
+      - name: number
+        description: "The issue number for the GitHub repository."
+      - name: pull_request
+        description: "Indicates if the GitHub issue is a pull request."
+      - name: repository_id
+        description: "The unique identifier for the repository where the GitHub issue resides."
+      - name: state
+        description: "The state of the GitHub issue (e.g., open, closed)."
+      - name: title
+        description: "The title of the GitHub issue."
+      - name: updated_at
+        description: "The timestamp when the GitHub issue was last updated."
+      - name: user_id
+        description: "The unique identifier for the user who created the GitHub issue."

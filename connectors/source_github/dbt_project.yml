@@ -25,7 +25,7 @@ require-dbt-version:
 
 models:
   source_github:
-    materialized: table
+    materialized: view
     staging:
       materialized: view
 
