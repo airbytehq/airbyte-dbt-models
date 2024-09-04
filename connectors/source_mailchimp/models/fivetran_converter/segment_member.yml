@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: segment_members
+  - name: segment_member
     schema: "{{ var('airbyte_schema', target.schema) }}"
     database: "{{ var('airbyte_database', target.database) }}"
     identifier: "{{ var('mailchimp_segment_members_identifier', 'segment_members') }}"

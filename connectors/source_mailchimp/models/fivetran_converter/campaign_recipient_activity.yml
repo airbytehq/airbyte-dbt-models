@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: campaign_activities
+  - name: campaign_recipient_activity
     schema: "{{ var('airbyte_schema', target.schema) }}"
     database: "{{ var('airbyte_database', target.database) }}"
     identifier: "{{ var('mailchimp_campaign_activities_identifier', 'campaign_activities') }}"
