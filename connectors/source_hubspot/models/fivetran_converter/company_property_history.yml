@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: company_property_history
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('company_property_history_identifier', 'company_property_history') }}"
+    description: All fields and field values associated with company property history in HubSpot.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: _fivetran_synced
+        description: Timestamp of when this record was last synced by Fivetran
+      - name: company_id
+        description: The unique identifier of the company to which the property history record belongs
+      - name: field_name
+        description: The specific property that was updated in the company record
+      - name: change_source
+        description: The type of the source that updated the property in the company record
+      - name: change_source_id
+        description: The identifier of the source that updated the property in the company record
+      - name: change_timestamp
+        description: The date and time when the property update occurred
+      - name: new_value
+        description: The new value of the property after the update
+      - name: updated_by_user_id
+        description: The user ID of the user who initiated the property update
+      - name: is_archived
+        description: Flag indicating if the company property history record is archived or not

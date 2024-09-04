@@ -90,6 +90,9 @@ vars:
   hubspot_service_enabled: false                           # Enables all service models
   hubspot_ticket_deal_enabled: false
 
+  contact_identifier: "contacts"
   contact_lists_identifier: "contact_lists"
   deals_identifier: "deals"
   companies_identifier: "companies"
+  company_property_history_identifier: "companies_property_history"
+  contact_merged_audit_identifier: "contacts_merged_audit"
