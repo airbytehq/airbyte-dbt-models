@@ -55,6 +55,7 @@ packages:
 ```
 
 This is a default variable definition you must configure to have the models created.
+The model doesn't work with `automations`.
 
 **`dbt_project.yml`**
 
@@ -68,22 +69,17 @@ vars:
   # Required by Fivetran dbt model
   mailchimp_database: "airbyte_db_default"
   mailchimp_schema: "airbyte_dbt_source_mailchimp"
-
-  mailchimp__automation_activities_identifier: "automation_activities"
-  mailchimp__automation_emails_identifier: "automation_emails"
-  mailchimp__automation_recipients_identifier: "automation_recipients"
-  mailchimp__automations_identifier: "automations"
-  mailchimp__campaign_activities_identifier: "campaign_activities"
-  mailchimp__campaign_recipients_identifier: "campaign_recipients"
-  mailchimp__campaigns_identifier: "campaigns"
-  mailchimp__lists_identifier: "lists"
-  mailchimp__members_identifier: "members"
-  mailchimp__segment_members_identifier: "segment_members"
-  mailchimp__segments_identifier: "segments"
-  mailchimp__unsubscribes_identifier: "unsubscribes"
+  mailchimp_using_automations: false
+  mailchimp_source:
+    mailchimp_using_automations: false
 ```
 
-After run `dbt run`, you can see the models being created.
+Run:
+
+```shell
+dbt run --model +source_mailchimp
+dbt run --model +mailchimp
+```
 
 ---
 

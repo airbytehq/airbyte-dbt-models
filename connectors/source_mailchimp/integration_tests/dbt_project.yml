@@ -20,7 +20,7 @@ clean-targets:
   - logs
 
 require-dbt-version:
-  - '>=1.0.0'
+  - ">=1.0.0"
   - <2.0.0
 
 models:
@@ -40,4 +40,7 @@ vars:
 
   # Required by Fivetran dbt model
   mailchimp_database: "airbyte_db_default"
-  mailchimp_schema: "dbt_source_mailchimp"
+  mailchimp_schema: "airbyte_dbt_source_mailchimp"
+  mailchimp_source:
+    mailchimp_using_automations: false
+  mailchimp_using_automations: false

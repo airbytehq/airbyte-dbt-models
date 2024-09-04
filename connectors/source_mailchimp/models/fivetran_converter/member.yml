@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: members
+  - name: member
     schema: "{{ var('airbyte_schema', target.schema) }}"
     database: "{{ var('airbyte_database', target.database) }}"
     identifier: "{{ var('mailchimp__members_identifier', 'members') }}"
