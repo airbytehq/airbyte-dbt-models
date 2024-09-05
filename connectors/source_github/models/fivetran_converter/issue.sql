@@ -1,5 +1,5 @@
 select
-      id as issue_id,
+      cast(id as {{ dbt.type_string() }}) as id,
       body,
       closed_at,
       created_at,

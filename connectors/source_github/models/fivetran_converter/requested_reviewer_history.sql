@@ -1,9 +1,9 @@
 WITH tmp AS (
     SELECT
-        id,
+        cast(id as {{ dbt.type_string() }}) as pull_request_id,
         created_at,
         null as requested_id,
-        null as removed
+        false as removed
     FROM
     {{ source('source_github', 'reviews') }}
 )

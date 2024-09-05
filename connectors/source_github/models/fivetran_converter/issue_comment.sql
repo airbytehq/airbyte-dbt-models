@@ -1,6 +1,6 @@
 select
-    c.id,
-    i.id as issue_id,
+    cast(c.id as {{ dbt.type_string() }}) as id,
+    cast(i.id as {{ dbt.type_string() }}) issue_id,
     {{ fivetran_utils.json_extract('c."user"', 'id') }} as user_id,
     c.created_at
 from {{ source('source_github', 'comments') }} c

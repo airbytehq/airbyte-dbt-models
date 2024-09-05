@@ -3,6 +3,6 @@ WITH tmp AS (
         null as repository_id,
         null as team_id
     FROM
-    {{ source('source_github', 'repo_teams') }}
+    {{ source('source_github', 'teams') }}
 )
 SELECT * FROM tmp

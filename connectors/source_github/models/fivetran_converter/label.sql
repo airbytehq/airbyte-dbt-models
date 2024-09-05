@@ -1,5 +1,5 @@
 select
-    id,
+    cast(id as {{ dbt.type_string() }}) as id,
     color,
     description,
     "default" as is_default,
