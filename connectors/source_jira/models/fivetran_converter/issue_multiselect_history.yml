@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: issue_multiselect_history
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('jira_issue_multiselect_history_identifier', 'issue_multiselect_history') }}"
+    description: Table of every value that each array-type (multiselect) field has been set to. Each row will pertain to **one** value.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: time
+        description: Timestamp of when the issue field was updated to included this value.
+      - name: field_id
+        description: Foreign key referencing the ID of the `field` that was changed.
+      - name: issue_id
+        description: Foreign key referencing the ID of the `issue` whose field was updated.
+      - name: value
+        description: Content of the value of that the field was set to. 

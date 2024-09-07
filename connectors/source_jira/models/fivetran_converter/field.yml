@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: field
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('jira_field_identifier', 'field') }}"
+    description: Table of all issue fields.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: id
+        description: >
+          Unique ID of the field. Default fields will have descriptive IDs, whereas custom
+          field IDs will be `'customfield_#####'`.
+      - name: is_array
+        description: Boolean that is true if a field can have multiple values (is mulitselect).
+      - name: is_custom
+        description: >
+          Boolean that is true if the field is custom to this organization, and false if 
+          it is default to Jira.
+      - name: name
+        description: Name of the field as it appears on issue cards.

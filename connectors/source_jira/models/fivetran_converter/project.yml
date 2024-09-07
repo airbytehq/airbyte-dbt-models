@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: project
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('jira_project_identifier', 'project') }}"
+    description: Table of all projects in your organization.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: id
+        description: Unique ID of the project.
+      - name: description
+        description: Description of the project, if given.
+      - name: key
+        description: UI-facing ID of the project. This becomes the default prefix for tasks created within this project.
+      - name: lead_id
+        description: Foreign key referencing the ID of the `user` who leads this project.
+      - name: name
+        description: Title of the project. 
+      - name: permission_scheme_id
+        description: Foreign key referencing the ID of the `permission_scheme` that the project ascribes to. 
+      - name: project_category_id
+        description: Foreign key referencing the ID of the `project_category` that the project is associated with, if any.

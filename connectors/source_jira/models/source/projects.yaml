@@ -26,8 +26,8 @@ sources:
             description: "A brief description of the project"
             data_type: string
           - name: lead
-            description: "The username of the project lead"
-            data_type: string
+            description: "The details of the project lead"
+            data_type: object
           - name: components
             description: "List of the components contained in the project"
             data_type: json

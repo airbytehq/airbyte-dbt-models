@@ -1,0 +1,48 @@
+name: integration_test_jira
+
+config-version: 2
+
+version: 0.1.0
+
+profile: integration_tests
+
+model-paths:
+  - models
+
+macro-paths:
+  - macros
+
+target-path: target
+
+clean-targets:
+  - target
+  - dbt_modules
+  - logs
+
+require-dbt-version:
+  - ">=1.0.0"
+  - <2.0.0
+
+models:
+  airbyte_dbt_source_jira:
+    materialized: view
+    +schema: dbt_source_jira
+    staging:
+      materialized: view
+    tmp:
+      materialized: view
+
+vars:
+  # Required by Airbyte dbt model
+  using_fivetran_model: True
+  airbyte_database: "airbyte_db_default"
+  airbyte_schema: "dbt_source_jira"
+
+  # Required by Fivetran dbt model
+  jira_database: "airbyte_db_default"
+  jira_schema: "dbt_source_jira"
+
+  jira_issue_type_identifier: "issue_types"
+  jira_priority_identifier: "issue_priorities"
+  jira_resolution_identifier: "issue_resolutions"
+  jira_status_category_identifier: "workflow_status_categories"

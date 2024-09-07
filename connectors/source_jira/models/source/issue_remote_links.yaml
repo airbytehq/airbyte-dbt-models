@@ -1,0 +1,33 @@
+version: 2
+
+sources:
+  - name: source_jira
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: issue_remote_links
+        description: "Details of an issue remote link."
+        columns:
+          - name: id
+            description: "The ID of the link."
+            data_type: "integer"
+          - name: issueId
+            description: "Id of the related issue."
+            data_type: "string"
+          - name: self
+            description: "The URL of the link."
+            data_type: "string"
+          - name: globalId
+            description: "The global ID of the link, such as the ID of the item on the remote system."
+            data_type: "string"
+          - name: application
+            description: "Details of the remote application the linked item is in."
+            data_type: "object"
+          - name: relationship
+            description: "Description of the relationship between the issue and the linked item."
+            data_type: "string"
+          - name: object
+            description: "Details of the item linked to."
+            data_type: "object"

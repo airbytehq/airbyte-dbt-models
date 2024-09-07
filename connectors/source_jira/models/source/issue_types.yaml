@@ -1,0 +1,45 @@
+version: 2
+
+sources:
+  - name: source_jira
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: issue_types
+        description: "Details about an issue type."
+        columns:
+          - name: avatarId
+            description: "The ID of the issue type's avatar."
+            data_type: "integer"    
+          - name: description
+            description: "The description of the issue type."
+            data_type: "string"    
+          - name: entityId
+            description: "Unique ID for next-gen projects."
+            data_type: "string"    
+          - name: hierarchyLevel
+            description: "Hierarchy level of the issue type."
+            data_type: "integer"    
+          - name: iconUrl
+            description: "The URL of the issue type's avatar."
+            data_type: "string"    
+          - name: id
+            description: "The ID of the issue type."
+            data_type: "string"    
+          - name: name
+            description: "The name of the issue type."
+            data_type: "string"    
+          - name: self
+            description: "The URL of these issue type details."
+            data_type: "string"    
+          - name: subtask
+            description: "The URL of these issue type details."
+            data_type: "boolean"    
+          - name: scope
+            description: "Details of the next-gen projects the issue type is available in."
+            data_type: "object"
+          - name: untranslatedName
+            description: "The untranslated name of the issue type."
+            data_type: "string"

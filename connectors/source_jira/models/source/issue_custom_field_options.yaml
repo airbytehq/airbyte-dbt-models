@@ -1,0 +1,30 @@
+version: 2
+
+sources:
+  - name: source_jira
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: issue_custom_field_options
+        description: "All options related to custom fields."
+        columns:
+          - name: id
+            description: "The ID of the custom field option."
+            data_type: string
+          - name: value
+            description: "The value of the custom field option."
+            data_type: string
+          - name: optionId
+            description: "For cascading options, the ID of the custom field option containing the cascading option."
+            data_type: string
+          - name: disabled
+            description: "Whether the option is disabled."
+            data_type: boolean
+          - name: fieldId
+            description: "The ID of the custom field to which the option belongs."
+            data_type: string
+          - name: contextId
+            description: "The ID of the context to which the custom field option belongs."
+            data_type: string
