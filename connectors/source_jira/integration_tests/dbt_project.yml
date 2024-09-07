@@ -59,8 +59,3 @@ vars:
   jira_status_category_identifier: "workflow_status_categories"
   jira_user_identifier: "user"
   jira_version_identifier: "version"
-
-  jira_epic_identifier: "epic"
-  jira_project_board_identifier: "project_board"
-  jira_project_category_identifier: "project_category"
-  jira_user_group_identifier: "user_group"
