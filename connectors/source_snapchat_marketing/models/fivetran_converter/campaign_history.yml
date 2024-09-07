@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: campaign_history
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('snapchat_ads_campaign_history_identifier', 'campaign_history') }}"
+    description: All fields and field values associated with campaign history.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: campaign_id
+        description: Unique identifier for the campaign.
+      - name: ad_account_id
+        description: Unique identifier for the ad account associated with the campaign.
+      - name: created_at
+        description: The timestamp indicating when the campaign was created.
+      - name: campaign_name
+        description: The name of the campaign.
+      - name: updated_at
+        description: The timestamp indicating when the campaign was last updated.

@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: account_history
+    description: "Mapping Airbyte Google Ads data to Fivetran's Google Ads account history model"
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('google_ads_account_history_identifier', 'account_history') }}"
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: account_id
+        description: "Unique identifier for the account."
+      - name: updated_at
+        description: "Timestamp when the account data was last updated."
+      - name: customer_currency_code
+        description: "Currency code used by the account."
+      - name: auto_tagging_enabled
+        description: "Boolean indicating if auto tagging is enabled on the account."
+      - name: time_zone
+        description: "The time zone of the account."
+      - name: account_name
+        description: "Descriptive name of the account."
+      - name: is_most_recent_record
+        description: "Boolean indicating whether this is the most recent record."

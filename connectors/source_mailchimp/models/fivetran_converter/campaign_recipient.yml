@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: campaign_recipient
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('mailchimp_campaign_recipients_identifier', 'campaign_recipients') }}"
+    description: All fields and field values associated with campaign recipients.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: campaign_id
+        description: Identifier for the campaign.
+      - name: member_id
+        description: Identifier for the email recipient.
+      - name: combination_id
+        description: Identifier for the combination used in variate settings.
+      - name: list_id
+        description: Identifier for the list associated with the campaign.

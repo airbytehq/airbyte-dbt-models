@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: unsubscribe
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('mailchimp_unsubscribes_identifier', 'unsubscribes') }}"
+    description: All fields and field values associated with unsubscribes.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: campaign_id
+        description: The ID of the campaign associated with the unsubscribe.
+      - name: member_id
+        description: The unique ID of the unsubscribed email.
+      - name: list_id
+        description: The ID of the list from which the subscriber unsubscribed.
+      - name: unsubscribe_reason
+        description: The reason provided by the subscriber for unsubscribing.
+      - name: unsubscribe_timestamp
+        description: The date and time when the subscriber unsubscribed.

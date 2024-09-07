@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: creative_history
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('snapchat_ads_creative_history_identifier', 'creative_history') }}"
+    description: All fields and field values associated with creative history.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: creative_id
+        description: Unique identifier for the creative.
+      - name: creative_name
+        description: The name or title of the creative.
+      - name: created_at
+        description: The timestamp indicating when the creative was created.
+      - name: ad_account_id
+        description: The ID of the advertising account linked to the creative.
+      - name: url
+        description: The web view URL associated with the creative.
+      - name: updated_at
+        description: The timestamp indicating when the creative was last updated.

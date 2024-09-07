@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: group_criterion_history
+    description: "This model captures the historical data of ad group criteria from the Google Ads source."
+    columns:
+      - name: criterion_id
+        description: "Unique identifier for the ad group criterion."
+      - name: ad_group_id
+        description: "Identifier for the ad group."
+      - name: base_campaign_id
+        description: "Identifier for the campaign associated with the ad group criterion."
+      - name: updated_at
+        description: "Timestamp of the last update for the ad group criterion."
+      - name: type
+        description: "The type of the ad group criterion."
+      - name: status
+        description: "The current status of the ad group criterion."
+      - name: keyword_match_type
+        description: "The match type for the keyword associated with the ad group criterion."
+      - name: keyword_text
+        description: "The text of the keyword associated with the ad group criterion."
+      - name: is_most_recent_record
+        description: "Indicates whether this record is the most recent for this ad group criterion."

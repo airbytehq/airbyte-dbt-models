@@ -1,0 +1,59 @@
+version: 2
+
+models:
+  - name: list
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('mailchimp__lists_identifier', 'lists') }}"
+    description: "All fields and field values associated with lists."
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: list_id
+        description: Unique identifier for the list.
+      - name: date_created
+        description: The date and time that this list was created.
+      - name: name
+        description: The name of the list.
+      - name: list_rating
+        description: The activity score for the list.
+      - name: beamer_address
+        description: The list's Email Beamer address.
+      - name: contact_address_1
+        description: The first line of the contact address.
+      - name: contact_address_2
+        description: The second line of the contact address.
+      - name: contact_city
+        description: The city of the contact address.
+      - name: contact_company
+        description: The company of the contact address.
+      - name: contact_country
+        description: The country of the contact address.
+      - name: contact_state
+        description: The state of the contact address.
+      - name: contact_zip
+        description: The postal code of the contact address.
+      - name: default_from_email
+        description: The default 'from' email address for campaigns.
+      - name: default_from_name
+        description: The default 'from' name for campaigns.
+      - name: default_subject
+        description: The default subject line for campaigns.
+      # - name: default_language
+      #   description: The default language for the list.
+      - name: email_type_option
+        description: Whether the list supports multiple formats for emails.
+      - name: notify_on_subscribe
+        description: The email address to send subscribe notifications to.
+      - name: notify_on_unsubscribe
+        description: The email address to send unsubscribe notifications to.
+      - name: permission_reminder
+        description: The permission reminder for the list.
+      - name: subscribe_url_long
+        description: The full version of this list's subscribe form.
+      - name: subscribe_url_short
+        description: The shortened version of this list's subscribe form.
+      - name: use_archive_bar
+        description: Whether campaigns for this list use the Archive Bar.
+      - name: visibility
+        description: Whether this list is public or private.

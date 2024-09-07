@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: segment
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('mailchimp_segments_identifier', 'segments') }}"
+    description: "All fields and field values associated with segments."
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: segment_id
+        description: "Unique identifier for the segment."
+      - name: segment_name
+        description: "The name of the segment."
+      - name: segment_type
+        description: "The type of segment."
+      - name: updated_timestamp
+        description: "The timestamp when the segment was last updated."
+      - name: created_timestamp
+        description: "The timestamp when the segment was created."
+      - name: list_id
+        description: "The ID of the list to which the segment belongs."
+      - name: member_count
+        description: "The number of members in the segment."

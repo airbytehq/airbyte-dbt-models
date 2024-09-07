@@ -1,0 +1,47 @@
+version: 2
+
+models:
+  - name: member
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('mailchimp__members_identifier', 'members') }}"
+    description: "All fields and field values associated with list members."
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: member_id
+        description: "Unique identifier for the member."
+      - name: email_address
+        description: "The email address of the member."
+      - name: email_client
+        description: "The email client used by the member."
+      - name: email_type
+        description: "The type of email (HTML, plain-text, etc.) the member receives."
+      - name: status
+        description: "The subscription status of the member."
+      - name: list_id
+        description: "The identifier of the list to which the member belongs."
+      - name: signup_timestamp
+        description: "The timestamp when the member signed up."
+      - name: opt_in_timestamp
+        description: "The timestamp when the member opted in."
+      - name: last_changed_timestamp
+        description: "The timestamp when the member record was last changed."
+      - name: opt_in_ip_address
+        description: "The IP address where the member opted in."
+      - name: signup_ip_address
+        description: "The IP address where the member signed up."
+      - name: language
+        description: "The preferred language of the member."
+      - name: latitude
+        description: "Latitude of the member's location."
+      - name: longitude
+        description: "Longitude of the member's location."
+      - name: member_rating
+        description: "The rating assigned to the member."
+      - name: timezone
+        description: "Timezone of the member's location."
+      - name: unique_email_id
+        description: "Unique email identifier for the member."
+      - name: vip
+        description: "Flag indicating if the member is a VIP."

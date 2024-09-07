@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: ad_squad_history
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('snapchat_ads_ad_squad_history_identifier', 'ad_squad_history') }}"
+    description: All fields and field values associated with ad squad history.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: ad_squad_id
+        description: Unique identifier for the ad squad.
+      - name: ad_squad_name
+        description: The name of the ad squad.
+      - name: created_at
+        description: The timestamp indicating when the ad squad was created.
+      - name: campaign_id
+        description: ID of the campaign associated with the ad squad.
+      - name: updated_at
+        description: The timestamp indicating when the ad squad was last updated.
