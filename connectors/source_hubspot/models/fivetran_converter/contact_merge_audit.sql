@@ -1,5 +1,5 @@
 SELECT
-    canonical_vid,
+    user-id AS canonical_vid,
     vid_to_merge AS contact_id,
     entity_id,
     first_name AS first_name,

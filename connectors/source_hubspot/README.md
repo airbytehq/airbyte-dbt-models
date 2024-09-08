@@ -122,8 +122,22 @@ vars:
   hubspot_service_enabled: false                           # Enables all service models
   hubspot_ticket_deal_enabled: false
 
+  contact_identifier: "contacts"
   contact_lists_identifier: "contact_lists"
   deals_identifier: "deals"
+  companies_identifier: "companies"
+  company_property_history_identifier: "companies_property_history"
+  contact_merged_audit_identifier: "contacts_merged_audit"
+  contact_list_membership_identifier: "contacts_list_memberships"
+  contact_property_history_identifier: "contacts_property_history"
+  deal_pipeline_identifier: "deal_pipelines"
+  deal_property_history_identifier: "deals_property_history"
+  email_event_identifier: "email_events"
+  engagements_calls_identifier: "engagements_calls"
+  engagement_email_identifier: "engagement_emails"
+  ticket_pipeline_identifier: "ticket_pipelines"
+  tickets_identifier: "tickets"
+  engagement_note_identifier: "engagement_notes"
 
 ```
 
