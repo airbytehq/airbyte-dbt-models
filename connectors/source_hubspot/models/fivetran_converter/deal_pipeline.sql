@@ -1,5 +1,5 @@
 SELECT
-    default AS is_deal_pipeline_deleted,
+    NOT active AS is_deal_pipeline_deleted,
     {{ dbt.current_timestamp() }}  AS _fivetran_synced,
     active AS is_active,
     displayOrder AS display_order,
