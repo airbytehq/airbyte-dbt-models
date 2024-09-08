@@ -16,5 +16,5 @@ SELECT
     CAST(properties_hs_created_by_user_id AS {{ dbt.type_string() }}) AS created_by_user_id,
     CAST(properties_hs_lastmodifieddate AS {{ dbt.type_timestamp() }}) AS last_modified_date,
     CAST(properties_hs_updated_by_user_id AS {{ dbt.type_string() }}) AS updated_by_user_id
-
-FROM {{ source('source_hubspot', 'deals') }}
+FROM 
+    {{ source('source_hubspot', 'deals') }}

@@ -8,4 +8,5 @@ SELECT
     object_type_id,
     createdAt AS ticket_pipeline_created_at,
     updatedAt AS ticket_pipeline_updated_at
-FROM {{ source('source_hubspot', 'ticket_pipelines') }}
+FROM 
+    {{ source('source_hubspot', 'ticket_pipelines') }}

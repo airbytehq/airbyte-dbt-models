@@ -11,7 +11,7 @@ SELECT
     properties_city AS city,
     properties_state AS state,
     properties_country AS country,
-    CAST(properties_annualrevenue AS {{ dbt.type_float() }}) AS company_annual_revenue,
-
-FROM {{ source('source_hubspot', 'companies') }}
+    CAST(properties_annualrevenue AS {{ dbt.type_float() }}) AS company_annual_revenue
+FROM 
+    {{ source('source_hubspot', 'companies') }}
 
