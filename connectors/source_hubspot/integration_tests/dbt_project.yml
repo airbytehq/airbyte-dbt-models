@@ -103,3 +103,5 @@ vars:
   email_event_identifier: "email_events"
   engagements_calls_identifier: "engagements_calls"
   engagement_email_identifier: "engagement_emails"
+  ticket_pipeline_identifier: "ticket_pipelines"
+  tickets_identifier: "tickets"
