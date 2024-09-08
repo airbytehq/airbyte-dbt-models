@@ -1,7 +1,7 @@
 SELECT
     id AS ticket_id,
     'FALSE' AS is_ticket_deleted,
-    {{ dbt.type_timestamp() }} AS _fivetran_synced,
+    {{ dbt.current_timestamp() }} AS _fivetran_synced,
     properties_closed_date AS closed_date,
     properties_createdate AS created_date,
     properties_first_agent_reply_date AS first_agent_reply_at,

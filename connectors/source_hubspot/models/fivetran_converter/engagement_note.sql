@@ -1,5 +1,5 @@
 SELECT
-    {{ dbt.type_timestamp() }} AS _fivetran_synced,
+    {{ dbt.current_timestamp() }} AS _fivetran_synced,
     'FALSE' AS _fivetran_deleted,
     properties_hs_note_body AS note,
     'note' AS engagement_type,

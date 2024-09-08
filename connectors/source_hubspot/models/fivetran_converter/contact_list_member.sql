@@ -1,5 +1,5 @@
 SELECT
-    _fivetran_deleted AS is_contact_merged_audit_deleted,
+    'FALSE' AS is_contact_merged_audit_deleted,
     {{ dbt.current_timestamp() }}  AS _fivetran_synced,
     canonical_vid,
     vid_to_merge,

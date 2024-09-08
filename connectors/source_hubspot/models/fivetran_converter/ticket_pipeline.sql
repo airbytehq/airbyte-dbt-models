@@ -1,7 +1,7 @@
 SELECT
     CAST(id AS {{ dbt.type_int() }}) AS ticket_pipeline_id,
     'FALSE' AS is_ticket_pipeline_deleted,
-    {{ dbt.type_timestamp() }} AS _fivetran_synced,
+    {{ dbt.current_timestamp() }} AS _fivetran_synced,
     NOT archived AS is_active,
     displayOrder AS display_order,
     label AS pipeline_label,
