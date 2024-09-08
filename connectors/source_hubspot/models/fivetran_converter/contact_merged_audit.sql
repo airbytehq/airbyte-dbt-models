@@ -18,7 +18,7 @@ FROM
 
 SELECT
     {{ dbt.current_timestamp() }} AS fivetran_synced,
-    canonical_vid AS canonical_id,
+    "canonical-vid" AS canonical_id,
     vid_to_merge AS contact_id,
     entity_id,
     first_name,
