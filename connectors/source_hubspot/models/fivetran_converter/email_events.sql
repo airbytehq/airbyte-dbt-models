@@ -3,8 +3,8 @@
 SELECT
     {{ dbt.current_timestamp() }} AS _fivetran_synced,
     "appId" AS app_id,
-    CAST(caused_by->>'created' AS {{ dbt.type_timestamp() }}) AS caused_timestamp,
-    caused_by->>'id' AS caused_by_event_id,
+    CAST(causedBy->>'created' AS {{ dbt.type_timestamp() }}) AS caused_timestamp,
+    causedBy->>'id' AS caused_by_event_id,
     CAST(created AS {{ dbt.type_timestamp() }}) AS created_timestamp,
     "emailCampaignId" AS email_campaign_id,
     "filteredEvent" AS is_filtered_event,
@@ -24,8 +24,8 @@ FROM
 SELECT
     {{ dbt.current_timestamp() }} AS _fivetran_synced,
     appId AS app_id,
-    CAST(caused_by:created AS {{ dbt.type_timestamp() }}) AS caused_timestamp,
-    caused_by:id AS caused_by_event_id,
+    CAST(causedBy:created AS {{ dbt.type_timestamp() }}) AS caused_timestamp,
+    causedBy:id AS caused_by_event_id,
     CAST(created AS {{ dbt.type_timestamp() }}) AS created_timestamp,
     emailCampaignId AS email_campaign_id,
     filteredEvent AS is_filtered_event,
@@ -45,8 +45,8 @@ FROM
 SELECT
     {{ dbt.current_timestamp() }} AS _fivetran_synced,
     appId AS app_id,
-    CAST(JSON_EXTRACT_SCALAR(caused_by, '$.created') AS {{ dbt.type_timestamp() }}) AS caused_timestamp,
-    JSON_EXTRACT_SCALAR(caused_by, '$.id') AS caused_by_event_id,
+    CAST(JSON_EXTRACT_SCALAR(causedBy, '$.created') AS {{ dbt.type_timestamp() }}) AS caused_timestamp,
+    JSON_EXTRACT_SCALAR(causedBy, '$.id') AS caused_by_event_id,
     CAST(created AS {{ dbt.type_timestamp() }}) AS created_timestamp,
     emailCampaignId AS email_campaign_id,
     filteredEvent AS is_filtered_event,

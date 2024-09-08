@@ -1,6 +1,6 @@
 SELECT
     {{ dbt.current_timestamp() }}  AS _fivetran_synced,
-    canonical-vid AS contact_id,
+    source_id AS contact_id,
     name AS field_name,
     source AS change_source,
     source_id AS change_source_id,

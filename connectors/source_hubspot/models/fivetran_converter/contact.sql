@@ -1,7 +1,7 @@
 
     SELECT
         id AS contact_id,
-        _fivetran_deleted AS is_contact_deleted,
+        properties_hs_is_contact AS is_contact_deleted,
         properties_hs_calculated_merged_vids AS calculated_merged_vids,
         properties_email AS email,
         properties_company AS contact_company,

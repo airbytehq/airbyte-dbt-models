@@ -1,6 +1,6 @@
 SELECT
     {{ dbt.current_timestamp() }} AS _fivetran_synced,
-    COALESCE(_fivetran_deleted, FALSE) AS _fivetran_deleted,
+    'FALSE' AS _fivetran_deleted,
     id AS engagement_id,
     'CALL' AS engagement_type,
     createdAt AS created_timestamp,
