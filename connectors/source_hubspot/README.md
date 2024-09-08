@@ -127,7 +127,6 @@ vars:
   deals_identifier: "deals"
   companies_identifier: "companies"
   company_property_history_identifier: "companies_property_history"
-  contact_merged_audit_identifier: "contacts_merged_audit"
   contact_list_membership_identifier: "contacts_list_memberships"
   contact_property_history_identifier: "contacts_property_history"
   deal_pipeline_identifier: "deal_pipelines"
