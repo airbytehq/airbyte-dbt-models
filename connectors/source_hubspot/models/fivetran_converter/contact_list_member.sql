@@ -1,10 +1,22 @@
 SELECT
     'FALSE' AS is_contact_merged_audit_deleted,
     {{ dbt.current_timestamp() }}  AS _fivetran_synced,
-    "user-id" AS id,
+    {% if target.type == "postgres" %}
+        "user-id" AS id,
+    {% elif target.type == "snowflake" %}
+        "user-id"::STRING AS id,
+    {% elif target.type == "bigquery" %}
+        `user-id` AS id,
+    {% endif %}
     vid_to_merge,
-    CAST(timestamp AS {{ dbt.type_timestamp() }}) AS merged_timestamp,
-    "user-id" AS user_id,
+    timestamp AS merged_timestamp,
+    {% if target.type == "postgres" %}
+        "user-id" AS user_id,
+    {% elif target.type == "snowflake" %}
+        "user-id"::STRING AS user_id,
+    {% elif target.type == "bigquery" %}
+        `user-id` AS user_id,
+    {% endif %}
     first_name AS user_first_name,
     last_name AS user_last_name
 FROM

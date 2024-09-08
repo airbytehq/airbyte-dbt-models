@@ -3,11 +3,11 @@ SELECT
     vid AS contact_id,
     properties_firstname AS field_name,
     {% if target.type == "postgres" %}
-    "source-id" AS change_source,
+        "source-id" AS change_source,
     {% elif target.type == "snowflake" %}
-    "source-id"::STRING AS change_source,
+        "source-id"::STRING AS change_source,
     {% elif target.type == "bigquery" %}
-    `source-id` AS change_source
+        `source-id` AS change_source,
     {% endif %}
     properties_hs_created_by_user_id AS change_source_id,
     CAST(timestamp AS {{ dbt.type_timestamp() }}) AS change_timestamp,
