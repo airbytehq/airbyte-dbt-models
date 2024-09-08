@@ -1,0 +1,48 @@
+version: 2
+
+models:
+  - name: deal
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('deal_identifier', 'deal') }}"
+    description: Transformed data for HubSpot deals
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: deal_id
+        description: Unique identifier for the deal
+        tests:
+          - unique
+          - not_null
+      - name: deal_name
+        description: The name of the deal
+      - name: closed_date
+        description: The date when the deal was closed
+      - name: created_date
+        description: The date when the deal was created
+      - name: _fivetran_synced
+        description: Timestamp of when this record was last synced by Fivetran
+      - name: deal_pipeline_id
+        description: The ID of the pipeline the deal belongs to
+      - name: deal_pipeline_stage_id
+        description: The ID of the pipeline stage the deal is in
+      - name: owner_id
+        description: The ID of the deal owner
+      - name: portal_id
+        description: The ID of the HubSpot portal
+      - name: description
+        description: The description of the deal
+      - name: amount
+        description: The monetary amount of the deal
+      - name: is_closed
+        description: Indicates if the deal is closed
+      - name: is_won
+        description: Indicates if the deal is won
+      - name: is_deal_deleted
+        description: Indicates if the deal has been deleted
+      - name: created_by_user_id
+        description: The ID of the user who created the deal
+      - name: last_modified_date
+        description: The date when the deal was last modified
+      - name: updated_by_user_id
+        description: The ID of the user who last updated the deal

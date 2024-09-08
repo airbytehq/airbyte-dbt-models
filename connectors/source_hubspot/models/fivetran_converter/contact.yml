@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: contact
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('contact_identifier', 'contact') }}"
+    description: All fields and field values associated with HubSpot contacts.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: contact_id
+        description: Unique identifier for the contact
+      - name: is_contact_deleted
+        description: Indicates if the contact has been deleted
+      - name: calculated_merged_vids
+        description: Calculated merged visitor IDs
+      - name: email
+        description: Email address of the contact
+      - name: contact_company
+        description: Company associated with the contact
+      - name: first_name
+        description: First name of the contact
+      - name: last_name
+        description: Last name of the contact
+      - name: created_date
+        description: Timestamp when the contact was created
+      - name: job_title
+        description: Job title of the contact
+      - name: company_annual_revenue
+        description: Annual revenue of the company associated with the contact
+      - name: _fivetran_synced
+        description: Timestamp of when this record was last synced by Fivetran

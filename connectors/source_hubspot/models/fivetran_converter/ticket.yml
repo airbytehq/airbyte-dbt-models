@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: ticket
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('tickets_identifier', 'ticket') }}"
+    description: Transformed ticket data from Hubspot.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: ticket_id
+        description: ID of the ticket
+      - name: is_ticket_deleted
+        description: Boolean indicating whether a record has been deleted in Hubspot or inferred deleted by Fivetran
+      - name: _fivetran_synced
+        description: Timestamp of when Fivetran synced a record
+      - name: closed_date
+        description: The date the ticket was closed
+      - name: created_date
+        description: The date the ticket was created
+      - name: first_agent_reply_at
+        description: The date for the first agent reply on the ticket
+      - name: ticket_pipeline_id
+        description: The ID of the ticket's pipeline
+      - name: ticket_pipeline_stage_id
+        description: The ID of the ticket's pipeline stage
+      - name: ticket_category
+        description: The category of the ticket
+      - name: ticket_priority
+        description: The priority of the ticket
+      - name: owner_id
+        description: The ID of the ticket's owner
+      - name: ticket_subject
+        description: Short summary of ticket
+      - name: ticket_content
+        description: Text in body of the ticket

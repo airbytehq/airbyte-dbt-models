@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: ticket_pipeline
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('ticket_pipeline_identifier', 'ticket_pipeline') }}"
+    description: All fields and field values associated with HubSpot ticket pipelines.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: ticket_pipeline_id
+        description: The unique identifier of the ticket pipeline
+      - name: is_ticket_pipeline_deleted
+        description: Indicates whether the ticket pipeline has been deleted
+      - name: _fivetran_synced
+        description: Timestamp of when this record was last synced by Fivetran
+      - name: is_active
+        description: Indicates if the ticket pipeline is active
+      - name: display_order
+        description: The order in which the ticket pipeline is displayed
+      - name: pipeline_label
+        description: The label or name of the ticket pipeline
+      - name: object_type_id
+        description: The ID of the object type associated with this pipeline
+      - name: ticket_pipeline_created_at
+        description: The date and time when the ticket pipeline was created
+      - name: ticket_pipeline_updated_at
+        description: The date and time when the ticket pipeline was last updated

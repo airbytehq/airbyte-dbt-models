@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: deal_property_history
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('deal_property_history_identifier', 'deal_property_history') }}"
+    description: Historical changes to deal properties in HubSpot.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: _fivetran_synced
+        description: Timestamp of when this record was last synced by Fivetran
+        tests:
+          - not_null
+      - name: deal_id
+        description: The unique identifier of the deal associated with this property history
+        tests:
+          - not_null
+      - name: field_name
+        description: The name of the property that was updated
+        tests:
+          - not_null
+      - name: change_source
+        description: The type of source that triggered this update
+      - name: change_source_id
+        description: The unique identifier of the source of this update
+      - name: change_timestamp
+        description: The date and time when the property was updated
+        tests:
+          - not_null
+      - name: new_value
+        description: The new value of the property after the change

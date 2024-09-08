@@ -1,0 +1,43 @@
+version: 2
+
+models:
+  - name: company
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('company_identifier', 'company') }}"
+    description: Transformed data from HubSpot companies table.
+    config:
+      +materialized: table
+      +schema: hubspot
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: company_id
+        description: Unique identifier for the company
+        tests:
+          - unique
+          - not_null
+      - name: is_company_deleted
+        description: Indicates whether the company is archived or active
+      - name: _fivetran_synced
+        description: Timestamp of when this record was last synced by Fivetran
+      - name: company_name
+        description: The name of the company
+      - name: description
+        description: Company description
+      - name: created_date
+        description: Date and time when the company was created
+      - name: industry
+        description: The industry of the company
+      - name: street_address
+        description: Primary street address of the company
+      - name: street_address_2
+        description: Secondary street address of the company
+      - name: city
+        description: City where the company is located
+      - name: state
+        description: State where the company is located
+      - name: country
+        description: Country where the company is located
+      - name: company_annual_revenue
+        description: Annual revenue of the company
+

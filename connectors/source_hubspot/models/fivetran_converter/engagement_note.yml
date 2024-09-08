@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: engagement_note
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('engagement_note_identifier', 'engagement_note') }}"
+    description: All fields and field values associated with HubSpot engagement notes.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: _fivetran_synced
+        description: Timestamp of when Fivetran synced a record
+      - name: _fivetran_deleted
+        description: Boolean to mark rows that were deleted in the source database
+      - name: note
+        description: The body of the note. The body has a limit of 65536 characters.
+      - name: engagement_type
+        description: The type of the engagement
+      - name: engagement_id
+        description: The ID of the engagement
+      - name: created_timestamp
+        description: This field marks the note's time of creation and determines where the note sits on the record timeline
+      - name: occurred_timestamp
+        description: This field marks the note's time of occurrence and determines where the note sits on the record timeline
+      - name: owner_id
+        description: The ID of the owner associated with the note
+      - name: team_id
+        description: The ID of the team associated with the note
+      - name: body_preview
+        description: A preview of the note body
+      - name: lastmodifieddate
+        description: The date the note was last modified
+      - name: note_body
+        description: The full body of the note

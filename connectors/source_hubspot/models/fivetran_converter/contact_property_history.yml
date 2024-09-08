@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: contact_property_history
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('contact_property_history_identifier', 'contact_property_history') }}"
+    description: Historical data of property changes for HubSpot contacts.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: _fivetran_synced
+        description: Timestamp of when this record was last synced by Fivetran
+        data_type: timestamp
+      - name: contact_id
+        description: The unique identifier of the contact
+        data_type: integer
+      - name: field_name
+        description: The name of the property that was changed
+        data_type: string
+      - name: change_source
+        description: The source of the property change
+        data_type: string
+      - name: change_source_id
+        description: The identifier of the change source
+        data_type: string
+      - name: change_timestamp
+        description: The timestamp when the property was changed
+        data_type: timestamp
+      - name: new_value
+        description: The new value of the property after the change
+        data_type: string
+    

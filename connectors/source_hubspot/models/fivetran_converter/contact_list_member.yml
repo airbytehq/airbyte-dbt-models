@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: contact_list_member
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('contact_list_membership_identifier', 'contact_list_member') }}"
+    description: Represents the membership of contacts in various contact lists.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: _fivetran_synced
+        description: Timestamp of when this record was last synced by Fivetran
+      - name: added_timestamp
+        description: The timestamp when the contact was added to the list
+      - name: contact_id
+        description: The unique ID associated with the contact in the HubSpot CRM (formerly 'canonical-vid' or 'vid')
+      - name: contact_list_id
+        description: The ID of the contact list (formerly 'static-list-id' or 'internal-list-id')
+      - name: is_contact_list_member_deleted
+        description: Indicates whether this membership record has been deleted

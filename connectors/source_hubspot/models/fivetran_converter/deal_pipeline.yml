@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: deal_pipeline
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('deal_pipeline_identifier', 'deal_pipeline') }}"
+    description: All fields and field values associated with HubSpot deal pipelines.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: _fivetran_synced
+        description: Timestamp of when this record was last synced by Fivetran
+      - name: is_deal_pipeline_deleted
+        description: Indicates whether the deal pipeline has been deleted
+      - name: is_active
+        description: Indicates if the deal pipeline is currently active or not
+      - name: display_order
+        description: The ordering of the deal pipeline for display
+      - name: pipeline_label
+        description: The label or name of the deal pipeline
+      - name: deal_pipeline_id
+        description: The unique identifier of the deal pipeline
+      - name: deal_pipeline_created_at
+        description: Timestamp for the creation date of the deal pipeline
+      - name: deal_pipeline_updated_at
+        description: Timestamp for the last update to the deal pipeline
