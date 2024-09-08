@@ -4,18 +4,18 @@ SELECT
     {% if target.type == "postgres" %}
         "user-id" AS id,
     {% elif target.type == "snowflake" %}
-        `"user-id"` AS id,
+        "user-id" AS id,
     {% elif target.type == "bigquery" %}
-        `user-id` AS id,
+        `user_id` AS id,
     {% endif %}
     vid_to_merge,
     timestamp AS merged_timestamp,
     {% if target.type == "postgres" %}
         "user-id" AS user_id,
     {% elif target.type == "snowflake" %}
-        `"user-id"` AS user_id,
+        "user-id" AS user_id,
     {% elif target.type == "bigquery" %}
-        `user-id` AS user_id,
+        `user_id` AS user_id,
     {% endif %}
     first_name AS user_first_name,
     last_name AS user_last_name
