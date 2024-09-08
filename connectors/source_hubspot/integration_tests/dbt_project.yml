@@ -101,3 +101,5 @@ vars:
   deal_pipeline_identifier: "deal_pipelines"
   deal_property_history_identifier: "deals_property_history"
   email_event_identifier: "email_events"
+  engagements_calls_identifier: "engagements_calls"
+  engagement_email_identifier: "engagement_emails"

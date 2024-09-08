@@ -1,6 +1,6 @@
 SELECT
     _fivetran_deleted AS is_contact_merged_audit_deleted,
-    {{ dbt.current_timestamp() }}  AS _fivetran_synced
+    {{ dbt.current_timestamp() }}  AS _fivetran_synced,
     canonical_vid,
     vid_to_merge,
     CAST(timestamp AS {{ dbt.type_timestamp() }}) AS merged_timestamp,

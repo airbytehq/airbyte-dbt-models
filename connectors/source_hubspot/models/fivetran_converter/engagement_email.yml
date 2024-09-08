@@ -1,0 +1,39 @@
+version: 2
+
+models:
+  - name: engagement_email
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('engagement_email_identifier', 'engagement_email') }}"
+    description: Fields and field values associated with HubSpot engagement emails.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: _fivetran_synced
+        description: Timestamp of when Fivetran synced a record
+      - name: _fivetran_deleted
+        description: Boolean to mark rows that were deleted in the source database
+      - name: engagement_type
+        description: The type of the engagement
+      - name: engagement_id
+        description: The ID of the engagement
+      - name: created_timestamp
+        description: Timestamp of email creation
+      - name: occurred_timestamp
+        description: Timestamp of email occurrence
+      - name: owner_id
+        description: The ID of the owner associated with the email
+      - name: team_id
+        description: The ID of the team associated with the email
+      - name: all_owner_ids
+        description: All owner IDs associated with the email
+      - name: all_team_ids
+        description: All team IDs associated with the email
+      - name: email_subject
+        description: Subject of the email
+      - name: email_text
+        description: Text content of the email
+      - name: lastmodifieddate
+        description: Date the email was last modified
+      - name: modified_by
+        description: ID of the user who last modified the email

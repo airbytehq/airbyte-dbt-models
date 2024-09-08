@@ -1,5 +1,5 @@
 SELECT
-    deal_id,
+    id AS deal_id,
     properties_dealname AS deal_name,
     CAST(properties_closedate AS {{ dbt.type_timestamp() }}) AS closed_date,
     CAST(properties_createdate AS {{ dbt.type_timestamp() }}) AS created_date,

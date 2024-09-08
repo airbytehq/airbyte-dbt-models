@@ -5,7 +5,7 @@ SELECT
     first_name AS first_name,
     last_name AS last_name,
     num_properties_moved,
-    timestamp AS {{ dbt.type_timestamp() }} AS timestamp_at,
+    {{ dbt.type_timestamp() }} AS timestamp_at,
     user_id,
     vid_to_merge,
     {{ dbt.current_timestamp() }}  AS _fivetran_synced,
