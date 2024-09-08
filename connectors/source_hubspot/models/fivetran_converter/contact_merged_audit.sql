@@ -9,7 +9,7 @@ SELECT
     last_name,
     num_properties_moved,
     timestamp,
-    "user-id" AS original_user_id,
+    "user-id" AS user_id,
     vid_to_merge
 FROM 
     {{ source('source_hubspot', 'contacts_merged_audit') }}
@@ -18,14 +18,14 @@ FROM
 
 SELECT
     {{ dbt.current_timestamp() }} AS fivetran_synced,
-    "user_id" AS user_id,
+    user_id AS user_id,
     vid_to_merge AS contact_id,
     entity_id,
     first_name,
     last_name,
     num_properties_moved,
     timestamp,
-    "user_id" AS original_user_id,
+    merged_from_email_source_label AS user_id,
     vid_to_merge
 FROM 
     {{ source('source_hubspot', 'contacts_merged_audit') }}
@@ -41,7 +41,7 @@ SELECT
     last_name,
     num_properties_moved,
     timestamp,
-    `user_id` AS original_user_id,
+    `user_id` AS user_id,
     vid_to_merge
 FROM 
     {{ source('source_hubspot', 'contacts_merged_audit') }}

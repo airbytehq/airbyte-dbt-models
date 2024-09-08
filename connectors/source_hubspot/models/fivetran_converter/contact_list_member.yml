@@ -17,7 +17,5 @@ models:
         description: The unique ID associated with the contact in the HubSpot CRM (formerly 'canonical-vid' or 'vid')
       - name: contact_list_id
         description: The ID of the contact list (formerly 'static-list-id' or 'internal-list-id')
-      - name: is_member
-        description: Flag indicating whether the contact is a member of the list or not
       - name: is_contact_list_member_deleted
         description: Indicates whether this membership record has been deleted
