@@ -8,7 +8,7 @@ SELECT
     first_name,
     last_name,
     num_properties_moved,
-    CAST(timestamp_at AS {{ dbt.type_timestamp() }}) AS timestamp_at,
+    timestamp_at,
     "user-id" AS original_user_id,
     vid_to_merge
 FROM 
@@ -18,14 +18,14 @@ FROM
 
 SELECT
     {{ dbt.current_timestamp() }} AS fivetran_synced,
-    "user-id"::STRING AS user_id,
+    `"user-id"`::STRING AS user_id,
     vid_to_merge AS contact_id,
     entity_id,
     first_name,
     last_name,
     num_properties_moved,
-    CAST(timestamp_at AS {{ dbt.type_timestamp() }}) AS timestamp_at,
-    "user-id"::STRING AS original_user_id,
+    timestamp_at,
+    `"user-id"`::STRING AS original_user_id,
     vid_to_merge
 FROM 
     {{ source('source_hubspot', 'contacts_merged_audit') }}
@@ -40,7 +40,7 @@ SELECT
     first_name,
     last_name,
     num_properties_moved,
-    CAST(timestamp_at AS {{ dbt.type_timestamp() }}) AS timestamp_at,
+    timestamp_at,
     `user-id` AS original_user_id,
     vid_to_merge
 FROM 

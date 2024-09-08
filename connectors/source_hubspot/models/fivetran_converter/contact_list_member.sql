@@ -4,7 +4,7 @@ SELECT
     {% if target.type == "postgres" %}
         "user-id" AS id,
     {% elif target.type == "snowflake" %}
-        "user-id"::STRING AS id,
+        `"user-id"` AS id,
     {% elif target.type == "bigquery" %}
         `user-id` AS id,
     {% endif %}
@@ -13,7 +13,7 @@ SELECT
     {% if target.type == "postgres" %}
         "user-id" AS user_id,
     {% elif target.type == "snowflake" %}
-        "user-id"::STRING AS user_id,
+        `"user-id"` AS user_id,
     {% elif target.type == "bigquery" %}
         `user-id` AS user_id,
     {% endif %}

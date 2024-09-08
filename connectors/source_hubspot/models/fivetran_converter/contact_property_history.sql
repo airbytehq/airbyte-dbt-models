@@ -5,7 +5,7 @@ SELECT
     {% if target.type == "postgres" %}
         "source-id" AS change_source,
     {% elif target.type == "snowflake" %}
-        "source-id"::STRING AS change_source,
+        `"source-id"`::STRING AS change_source,
     {% elif target.type == "bigquery" %}
         `source-id` AS change_source,
     {% endif %}
