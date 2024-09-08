@@ -4,8 +4,8 @@ SELECT
     active AS is_active,
     displayOrder AS display_order,
     label AS pipeline_label,
-    CAST(pipelineId AS {{ dbt.type_string() }}) AS deal_pipeline_id,
-    CAST(createdAt AS {{ dbt.type_timestamp() }}) AS deal_pipeline_created_at,
-    CAST(updatedAt AS {{ dbt.type_timestamp() }}) AS deal_pipeline_updated_at
+    pipelineId AS deal_pipeline_id,
+    createdAt AS deal_pipeline_created_at,
+    updatedAt AS deal_pipeline_updated_at
 FROM
     {{ source('source_hubspot', 'deal_pipelines') }}
