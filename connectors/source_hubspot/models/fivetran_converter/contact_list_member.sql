@@ -1,7 +1,7 @@
 SELECT
     'FALSE' AS is_contact_list_member_deleted,
-    {{ dbt.current_timestamp() }}  AS _fivetran_synced
-    timestamp AS added_at,
+    {{ dbt.current_timestamp() }} AS _fivetran_synced
+    added_at,
     canonical_vid AS contact_id,
     static_list_id AS contact_list_id
 FROM

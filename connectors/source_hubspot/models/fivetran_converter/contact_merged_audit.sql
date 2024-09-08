@@ -2,7 +2,7 @@
 
 SELECT
     {{ dbt.current_timestamp() }} AS fivetran_synced,
-    "user-id" AS user_id,
+    "user-id" AS canonical_id,
     vid_to_merge AS contact_id,
     entity_id,
     first_name,
@@ -18,7 +18,7 @@ FROM
 
 SELECT
     {{ dbt.current_timestamp() }} AS fivetran_synced,
-    user_id AS user_id,
+    canonical_vid AS canonical_id,
     vid_to_merge AS contact_id,
     entity_id,
     first_name,
@@ -34,7 +34,7 @@ FROM
 
 SELECT
     {{ dbt.current_timestamp() }} AS fivetran_synced,
-    `user_id` AS user_id,
+    `canonical-vid` AS canonical_id,
     vid_to_merge AS contact_id,
     entity_id,
     first_name,
