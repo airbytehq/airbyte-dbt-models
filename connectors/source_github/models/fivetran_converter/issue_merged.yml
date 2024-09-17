@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: issue_merged
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('github_issue_merged_identifier', 'issue_merged') }}"
+    description: All fields and field values associated with issues with issues merged.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: issue_id
+        description: The ID of the issue associated with the field.
+      - name: merged_at
+        description: The timestamp for when the issue was merged.

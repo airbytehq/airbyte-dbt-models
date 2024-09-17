@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: pull_request
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('github_issue_merged_identifier', 'pull_request') }}"
+    description: "All pull requests"
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: id
+        description: "The unique identifier of the pull request."
+      - name: issue_id
+        description: "The unique identifier of the associated issue."
+      - name: head_repo_id
+        description: "The unique identifier of the head repository."
+      - name: head_user_id
+        description: "The unique identifier of the head user."

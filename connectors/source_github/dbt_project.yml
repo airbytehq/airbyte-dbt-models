@@ -25,10 +25,11 @@ require-dbt-version:
 
 models:
   source_github:
-    materialized: table
+    materialized: view
     staging:
       materialized: view
 
 vars:
-  database: snowflake
-  schema: source_github
+  database: airbyte_dbt_default
+  schema: airbyte_schema_default
+  using_fivetran: False

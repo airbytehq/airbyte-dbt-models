@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: issue_comment
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('github_issue_assignee_identifier', 'issue_comment') }}"
+    description: All fields and field values associated with issue assignees.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: id
+        description: The ID of the issue comment.
+      - name: issue_id
+        description: The ID of the issue.
+      - name: user_id
+        description: The ID of the user made the comment.
+      - name: created_at
+        description: Date the comment was made.

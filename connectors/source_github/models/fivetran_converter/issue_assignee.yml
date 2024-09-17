@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: issue_assignee
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('github_issue_assignee_identifier', 'issue_assignee') }}"
+    description: All fields and field values associated with issue assignees.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: issue_id
+        description: The ID of the issue associated with the field.
+      - name: user_id
+        description: The ID of the user assigned to the issue.

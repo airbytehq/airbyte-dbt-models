@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: requested_reviewer_history
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('github_requested_reviewer_history_identifier', 'requested_reviewer_history') }}"
+    description: Table containing when a user requests another user to review a pull request.
+    columns:
+      - name: pull_request_id
+        description: Foreign key that references the pull request table.
+      - name: created_at
+        description:  Timestamp of when the review was submitted.
+      - name: requested_id
+        description: Foreign key that references the user table, representing the user that was requested to review a PR.
+      - name: removed
+        description: Boolean variable indicating if the requester was removed from the PR (true) or added to the PR (false).

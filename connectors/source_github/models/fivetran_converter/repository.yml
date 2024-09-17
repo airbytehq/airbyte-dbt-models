@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: repository
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('github_repo_team_identifier', 'repository') }}"
+    description: "This model contains all fields and values associated with GitHub repositories and their teams."
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: id
+        description: "The unique identifier of the repository."
+      - name: private
+        description: "Indicates whether the repository is private (true) or public (false)."
+      - name: full_name
+        description: "The full name of the repository, including the owner (e.g., 'owner/repo_name')."
