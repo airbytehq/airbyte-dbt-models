@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: issue_link
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('jira_issue_link_identifier', 'issue_link') }}"
+    description: Table of relationships (links) created between issues. Issue links can include blockers, clones/duplicates, and general relationships.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: issue_id
+        description: Foreign key referencing the ID of the `issue` that is the subject of this relationship (the linker).
+      - name: related_issue_id
+        description: Foreign key referencing the ID of the `issue` that is the object of this relationship (the linkee).
+      - name: relationship
+        description: The nature of the link between the two issues ("blocks", "is duplicated by", "relates to", etc.)

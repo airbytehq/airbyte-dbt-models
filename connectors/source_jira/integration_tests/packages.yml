@@ -1,0 +1,5 @@
+packages:
+  - local: ../
+
+  - package: fivetran/jira
+    version: [">=0.17.0", "<0.18.0"]

@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: sprint
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('jira_sprint_identifier', 'sprint') }}"
+    description: Table of all sprints.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: id
+        description: Unique ID of the sprint.
+      - name: board_id
+        description: Foreign key referencing the ID of the `board` that the sprint lives in.
+      - name: complete_date
+        description: Timestamp of when the sprint was completed.
+      - name: end_date
+        description: Timestamp of when the sprint is planned to end.
+      - name: name  
+        description: Title of the sprint.
+      - name: start_date
+        description: Timestamp of when the sprint began. 

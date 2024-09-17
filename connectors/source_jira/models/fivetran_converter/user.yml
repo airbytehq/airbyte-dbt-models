@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: user
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('jira_user_identifier', 'user') }}"
+    description: Table of users associated with your organization.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: id  
+        description: Unique ID of the user. 
+      - name: email
+        description: Email associated with the user account.
+      - name: locale
+        description: The Java locale of the user. 
+      - name: name
+        description: Name of the user as it appears in the UI.
+      - name: time_zone
+        description: The user's timezone, as defined in their settings.
+      - name: username
+        description: Account username.

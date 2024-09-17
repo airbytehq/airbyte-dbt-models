@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: component
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('jira_component_identifier', 'component') }}"
+    description: Table of project components (subsections to group issues).
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: id
+        description: ID of the component.
+      - name: description
+        description: Description given to the component.
+      - name: name
+        description: UI-facing name of the component.
+      - name: project_id
+        description: Foreign key referencing the id of the component's `project`.

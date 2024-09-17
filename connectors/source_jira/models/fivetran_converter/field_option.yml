@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: field_option
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('jira_field_option_identifier', 'field_option') }}"
+    description: Table of all options related to custom fields.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: id
+        description: The ID of the custom field.
+      - name: parent_id
+        description: The ID of the parent custom field.
+      - name: name
+        description: Name of the field option.

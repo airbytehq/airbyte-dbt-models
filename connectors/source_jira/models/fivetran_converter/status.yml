@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: status
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('jira_status_identifier', 'status') }}"
+    description: Table of project-level statuses (which may have the same umbrella `status_category`).
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: id
+        description: Unique ID of the project status.
+      - name: description
+        description: >
+          Description of the project status. Different projects may all have a status called "Backlog", but their definitions 
+          of "backlog" may differ.
+      - name: name
+        description: Title of the status.
+      - name: status_category_id
+        description: Foreign key referencing the ID of the `status_category` that this project status falls under.

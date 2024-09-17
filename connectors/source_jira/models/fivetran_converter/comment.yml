@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: comment
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('jira_comment_identifier', 'comment') }}"
+    description: All fields and field values associated with comments.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: id
+        description: "The ID of the comment"
+      - name: issue_id
+        description: "ID of the related issue"
+      - name: author_id
+        description: "The ID of the user who created the comment"
+      - name: body
+        description: "The comment text in Atlassian Document Format"
+      - name: update_author_id
+        description: "The ID of the user who updated the comment last"
+      - name: created
+        description: "The date and time at which the comment was created"
+      - name: updated
+        description: "The date and time at which the comment was updated last"
+      - name: is_public
+        description: "Whether the comment is visible in Jira Service Desk"

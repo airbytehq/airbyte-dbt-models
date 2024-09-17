@@ -1,0 +1,37 @@
+version: 2
+
+sources:
+  - name: source_jira
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: workflow_statuses
+        description: "Table of project-level statuses (which may have the same umbrella `status_category`)."
+        columns:
+          - name: self
+            description: "The URL of the status."
+            data_type: "string"    
+          - name: description
+            description: "The description of the status."
+            data_type: "string"    
+          - name: iconUrl
+            description: "The URL of the icon used to represent the status."
+            data_type: "string"    
+          - name: name
+            description: "The name of the status."
+            data_type: "string"    
+          - name: id
+            description: "The ID of the status."
+            data_type: "string"    
+          - name: statusCategory
+            description: "The category assigned to the status."
+            data_type: "object"
+          - name: scope
+            description: "The scope of the status."
+            data_type: "object"    
+          - name: untranslatedName
+            description: "The untranslated name of the status."
+            data_type: "string"
+          

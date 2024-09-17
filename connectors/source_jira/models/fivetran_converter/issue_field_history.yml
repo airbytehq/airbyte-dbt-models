@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: issue_field_history
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('jira_issue_field_history_identifier', 'issue_field_history') }}"
+    description: Table of every value that each **custom non-array** (not multiselect) field has been set to.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: field_id
+        description: Foreign key referencing the ID of the `field` that was changed.
+      - name: issue_id
+        description: Foreign key referencing the ID of the `issue` whose field was updated.
+      - name: time
+        description: Timestamp of when the issue field was set to this value.
+      - name: value
+        description: Content of the value of that the field was set to.
+        

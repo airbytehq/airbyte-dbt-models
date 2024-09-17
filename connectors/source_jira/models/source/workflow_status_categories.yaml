@@ -1,0 +1,28 @@
+version: 2
+
+sources:
+  - name: source_jira
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    loader: airbyte
+    loaded_at_field: _airbyte_extracted_at
+    tables:
+      - name: workflow_status_categories
+        description: "Table of overarching status categories."
+        columns:
+          - name: self
+            description: "The URL of the status category."
+            data_type: "string"
+          - name: id
+            description: "The ID of the status category."
+            data_type: "integer"
+          - name: key
+            description: "The key of the status category."
+            data_type: "string"
+          - name: colorName
+            description: "The name of the color used to represent the status category."
+            data_type: "string"
+          - name: name
+            description: "The name of the status category."
+            data_type: "string"
+            
