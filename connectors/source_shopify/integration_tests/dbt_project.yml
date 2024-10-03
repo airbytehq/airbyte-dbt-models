@@ -1,0 +1,56 @@
+name: integration_test_shopify
+
+config-version: 2
+
+version: 0.1.0
+
+profile: integration_tests
+
+model-paths:
+  - models
+
+macro-paths:
+  - macros
+
+target-path: target
+
+clean-targets:
+  - target
+  - dbt_modules
+  - logs
+
+require-dbt-version:
+  - ">=1.3.0"
+  - <2.0.0
+
+models:
+  airbyte_dbt_source_shopify:
+    materialized: view
+    +schema: dbt_source_shopify
+    staging:
+      materialized: view
+    tmp:
+      materialized: view
+
+vars:
+  # Required by Airbyte dbt model
+  using_fivetran_model: True
+  airbyte_database: "airbyte_db_default"
+  airbyte_schema: "dbt_source_shopify"
+
+  # Required by Fivetran dbt model
+  shopify_database: "airbyte_db_default"
+  shopify_schema: "dbt_source_shopify"
+
+  shopify_customers_identifier: "customer"
+  shopify_customer_emails_identifier: "customer_email"
+  shopify_orders_identifier: "order"
+  shopify_products_identifier: "product"
+  shopify_transactions_identifier: "transactions"
+  shopify_discount_codes_identifier: "discount_codes"
+  shopify_inventory_levels_identifier: "inventory_levels"
+
+
+
+
+
