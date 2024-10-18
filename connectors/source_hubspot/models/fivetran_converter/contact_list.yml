@@ -1,0 +1,41 @@
+version: 2
+
+models:
+  - name: contact_list
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('contact_list_identifier', 'contact_list') }}"
+    description: Fields and field values associated with HubSpot contact lists.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: _airbyte_extracted_at
+        description: Timestamp of when this record was extracted by Airbyte
+      - name: list_id
+        description: The unique ID of the contact list
+      - name: name
+        description: The name or title of the contact list
+      - name: portal_id
+        description: The ID of the portal to which the contact list belongs
+      - name: created_at
+        description: The timestamp when the contact list was created
+      - name: updated_at
+        description: The timestamp of the last update to the contact list
+      - name: dynamic
+        description: Identifies if the contact list is dynamic in nature
+      - name: internal
+        description: Specifies if the contact list is internal (not accessible to customers)
+      - name: deleteable
+        description: Specifies if the contact list can be deleted
+      - name: archived
+        description: Indicates if the contact list is archived or not
+      - name: metadata_processing
+        description: Processing status related to list metadata
+      - name: metadata_size
+        description: Size of the list metadata
+      - name: metadata_error
+        description: Error information related to list metadata
+      - name: metadata_last_processing_state_change_at
+        description: Timestamp of the last processing state change for metadata
+      - name: metadata_last_size_change_at
+        description: Timestamp of the last size change for metadata

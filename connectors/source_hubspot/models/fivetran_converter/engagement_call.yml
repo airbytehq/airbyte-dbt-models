@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: engagement_call
+    schema: "{{ var('airbyte_schema', target.schema) }}"
+    database: "{{ var('airbyte_database', target.database) }}"
+    identifier: "{{ var('engagement_call_identifier', 'engagement_call') }}"
+    description: Fields and field values associated with HubSpot engagement calls.
+    config:
+      +enabled: "{{ var('using_fivetran_model', False) }}"
+    columns:
+      - name: _fivetran_synced
+        description: Timestamp of when Fivetran synced a record
+      - name: _fivetran_deleted
+        description: Boolean to mark rows that were deleted in the source database
+      - name: engagement_id
+        description: The ID of the engagement
+      - name: engagement_type
+        description: The type of the engagement
+      - name: created_timestamp
+        description: Timestamp of call creation
+      - name: occurred_timestamp
+        description: Timestamp of call occurrence
+      - name: owner_id
+        description: The ID of the owner associated with the call
+      - name: team_id
+        description: The ID of the team associated with the call

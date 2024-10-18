@@ -1,0 +1,13 @@
+packages:
+  - local: ../
+  - package: fivetran/hubspot
+    version: 0.18.0
+  - package: fivetran/hubspot_source
+    version: 0.15.0
+  - package: fivetran/fivetran_utils
+    version: 0.4.10
+  - package: dbt-labs/spark_utils
+    version: 0.3.0
+  - package: dbt-labs/dbt_utils
+    version: 1.2.0
+sha1_hash: 47c91937972f9cab62436ed1528654bc219bf3b8
